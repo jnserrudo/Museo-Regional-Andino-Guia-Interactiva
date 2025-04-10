@@ -15,7 +15,7 @@ const App = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Layout style={{ minHeight: "100vh" }}>
         <Navbar onMenuClick={() => setSidebarVisible(true)} />
         <Sidebar
