@@ -1,3 +1,45 @@
+/* fuentes */
+
+
+/* Fuentes MuseoSans */
+@font-face {
+  font-family: 'MuseoSans';
+  src: url('/fonts/MuseoSans_500.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  src: url('/fonts/MuseoSans_500_Italic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  src: url('/fonts/MuseoSansCyril_2-700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  src: url('/fonts/MuseoSansCyril_3-900.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'MuseoSans', sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* ------------------ */
+
+
 /* --------------- NAVBAR --------------- */
 .header {
   background-color: '#8B5A2B';
@@ -54,7 +96,7 @@
 /* Sección superior con la imagen de fondo */
 .home-header {
   position: relative;
-  width: 100%;
+  width: 95%;
   height: 75vh;
   background-image: url("/museo_frente.jpg");
   background-size: cover;

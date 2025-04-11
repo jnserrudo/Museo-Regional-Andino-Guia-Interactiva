@@ -13,17 +13,17 @@ export const Navbar = ({ onMenuClick }) => {
       </div>
       <div className="cont_band_leng">
         <div className="band_leng">
-          <img className="band" src="/bandera_ingles.png" />
+          <img className="band" src={`${import.meta.env.BASE_URL}bandera_ingles.png`} />
           <Button className="btn_leng" type="text" style={{ color: "#fff" }}>EN</Button>
 
         </div>
         <div className="band_leng">
-          <img className="band" src="/bandera_español.png" />
+          <img className="band" src={`${import.meta.env.BASE_URL}bandera_español.png`} />
           <Button className="btn_leng" type="text" style={{ color: "#fff" }}>ES</Button>
 
         </div>
         <div className="band_leng">
-          <img className="band" src="/bandera_quechua.png" />
+          <img className="band" src={`${import.meta.env.BASE_URL}bandera_quechua.png`} />
           <Button className="btn_leng" type="text" style={{ color: "#fff" }}>QU</Button>
 
         </div>

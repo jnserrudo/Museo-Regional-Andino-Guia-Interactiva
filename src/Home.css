@@ -1,0 +1,278 @@
+/* Salas.css - Versión Súper Atractiva */
+
+/* --- Variables Globales (Asegúrate que estén definidas en :root) --- */
+/* :root { ... tus variables ... } */
+
+/* --- Contenedor y Títulos --- */
+.salas-container {
+    max-width: 1200px;
+    margin: 4rem auto 6rem auto;
+    padding: 0 1rem; /* Más ajustado en bordes */
+  }
+  
+  .salas-main-title {
+    font-size: clamp(2.2rem, 6vw, 3.2rem); /* Más grande e impactante */
+    font-weight: 900; /* MuseoSans 900 */
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 0.5rem; /* Menos espacio antes del subtítulo */
+    line-height: 1.2;
+  }
+  /* Estilo para la primera palabra del título */
+  .salas-main-title span {
+      display: block; /* Hace que "Descubre" esté en su propia línea */
+      font-size: 0.6em; /* Más pequeño */
+      font-weight: 500; /* MuseoSans 500 */
+      color: var(--primary-color); /* Color primario */
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+  }
+  
+  .salas-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500; /* MuseoSans 500 */
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 4rem; /* Más espacio antes de las cards */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* --- Animación de Entrada --- */
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .sala-list-item {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: scaleUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    /* delay inline en JSX */
+  }
+  
+  
+  /* --- Estilo del Enlace Wrapper --- */
+  .sala-link-wrapper {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--border-radius-md); /* Redondeo aplicado al contenedor */
+    overflow: hidden; /* Clave para que el contenido respete el borde */
+    position: relative; /* Para efectos de brillo/luz */
+    transition: transform 0.35s ease, box-shadow 0.4s ease;
+    outline: none; /* Quitar outline por defecto, manejar foco con ::before */
+  }
+  
+  /* --- Estilo de la Tarjeta (Control total con div) --- */
+  .sala-card {
+    display: flex; /* Imagen a la izquierda, texto a la derecha */
+    align-items: stretch; /* Estirar elementos a la altura completa */
+    background-color: var(--bg-light);
+    /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); */ /* Sombra base sutil */
+    /* Quitamos la sombra directa de la card, la pondremos en el wrapper */
+    height: 130px; /* Altura fija para la tarjeta */
+    position: relative; /* Para el icono de flecha */
+    border: 1px solid #e8e8e8; /* Borde inicial muy claro */
+    transition: border-color 0.3s ease;
+  }
+  
+  /* --- Contenedor de Imagen --- */
+  .sala-image-container {
+    flex: 0 0 140px; /* Ancho fijo (no crece, no encoge, base 140px) */
+    position: relative;
+    overflow: hidden; /* Para controlar zoom y overlay */
+    cursor: pointer; /* Indica que es clickeable */
+  }
+  
+  .sala-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05); /* Ligeramente escalada por defecto */
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), /* Transición suave y larga */
+                filter 0.4s ease;
+  }
+  
+  .sala-image-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradiente más pronunciado y con color primario */
+    background: linear-gradient(30deg, rgba(4, 107, 163, 0.3) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.4) 100%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Icono temático sobre la imagen */
+  .sala-theme-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.6rem;
+      opacity: 0.7;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+      transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  
+  /* --- Contenedor de Información --- */
+  .sala-info-container {
+    flex-grow: 1;
+    padding: 1.2rem 1.5rem; /* Ajusta padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrar título verticalmente si es corto */
+    position: relative; /* Para la flecha */
+    overflow: hidden; /* Para efectos */
+  }
+  
+  .sala-title {
+    /* Hereda MuseoSans */
+    font-weight: 700; /* MuseoSans 700 */
+    font-size: 1.1rem; /* Tamaño ajustado */
+    line-height: 1.4;
+    color: var(--text-dark);
+    margin: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1; /* Asegura que esté sobre posibles fondos */
+  }
+  
+  /* Icono de flecha (inicialmente oculto) */
+  .sala-arrow-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%) translateX(20px); /* Empieza fuera a la derecha */
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+    border-radius: 50%;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                opacity 0.4s ease;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  
+  /* --- EFECTOS HOVER Y FOCO (Aplicados al .sala-link-wrapper) --- */
+  
+  .sala-link-wrapper:hover,
+  .sala-link-wrapper:focus-visible { /* Aplicamos efectos también en foco */
+    transform: translateY(-5px); /* Elevación */
+    box-shadow: 0 12px 35px rgba(4, 107, 163, 0.2); /* Sombra coloreada y más difusa */
+  }
+  
+  /* Efecto en la tarjeta interna */
+  .sala-link-wrapper:hover .sala-card,
+  .sala-link-wrapper:focus-visible .sala-card {
+      border-color: var(--primary-color); /* Borde más visible */
+  }
+  
+  /* Efecto en imagen */
+  .sala-link-wrapper:hover .sala-image,
+  .sala-link-wrapper:focus-visible .sala-image {
+    transform: scale(1.15); /* Zoom más pronunciado */
+    filter: brightness(1.05) saturate(1.1); /* Más brillante y saturada */
+  }
+  .sala-link-wrapper:hover .sala-image-overlay,
+  .sala-link-wrapper:focus-visible .sala-image-overlay {
+    opacity: 0.6; /* Overlay se atenúa */
+  }
+  
+  /* Efecto en icono temático */
+  .sala-link-wrapper:hover .sala-theme-icon,
+  .sala-link-wrapper:focus-visible .sala-theme-icon {
+      transform: scale(1.2) rotate(-5deg);
+      opacity: 1;
+  }
+  
+  /* Efecto en título */
+  .sala-link-wrapper:hover .sala-title,
+  .sala-link-wrapper:focus-visible .sala-title {
+    color: var(--primary-color);
+    transform: translateX(3px); /* Ligero desplazamiento */
+  }
+  
+  /* Efecto en flecha (aparece) */
+  .sala-link-wrapper:hover .sala-arrow-icon,
+  .sala-link-wrapper:focus-visible .sala-arrow-icon {
+    transform: translateY(-50%) translateX(0); /* Entra desde la derecha */
+    opacity: 1;
+  }
+  
+  /* Efecto de "brillo" o "luz" en hover (opcional) */
+  .sala-link-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%; /* Empieza fuera a la izquierda */
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: skewX(-30deg); /* Inclina el brillo */
+      transition: left 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+      z-index: 1; /* Encima de la imagen pero debajo del texto */
+      pointer-events: none; /* No interfiere con clicks */
+  }
+  
+  .sala-link-wrapper:hover::before,
+  .sala-link-wrapper:focus-visible::before {
+      left: 120%; /* Barre de izquierda a derecha */
+  }
+  
+  
+  /* --- Ajustes Responsivos --- */
+  @media (max-width: 991px) { /* Tablets */
+      .sala-card { height: 120px; }
+      .sala-image-container { flex-basis: 120px; }
+      .sala-title { font-size: 1rem; }
+  }
+  
+  @media (max-width: 767px) { /* Móviles grandes */
+    .salas-container { margin: 3rem auto 4rem auto; }
+    .salas-main-title { font-size: clamp(2rem, 6vw, 2.5rem); }
+    .salas-subtitle { font-size: 1rem; margin-bottom: 3rem; }
+    .sala-card { height: 110px; }
+    .sala-image-container { flex-basis: 100px; }
+    .sala-info-container { padding: 1rem 1.2rem; }
+    .sala-title { font-size: 0.95rem; }
+    .sala-theme-icon { font-size: 1.4rem; top: 5px; right: 5px;}
+    .sala-arrow-icon { font-size: 1.2rem; padding: 0.3rem; }
+  
+    /* Desactivar/Simplificar efectos complejos en táctil */
+    .sala-link-wrapper:hover,
+    .sala-link-wrapper:focus-visible {
+      transform: none;
+      box-shadow: none; /* Quitar sombra hover/focus */
+    }
+    .sala-link-wrapper .sala-card {
+       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Mantener sombra base */
+       border-color: #e8e8e8;
+    }
+    .sala-link-wrapper:hover .sala-image,
+    .sala-link-wrapper:focus-visible .sala-image { transform: scale(1.05); filter: none; }
+    .sala-link-wrapper:hover .sala-image-overlay,
+    .sala-link-wrapper:focus-visible .sala-image-overlay { opacity: 1; }
+    .sala-link-wrapper:hover .sala-theme-icon,
+    .sala-link-wrapper:focus-visible .sala-theme-icon { transform: none; opacity: 0.7;}
+    .sala-link-wrapper:hover .sala-title,
+    .sala-link-wrapper:focus-visible .sala-title { color: var(--text-dark); transform: none; }
+    .sala-link-wrapper:hover .sala-arrow-icon,
+    .sala-link-wrapper:focus-visible .sala-arrow-icon { opacity: 0; transform: translateY(-50%) translateX(20px); }
+    .sala-link-wrapper::before { display: none; } /* Ocultar brillo */
+  
+  }
+  
+  @media (max-width: 480px) { /* Móviles pequeños */
+    .sala-card { height: 100px; }
+    .sala-image-container { flex-basis: 90px; }
+    .sala-info-container { padding: 0.8rem 1rem; }
+    .sala-title { font-size: 0.9rem; }
+  }

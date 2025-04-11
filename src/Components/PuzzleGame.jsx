@@ -1,24 +1,23 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   DndContext,
-  DragOverlay, // Para mostrar la pieza mientras se arrastra
+  DragOverlay,
   KeyboardSensor,
   PointerSensor,
   useSensor,
   useSensors,
-  closestCenter, // Usaremos una detección simple para el drop final
-  useDraggable,
-  useDroppable,
+  closestCenter,
+  useDraggable, // Importado aquí
+  useDroppable, // Importado aquí
 } from '@dnd-kit/core';
-// Ya no necesitamos SortableContext, arrayMove, strategies, useSortable
-import { CSS } from '@dnd-kit/utilities'; // Todavía útil para transforms
+import { CSS } from '@dnd-kit/utilities';
 
+// Asegúrate de tener este archivo CSS en la misma carpeta o ajusta la ruta
 import '../puzzleGame.css';
 
-// --- Constantes ---
-const PUZZLE_SIZE = 3;
-const IMAGE_SRC = "/historia_museo.png";
-const PIECE_SIZE_PX = 100;
+// --- Constantes Configurables ---
+const PUZZLE_GRID_SIZE = 3; // Número de filas/columnas
+const IMAGE_SRC = "/historia_museo.png"; // Asegúrate que esté en /public
 
 // --- Helper Function ---
 const shuffleArray = (array) => {
@@ -30,260 +29,291 @@ const shuffleArray = (array) => {
     return newArray;
 };
 
-// --- Componente para la Pieza Visual (usado en DragOverlay y en el grid) ---
-function Piece({ pieceData, imageSrc, pieceSize, containerSize, isDragging, isOverlay = false }) {
-    const style = {
+// --- Componente Visual y Draggable de la Pieza ---
+function Piece({
+    pieceData,
+    imageSrc,
+    pieceSize,
+    containerSize,
+    isDragging = false,
+    isOverlay = false,
+    isSolved = false,
+    listeners,
+    attributes,
+    setNodeRef,
+    style: draggableStyle
+}) {
+    const pieceStyle = {
         width: `${pieceSize}px`,
         height: `${pieceSize}px`,
-        backgroundImage: `url(${imageSrc})`,
+        backgroundImage: `url(${import.meta.env.BASE_URL}${imageSrc})`,
         backgroundPosition: `-${pieceData.correctCol * pieceSize}px -${pieceData.correctRow * pieceSize}px`,
         backgroundSize: `${containerSize.width}px ${containerSize.height}px`,
-        cursor: isDragging ? 'grabbing' : (isOverlay ? 'grabbing' : 'grab'),
-        opacity: isDragging && !isOverlay ? 0.5 : 1, // Ocultar la original un poco mientras se arrastra
-        boxShadow: isOverlay ? '0 5px 15px rgba(0,0,0,0.3)' : 'none',
-        // La propiedad touch-action: none; debe estar en el CSS asociado a .puzzle-piece o similar
     };
 
-    // Usar una clase diferente o adicional si es la overlay para evitar conflictos de listeners/refs
-    const className = `puzzle-piece ${isOverlay ? 'overlay' : ''}`;
+    const combinedStyle = { ...pieceStyle, ...draggableStyle };
+
+    const classNames = [
+        'puzzle-piece',
+        isOverlay ? 'piece-overlay' : '',
+        isDragging && !isOverlay ? 'dragging-source' : '',
+        isSolved ? 'solved' : ''
+    ].filter(Boolean).join(' ');
 
     return (
-        <div style={style} className={className}>
-            {/* Contenido opcional */}
-        </div>
+        <div
+            ref={setNodeRef}
+            style={combinedStyle}
+            className={classNames}
+            {...listeners}
+            {...attributes}
+        />
     );
 }
 
-
-// --- Componente para el Slot del Grid (Droppable) ---
-function PuzzleSlot({ id, children }) {
-    const { setNodeRef, isOver } = useDroppable({ id }); // id del slot, e.g., 'slot-0', 'slot-1'
+// --- Componente Slot del Grid (Droppable) ---
+function PuzzleSlot({ id, children, pieceSize }) {
+    const { setNodeRef, isOver } = useDroppable({ id });
 
     const style = {
-        // Podríamos añadir un estilo visual si isOver es true
-        // backgroundColor: isOver ? 'rgba(0, 255, 0, 0.1)' : 'transparent',
-        // transition: 'background-color 0.2s ease',
-        display: 'flex', // Para contener la pieza
-        alignItems: 'center',
-        justifyContent: 'center',
+        width: `${pieceSize}px`,
+        height: `${pieceSize}px`,
     };
 
+    const classNames = [
+        'puzzle-slot',
+        isOver ? 'over' : ''
+    ].filter(Boolean).join(' ');
+
     return (
-        <div ref={setNodeRef} style={style}>
+        <div ref={setNodeRef} style={style} className={classNames}>
             {children}
         </div>
     );
 }
 
-
-// --- Componente para la Pieza Arrastrable (Draggable) ---
-function DraggablePiece({ pieceData, children }) {
-    const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-        id: pieceData.id, // Usar el ID *de la pieza* como ID del draggable
-        data: { pieceData }, // Pasar datos si es necesario
-    });
-
-    const style = transform ? {
-        transform: CSS.Translate.toString(transform), // Aplicar solo transform para mover visualmente al arrastrar (usará DragOverlay)
-    } : undefined;
-
-     // Clonamos el children (la Pieza visual) para aplicarle los listeners y el ref
-     // O envolvemos el children con un div que tenga los listeners/ref
-    return (
-        <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
-           {React.cloneElement(children, { isDragging: isDragging })}
-        </div>
-    );
-}
-
-
 // --- Componente Principal PuzzleGame ---
 export const PuzzleGame = () => {
-    // Estado: Mantiene un array donde el índice es la posición en el grid (0 a 8)
-    // y el valor es el objeto de datos de la pieza {id, correctRow, correctCol} que está ahí.
-    const [pieceDataInSlots, setPieceDataInSlots] = useState(Array(PUZZLE_SIZE * PUZZLE_SIZE).fill(null));
-    const [activeId, setActiveId] = useState(null); // ID de la pieza que se está arrastrando
+    // --- Estados ---
+    const [piecesInSlots, setPiecesInSlots] = useState(Array(PUZZLE_GRID_SIZE * PUZZLE_GRID_SIZE).fill(null));
+    const [activeId, setActiveId] = useState(null);
     const [isSolved, setIsSolved] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [containerSize, setContainerSize] = useState({ width: 300, height: 300 });
+    const [pieceSize, setPieceSize] = useState(100);
+    const gridContainerRef = useRef(null);
 
-    const containerWidth = PUZZLE_SIZE * PIECE_SIZE_PX;
-    const containerHeight = PUZZLE_SIZE * PIECE_SIZE_PX;
-
-    // Función para obtener los datos de la pieza activa (para DragOverlay)
-    const getPieceDataById = (id) => pieceDataInSlots.find(p => p?.id === id);
-
-    const checkSolved = useCallback((currentSlotData) => {
-        if (!currentSlotData || currentSlotData.some(p => p === null)) return false;
-        // Verifica si la pieza con id 'i' está en el slot 'i'
-        for (let i = 0; i < currentSlotData.length; i++) {
-            if (currentSlotData[i].id !== i) {
-                return false;
+    // --- Cálculo de Tamaño Responsivo ---
+    useEffect(() => {
+        const calculateSize = () => {
+            if (gridContainerRef.current) {
+                const availableWidth = gridContainerRef.current.offsetWidth;
+                const maxWidth = 600;
+                const minWidth = 240;
+                const targetWidth = Math.max(minWidth, Math.min(availableWidth, maxWidth));
+                const newPieceSize = Math.floor(targetWidth / PUZZLE_GRID_SIZE);
+                const newContainerWidth = newPieceSize * PUZZLE_GRID_SIZE;
+                setPieceSize(newPieceSize);
+                setContainerSize({ width: newContainerWidth, height: newContainerWidth });
+                console.log("Calculated Size:", { piece: newPieceSize, container: newContainerWidth });
             }
+        };
+        calculateSize();
+        window.addEventListener('resize', calculateSize);
+        return () => window.removeEventListener('resize', calculateSize);
+    }, []); // Ejecutar solo al montar/desmontar
+
+    // --- Lógica del Puzzle ---
+    const checkSolved = useCallback((currentSlotData) => {
+        if (!currentSlotData || currentSlotData.length !== PUZZLE_GRID_SIZE * PUZZLE_GRID_SIZE || currentSlotData.some(p => p === null)) return false;
+        for (let i = 0; i < currentSlotData.length; i++) {
+            if (currentSlotData[i].id !== i) return false;
         }
         return true;
-    }, []);
+    }, []); // Dependencia vacía, la lógica no cambia
 
-    // Inicialización
     useEffect(() => {
-        setIsLoading(true);
-        setError(null);
-        setIsSolved(false);
-
-        const img = new Image();
-        img.onload = () => {
-            const totalPieces = PUZZLE_SIZE * PUZZLE_SIZE;
-            const initialPiecesData = [];
-            for (let i = 0; i < totalPieces; i++) {
-                initialPiecesData.push({
+        if (piecesInSlots.every(p => p === null)) { // Solo inicializar si está vacío
+            console.log("Initializing puzzle...");
+            setIsLoading(true); setError(null); setIsSolved(false);
+            const img = new Image();
+            img.onload = () => {
+                const totalPieces = PUZZLE_GRID_SIZE * PUZZLE_GRID_SIZE;
+                const initialPiecesData = Array.from({ length: totalPieces }, (_, i) => ({
                     id: i,
-                    correctRow: Math.floor(i / PUZZLE_SIZE),
-                    correctCol: i % PUZZLE_SIZE,
-                });
+                    correctRow: Math.floor(i / PUZZLE_GRID_SIZE),
+                    correctCol: i % PUZZLE_GRID_SIZE,
+                }));
+                let shuffled = shuffleArray(initialPiecesData);
+                while (checkSolved(shuffled)) { // Evitar estado resuelto inicial
+                    shuffled = shuffleArray(initialPiecesData);
+                }
+                setPiecesInSlots(shuffled);
+                setIsLoading(false);
+            };
+            img.onerror = () => {
+                const errorMsg = `Error al cargar la imagen: ${IMAGE_SRC}. Asegúrate que esté en la carpeta /public.`;
+                console.error(errorMsg); setError(errorMsg); setIsLoading(false);
+            };
+            // Construir URL correctamente con BASE_URL (para Vite, etc.)
+            let imageUrl = IMAGE_SRC;
+            if (import.meta.env.BASE_URL && !IMAGE_SRC.startsWith(import.meta.env.BASE_URL)) {
+                imageUrl = (import.meta.env.BASE_URL + IMAGE_SRC).replace('//', '/'); // Evita doble //
             }
-            const shuffled = shuffleArray(initialPiecesData);
-            setPieceDataInSlots(shuffled); // Coloca las piezas barajadas en los slots iniciales
-            setIsLoading(false);
-            if (checkSolved(shuffled)) {
-                setIsSolved(true);
-            }
-        };
-        img.onerror = () => {
-            console.error("Error loading puzzle image:", IMAGE_SRC);
-            setError(`Failed to load image: ${IMAGE_SRC}. Make sure it's in the /public folder.`);
-            setIsLoading(false);
-        };
-        img.src = IMAGE_SRC;
-    }, [checkSolved]);
+             img.src = imageUrl;
+
+        } else {
+             setIsLoading(false); // Ya estaba inicializado
+        }
+    }, [checkSolved]); // Ejecutar al montar o si checkSolved cambia (no debería)
 
     const sensors = useSensors(
-        useSensor(PointerSensor, {
-            // Puedes ajustar la distancia si el toque es muy sensible
-            activationConstraint: { distance: 8 },
-        }),
-        useSensor(KeyboardSensor) // Mantener accesibilidad básica
+        useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
+        useSensor(KeyboardSensor)
     );
 
-    const handleDragStart = (event) => {
-        setActiveId(event.active.id); // Guarda el ID de la pieza que empieza a arrastrarse
-    };
+    const handleDragStart = useCallback((event) => {
+        setActiveId(event.active.id);
+    }, []);
 
-    const handleDragEnd = (event) => {
+    const handleDragEnd = useCallback((event) => {
         const { active, over } = event;
-        setActiveId(null); // Limpia la pieza activa
+        setActiveId(null); // Limpiar pieza activa
 
-        // Si no se soltó sobre un slot válido (over) o se soltó sobre sí mismo (no debería pasar aquí)
-        if (!over || active.id === over.id) {
-            return;
-        }
+        if (over && active.id !== over.id) { // Asegurar que se soltó sobre un slot diferente
+            const activePieceId = active.id;
+            const targetSlotId = over.id;
+            const sourceSlotIndex = piecesInSlots.findIndex(p => p?.id === activePieceId);
+            const targetSlotIndex = parseInt(String(targetSlotId).replace('slot-', ''), 10);
 
-        const activePieceId = active.id; // ID de la pieza que se movió
-        const targetSlotId = over.id; // ID del slot destino (e.g., 'slot-5')
+            if (sourceSlotIndex !== -1 && !isNaN(targetSlotIndex)) {
+                setPiecesInSlots((currentPieces) => {
+                    const nextPieces = [...currentPieces];
+                    // Realizar el intercambio
+                    const pieceInTargetSlot = nextPieces[targetSlotIndex]; // Guardar pieza del destino
+                    nextPieces[targetSlotIndex] = nextPieces[sourceSlotIndex]; // Mover activa al destino
+                    nextPieces[sourceSlotIndex] = pieceInTargetSlot; // Mover del destino al origen
 
-        // Encontrar los índices de los slots
-        const sourceSlotIndex = pieceDataInSlots.findIndex(p => p?.id === activePieceId);
-        // Extraer el índice numérico del ID del slot ('slot-5' -> 5)
-        const targetSlotIndex = parseInt(targetSlotId.split('-')[1], 10);
-
-        if (sourceSlotIndex === -1 || isNaN(targetSlotIndex)) {
-            console.error("Error finding source or target slot index");
-            return;
-        }
-
-        // Obtener qué pieza está actualmente en el slot destino
-        const pieceInTargetSlot = pieceDataInSlots[targetSlotIndex];
-
-        // Crear una copia del estado para modificarla
-        const nextPieceDataInSlots = [...pieceDataInSlots];
-
-        // Realizar el intercambio en el array de estado
-        nextPieceDataInSlots[targetSlotIndex] = pieceDataInSlots[sourceSlotIndex]; // Poner pieza activa en slot destino
-        nextPieceDataInSlots[sourceSlotIndex] = pieceInTargetSlot; // Poner pieza de destino en slot origen
-
-        // Actualizar el estado
-        setPieceDataInSlots(nextPieceDataInSlots);
-
-        // Comprobar si se resolvió
-        if (checkSolved(nextPieceDataInSlots)) {
-            setIsSolved(true);
-            console.log("Puzzle solved!");
+                    // Comprobar si está resuelto después del cambio
+                    if (checkSolved(nextPieces)) {
+                        setIsSolved(true);
+                        console.log("¡Rompecabezas Resuelto!");
+                    } else {
+                        setIsSolved(false);
+                    }
+                    return nextPieces;
+                });
+            } else {
+                 console.error("Error finding source or target slot index during swap");
+            }
         } else {
-            setIsSolved(false);
+             console.log("Drag ended without a valid target or on the same element.");
         }
-    };
+    }, [piecesInSlots, checkSolved]); // Depende de piecesInSlots para cálculo correcto
 
-    const handleDragCancel = () => {
+    const handleDragCancel = useCallback(() => {
         setActiveId(null);
-    };
+    }, []);
 
+    // --- Componente Interno para usar useDraggable ---
+    function DraggableItem({ pieceData }) {
+        const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+            id: pieceData.id,
+            data: { pieceData }, // Pasar datos si es necesario en onDrag...
+        });
 
-    // --- Renderizado ---
-    if (isLoading) return <div className="puzzle-loading">Cargando rompecabezas...</div>;
-    if (error) return <div className="puzzle-error">Error: {error}</div>;
+        const style = transform ? {
+            transform: CSS.Translate.toString(transform),
+            // zIndex se maneja en CSS
+        } : undefined;
+
+        return (
+            <Piece
+                pieceData={pieceData}
+                imageSrc={IMAGE_SRC}
+                pieceSize={pieceSize}
+                containerSize={containerSize}
+                isSolved={isSolved}
+                // Pasar props de useDraggable a Piece
+                isDragging={isDragging}
+                listeners={listeners}
+                attributes={attributes}
+                setNodeRef={setNodeRef}
+                style={style}
+            />
+        );
+    }
 
     // Datos de la pieza activa para el DragOverlay
-    const activePieceData = activeId ? getPieceDataById(activeId) : null;
+    const activePieceData = activeId !== null ? piecesInSlots.find(p => p?.id === activeId) : null;
 
+    // --- Renderizado Principal ---
     return (
-        <DndContext
-            sensors={sensors}
-            collisionDetection={closestCenter} // Detección simple para el final del drag
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-            onDragCancel={handleDragCancel}
-        >
-            <div
-                className="puzzle-container relative"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: `repeat(${PUZZLE_SIZE}, 1fr)`,
-                    width: `${containerWidth}px`,
-                    height: `${containerHeight}px`,
-                    border: '1px solid #ccc',
-                }}
-            >
-                {/* Renderizar los slots y las piezas dentro de ellos */}
-                {pieceDataInSlots.map((pieceData, index) => (
-                    <PuzzleSlot key={`slot-${index}`} id={`slot-${index}`}>
-                        {pieceData && !isSolved && ( // Solo mostrar draggable si no está resuelto y hay pieza
-                            <DraggablePiece pieceData={pieceData}>
-                                {/* El hijo es la representación visual de la pieza */}
+        <div className="puzzle-page-container">
+            <h2 className="puzzle-title">Rompecabezas del Museo</h2>
+            <p className="puzzle-instructions">
+                Arrastra y suelta las piezas para reconstruir la imagen.
+            </p>
+
+            {/* Contenedor para medir */}
+            <div ref={gridContainerRef} className="puzzle-grid-wrapper">
+                {isLoading && <div className="puzzle-status puzzle-loading">Cargando...</div>}
+                {error && <div className="puzzle-status puzzle-error">Error: {error}</div>}
+
+                {!isLoading && !error && (
+                    <DndContext
+                        sensors={sensors}
+                        collisionDetection={closestCenter}
+                        onDragStart={handleDragStart}
+                        onDragEnd={handleDragEnd}
+                        onDragCancel={handleDragCancel}
+                    >
+                        {/* El Grid */}
+                        <div
+                            className={`puzzle-grid ${isSolved ? 'puzzle-solved' : ''}`}
+                            style={{
+                                gridTemplateColumns: `repeat(${PUZZLE_GRID_SIZE}, ${pieceSize}px)`,
+                                gridTemplateRows: `repeat(${PUZZLE_GRID_SIZE}, ${pieceSize}px)`,
+                                width: `${containerSize.width}px`,
+                                height: `${containerSize.height}px`,
+                            }}
+                        >
+                            {/* Mapear slots y renderizar DraggableItem si hay pieza */}
+                            {Array.from({ length: PUZZLE_GRID_SIZE * PUZZLE_GRID_SIZE }).map((_, index) => {
+                                const pieceData = piecesInSlots[index];
+                                return (
+                                    <PuzzleSlot key={`slot-${index}`} id={`slot-${index}`} pieceSize={pieceSize}>
+                                        {pieceData && (
+                                            <DraggableItem pieceData={pieceData} />
+                                        )}
+                                    </PuzzleSlot>
+                                );
+                            })}
+                        </div>
+
+                        {/* Overlay para la pieza arrastrada */}
+                        <DragOverlay dropAnimation={null}>
+                            {activeId !== null && activePieceData ? (
                                 <Piece
-                                    pieceData={pieceData}
+                                    pieceData={activePieceData}
                                     imageSrc={IMAGE_SRC}
-                                    pieceSize={PIECE_SIZE_PX}
-                                    containerSize={{ width: containerWidth, height: containerHeight }}
-                                    // isDragging se pasará por DraggablePiece
+                                    pieceSize={pieceSize}
+                                    containerSize={containerSize}
+                                    isOverlay={true} // Es la copia del overlay
                                 />
-                            </DraggablePiece>
-                        )}
-                        {pieceData && isSolved && ( // Si está resuelto, mostrar solo la pieza visual sin drag
-                             <Piece
-                                pieceData={pieceData}
-                                imageSrc={IMAGE_SRC}
-                                pieceSize={PIECE_SIZE_PX}
-                                containerSize={{ width: containerWidth, height: containerHeight }}
-                            />
-                        )}
-                    </PuzzleSlot>
-                ))}
-            </div>
+                            ) : null}
+                        </DragOverlay>
 
-            {/* Overlay para mostrar la pieza mientras se arrastra */}
-            <DragOverlay dropAnimation={null}>
-                {activeId && activePieceData ? (
-                    <Piece
-                        pieceData={activePieceData}
-                        imageSrc={IMAGE_SRC}
-                        pieceSize={PIECE_SIZE_PX}
-                        containerSize={{ width: containerWidth, height: containerHeight }}
-                        isOverlay={true} // Indicar que es la versión overlay
-                    />
-                ) : null}
-            </DragOverlay>
-
-            {/* Mensaje de completado */}
-            {isSolved && <div className="puzzle-complete-message">¡Completado!</div>}
-        </DndContext>
+                         {/* Mensaje de Completado */}
+                        {isSolved && (
+                            <div className="puzzle-complete-message solved">
+                                ¡Completado!
+                            </div>
+                        )}
+                    </DndContext>
+                )}
+            </div> {/* Fin puzzle-grid-wrapper */}
+        </div> // Fin puzzle-page-container
     );
 };

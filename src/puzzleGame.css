@@ -1,80 +1,178 @@
-/* Estilos básicos para carga y error */
-.puzzle-loading,
-.puzzle-error {
-  padding: 20px;
+/* PuzzleGame.css */
+
+/* Variables globales (asegúrate que :root esté definido globalmente) */
+/* :root { --primary-color: #046ba3; ...etc } */
+
+.puzzle-page-container {
+  padding: 2rem 1rem; /* Espaciado general */
+  max-width: 800px; /* Ancho máximo para centrar */
+  margin: 2rem auto; /* Centrado */
+  background-color: #f8f9fa; /* Fondo suave */
+  border-radius: var(--border-radius-md, 15px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.puzzle-title {
   text-align: center;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700; /* MuseoSans */
+  color: var(--primary-color, #046ba3);
+  margin-bottom: 0.5rem;
+}
+
+.puzzle-instructions {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-muted, #6c757d);
+  margin-bottom: 2rem;
+  font-weight: 500; /* MuseoSans */
+}
+
+/* Wrapper para el grid que medimos */
+.puzzle-grid-wrapper {
+  width: 100%; /* Ocupa el ancho del contenedor padre */
+  max-width: 600px; /* Limita el tamaño máximo del puzzle */
+  margin: 0 auto; /* Centra el wrapper si es más estrecho */
+  position: relative; /* Para mensajes de estado */
+  min-height: 200px; /* Altura mínima mientras carga */
+}
+
+/* Mensajes de estado (Loading/Error) */
+.puzzle-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius-sm, 8px);
+  font-weight: 500; /* MuseoSans */
+  z-index: 5;
+}
+.puzzle-loading {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted, #6c757d);
   font-style: italic;
-  color: #555;
 }
 .puzzle-error {
-  color: red;
-  font-weight: bold;
+  background-color: rgba(220, 53, 69, 0.8); /* Rojo Bootstrap danger */
+  color: white;
+  font-weight: 700;
 }
 
-/* Contenedor principal del puzzle */
-.puzzle-container {
-  position: relative; /* Necesario para posicionar elementos absolutos hijos */
-  display: grid; /* Usamos grid para las piezas */
-  /* El tamaño y grid-template-columns se establecen inline */
-  border: 1px solid #ccc;
-  overflow: hidden; /* Evita desbordamientos visuales */
-  background-color: #f0f0f0; /* Fondo mientras carga o si falla algo */
+
+/* El Grid principal */
+.puzzle-grid {
+  display: grid;
+  /* grid-template-columns/rows y width/height se definen inline */
+  border: 2px solid var(--primary-color, #046ba3); /* Borde temático */
+  border-radius: var(--border-radius-sm, 8px);
+  overflow: hidden; /* Asegura que las piezas no se salgan */
+  background-color: #e9ecef; /* Fondo gris claro para los huecos */
+  position: relative; /* Para el mensaje de completado */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra interior sutil */
+  transition: box-shadow 0.5s ease-out, border-color 0.5s ease-out; /* Transición para estado solved */
 }
 
-/* Estilos para cada pieza del puzzle */
+/* Estilo del Slot (donde caen las piezas) */
+.puzzle-slot {
+  /* width y height definidos inline */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px dashed #ced4da; Borde punteado sutil para ver los slots */
+  transition: background-color 0.2s ease;
+  background-color: transparent; /* Fondo por defecto */
+}
+/* Estilo cuando una pieza se arrastra POR ENCIMA del slot */
+.puzzle-slot.over {
+  background-color: rgba(4, 107, 163, 0.15); /* Tinte azul claro */
+  box-shadow: inset 0 0 8px rgba(4, 107, 163, 0.3);
+}
+
+/* Wrapper del elemento arrastrable */
+.draggable-piece-wrapper {
+  /* Ocupa el tamaño de la pieza */
+  display: contents; /* Opcional: hace que el wrapper no afecte el layout */
+}
+
+/* Estilos para la Pieza Visual */
 .puzzle-piece {
-  /* El tamaño (width, height) se establece inline */
-  /* backgroundImage, backgroundPosition, backgroundSize se establecen inline */
-  border: 1px solid rgba(200, 200, 200, 0.2); /* Borde muy sutil entre piezas */
+  /* width, height, backgroundImage, backgroundPosition, backgroundSize definidos inline */
   background-repeat: no-repeat;
   box-sizing: border-box;
-  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
-  user-select: none; /* Evitar selección de texto */
-  touch-action: none; /* Previene acciones táctiles por defecto del navegador (scroll/zoom) en esta pieza */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Borde muy fino */
+  cursor: grab;
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.5s ease-out;
+  user-select: none;
+  touch-action: none; /* Prevenir scroll/zoom en la pieza */
+}
+.puzzle-piece:active {
+  cursor: grabbing;
 }
 
-/* Estilo cuando una pieza está siendo arrastrada */
-.puzzle-piece[draggable="true"]:active {
-    cursor: grabbing !important; /* Cursor de "agarrando" */
-    opacity: 0.7;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: scale(1.08); /* Hacerla un poco más grande */
-    z-index: 10; /* Asegurar que esté por encima de otras piezas */
+/* Estilo de la pieza mientras se arrastra (la original en el grid) */
+.puzzle-piece.dragging-source {
+  opacity: 0.4; /* Hacerla semi-transparente */
+  cursor: grabbing;
 }
 
-/* Estilo cuando el puzzle está resuelto */
+/* Estilo de la pieza en el DragOverlay */
+.puzzle-piece.piece-overlay {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  border-radius: var(--border-radius-sm, 8px); /* Redondear overlay */
+  transform: scale(1.05); /* Ligeramente más grande */
+  cursor: grabbing;
+  border-color: rgba(0,0,0,0.2);
+}
+
+/* Estilos cuando el puzzle está RESUELTO */
+.puzzle-grid.puzzle-solved {
+  border-color: #28a745; /* Verde éxito */
+  box-shadow: 0 0 15px rgba(40, 167, 69, 0.5); /* Resplandor verde */
+}
 .puzzle-piece.solved {
-  border-color: transparent; /* Ocultar bordes */
-  cursor: default !important; /* Cursor normal */
+  border-color: transparent; /* Quitar borde de piezas */
+  cursor: default; /* Cursor normal */
+  /* Podría tener una transición de opacidad suave */
+  /* animation: pieceFadeInSolved 0.5s ease-out; */
 }
+/* @keyframes pieceFadeInSolved { from { opacity: 0.8; } to { opacity: 1; } } */
 
-/* Superposición de líneas de puzzle */
-.puzzle-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* backgroundImage se establece inline */
-  background-size: cover; /* Ajusta la imagen de superposición */
-  pointer-events: none; /* Permite interactuar con las piezas debajo */
-  z-index: 1; /* Encima de las piezas base, debajo de la pieza arrastrada */
-  opacity: 0.6; /* Hacerla semi-transparente */
-}
 
-/* Mensaje de completado */
+/* Mensaje de Completado */
 .puzzle-complete-message {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(28, 184, 65, 0.85); /* Verde éxito con transparencia */
+    transform: translate(-50%, -50%) scale(0.8); /* Empieza pequeño */
+    background-color: rgba(40, 167, 69, 0.9); /* Verde más opaco */
     color: white;
-    padding: 12px 25px;
-    border-radius: 6px;
-    font-size: 1.3em;
-    font-weight: bold;
-    z-index: 20; /* Por encima de todo */
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-sm, 8px);
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-weight: 700; /* MuseoSans */
+    z-index: 20;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    opacity: 0; /* Empieza invisible */
+    animation: solvedPopup 0.5s 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Animación con delay */
+}
+
+@keyframes solvedPopup {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Ajustes finos responsivos (si son necesarios además del cálculo JS) */
+@media (max-width: 480px) {
+    .puzzle-page-container { padding: 1rem 0.5rem; }
+    .puzzle-title { font-size: clamp(1.5rem, 5vw, 2rem); }
+    .puzzle-instructions { font-size: 0.9rem; margin-bottom: 1.5rem;}
+    .puzzle-grid-wrapper { max-width: 95%; } /* Permitir que sea casi el ancho completo */
 }

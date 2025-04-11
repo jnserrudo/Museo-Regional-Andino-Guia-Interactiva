@@ -13,7 +13,7 @@ export const SalaRamalC14 = () => {
         </>
       ) : view === "tren" ? (
         <div>
-          <img src="/tren-a-las-nubes.jpg" alt="Tren a las Nubes" style={{ width: "100%" }} />
+          <img src={`${import.meta.env.BASE_URL}tren-a-las-nubes.jfif`} alt="Tren a las Nubes" style={{ width: "100%" }} />
           <p>Descripción del Tren a las Nubes...</p>
         </div>
       ) : (

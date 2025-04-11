@@ -1,0 +1,93 @@
+/* SalaContenido.css (o añadir a Sala.css) */
+
+/* Contenedor principal del artículo/contenido de la sala */
+.sala-contenido-articulo {
+    /* Hereda MuseoSans del body */
+    color: var(--text-dark);
+    line-height: 1.8; /* Buena legibilidad */
+    font-size: 1rem; /* Tamaño base del párrafo - se ajustará con botones +/- */
+  }
+  
+  /* Título principal dentro del contenido */
+  .sala-contenido-titulo-principal {
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Tamaño del título principal de la sala */
+    font-weight: 700; /* MuseoSans 700 */
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color); /* Línea de separación */
+    display: inline-block; /* Para que el borde se ajuste al texto */
+  }
+  
+  /* Imagen destacada */
+  .sala-contenido-imagen-destacada {
+    margin: 2.5rem 0; /* Espaciado vertical */
+    text-align: center; /* Centrar imagen y caption */
+  }
+  .sala-contenido-imagen-destacada img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md); /* Bordes redondeados */
+    box-shadow: var(--shadow-medium); /* Sombra suave */
+    margin-bottom: 0.5rem;
+  }
+  .sala-contenido-imagen-destacada figcaption {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 500; /* MuseoSans 500 */
+  }
+  
+  /* Sección de contenido */
+  .sala-contenido-seccion {
+    margin-bottom: 2.5rem; /* Espacio entre secciones */
+  }
+  
+  /* Subtítulos dentro del contenido */
+  .sala-contenido-subtitulo {
+    font-size: 1.5rem;
+    font-weight: 700; /* MuseoSans 700 */
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem; /* Espacio para el pseudo-elemento */
+  }
+  /* Detalle decorativo para subtítulos */
+  .sala-contenido-subtitulo::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+  }
+  
+  /* Párrafos de texto */
+  .sala-contenido-parrafo {
+    font-weight: 500; /* MuseoSans 500 */
+    font-size: 1.1em; /* Relativo al tamaño base del .sala-contenido-articulo */
+    color: #495057; /* Un gris oscuro, no negro puro */
+    margin-bottom: 1.5rem; /* Espacio entre párrafos */
+    text-align: justify; /* Justificar texto para apariencia de bloque */
+    hyphens: auto; /* Separación de sílabas automática si el navegador lo soporta */
+  }
+  /* Primera letra del párrafo (opcional, estilo clásico) */
+  /* .sala-contenido-parrafo::first-letter {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--primary-color);
+    float: left;
+    margin-right: 0.1em;
+    line-height: 0.8;
+  } */
+  
+  /* Ajustes responsivos para el contenido */
+  @media (max-width: 768px) {
+      .sala-contenido-titulo-principal { font-size: clamp(1.6rem, 5vw, 2rem); }
+      .sala-contenido-subtitulo { font-size: 1.3rem; padding-left: 1.2rem;}
+      .sala-contenido-parrafo { font-size: 1.05em; text-align: left; hyphens: none; } /* Quitar justificado en móvil */
+      .sala-contenido-imagen-destacada { margin: 2rem 0; }
+  }

@@ -1,0 +1,88 @@
+/* Footer.css */
+.app-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #8B5A2B; /* var(--primary-color); */ /* Usa tu color primario */
+    padding: 0.5rem 0; /* Padding vertical */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Sombra superior */
+    position: sticky; /* O fixed si quieres que esté siempre visible */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de otro contenido */
+  }
+  
+  .footer-btn {
+    color: var(--text-light) !important; /* Color de icono blanco */
+    font-size: 1.5rem; /* Tamaño de icono */
+    padding: 0.5rem; /* Padding para área de click */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    background: none !important; /* Quitar fondo por defecto de Antd */
+    border: none !important; /* Quitar borde por defecto */
+    opacity: 0.8;
+  }
+  
+  .footer-btn:hover,
+  .footer-btn:focus {
+    color: var(--text-light) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Fondo sutil en hover */
+    opacity: 1;
+    transform: scale(1.1); /* Ligero zoom en hover */
+  }
+  
+  .footer-btn:disabled {
+      color: rgba(255, 255, 255, 0.4) !important; /* Color para botones deshabilitados */
+      cursor: not-allowed;
+      transform: none;
+      background-color: transparent !important;
+      opacity: 0.5;
+  }
+  
+  /* Estilo específico para botón de hablar cuando está activo */
+  .footer-btn.speaking {
+      color: var(--accent-color) !important; /* Cambia a color de acento */
+      animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  
+  /* --- Reglas Globales para Tamaño de Fuente (Añadir a tu style.css o index.css) --- */
+  
+  /* Estilos para tamaño normal (base, ya aplicado) */
+  /* ... tus estilos base ... */
+  /* html { font-size: 16px; } */ /* O tu tamaño base */
+  /* body { font-size: 1rem; } */
+  
+  /* Estilos para tamaño grande */
+  body.font-size-large .sala-contenido-parrafo,
+  body.font-size-large .sala-intro-description /* Añade otros selectores si es necesario */
+   {
+    font-size: 1.2em; /* O un valor fijo como 1.1rem */
+    line-height: 1.85;
+  }
+  body.font-size-large .sala-contenido-subtitulo { font-size: 1.6rem; }
+  body.font-size-large .sala-intro-title { font-size: clamp(2.4rem, 6.5vw, 3.8rem); }
+  
+  
+  /* Estilos para tamaño extra grande */
+  body.font-size-xlarge .sala-contenido-parrafo,
+  body.font-size-xlarge .sala-intro-description {
+    font-size: 1.3em; /* O 1.2rem */
+    line-height: 1.9;
+  }
+  body.font-size-xlarge .sala-contenido-subtitulo { font-size: 1.7rem; }
+  body.font-size-xlarge .sala-intro-title { font-size: clamp(2.6rem, 7vw, 4.1rem); }
+  
+  
+  /* Estilos para tamaño pequeño */
+  body.font-size-small .sala-contenido-parrafo,
+  body.font-size-small .sala-intro-description {
+    font-size: 0.9em; /* O 0.9rem */
+    line-height: 1.75;
+  }
+  body.font-size-small .sala-contenido-subtitulo { font-size: 1.4rem; }
+  body.font-size-small .sala-intro-title { font-size: clamp(2rem, 5.5vw, 3.2rem); }

@@ -29,7 +29,7 @@ export const SalaGeologia = () => {
             </div>
             <div
               className="tema-image"
-              style={{ backgroundImage: `url(/${tema.image})` }}
+              style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${tema.image})` }}
             ></div>
           </div>
         ))}
