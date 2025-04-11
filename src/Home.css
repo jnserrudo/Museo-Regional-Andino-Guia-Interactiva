@@ -1,278 +1,298 @@
-/* Salas.css - Versión Súper Atractiva */
-
-/* --- Variables Globales (Asegúrate que estén definidas en :root) --- */
-/* :root { ... tus variables ... } */
-
-/* --- Contenedor y Títulos --- */
-.salas-container {
-    max-width: 1200px;
-    margin: 4rem auto 6rem auto;
-    padding: 0 1rem; /* Más ajustado en bordes */
+/* --- Variables CSS (Adaptadas para MuseoSans) --- */
+:root {
+    --primary-color: #046ba3;
+    --primary-hover: #03527d;
+    --accent-color: #e7a84c;
+    --text-light: #f8f9fa;
+    --text-dark: #343a40;
+    --text-muted: #6c757d;
+    --bg-light: #ffffff;
+    --bg-dark-overlay: rgba(15, 23, 42, 0.7);
+    --border-radius-sm: 8px;
+    --border-radius-md: 15px;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.4);
+    /* --- Variable de Fuente Principal --- */
+    /* Ya no necesitamos --font-serif y --font-sans separados si todo usa MuseoSans */
+    /* El body ya debería establecer 'MuseoSans', pero podemos reforzarlo aquí si es necesario */
   }
   
-  .salas-main-title {
-    font-size: clamp(2.2rem, 6vw, 3.2rem); /* Más grande e impactante */
-    font-weight: 900; /* MuseoSans 900 */
+  /* --- Estilos Base --- */
+  .home-container {
+    width: 100%;
+    overflow-x: hidden;
+    /* La fuente base ya está definida en tu style.css global (body) */
+    /* font-family: 'MuseoSans', sans-serif; */ /* <- Redundante si body ya lo tiene */
     color: var(--text-dark);
-    text-align: center;
-    margin-bottom: 0.5rem; /* Menos espacio antes del subtítulo */
-    line-height: 1.2;
-  }
-  /* Estilo para la primera palabra del título */
-  .salas-main-title span {
-      display: block; /* Hace que "Descubre" esté en su propia línea */
-      font-size: 0.6em; /* Más pequeño */
-      font-weight: 500; /* MuseoSans 500 */
-      color: var(--primary-color); /* Color primario */
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 0.25rem;
+    background-color: var(--bg-light);
   }
   
-  .salas-subtitle {
-    font-size: 1.1rem;
-    font-weight: 500; /* MuseoSans 500 */
-    color: var(--text-muted);
+  /* --- Sección Hero --- */
+  .hero-section {
+    background: url('/museo_frente.jpg') center/cover no-repeat fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     text-align: center;
-    margin-bottom: 4rem; /* Más espacio antes de las cards */
+    color: var(--text-light);
+  }
+  /* Home.css - Modificación en .hero-overlay */
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente más claro, sin la capa adicional */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+    /*                              ^^^^^         ^^^^^                  */
+    /*                                |             |                    */
+    /*                             Opacidad        Opacidad              */
+    /*                             Superior        Inferior              */
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 2rem;
+  }
+  
+  .welcome-text {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    /* Usamos el peso 500 (o el base que prefieras) */
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .museum-title {
+    /* font-family: 'MuseoSans', sans-serif; */ /* <- Ya heredado */
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    /* Usamos el peso más grueso disponible */
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .museum-subtitle {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    /* Usamos el peso base */
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
   }
   
-  /* --- Animación de Entrada --- */
-  @keyframes scaleUp {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  .sala-list-item {
-    opacity: 0;
-    transform: scale(0.95);
-    animation: scaleUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-    /* delay inline en JSX */
-  }
-  
-  
-  /* --- Estilo del Enlace Wrapper --- */
-  .sala-link-wrapper {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    border-radius: var(--border-radius-md); /* Redondeo aplicado al contenedor */
-    overflow: hidden; /* Clave para que el contenido respete el borde */
-    position: relative; /* Para efectos de brillo/luz */
-    transition: transform 0.35s ease, box-shadow 0.4s ease;
-    outline: none; /* Quitar outline por defecto, manejar foco con ::before */
-  }
-  
-  /* --- Estilo de la Tarjeta (Control total con div) --- */
-  .sala-card {
-    display: flex; /* Imagen a la izquierda, texto a la derecha */
-    align-items: stretch; /* Estirar elementos a la altura completa */
-    background-color: var(--bg-light);
-    /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); */ /* Sombra base sutil */
-    /* Quitamos la sombra directa de la card, la pondremos en el wrapper */
-    height: 130px; /* Altura fija para la tarjeta */
-    position: relative; /* Para el icono de flecha */
-    border: 1px solid #e8e8e8; /* Borde inicial muy claro */
-    transition: border-color 0.3s ease;
-  }
-  
-  /* --- Contenedor de Imagen --- */
-  .sala-image-container {
-    flex: 0 0 140px; /* Ancho fijo (no crece, no encoge, base 140px) */
-    position: relative;
-    overflow: hidden; /* Para controlar zoom y overlay */
-    cursor: pointer; /* Indica que es clickeable */
-  }
-  
-  .sala-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.05); /* Ligeramente escalada por defecto */
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), /* Transición suave y larga */
-                filter 0.4s ease;
-  }
-  
-  .sala-image-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    /* Gradiente más pronunciado y con color primario */
-    background: linear-gradient(30deg, rgba(4, 107, 163, 0.3) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.4) 100%);
-    opacity: 1;
-    transition: opacity 0.5s ease;
-  }
-  
-  /* Icono temático sobre la imagen */
-  .sala-theme-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 1.6rem;
-      opacity: 0.7;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
-      transition: transform 0.4s ease, opacity 0.4s ease;
-  }
-  
-  /* --- Contenedor de Información --- */
-  .sala-info-container {
-    flex-grow: 1;
-    padding: 1.2rem 1.5rem; /* Ajusta padding */
+  /* --- Grupo de Botones --- */
+  .button-group {
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centrar título verticalmente si es corto */
-    position: relative; /* Para la flecha */
-    overflow: hidden; /* Para efectos */
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
-  .sala-title {
-    /* Hereda MuseoSans */
-    font-weight: 700; /* MuseoSans 700 */
-    font-size: 1.1rem; /* Tamaño ajustado */
-    line-height: 1.4;
-    color: var(--text-dark);
-    margin: 0;
-    transition: color 0.3s ease, transform 0.3s ease;
-    z-index: 1; /* Asegura que esté sobre posibles fondos */
+  .btn-custom {
+    border-radius: var(--border-radius-sm) !important;
+    /* Usamos el peso 700 para botones */
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.8rem 1.8rem !important;
+    font-size: 0.95rem !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
   }
   
-  /* Icono de flecha (inicialmente oculto) */
-  .sala-arrow-icon {
+  .btn-custom .anticon {
+    margin-right: 8px;
+    font-size: 1.1em;
+  }
+  
+  .btn-outline {
+    border-color: var(--text-light) !important;
+    color: var(--text-light) !important;
+    background: transparent !important;
+    border: 2px solid var(--text-light) !important;
+  }
+  
+  .btn-outline:hover,
+  .btn-outline:focus {
+    background: var(--text-light) !important;
+    color: var(--primary-color) !important;
+    border-color: var(--text-light) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-filled {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--text-light) !important;
+  }
+  
+  .btn-filled:hover,
+  .btn-filled:focus {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    color: var(--text-light) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(4, 107, 163, 0.4);
+  }
+  
+  /* --- Indicador de Scroll (Opcional) --- */
+  .scroll-indicator {
     position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%) translateX(20px); /* Empieza fuera a la derecha */
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-    border-radius: 50%;
-    padding: 0.4rem;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 6px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  
+  .scroll-indicator span {
+    display: block;
+    width: 4px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    animation: scroll-anim 2s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  @keyframes scroll-anim {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+  }
+  
+  
+  /* --- Sección de Información --- */
+  .info-section {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: -80px auto 4rem auto;
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-                opacity 0.4s ease;
-    z-index: 2;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    gap: 3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .info-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   }
   
   
-  /* --- EFECTOS HOVER Y FOCO (Aplicados al .sala-link-wrapper) --- */
-  
-  .sala-link-wrapper:hover,
-  .sala-link-wrapper:focus-visible { /* Aplicamos efectos también en foco */
-    transform: translateY(-5px); /* Elevación */
-    box-shadow: 0 12px 35px rgba(4, 107, 163, 0.2); /* Sombra coloreada y más difusa */
+  .info-content {
+    flex: 2;
+    text-align: left;
   }
   
-  /* Efecto en la tarjeta interna */
-  .sala-link-wrapper:hover .sala-card,
-  .sala-link-wrapper:focus-visible .sala-card {
-      border-color: var(--primary-color); /* Borde más visible */
+  
+  .info-visual {
+    flex: 1;
+    text-align: center;
   }
   
-  /* Efecto en imagen */
-  .sala-link-wrapper:hover .sala-image,
-  .sala-link-wrapper:focus-visible .sala-image {
-    transform: scale(1.15); /* Zoom más pronunciado */
-    filter: brightness(1.05) saturate(1.1); /* Más brillante y saturada */
+  .info-visual img {
+    max-width: 130px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
-  .sala-link-wrapper:hover .sala-image-overlay,
-  .sala-link-wrapper:focus-visible .sala-image-overlay {
-    opacity: 0.6; /* Overlay se atenúa */
-  }
-  
-  /* Efecto en icono temático */
-  .sala-link-wrapper:hover .sala-theme-icon,
-  .sala-link-wrapper:focus-visible .sala-theme-icon {
-      transform: scale(1.2) rotate(-5deg);
+  .info-visual:hover img {
       opacity: 1;
-  }
-  
-  /* Efecto en título */
-  .sala-link-wrapper:hover .sala-title,
-  .sala-link-wrapper:focus-visible .sala-title {
-    color: var(--primary-color);
-    transform: translateX(3px); /* Ligero desplazamiento */
-  }
-  
-  /* Efecto en flecha (aparece) */
-  .sala-link-wrapper:hover .sala-arrow-icon,
-  .sala-link-wrapper:focus-visible .sala-arrow-icon {
-    transform: translateY(-50%) translateX(0); /* Entra desde la derecha */
-    opacity: 1;
-  }
-  
-  /* Efecto de "brillo" o "luz" en hover (opcional) */
-  .sala-link-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%; /* Empieza fuera a la izquierda */
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transform: skewX(-30deg); /* Inclina el brillo */
-      transition: left 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
-      z-index: 1; /* Encima de la imagen pero debajo del texto */
-      pointer-events: none; /* No interfiere con clicks */
-  }
-  
-  .sala-link-wrapper:hover::before,
-  .sala-link-wrapper:focus-visible::before {
-      left: 120%; /* Barre de izquierda a derecha */
+      transform: scale(1.05);
   }
   
   
-  /* --- Ajustes Responsivos --- */
-  @media (max-width: 991px) { /* Tablets */
-      .sala-card { height: 120px; }
-      .sala-image-container { flex-basis: 120px; }
-      .sala-title { font-size: 1rem; }
+  .info-title {
+      /* font-family: 'MuseoSans', sans-serif; */ /* <- Ya heredado */
+      font-size: 2rem;
+      /* Usamos peso 700 para el título de sección */
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
   }
   
-  @media (max-width: 767px) { /* Móviles grandes */
-    .salas-container { margin: 3rem auto 4rem auto; }
-    .salas-main-title { font-size: clamp(2rem, 6vw, 2.5rem); }
-    .salas-subtitle { font-size: 1rem; margin-bottom: 3rem; }
-    .sala-card { height: 110px; }
-    .sala-image-container { flex-basis: 100px; }
-    .sala-info-container { padding: 1rem 1.2rem; }
-    .sala-title { font-size: 0.95rem; }
-    .sala-theme-icon { font-size: 1.4rem; top: 5px; right: 5px;}
-    .sala-arrow-icon { font-size: 1.2rem; padding: 0.3rem; }
-  
-    /* Desactivar/Simplificar efectos complejos en táctil */
-    .sala-link-wrapper:hover,
-    .sala-link-wrapper:focus-visible {
-      transform: none;
-      box-shadow: none; /* Quitar sombra hover/focus */
-    }
-    .sala-link-wrapper .sala-card {
-       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Mantener sombra base */
-       border-color: #e8e8e8;
-    }
-    .sala-link-wrapper:hover .sala-image,
-    .sala-link-wrapper:focus-visible .sala-image { transform: scale(1.05); filter: none; }
-    .sala-link-wrapper:hover .sala-image-overlay,
-    .sala-link-wrapper:focus-visible .sala-image-overlay { opacity: 1; }
-    .sala-link-wrapper:hover .sala-theme-icon,
-    .sala-link-wrapper:focus-visible .sala-theme-icon { transform: none; opacity: 0.7;}
-    .sala-link-wrapper:hover .sala-title,
-    .sala-link-wrapper:focus-visible .sala-title { color: var(--text-dark); transform: none; }
-    .sala-link-wrapper:hover .sala-arrow-icon,
-    .sala-link-wrapper:focus-visible .sala-arrow-icon { opacity: 0; transform: translateY(-50%) translateX(20px); }
-    .sala-link-wrapper::before { display: none; } /* Ocultar brillo */
-  
+  .info-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    /* Hereda el peso 500 del body o contenedor */
+    /* font-weight: 500; */ /* <- Redundante si el body ya lo tiene */
   }
   
-  @media (max-width: 480px) { /* Móviles pequeños */
-    .sala-card { height: 100px; }
-    .sala-image-container { flex-basis: 90px; }
-    .sala-info-container { padding: 0.8rem 1rem; }
-    .sala-title { font-size: 0.9rem; }
+  .info-link {
+      color: var(--primary-color);
+      /* Usamos peso 700 para el enlace destacado */
+      font-weight: 700;
+      padding-left: 0 !important;
+      transition: color 0.3s ease;
   }
+  .info-link:hover {
+      color: var(--accent-color);
+      text-decoration: underline;
+  }
+  .info-link .anticon {
+      margin-left: 4px;
+  }
+  
+  
+  /* --- Mejoras de Responsividad (Sin cambios en fuentes aquí) --- */
+  @media (max-width: 768px) {
+    .hero-content { padding: 1.5rem; }
+    .museum-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+    .welcome-text { font-size: clamp(1.2rem, 3vw, 1.8rem); }
+    .museum-subtitle { font-size: clamp(0.9rem, 2.5vw, 1.1rem); margin-bottom: 2rem; }
+    .button-group { gap: 0.8rem; }
+    .btn-custom { padding: 0.7rem 1.5rem !important; font-size: 0.9rem !important; }
+    .info-section { flex-direction: column; padding: 4rem 1.5rem; margin-top: -60px; text-align: center; gap: 1.5rem; }
+    .info-section:hover { transform: none; box-shadow: var(--shadow-medium); }
+    .info-content { text-align: center; }
+    .info-visual { margin-top: 1rem; order: -1; }
+    .info-visual img { max-width: 100px; opacity: 0.8; }
+    .info-visual:hover img { opacity: 0.8; transform: none; }
+    .info-title { font-size: 1.8rem; }
+    .info-section p { font-size: 1rem; line-height: 1.7; }
+  }
+  
+  @media (max-width: 480px) {
+      .museum-title { font-size: clamp(2rem, 12vw, 3rem); }
+      .button-group { flex-direction: column; align-items: center; gap: 1rem; }
+      .btn-custom { width: 80%; max-width: 300px; justify-content: center; }
+      .info-section { padding: 3rem 1rem; margin-top: -50px; }
+  }
+  
+  /* Ya no necesitas importar Google Fonts aquí */
+  /* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;900&display=swap'); */
