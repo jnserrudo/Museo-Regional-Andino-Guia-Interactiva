@@ -61,11 +61,14 @@ export const Footer = () => {
             <Button type="text" className="footer-btn" icon={<AppstoreOutlined />} />
          </Link>
       </Tooltip>
-      <Tooltip title="Mapa Interactivo (Próximamente)">
-         <Link to="/mapa"> {/* Ruta aún no creada */}
-           <Button type="text" className="footer-btn" icon={<GlobalOutlined />} disabled /> {/* Deshabilitado */}
+       {/* --- CAMBIOS AQUÍ --- */}
+       <Tooltip title="Mapa del Museo"> {/* Título actualizado */}
+         <Link to="/mapa">
+           {/* Botón HABILITADO */}
+           <Button type="text" className="footer-btn" icon={<GlobalOutlined />} />
          </Link>
       </Tooltip>
+      {/* --- FIN CAMBIOS --- */}
     </AntFooter>
   );
 };

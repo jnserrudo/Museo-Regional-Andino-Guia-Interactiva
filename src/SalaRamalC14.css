@@ -1,0 +1,151 @@
+/* SalaRamalC14.css */
+
+/* Hereda variables y fuentes globales */
+
+.sala-ramal-container {
+    padding: 1rem 0; /* Espaciado vertical */
+    font-family: 'MuseoSans', sans-serif;
+}
+
+/* --- Vista Inicial (Opciones) --- */
+.ramal-initial-view {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.ramal-intro-text {
+    font-size: 1.1rem;
+    color: var(--text-muted, #6c757d);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.ramal-choices-container {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil por defecto */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Espacio entre opciones */
+}
+
+.ramal-choice-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-light, #fff);
+    border: 1px solid var(--border-color-light, #e9ecef);
+    border-radius: var(--border-radius-lg, 12px);
+    padding: 1.5rem 2rem;
+    min-width: 280px;
+    max-width: 400px; /* Limitar ancho */
+    width: 90%;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: var(--shadow-low, 0 3px 10px rgba(0,0,0,0.08));
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.ramal-choice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+    border-color: var(--primary-color-light, #a67b5b); /* Borde primario claro */
+}
+
+.ramal-choice-icon {
+    font-size: 2.5rem; /* Tamaño del icono */
+    margin-right: 1.5rem;
+    color: var(--primary-color, #8B4513);
+    flex-shrink: 0;
+}
+
+.ramal-choice-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark, #343a40);
+    margin: 0 0 0.3rem 0;
+}
+
+.ramal-choice-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted, #6c757d);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --- Vista Tren a las Nubes --- */
+.ramal-tren-content {
+    padding: 1rem 0;
+    animation: contentFadeIn 0.5s ease-out; /* Misma animación que otras salas */
+}
+
+.ramal-tren-image-container {
+    margin: 0 auto 2rem auto;
+    max-width: 800px; /* Limitar ancho de imagen */
+    text-align: center;
+}
+
+.ramal-tren-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+}
+
+.ramal-tren-description {
+    /* Estilos de párrafo consistentes */
+    font-weight: 500;
+    font-size: 1.1em;
+    color: var(--text-dark-secondary, #495057);
+    line-height: 1.8;
+    text-align: justify;
+    hyphens: auto;
+    max-width: 800px; /* Limitar ancho del texto */
+    margin: 0 auto; /* Centrar texto */
+    padding: 0 1rem; /* Padding lateral en móvil */
+}
+
+/* --- Botón Volver a Opciones --- */
+.ramal-back-button-container {
+    text-align: center; /* Centrar el botón */
+    margin-top: 2.5rem;
+}
+/* Reutilizar estilos del .sala-back-button si ya existe globalmente */
+.ramal-back-button {
+    display: inline-block;
+    font-family: 'MuseoSans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5em 1em;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    border-radius: var(--border-radius-md, 8px);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.ramal-back-button:hover {
+    color: var(--text-light, #fff);
+    background-color: var(--primary-color);
+}
+
+/* --- Responsividad para Opciones Iniciales --- */
+@media (min-width: 768px) {
+    .ramal-choices-container {
+        flex-direction: row; /* Lado a lado en escritorio */
+        gap: 3rem;
+    }
+    .ramal-choice-card {
+       min-width: 320px;
+       width: auto; /* Ancho automático */
+    }
+}
+/* Keyframes si no está definido globalmente */
+@keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

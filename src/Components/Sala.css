@@ -102,7 +102,7 @@
   /* --- Vista de Contenido --- */
   .sala-content-area {
     /* Estilos para el contenedor del contenido específico */
-    max-width: 1100px; /* Ancho máximo estándar */
+    max-width: 1400px; /* Ancho máximo estándar */
     margin: 0 auto; /* Centrado */
     padding: 4rem 2rem; /* Padding generoso */
     background-color: var(--bg-light); /* Fondo claro por defecto */
@@ -145,6 +145,31 @@
   }
   
   
+  /* --- Estilos para el Botón Volver --- */
+.sala-back-button {
+  display: inline-block;
+  /* --- ESTILOS AÑADIDOS/MODIFICADOS --- */
+  font-family: 'MuseoSans', sans-serif; /* <<< Añadido: Usa tu fuente */
+  font-weight: 500;                   /* <<< Añadido: Peso de fuente (ajusta si prefieres 700) */
+  font-size: 1rem;                    /* <<< Añadido: Tamaño de texto (ajusta: 1.1rem, 0.9rem etc) */
+  padding: 0 1.2em;               /* <<< Añadido: Padding para hacerlo más grande (ajusta valores) */
+  /* --- FIN ESTILOS AÑADIDOS/MODIFICADOS --- */
+
+  /* Mantienes tus colores y transición */
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color); /* Asegúrate que el borde sea explícito */
+  background-color: transparent;      /* Fondo transparente por defecto para 'default' */
+  /* Añadimos 'border-color' y 'background-color' a la transición para suavizar el hover */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estilo hover (sin cambios, pero la transición de arriba lo mejora) */
+.sala-back-button:hover {
+  color: var(--text-light);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color); /* El borde ya coincide */
+}
+  
   /* --- Ajustes Responsivos --- */
   @media (max-width: 768px) {
     .sala-intro-hero { min-height: 80vh; }
@@ -153,4 +178,7 @@
     .sala-intro-description { font-size: clamp(1rem, 3vw, 1.1rem); margin-bottom: 2rem; }
     .sala-intro-click-hint { font-size: 0.8rem; padding: 0.4rem 0.8rem;}
     .sala-content-area { padding: 3rem 1rem; }
+    .sala-back-button {
+      margin-bottom: 0rem; /* Quizás un poco menos de espacio en móvil */
+  }
   }

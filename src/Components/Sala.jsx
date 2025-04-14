@@ -1,5 +1,12 @@
 import { useState, useMemo } from "react";
-import { useParams, Routes, Route, Link, Outlet } from "react-router-dom"; // Añadimos Outlet
+import {
+  useParams,
+  Routes,
+  Route,
+  Link,
+  Outlet,
+  useNavigate,
+} from "react-router-dom"; // Añadimos Outlet
 import { Button } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
@@ -10,6 +17,8 @@ import { SalaRamalC14 } from "./SalaRamalC14";
 import { SalaGobernacionAndes } from "./SalaGobernacionAndes";
 import { SalaHistoria } from "./SalaHistoria";
 import { SalaMinerologiaMineria } from "./SalaMinerologiaMineria";
+import { SalaArqueologia } from "./SalaArqueologia";
+import { SalaSanAntonioHoy } from "./SalaSanAntonioHoy";
 // Añade imports para Arqueología, San Antonio Hoy si los tienes
 
 // --- Importa tus componentes de DETALLE (Incluso si aún no existen) ---
@@ -80,8 +89,8 @@ const salaComponentMap = {
   gobernacion_de_los_andes: SalaGobernacionAndes,
   historia: SalaHistoria,
   minerologia_y_mineria: SalaMinerologiaMineria,
-  // arqueologia: SalaArqueologia,
-  // "san-antonio-hoy": SalaSanAntonioHoy,
+  arqueologia: SalaArqueologia,
+  "san-antonio-hoy": SalaSanAntonioHoy,
 };
 
 // --- NUEVO: Mapeo de IDs a componentes de DETALLE ---
@@ -116,6 +125,7 @@ export const Sala = () => {
   const { salaId, id: detailId } = useParams(); // Renombramos 'id' a 'detailId' para claridad
   const sala = useMemo(() => salasData[salaId], [salaId]);
   const [bandImg, setBandImg] = useState(true);
+  const navigate = useNavigate(); // <--- Hook para navegación
 
   // Determina el componente PRINCIPAL a renderizar
   const ContentComponent = salaComponentMap[salaId] || null; // Usamos null si no hay componente principal
@@ -148,6 +158,11 @@ export const Sala = () => {
     setBandImg(false);
   };
 
+  // --- Función para manejar el click de "Volver" ---
+  const handleGoBack = () => {
+    navigate(-1); // Navega una página atrás en el historial
+  };
+
   // --- Renderizado ---
   return (
     <div
@@ -170,6 +185,18 @@ export const Sala = () => {
 
       {!bandImg && (
         <div className="sala-content-area">
+          {/* --- BOTÓN VOLVER --- */}
+          <Button
+            className="sala-back-button" // Clase para estilos específicos
+            type="default" // Puedes usar "text" o "link" para un look más sutil
+            icon={<ArrowLeftOutlined />}
+            onClick={handleGoBack}
+            style={{ marginBottom: "2rem" }} // Espacio debajo del botón
+          >
+            Volver
+          </Button>
+          {/* --- FIN BOTÓN VOLVER --- */}
+
           <Routes>
             {/* Ruta base muestra el componente PRINCIPAL */}
             <Route

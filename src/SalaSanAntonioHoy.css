@@ -1,0 +1,205 @@
+/* SalaSanAntonioHoy.css */
+
+/* Hereda variables y fuentes globales */
+
+/* --- Contenedor Principal --- */
+.sala-san-antonio-container {
+    padding: 2rem 0;
+    font-family: 'MuseoSans', sans-serif;
+}
+
+/* --- Título Principal --- */
+/* Reutiliza .sala-contenido-titulo-principal */
+
+/* --- Bloque de Contenido General (Imagen + Texto) --- */
+.sa-content-block {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 1.5rem;
+}
+
+/* --- Contenedor y Estilo de Imagen --- */
+.sa-image-container {
+    margin: 0;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.sa-image {
+    display: block;
+    width: 100%;
+    height: auto; /* Auto en móvil */
+    object-fit: cover;
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+    border: 2px solid var(--accent-color-light, #e0d6c3);
+}
+
+/* --- Contenedor y Estilo de Texto --- */
+.sa-text-container {
+    width: 100%;
+}
+.sa-text {
+    font-weight: 500;
+    font-size: 1.1em;
+    color: var(--text-dark-secondary, #495057);
+    line-height: 1.8;
+    text-align: justify;
+    hyphens: auto;
+    margin: 0 0 1rem 0; /* Margen inferior entre párrafos */
+}
+.sa-text:last-child {
+    margin-bottom: 0; /* Quitar margen al último párrafo del contenedor */
+}
+
+/* --- Subtítulo de Sección (dentro de .sa-text-container) --- */
+.sa-section-subtitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark, #343a40);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.4;
+    /* Puedes añadir el punto decorativo si quieres */
+}
+
+/* --- Bloque de Texto Solo --- */
+.sa-text-block {
+    margin-bottom: 4rem;
+    padding: 0 1rem; /* Padding lateral en móvil */
+}
+.sa-text-block .sa-section-subtitle.centered {
+    text-align: center;
+}
+.sa-text-block .sa-text.narrow-text {
+    max-width: 750px; /* Limitar ancho para mejor legibilidad */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Bloque de Cita --- */
+.sa-quote-block {
+    margin: 3rem auto 4rem auto;
+    padding: 1.5rem 2rem 1.5rem 3rem; /* Más padding izquierdo */
+    max-width: 700px;
+    border-left: 5px solid var(--primary-color, #8B4513); /* Borde distintivo */
+    background-color: var(--bg-light-alt, #f8f9fa); /* Fondo sutil */
+    border-radius: 0 var(--border-radius-sm, 4px) var(--border-radius-sm, 4px) 0; /* Redondeo */
+}
+.sa-quote-block h4.sa-quote-attribution {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-muted, #6c757d);
+    margin: 0 0 0.75rem 0;
+    font-style: normal;
+}
+.sa-quote-block blockquote {
+    margin: 0;
+    padding: 0;
+}
+.sa-quote-block blockquote p {
+    font-style: italic;
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--text-dark, #343a40);
+    margin: 0;
+}
+/* Opcional: icono de comillas */
+/* .sa-quote-block blockquote::before { content: '“'; ... } */
+
+
+/* --- Bloques Destacados --- */
+.sa-highlight-block {
+    margin: 3rem auto 4rem auto;
+    padding: 2rem;
+    border-radius: var(--border-radius-md, 8px);
+    max-width: 800px;
+    box-shadow: var(--shadow-low, 0 3px 10px rgba(0,0,0,0.08));
+}
+.sa-highlight-block p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin: 0;
+    text-align: center; /* Centrar texto en bloques destacados */
+}
+.sa-highlight-block .sa-highlight-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    text-align: center;
+}
+
+/* Bloque Primario (ej: marrón) */
+.sa-highlight-block.highlight-primary {
+    background-color: var(--primary-color-darker, #6b4f3a); /* Un marrón oscuro */
+    color: var(--text-light, #f8f9fa);
+}
+.sa-highlight-block.highlight-primary .sa-highlight-title {
+    color: var(--accent-color-light, #e0d6c3); /* Título en color claro */
+}
+
+/* Bloque Secundario (ej: gris claro) */
+.sa-highlight-block.highlight-secondary {
+    background-color: var(--bg-medium, #e9ecef); /* Un gris claro */
+    color: var(--text-dark, #343a40);
+    border: 1px solid var(--border-color-light, #ced4da);
+}
+.sa-highlight-block.highlight-secondary .sa-highlight-title {
+     color: var(--primary-color, #8B4513);
+}
+
+
+/* ======================================================================== */
+/*          ESTILOS RESPONSIVOS (Escritorio)                             */
+/* ======================================================================== */
+
+@media (min-width: 768px) {
+    /* Bloque Imagen + Texto */
+    .sa-content-block {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 5rem;
+    }
+    .sa-content-block.image-left { /* Ya está row por defecto */ }
+    .sa-content-block.image-right { flex-direction: row-reverse; }
+
+    .sa-image-container {
+        flex-basis: 45%;
+        max-width: none;
+    }
+    .sa-text-container {
+        flex-basis: 55%;
+    }
+    .sa-image {
+        height: 350px; /* <<< AJUSTA ESTA ALTURA */
+    }
+
+    /* Ajuste padding lateral para bloques de texto solo */
+    .sa-text-block { padding: 0; }
+}
+
+/* Ajustes Finos */
+@media (min-width: 1200px) {
+    .sa-content-block { gap: 4rem; }
+    /* .sa-image { height: 400px; } */
+}
+
+/* Ajustes Móvil pequeño */
+@media (max-width: 480px) {
+     .sa-content-block, .sa-text-block, .sa-quote-block, .sa-highlight-block {
+        margin-bottom: 3rem;
+    }
+    .sa-text, .sa-quote-block blockquote p, .sa-highlight-block p {
+        font-size: 1.05em;
+    }
+     .sa-section-subtitle { font-size: 1.4rem; }
+     .sa-highlight-title { font-size: 1.2rem; }
+     .sa-quote-block { padding: 1rem 1.5rem 1rem 2rem; }
+     .sa-highlight-block { padding: 1.5rem; }
+}
+
+
+

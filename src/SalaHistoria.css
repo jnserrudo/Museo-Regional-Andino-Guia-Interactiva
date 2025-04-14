@@ -1,0 +1,176 @@
+/* SalaHistoria.css */
+
+/* Hereda variables y fuentes globales */
+
+/* --- Contenedor Principal --- */
+.sala-historia-container {
+    padding: 2rem 0;
+    font-family: 'MuseoSans', sans-serif;
+}
+
+/* --- Título Principal --- */
+/* Reutiliza .sala-contenido-titulo-principal */
+
+/* --- Bloque de Contenido General (Imagen + Texto) --- */
+.sh-content-block {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 1.5rem;
+}
+
+/* --- Contenedor y Estilo de Imagen --- */
+.sh-image-container {
+    margin: 0;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.sh-image {
+    display: block;
+    width: 100%;
+    height: auto; /* Auto en móvil */
+    object-fit: contain;
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+    border: 2px solid var(--accent-color-light, #e0d6c3);
+}
+
+/* --- Contenedor y Estilo de Texto --- */
+.sh-text-container {
+    width: 100%;
+}
+.sh-text {
+    font-weight: 500;
+    font-size: 1.1em;
+    color: var(--text-dark-secondary, #495057);
+    line-height: 1.8;
+    text-align: justify;
+    hyphens: auto;
+    margin: 0 0 1rem 0;
+}
+.sh-text:last-child {
+    margin-bottom: 0;
+}
+.sh-text strong { /* Estilo para el texto destacado */
+    font-weight: 700;
+    color: var(--primary-color, #8B4513);
+}
+
+/* --- Subtítulo de Sección (dentro de .sh-text-container o .sh-grid-section) --- */
+.sh-section-subtitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark, #343a40);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.4;
+}
+.sh-section-subtitle.centered { /* Para el título de la sección grid */
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+
+/* --- Sección de Cuadrícula --- */
+.sh-grid-section {
+    margin-top: 5rem; /* Más espacio antes de la cuadrícula */
+    padding: 0 1rem; /* Padding lateral en móvil */
+}
+
+.sh-grid-container {
+    display: grid;
+    /* 1 columna por defecto */
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Espacio entre tarjetas */
+    max-width: 1100px; /* Limitar ancho de la cuadrícula */
+    margin: 0 auto; /* Centrar cuadrícula */
+}
+
+/* --- Tarjeta Individual de la Cuadrícula --- */
+.sh-grid-card {
+    background-color: var(--bg-light-alt, #f8f9fa); /* Fondo ligeramente distinto */
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md, 8px);
+    box-shadow: var(--shadow-low, 0 3px 10px rgba(0,0,0,0.08));
+    border: 1px solid var(--border-color-light, #e0e0e0);
+    display: flex; /* Para alinear contenido si fuera necesario */
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sh-grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-raised, 0 6px 15px rgba(0, 0, 0, 0.1));
+}
+
+.sh-card-title { /* Estilo para H4 dentro de la tarjeta */
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color, #8B4513);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.3;
+}
+
+.sh-card-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark-secondary, #495057);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1; /* Para que ocupe espacio si las tarjetas tienen alturas variables */
+    text-align: left; /* Texto de tarjeta alineado a la izquierda */
+}
+
+
+/* ======================================================================== */
+/*          ESTILOS RESPONSIVOS                                          */
+/* ======================================================================== */
+
+@media (min-width: 600px) {
+    /* 2 columnas para la cuadrícula en pantallas medianas */
+    .sh-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+     /* Ajustar padding de sección grid */
+    .sh-grid-section { padding: 0; }
+}
+
+@media (min-width: 768px) {
+    /* Layout lado a lado para bloques imagen+texto */
+    .sh-content-block {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 5rem;
+    }
+    .sh-content-block.image-right { flex-direction: row-reverse; }
+
+    .sh-image-container { flex-basis: 45%; max-width: none; }
+    .sh-text-container { flex-basis: 55%; }
+    .sh-image { height: 350px; /* <<< AJUSTA ESTA ALTURA */ }
+}
+
+@media (min-width: 992px) {
+    /* 4 columnas para la cuadrícula en pantallas grandes */
+    .sh-grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .sh-content-block { gap: 4rem; }
+    /* .sh-image { height: 400px; } */
+}
+
+@media (max-width: 480px) {
+     .sh-content-block { margin-bottom: 3rem; gap: 1rem; }
+     .sh-section-subtitle { font-size: 1.4rem; }
+     .sh-text { font-size: 1.05em; }
+     .sh-grid-section { margin-top: 4rem; }
+     .sh-grid-container { gap: 1rem; }
+     .sh-grid-card { padding: 1rem; }
+     .sh-card-title { font-size: 1.1rem; }
+     .sh-card-text { font-size: 0.9rem; }
+}

@@ -1,0 +1,149 @@
+/* SalaBiodiversidad.css */
+
+/* Hereda variables CSS globales y fuente MuseoSans */
+
+/* --- Contenedor Principal --- */
+.sala-biodiversidad-container {
+    padding: 2rem 0;
+}
+
+/* --- Título Principal --- */
+/* Reutiliza .sala-contenido-titulo-principal (definido globalmente) */
+/* Si necesitas ajustes específicos para este título: */
+/*
+.sala-biodiversidad-container .sala-contenido-titulo-principal {
+    margin-bottom: 4rem; // Más espacio debajo del título principal
+}
+*/
+
+/* --- Bloque de Contenido (Imagen + Texto) --- */
+.bio-content-block {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 1.5rem;
+}
+
+/* Estilo específico para el bloque de introducción (opcional) */
+.bio-content-block.intro-block {
+   /* Podrías darle un estilo diferente si quieres,
+      ej: imagen más grande, texto centrado, etc. */
+   /* Por ahora, se comporta igual que los demás */
+}
+
+/* --- Contenedor de Imagen --- */
+.bio-image-container {
+    margin: 0;
+    width: 100%;
+    max-width: 550px; /* Limitar en móvil */
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* --- Imagen --- */
+.bio-image {
+    display: block;
+    width: 100%;
+    height: auto; /* Auto por defecto (móvil) */
+    object-fit: cover; /* Cubrir sin distorsión */
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+    border: 2px solid var(--accent-color-light, #e0d6c3);
+}
+
+/* --- Contenedor de Texto --- */
+.bio-text-container {
+    width: 100%;
+}
+
+/* --- Subtítulo de Sección --- */
+.bio-section-subtitle {
+    /* Estilo similar a otros subtítulos */
+    font-family: 'MuseoSans', sans-serif;
+    font-size: 1.6rem; /* Ajustar tamaño si es necesario */
+    font-weight: 700;
+    color: var(--text-dark, #343a40);
+    margin: 0 0 1rem 0; /* Margen inferior */
+    line-height: 1.4;
+    /* Opcional: añadir el punto decorativo como en SalaDetalle */
+    /* position: relative; padding-left: 1.5rem; */
+}
+/* Opcional: punto decorativo
+.bio-section-subtitle::before {
+    content: ''; position: absolute; left: 0; top: 0.6em;
+    transform: translateY(-50%); width: 9px; height: 9px;
+    background-color: var(--primary-color, #8B4513); border-radius: 50%;
+} */
+
+
+/* --- Párrafo de Texto --- */
+.bio-text {
+    font-family: 'MuseoSans', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: var(--text-dark-secondary, #495057);
+    line-height: 1.8;
+    text-align: justify;
+    hyphens: auto;
+    margin: 0;
+}
+/* Estilo para el <strong> si lo dejas en el HTML */
+.bio-text strong {
+    font-weight: 700; /* Asegurar que sea bold */
+    color: var(--primary-color, #8B4513); /* Darle un color distintivo */
+}
+
+
+/* ======================================================================== */
+/*          ESTILOS RESPONSIVOS (Escritorio)                             */
+/* ======================================================================== */
+
+@media (min-width: 768px) {
+    .bio-content-block {
+        flex-direction: row; /* Lado a lado */
+        align-items: center; /* Centrado vertical */
+        gap: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    /* Orden inverso para bloques alternos (excepto intro si tuviera estilo diferente) */
+    .bio-content-block.reverse {
+        flex-direction: row-reverse;
+    }
+
+    /* Ajuste de proporciones */
+    .bio-image-container {
+        flex-basis: 45%;
+        max-width: none;
+    }
+
+    .bio-text-container {
+        flex-basis: 55%;
+    }
+
+    /* Altura fija para la imagen en escritorio para uniformidad */
+    .bio-image {
+        height: 350px; /* <<< AJUSTA ESTA ALTURA (ej: 300px, 400px) */
+    }
+}
+
+/* --- Ajustes Finos (Opcional) --- */
+@media (min-width: 1200px) {
+    .bio-content-block {
+        gap: 4rem;
+    }
+    /* Ajustar altura o proporción si es necesario */
+    /* .bio-image { height: 400px; } */
+}
+
+@media (max-width: 480px) {
+     .bio-content-block {
+        margin-bottom: 3rem;
+        gap: 1rem;
+    }
+     .bio-section-subtitle { font-size: 1.4rem; }
+     .bio-text { font-size: 1.05em; }
+     /* Considerar quitar justificado en pantallas muy estrechas */
+     /* .bio-text { text-align: left; hyphens: none; } */
+}

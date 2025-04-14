@@ -1,0 +1,62 @@
+/* MapaMuseo.css */
+
+/* --- Contenedor Padre (Wrapper) --- */
+.mapa-page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem; /* Espacio alrededor del mapa */
+    background-color: var(--bg-medium, #e9ecef);
+    box-sizing: border-box;
+  }
+  
+  /* --- Contenedor Hijo (El que muestra el mapa) --- */
+  .mapa-museo-container {
+    /* --- Dimensiones y Aspecto --- */
+    width: 100%; /* Ocupa el ancho disponible */
+    max-width: 1000px; /* Limita el ancho máximo (ajusta) */
+  
+    /* --- CLAVE: Definir la proporción del mapa --- */
+    /* Reemplaza '16 / 9' con la proporción real de tu imagen mapaMuseo.jpg
+       Ejemplos:
+       - Si es panorámica: 16 / 9
+       - Si es más cuadrada: 4 / 3
+       - Si es vertical: 9 / 16
+       - Puedes calcularlo: ancho_imagen_px / alto_imagen_px */
+    aspect-ratio: 16 / 9; /* <<< AJUSTA ESTA PROPORCIÓN */
+  
+    /* Ya no necesitamos max-height si usamos aspect-ratio */
+    /* max-height: 85vh; */
+  
+    /* --- Estilos Visuales --- */
+    background-color: #cccccc; /* Un gris por si la imagen falla */
+    border-radius: var(--border-radius-md, 8px);
+    box-shadow: var(--shadow-high, 0 12px 30px rgba(0, 0, 0, 0.15));
+    overflow: hidden;
+    position: relative;
+  
+    /* --- Imagen de Fondo (MAPA) --- */
+    /* --- CORRECCIÓN IMPORTANTE: Extensión .jpg (o la que sea correcta) --- */
+    background-image: url('/mapaMuseo.png'); /* <<< USA LA EXTENSIÓN CORRECTA */
+    background-size: contain; /* Correcto para ver todo el mapa */
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Estilo opcional para título (sin cambios) */
+  .mapa-museo-title {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    z-index: 10;
+  }

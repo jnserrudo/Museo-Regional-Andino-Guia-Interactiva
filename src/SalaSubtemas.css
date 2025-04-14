@@ -1,0 +1,183 @@
+/* SalaSubtemas.css */
+
+/* Asegúrate que las variables (--primary-color, --text-dark, etc.) y la fuente MuseoSans
+   estén disponibles globalmente (definidas en :root en tu style.css principal) */
+
+/* Contenedor Principal */
+.sala-subtemas-container {
+    padding: 1rem 0; /* Espaciado vertical si es necesario */
+    /* Hereda la fuente global */
+}
+
+/* Estilo opcional para la descripción */
+.sala-subtemas-descripcion {
+    font-family: 'MuseoSans', sans-serif; /* Asegura la fuente correcta */
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text-muted, #6c757d);
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+/* --- Grilla de Subtemas --- */
+.sala-subtemas-grid {
+    display: grid;
+    /* Por defecto 1 columna, se ajustará en media queries */
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Espacio entre tarjetas (ajusta según necesites) */
+}
+
+/* --- Tarjeta de Subtema --- */
+.sala-subtema-card {
+    display: flex; /* Imagen a la izquierda, texto a la derecha */
+    /* Alternativa: display: block; si quieres imagen arriba, texto abajo */
+    background-color: var(--bg-light, #ffffff);
+    border-radius: var(--border-radius-md, 8px);
+    overflow: hidden; /* Importante para bordes redondeados e imagen */
+    box-shadow: var(--shadow-low, 0 3px 10px rgba(0, 0, 0, 0.08));
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    min-height: 110px; /* Altura mínima para consistencia */
+
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(15px);
+    animation: subtemaFadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes subtemaFadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.sala-subtema-card:hover,
+.sala-subtema-card:focus-visible { /* Estilo para foco de teclado */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+    outline: none; /* Quitar outline por defecto si se maneja con sombra/transform */
+}
+
+/* --- Imagen del Subtema --- */
+.sala-subtema-image {
+    flex: 0 0 160px; /* Ancho fijo para la imagen */
+    /* Si usas display: block en card: width: 100%; height: 150px; flex: none; */
+    background-size: cover;
+    background-position: center center;
+    position: relative; /* Para el overlay */
+    transition: transform 0.5s ease;
+}
+
+.sala-subtema-image-overlay {
+    position: absolute;
+    inset: 0; /* Cubre todo el div (top, right, bottom, left = 0) */
+    /* Gradiente sutil para oscurecer un poco y mejorar contraste */
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.sala-subtema-card:hover .sala-subtema-image-overlay,
+.sala-subtema-card:focus-visible .sala-subtema-image-overlay {
+    opacity: 0.5; /* El overlay se aclara un poco en hover */
+}
+
+/* Opcional: ligero zoom a la imagen en hover */
+.sala-subtema-card:hover .sala-subtema-image,
+.sala-subtema-card:focus-visible .sala-subtema-image {
+     /* Descomenta si quieres este efecto, puede ser pesado */
+    /* transform: scale(1.05); */
+}
+
+/* --- Información del Subtema --- */
+.sala-subtema-info {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    padding: 1rem 1.5rem; /* Espaciado interno */
+    display: flex;
+    justify-content: space-between; /* Separa título y flecha */
+    align-items: center; /* Centra verticalmente */
+    font-family: 'MuseoSans', sans-serif; /* Asegurar fuente */
+}
+
+.sala-subtema-title {
+    font-weight: 700; /* Título más destacado */
+    font-size: 1.15rem; /* Tamaño de fuente (ajusta) */
+    color: var(--text-dark, #343a40);
+    margin: 0;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+    /* Evitar que el texto empuje la flecha si es muy largo */
+    margin-right: 0.5rem;
+}
+
+.sala-subtema-card:hover .sala-subtema-title,
+.sala-subtema-card:focus-visible .sala-subtema-title {
+    color: var(--primary-color, #8B4513); /* Color primario en hover */
+}
+
+/* --- Flecha Indicadora --- */
+.sala-subtema-arrow {
+    font-size: 1.6rem; /* Tamaño de la flecha */
+    color: var(--primary-color, #8B4513);
+    opacity: 0; /* Oculta por defecto */
+    transform: translateX(-10px); /* Ligeramente desplazada a la izquierda */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+.sala-subtema-card:hover .sala-subtema-arrow,
+.sala-subtema-card:focus-visible .sala-subtema-arrow {
+    opacity: 1; /* Visible en hover/focus */
+    transform: translateX(0); /* Vuelve a su posición */
+}
+
+
+/* --- Ajustes Responsivos --- */
+@media (min-width: 600px) {
+    .sala-subtemas-grid {
+        /* 2 columnas en pantallas medianas */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem; /* Un poco más de espacio */
+    }
+}
+
+@media (min-width: 992px) {
+    .sala-subtemas-grid {
+        /* Opcional: 3 columnas en pantallas grandes si caben bien */
+        /* grid-template-columns: repeat(3, 1fr); */
+    }
+     .sala-subtema-image {
+        flex-basis: 200px; /* Imagen un poco más ancha en pantallas grandes */
+    }
+}
+
+@media (max-width: 480px) {
+    .sala-subtema-card {
+        /* En pantallas muy pequeñas, apilar imagen y texto */
+        flex-direction: column;
+        min-height: auto; /* Resetear altura mínima */
+    }
+    .sala-subtema-image {
+        flex-basis: auto; /* Resetear flex-basis */
+        width: 100%;
+        height: 130px; /* Altura fija para la imagen */
+    }
+    .sala-subtema-info {
+        padding: 1rem; /* Ajustar padding */
+    }
+    .sala-subtema-title {
+        font-size: 1.05rem; /* Ajustar tamaño de fuente */
+    }
+     /* Opcional: Mantener la flecha visible siempre en móvil */
+     /* .sala-subtema-arrow { opacity: 1; transform: translateX(0); } */
+}

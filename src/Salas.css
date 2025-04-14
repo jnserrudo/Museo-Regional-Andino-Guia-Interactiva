@@ -114,7 +114,7 @@
     padding: 1rem 1.5rem; /* Padding ajustado */
     display: flex;
     flex-direction: column; /* Apilar grupo de título y flecha */
-    justify-content: space-between; /* Espacio entre grupo título y flecha (si hubiera más contenido)*/
+    justify-content: center; /* Espacio entre grupo título y flecha (si hubiera más contenido)*/
     align-items: flex-start; /* Alinea todo a la izquierda */
     position: relative;
     overflow: hidden;
@@ -146,7 +146,7 @@
   
   .sala-title {
     /* Hereda MuseoSans */
-    font-weight: 500; /* <<< CORREGIDO: MuseoSans 500 (era 700) */
+    font-weight: 700; /* <<< CORREGIDO: MuseoSans 500 (era 700) */
     font-size: 1.05rem; /* Tamaño ajustado */
     line-height: 1.4;
     color: var(--text-dark);

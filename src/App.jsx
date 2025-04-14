@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Pages/Home";
 import { Sala } from "./Components/Sala";
 import { PuzzleGame } from "./Components/PuzzleGame";
+import { MapaMuseo } from "./Components/MapaMuseo";
 import { SpeechProvider } from "./Contexts/SpeechContext";
 import { FontProvider } from "./Contexts/FontContext";
 const { Content } = Layout;
@@ -32,6 +33,7 @@ const App = () => {
                 <Route path="/salas" element={<Salas />} />
                 <Route path="/salas/:salaId/*" element={<Sala />} />
                 <Route path="/puzzle" element={<PuzzleGame />} />
+                <Route path="/mapa" element={<MapaMuseo />} />
               </Routes>
             </Content>
             <Footer />

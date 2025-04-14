@@ -1,0 +1,166 @@
+/* SalaArqueologia.css */
+
+/* ======================================================================== */
+/*          ESTILOS PARA LA SALA DE ARQUEOLOGÍA                         */
+/* ======================================================================== */
+
+/* Hereda variables CSS globales (--primary-color, --text-dark, --border-radius-lg, etc.)
+   y la fuente MuseoSans definida en :root */
+
+/* --- Contenedor Principal de la Sala --- */
+.sala-arqueologia-container {
+    /* Padding vertical, el horizontal suele venir del contenedor padre */
+    padding: 2rem 0;
+    /* Hereda max-width y centrado del .sala-content-area si está dentro */
+}
+
+/* --- Título Principal de la Sala --- */
+/* Asegúrate que la clase .sala-contenido-titulo-principal esté definida
+   globalmente o copia/adapta sus estilos aquí si es necesario */
+/* Ejemplo de cómo podría ser si no estuviera global:
+.sala-arqueologia-container .sala-contenido-titulo-principal {
+    font-family: 'MuseoSans', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--primary-color, #8B4513);
+    margin-bottom: 3rem; // Ajustar margen si es necesario
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color, #D2B48C);
+    display: inline-block;
+}
+*/
+
+/* --- Párrafo Introductorio (Opcional) --- */
+/* Si añades un párrafo de introducción en el componente JSX: */
+/*
+.sala-arqueologia-intro {
+    font-family: 'MuseoSans', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text-muted, #6c757d);
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+*/
+
+/* --- Bloque de Contenido (Imagen + Texto) --- */
+.arqueologia-content-block {
+    display: flex;
+    /* Apilado por defecto en vista móvil */
+    flex-direction: column;
+    align-items: center; /* Centrar imagen horizontalmente en móvil */
+    margin-bottom: 4rem; /* Espacio vertical entre bloques */
+    gap: 1.5rem; /* Espacio entre imagen y texto cuando están apilados */
+}
+
+/* --- Contenedor de la Imagen --- */
+.arqueologia-image-container {
+    margin: 0;
+    width: 100%; /* Ancho completo en móvil */
+    max-width: 550px; /* Limitar tamaño en móvil para que no sea enorme */
+    text-align: center;
+    flex-shrink: 0; /* No encoger en layout flex */
+}
+
+/* --- Imagen --- */
+.arqueologia-image {
+    display: block;
+    width: 100%;
+    height: auto; /* Altura automática por defecto (importante para móvil) */
+    object-fit: cover; /* Clave para llenar el contenedor sin distorsión */
+    border-radius: var(--border-radius-lg, 12px); /* Bordes redondeados grandes */
+    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+    /* Borde sutil usando variable de acento clara */
+    border: 2px solid var(--accent-color-light, #e0d6c3);
+}
+
+/* --- Contenedor del Texto --- */
+.arqueologia-text-container {
+    width: 100%; /* Ocupa el ancho en móvil */
+}
+
+/* --- Párrafo de Texto --- */
+.arqueologia-text {
+    font-family: 'MuseoSans', sans-serif; /* Asegurar fuente */
+    font-weight: 500;
+    font-size: 1.1em; /* Consistente con otros párrafos de contenido */
+    color: var(--text-dark-secondary, #495057);
+    line-height: 1.8; /* Buena legibilidad */
+    text-align: justify; /* Justificado */
+    hyphens: auto; /* Separación de sílabas */
+    margin: 0; /* Quitar margen por defecto del <p> */
+}
+
+/* ======================================================================== */
+/*          ESTILOS RESPONSIVOS (Escritorio)                             */
+/* ======================================================================== */
+
+@media (min-width: 768px) {
+    /* --- Ajustes para el Bloque de Contenido --- */
+    .arqueologia-content-block {
+        flex-direction: row; /* Layout lado a lado */
+        align-items: center; /* Centrado vertical */
+        gap: 3rem; /* Espacio horizontal entre imagen y texto */
+        margin-bottom: 5rem; /* Mayor separación vertical entre bloques */
+    }
+
+    /* --- Orden Inverso para filas alternas --- */
+    .arqueologia-content-block.reverse {
+        flex-direction: row-reverse; /* Invierte el orden visual */
+    }
+
+    /* --- Ajuste de Proporciones Imagen/Texto --- */
+    .arqueologia-image-container {
+        flex-basis: 45%; /* Imagen ocupa ~45% del ancho */
+        max-width: none; /* Quitar el límite de ancho de móvil */
+    }
+
+    .arqueologia-text-container {
+        flex-basis: 55%; /* Texto ocupa ~55% del ancho */
+    }
+
+    /* --- Altura Fija para la Imagen en Escritorio --- */
+    .arqueologia-image {
+        /* Establece una altura fija para uniformidad */
+        height: 350px; /* <<< AJUSTA ESTE VALOR SEGÚN NECESITES (ej: 300px, 400px) */
+        /* width: 100% (heredado) y object-fit: cover (definido antes)
+           aseguran que la imagen llene este alto sin deformarse */
+    }
+
+     /* Opcional: Si el texto fuera muy largo, podrías limitar su altura y añadir scroll */
+    /* .arqueologia-text-container {
+        max-height: 350px; // Igual a la altura de la imagen
+        overflow-y: auto; // Añade scroll si el contenido se desborda
+    } */
+}
+
+/* --- Ajustes Finos para Pantallas Más Grandes (Opcional) --- */
+@media (min-width: 1200px) {
+    .arqueologia-content-block {
+        gap: 4rem; /* Aumentar aún más el espacio en pantallas anchas */
+    }
+
+     /* Podrías ajustar el flex-basis si quieres diferente proporción */
+    /* .arqueologia-image-container { flex-basis: 40%; } */
+    /* .arqueologia-text-container { flex-basis: 60%; } */
+
+     /* Podrías aumentar ligeramente la altura fija de la imagen */
+    /* .arqueologia-image { height: 400px; } */
+}
+
+/* --- Ajustes para Pantallas Muy Pequeñas (Opcional) --- */
+@media (max-width: 480px) {
+    .arqueologia-content-block {
+        margin-bottom: 3rem; /* Menos espacio vertical */
+        gap: 1rem; /* Menos espacio entre imagen/texto apilados */
+    }
+    .arqueologia-text {
+        font-size: 1.05em; /* Reducir un poco el tamaño del texto */
+        /* Considerar quitar justificado en pantallas muy estrechas si causa problemas */
+        /* text-align: left; hyphens: none; */
+    }
+}
