@@ -1,23 +1,41 @@
-/* SalaRamalC14.css */
+/* SalaRamalC14.css (v2 - Estilos Mejorados) */
 
 /* Hereda variables y fuentes globales */
 
 .sala-ramal-container {
-    padding: 1rem 0; /* Espaciado vertical */
+    padding: 0; /* Controlamos padding interno */
     font-family: 'MuseoSans', sans-serif;
+    background-color: #f4f1ec; /* Fondo arena muy claro para toda la sala */
+}
+
+.ramal-main-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--primary-color, #8B4513);
+    text-align: center;
+    padding: 2.5rem 1rem 1rem 1rem; /* Espaciado */
+    margin: 0;
+    border-bottom: 1px solid #ddd; /* Línea sutil */
+    background-color: #fff; /* Fondo blanco para el título */
+}
+
+.ramal-content-area {
+    padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding del contenido */
+    max-width: 1100px;
+    margin: 0 auto; /* Centrar contenido */
 }
 
 /* --- Vista Inicial (Opciones) --- */
 .ramal-initial-view {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 1rem 0; /* Padding vertical ajustado */
 }
 
 .ramal-intro-text {
     font-size: 1.1rem;
     color: var(--text-muted, #6c757d);
     margin-bottom: 3rem;
-    max-width: 600px;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.7;
@@ -25,125 +43,317 @@
 
 .ramal-choices-container {
     display: flex;
-    flex-direction: column; /* Apilado en móvil por defecto */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem; /* Espacio entre opciones */
+    gap: 1.5rem; /* Espacio reducido */
 }
 
 .ramal-choice-card {
     display: flex;
     align-items: center;
     background-color: var(--bg-light, #fff);
-    border: 1px solid var(--border-color-light, #e9ecef);
-    border-radius: var(--border-radius-lg, 12px);
-    padding: 1.5rem 2rem;
-    min-width: 280px;
-    max-width: 400px; /* Limitar ancho */
-    width: 90%;
+    border: 1px solid var(--border-color-light, #e0e0e0);
+    border-radius: var(--border-radius-md, 8px); /* Bordes más suaves */
+    padding: 1.5rem; /* Padding ajustado */
+    width: 100%; /* Ocupar ancho en móvil */
+    max-width: 450px; /* Ancho máximo */
     text-align: left;
     cursor: pointer;
-    box-shadow: var(--shadow-low, 0 3px 10px rgba(0,0,0,0.08));
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    text-decoration: none;
-    color: inherit;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Sombra muy sutil */
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .ramal-choice-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
-    border-color: var(--primary-color-light, #a67b5b); /* Borde primario claro */
+    transform: scale(1.03); /* Escala ligera */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    border-color: var(--primary-color, #8B4513);
 }
 
 .ramal-choice-icon {
-    font-size: 2.5rem; /* Tamaño del icono */
-    margin-right: 1.5rem;
+    font-size: 2.2rem; /* Tamaño ajustado */
+    margin-right: 1rem;
     color: var(--primary-color, #8B4513);
     flex-shrink: 0;
+    background-color: rgba(139, 90, 43, 0.1); /* Fondo color primario transparente */
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 50px; /* Tamaño fijo */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ramal-choice-info h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* Tamaño REM */
     font-weight: 700;
     color: var(--text-dark, #343a40);
-    margin: 0 0 0.3rem 0;
+    margin: 0 0 0.2rem 0;
 }
 
 .ramal-choice-info p {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Tamaño REM */
     color: var(--text-muted, #6c757d);
     margin: 0;
     line-height: 1.5;
 }
 
-/* --- Vista Tren a las Nubes --- */
-.ramal-tren-content {
-    padding: 1rem 0;
-    animation: contentFadeIn 0.5s ease-out; /* Misma animación que otras salas */
+/* --- Vista Tren a las Nubes (Rediseñada) --- */
+.ramal-tren-vista {
+    padding: 0; /* Sin padding extra aquí */
+    animation: contentFadeIn 0.5s ease-out;
+}
+
+.ramal-tren-titulo {
+    text-align: center;
+    color: var(--primary-color, #8B4513);
+    margin: 1rem 0 2rem 0; /* Espaciado ajustado */
+    font-size: clamp(1.6rem, 4vw, 2.2rem); /* Tamaño REM adaptable */
+    font-weight: 700;
 }
 
 .ramal-tren-image-container {
-    margin: 0 auto 2rem auto;
-    max-width: 800px; /* Limitar ancho de imagen */
-    text-align: center;
+    margin: 0 auto 2.5rem auto;
+    max-width: 900px;
+    position: relative; /* Para caption */
+    line-height: 0; /* Evitar espacio */
+    border-radius: var(--border-radius-md, 8px);
+    overflow: hidden;
+    box-shadow: var(--shadow-high, 0 10px 30px rgba(0, 0, 0, 0.15));
 }
 
 .ramal-tren-image {
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 16 / 7; /* Ratio panorámico */
+    object-fit: cover;
+}
+
+.ramal-tren-image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    color: #fff;
+    padding: 1.5rem 1rem 0.8rem 1rem;
+    font-size: 0.9rem;
+    text-align: right;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+
+.ramal-tren-description-wrapper {
+    background-color: #fff; /* Fondo blanco para el texto */
+    padding: 2rem clamp(1rem, 5vw, 2.5rem);
     border-radius: var(--border-radius-lg, 12px);
-    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+    box-shadow: var(--shadow-low, 0 3px 10px rgba(0,0,0,0.08));
+    max-width: 900px;
+    margin: 0 auto; /* Centrar contenedor de texto */
 }
 
-.ramal-tren-description {
-    /* Estilos de párrafo consistentes */
-    font-weight: 500;
-    font-size: 1.1em;
+.ramal-section {
+    margin-bottom: 2.5rem; /* Espacio entre secciones de texto */
+}
+.ramal-section:last-child {
+    margin-bottom: 0;
+}
+
+.ramal-section-title {
+    font-size: 1.4rem; /* Tamaño REM */
+    font-weight: 700;
+    color: var(--secondary-color, #A0522D);
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color, #D2B48C);
+    display: inline-block; /* Para que el borde se ajuste */
+}
+
+.ramal-paragraph {
+    font-size: 1rem; /* Tamaño REM base */
     color: var(--text-dark-secondary, #495057);
-    line-height: 1.8;
-    text-align: justify;
-    hyphens: auto;
-    max-width: 800px; /* Limitar ancho del texto */
-    margin: 0 auto; /* Centrar texto */
-    padding: 0 1rem; /* Padding lateral en móvil */
+    line-height: 1.7;
+    text-align: left; /* Mejor izquierda */
+    margin: 0 0 1rem 0; /* Espacio entre párrafos */
+}
+.ramal-paragraph strong {
+    font-weight: 600;
+    color: var(--primary-color, #8B4513);
 }
 
-/* --- Botón Volver a Opciones --- */
-.ramal-back-button-container {
-    text-align: center; /* Centrar el botón */
-    margin-top: 2.5rem;
+/* Estilo para la lista de datos clave */
+.ramal-datos-clave {
+    margin: 1rem 0 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: #f9f9f9;
+    border-left: 4px solid var(--primary-color, #8B4513);
+    border-radius: 4px;
 }
-/* Reutilizar estilos del .sala-back-button si ya existe globalmente */
-.ramal-back-button {
+.ramal-datos-clave p {
+    margin-bottom: 0.8rem; /* Espacio antes de la lista */
+    font-style: italic;
+    color: var(--text-muted);
+}
+.ramal-datos-clave ul {
+    list-style: none; /* Quitar puntos */
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Columnas responsivas */
+    gap: 0.5rem 1rem; /* Espacio vertical y horizontal */
+}
+.ramal-datos-clave li {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    position: relative;
+    padding-left: 1.2em; /* Espacio para icono */
+}
+.ramal-datos-clave li::before {
+    content: '✓'; /* O un icono de Ant Design si prefieres */
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+/* Estilo para la línea de tiempo simplificada */
+.ramal-timeline-simplified {
+    border-left: 3px solid var(--accent-color, #D2B48C);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+}
+.ramal-timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.ramal-timeline-item:last-child {
+    margin-bottom: 0;
+}
+/* Punto en la línea de tiempo */
+.ramal-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem; /* Alinear con la línea */
+    top: 5px; /* Ajustar verticalmente */
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 2px solid #f4f1ec; /* Color de fondo para simular corte */
+}
+.ramal-timeline-year {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 0.3rem 0;
+    background-color: rgba(139, 90, 43, 0.1);
     display: inline-block;
+    padding: 0.1em 0.5em;
+    border-radius: 4px;
+}
+.ramal-timeline-text {
+    font-size: 0.95rem; /* Tamaño REM */
+    color: var(--text-dark-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+.ramal-signature {
+    margin-top: 1.5rem;
+    text-align: right;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* --- Vista Línea de Tiempo (Placeholder) --- */
+.ramal-timeline-vista {
+    animation: contentFadeIn 0.5s ease-out;
+}
+.ramal-timeline-titulo {
+    text-align: center;
+    color: var(--primary-color);
+    margin: 1rem 0 2rem 0;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+}
+/* Estilos específicos de LineaTiempo.jsx irían aquí o en su propio CSS */
+
+
+/* --- Botón Volver a Opciones (General) --- */
+.ramal-back-button-container {
+    text-align: left; /* Alineado a la izquierda */
+    margin-bottom: 2rem; /* Más espacio debajo */
+}
+.ramal-back-button {
+    display: inline-flex; /* Para alinear icono y texto */
+    align-items: center;
     font-family: 'MuseoSans', sans-serif;
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: 0.5em 1em;
+    font-size: 0.9rem; /* Tamaño REM */
+    padding: 0.6em 1.2em;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     background-color: transparent;
     border-radius: var(--border-radius-md, 8px);
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 .ramal-back-button:hover {
     color: var(--text-light, #fff);
     background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* --- Responsividad para Opciones Iniciales --- */
+
+/* --- Responsividad --- */
 @media (min-width: 768px) {
+    /* Opciones iniciales lado a lado */
     .ramal-choices-container {
-        flex-direction: row; /* Lado a lado en escritorio */
-        gap: 3rem;
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: center;
     }
     .ramal-choice-card {
-       min-width: 320px;
-       width: auto; /* Ancho automático */
+       min-width: 300px;
+       width: auto;
     }
 }
+
+@media (max-width: 480px) {
+    .ramal-content-area {
+        padding: 1.5rem 1rem;
+    }
+    .ramal-choices-container {
+        gap: 1rem;
+    }
+    .ramal-choice-card {
+        padding: 1rem;
+    }
+    .ramal-choice-icon {
+        font-size: 1.8rem;
+        width: 45px;
+        height: 45px;
+        margin-right: 0.8rem;
+    }
+    .ramal-choice-info h3 { font-size: 1.1rem; }
+    .ramal-choice-info p { font-size: 0.85rem; }
+
+    .ramal-tren-description-wrapper { padding: 1.5rem; }
+    .ramal-datos-clave ul { grid-template-columns: 1fr; } /* Una columna en móvil */
+    .ramal-timeline-simplified { padding-left: 1rem; }
+    .ramal-timeline-item::before { left: -1rem; }
+
+    .ramal-back-button-container { text-align: center; margin-bottom: 1.5rem;}
+}
+
 /* Keyframes si no está definido globalmente */
 @keyframes contentFadeIn {
     from { opacity: 0; transform: translateY(15px); }

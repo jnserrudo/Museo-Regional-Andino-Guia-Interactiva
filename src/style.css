@@ -1,326 +1,223 @@
-/* fuentes */
+/* style.css (INTENTO #3 - Forzando Especificidad en Body) */
 
-
-/* Fuentes MuseoSans */
+/* ==================================================== */
+/* =                 FUENTES MuseoSans                = */
+/* ==================================================== */
 @font-face {
   font-family: 'MuseoSans';
   src: url('/fonts/MuseoSans_500.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
+  font-weight: 500; font-style: normal;
 }
-
 @font-face {
   font-family: 'MuseoSans';
   src: url('/fonts/MuseoSans_500_Italic.otf') format('opentype');
-  font-weight: 500;
-  font-style: italic;
+  font-weight: 500; font-style: italic;
 }
-
 @font-face {
   font-family: 'MuseoSans';
   src: url('/fonts/MuseoSansCyril_2-700.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
+  font-weight: 700; font-style: normal;
 }
-
 @font-face {
   font-family: 'MuseoSans';
   src: url('/fonts/MuseoSansCyril_3-900.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
+  font-weight: 900; font-style: normal;
+}
+
+/* ==================================================== */
+/* =            ESTILOS BASE                          = */
+/* ==================================================== */
+html {
+  box-sizing: border-box;
+  font-size: 100%; /* Mantenemos base para rem si se usa */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
   margin: 0;
-  padding: 0;
   font-family: 'MuseoSans', sans-serif;
   background-color: #f7f7f7;
+  color: #333;
+  /* Tamaño base NORMAL (sin clase extra) */
+  font-size: 1rem; /* 16px por defecto */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Transición para el cambio de tamaño */
+  transition: font-size 0.25s ease-in-out;
 }
 
-/* ------------------ */
+/* ========================================================= */
+/* = REGLAS PARA CAMBIO TAMAÑO FUENTE (Aplicadas a BODY)   = */
+/* = ¡INTENTANDO FORZAR HERENCIA EN HIJOS!                  = */
+/* ========================================================= */
 
+/* --- Clase para Fuente Pequeña --- */
+body.font-size-small {
+  font-size: 0.9rem; /* Reduce el tamaño base del body */
+}
+/* Intenta forzar herencia en elementos comunes cuando el body es pequeño */
+body.font-size-small p,
+body.font-size-small li,
+body.font-size-small span,
+body.font-size-small div, /* Sé más específico si es necesario */
+body.font-size-small td,
+body.font-size-small th,
+body.font-size-small label,
+body.font-size-small input,
+body.font-size-small button,
+body.font-size-small a,
+body.font-size-small .ant-typography { /* Para componentes Ant Design */
+    font-size: 1em; /* Hereda el tamaño calculado del body (0.9rem) */
+    /* line-height: 1.5; */ /* Podrías necesitar ajustar interlineado */
+}
+/* Ajustes específicos para títulos pequeños */
+body.font-size-small h1 { font-size: 1.8em; }
+body.font-size-small h2 { font-size: 1.4em; }
+body.font-size-small h3 { font-size: 1.1em; }
+
+
+/* --- Clase para Fuente Grande --- */
+body.font-size-large {
+  font-size: 1.1rem; /* Aumenta el tamaño base del body */
+}
+/* Intenta forzar herencia en elementos comunes cuando el body es grande */
+body.font-size-large p,
+body.font-size-large li,
+body.font-size-large span,
+body.font-size-large div,
+body.font-size-large td,
+body.font-size-large th,
+body.font-size-large label,
+body.font-size-large input,
+body.font-size-large button,
+body.font-size-large a,
+body.font-size-large .ant-typography {
+    font-size: 1em; /* Hereda el tamaño calculado del body (1.1rem) */
+    /* line-height: 1.7; */
+}
+/* Ajustes específicos para títulos grandes */
+body.font-size-large h1 { font-size: 2.2em; }
+body.font-size-large h2 { font-size: 1.8em; }
+body.font-size-large h3 { font-size: 1.3em; }
+
+/* --- Clase para Fuente Extra Grande --- */
+body.font-size-xlarge {
+  font-size: 1.2rem; /* Aumenta más el tamaño base del body */
+}
+/* Intenta forzar herencia en elementos comunes cuando el body es xlarge */
+body.font-size-xlarge p,
+body.font-size-xlarge li,
+body.font-size-xlarge span,
+body.font-size-xlarge div,
+body.font-size-xlarge td,
+body.font-size-xlarge th,
+body.font-size-xlarge label,
+body.font-size-xlarge input,
+body.font-size-xlarge button,
+body.font-size-xlarge a,
+body.font-size-xlarge .ant-typography {
+    font-size: 1em; /* Hereda el tamaño calculado del body (1.2rem) */
+    /* line-height: 1.8; */
+}
+/* Ajustes específicos para títulos xlarge */
+body.font-size-xlarge h1 { font-size: 2.5em; }
+body.font-size-xlarge h2 { font-size: 2em; }
+body.font-size-xlarge h3 { font-size: 1.5em; }
+
+/* --- FIN REGLAS PARA CAMBIO TAMAÑO FUENTE --- */
+
+
+/* ==================================================== */
+/* =          COMPONENTES (Revisado font-size)        = */
+/* ==================================================== */
 
 /* --------------- NAVBAR --------------- */
 .header {
-  background-color: '#8B5A2B';
-  color: "#fff";
-  padding: 0 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: #8B5A2B; color: #fff; padding: 0 1rem; display: flex;
+  justify-content: space-between; align-items: center; min-height: 64px;
 }
+.cont_menu_txt { display: flex; justify-content: center; align-items: center; gap: 0.5rem; }
+/* Quitamos font-size aquí para que herede del body (o de .ant-typography si es el caso) */
+.txt_nav { color: white; font-weight: 500; }
+.cont_band_leng { display: flex; align-items: center; }
+.band_leng { display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 0.5rem; }
+.band { display: block; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.5); object-fit: cover; }
+.btn_leng { margin: 0; padding: 0.5rem; }
 
-.cont_menu_txt{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.txt_nav{
-  color: white;
-}
-.cont_band_leng {
-  display: flex;
-/*   border: 2px blue solid;
- */}
-
-.band_leng {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.band {
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-
-}
-
-.btn_leng{
-  margin: 0;
-  padding: 0.5rem;
-}
-
-
-.home {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Sección superior con la imagen de fondo */
+/* --------------- HOME --------------- */
+.home { display: flex; flex-direction: column; }
 .home-header {
-  position: relative;
-  width: 95%;
-  height: 75vh;
-  background-image: url("/museo_frente.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+  position: relative; width: 100%; min-height: 75vh; background-image: url("/museo_frente.jpg");
+  background-size: cover; background-position: center; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; color: white; padding: 2rem;
 }
+.home-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); z-index: 1; }
+.home-header > * { position: relative; z-index: 2; }
+/* Quitamos font-size aquí, debería heredar de body h1 */
+.home-title { font-weight: 700; margin-bottom: 1rem; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); }
+.home-info { background-color: #e3c2a1; padding: 2rem; text-align: center; }
+.home-buttons { margin-bottom: 1.5rem; }
+.home-button { margin: 0 0.5rem; }
+/* Quitamos font-size aquí, debería heredar de body p */
+.home-description { max-width: 700px; margin: 0 auto; line-height: 1.7; }
 
-.home-title {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* Sección inferior con la información */
-.home-info {
-  background-color: #e3c2a1;
-  /* Color similar al de la imagen */
-  padding: 20px;
-  text-align: center;
-}
-
-.home-buttons {
-  margin-bottom: 16px;
-}
-
-.home-button {
-  margin-right: 8px;
-}
-
-.home-description {
-  font-size: 16px;
-}
-
-/* ------------ */
-
+/* ------------- SALA IMAGEN FULL ------------- */
 .img_sala {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+  position: relative; width: 100%; min-height: 100vh; background-size: cover; background-position: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; color: white; padding: 2rem;
 }
+.img_sala::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); z-index: 1; }
+.img_sala > * { position: relative; z-index: 2; }
 
-/* ------------- */
-
-.sala-geologia {
-  text-align: center;
-  padding: 20px;
-}
-
-.grid-temas {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
+/* ------------- SALA GEOLOGIA (Lista de Temas) ------------- */
+.sala-geologia { text-align: center; padding: 2rem 1rem; }
+.grid-temas { display: flex; flex-direction: column; gap: 1.5rem; max-width: 700px; margin: 0 auto; }
 .tema-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
+  display: flex; width: 100%; border-radius: 10px; overflow: hidden; cursor: pointer;
+  background-color: #046ba3; transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
+.tema-row:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+/* Quitamos font-size aquí, debería heredar de body */
 .tema-info {
-  flex: 3;
-  background-color: #046ba3;
-  color: white;
-  padding: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  height: 120px;
+  flex: 1 1 65%; color: white; padding: 1.5rem; font-weight: 700; display: flex;
+  align-items: center; justify-content: center; text-align: center; min-height: 140px;
 }
+.tema-image { flex: 1 0 35%; min-height: 140px; background-size: cover; background-position: center; align-self: stretch; }
+.tema-row:nth-child(even) { flex-direction: row-reverse; }
 
-.tema-image {
-  flex: 1;
-  height: 120px;
-  background-size: cover;
-  background-position: center;
-}
+/* ------------- DETALLE GEOLOGIA (General) ------------- */
+.detalle-geologia { padding: 2rem 1rem; }
+/* Quitamos font-size aquí, debería heredar de body h1 */
+.detalle-geologia h1 { margin-bottom: 1rem; text-align: center; }
+.detalle-imagen { width: 100%; max-width: 600px; height: auto; margin: 1.5rem auto; display: block; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+/* Quitamos font-size aquí, debería heredar de body p */
+.detalle-geologia p { line-height: 1.7; max-width: 800px; margin: 1rem auto; text-align: justify; hyphens: auto; }
 
-/* Clases para alternar el orden */
-.tema-row:nth-child(even) .tema-info {
-  order: 2;
-  /* Texto a la derecha en filas pares */
-}
+/* ------------- HISTORIA ------------- */
+.historia-container { background-color: #8b5a2b; padding: 2rem 1rem; color: #fff; font-family: 'MuseoSans', sans-serif; }
+.historia-section { margin-bottom: 2.5rem; }
+/* Quitamos font-size aquí, debería heredar de body h1/h2 */
+.historia-title { font-weight: 700; }
+/* Quitamos font-size aquí, debería heredar de body p/span */
+.historia-subtext { margin: 0.8rem 0; }
+/* Quitamos font-size aquí, debería heredar de body */
+.historia-highlight { font-weight: 700; color: #ffc966; }
+.historia-img { width: 100%; max-width: 200px; margin: 1rem auto; display: block; border: 2px solid #fff; border-radius: 8px; }
+/* Quitamos font-size aquí, debería heredar de body p */
+.historia-text { margin-top: 1rem; line-height: 1.7; }
+.historia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+.historia-card { background-color: #a66e42; padding: 1.5rem; border-radius: 8px; }
 
-.tema-row:nth-child(even) .tema-image {
-  order: 1;
-  /* Imagen a la izquierda en filas pares */
-}
-
-
-
-/* ----------------- */
-
-
-.detalle-geologia {
-  text-align: center;
-  padding: 20px;
-}
-
-.detalle-geologia h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.detalle-imagen {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  margin: 15px 0;
-  border-radius: 10px;
-}
-
-.detalle-geologia p {
-  font-size: 18px;
-  line-height: 1.5;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: justify;
-}
-
-
-/* ----------------- */
-
-.historia-container {
-  background-color: #8b5a2b;
-  padding: 20px;
-  color: #fff;
-  font-family: sans-serif;
-}
-
-.historia-section {
-  margin-bottom: 30px;
-}
-
-.historia-title {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.historia-subtext {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.historia-highlight {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffc966;
-}
-
-.historia-img {
-  width: 100%;
-  max-width: 200px;
-  margin: 10px auto;
-  display: block;
-  border: 2px solid #fff;
-  border-radius: 8px;
-}
-
-.historia-text {
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-.historia-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.historia-card {
-  background-color: #a66e42;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-
-
-/* ----------------- */
-
-.sala-item {
-  display: flex;
-  margin: 20px 0;
-  align-items: center;
-  gap: 20px;
-}
-
-.sala-item.reverse {
-  flex-direction: row-reverse;
-}
-
-.sala-item-img {
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-}
-
-.sala-item-text {
-  flex: 1;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-/* ----------------- */
+/* ------------- SALA ITEM (Componente Reutilizable) ------------- */
+.sala-item { display: flex; margin: 2rem 0; align-items: center; gap: 1.5rem; }
+.sala-item.reverse { flex-direction: row-reverse; }
+.sala-item-img { width: 120px; height: 120px; object-fit: cover; flex-shrink: 0; border-radius: 4px; }
+/* ¡¡Quitamos font-size aquí!! Debería heredar de body p */
+.sala-item-text { flex: 1; line-height: 1.6; }

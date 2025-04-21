@@ -1,0 +1,235 @@
+/* SalaMinerologiaMineria.css */
+
+/* Importar variables globales si las tienes en otro archivo */
+/* @import url('../variables.css'); */
+
+/* Contenedor Principal de la Sala */
+.sala-minerologia-container {
+  padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding adaptable */
+  max-width: 1200px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado */
+  background-color: var(--bg-light, #ffffff); /* Fondo claro */
+}
+
+/* Título Principal de la Sala */
+.sala-minerologia-titulo {
+  font-size: clamp(1.8rem, 5vw, 2.5rem); /* Tamaño adaptable REM */
+  font-weight: 700; /* Bold */
+  color: var(--primary-color, #8B4513); /* Color primario */
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  /* border-bottom: 2px solid var(--accent-color, #D2B48C); */ /* Borde opcional */
+  /* display: inline-block; */ /* Si usas borde */
+}
+
+/* Párrafo Introductorio */
+.sala-minerologia-intro {
+  font-size: 1.1rem; /* Tamaño REM - Consistente con otras salas */
+  color: var(--text-muted, #6c757d); /* Color suave */
+  text-align: center;
+  max-width: 800px; /* Limitar ancho */
+  margin: 0 auto 2.5rem auto; /* Centrado y espacio inferior */
+  line-height: 1.7;
+}
+
+/* Separación y Estilo de Secciones */
+.seccion-minerales {
+  margin-bottom: 4rem; /* Espacio grande entre secciones */
+}
+
+/* Subtítulos de Sección */
+.sala-minerologia-subtitulo {
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Tamaño adaptable REM */
+  font-weight: 600; /* Semi-bold */
+  color: var(--secondary-color, #A0522D); /* Color secundario */
+  text-align: center;
+  margin-bottom: 2rem; /* Espacio antes del contenido */
+  position: relative;
+  display: inline-block; /* Para que after funcione bien */
+  left: 50%;
+  transform: translateX(-50%); /* Centrar el inline-block */
+}
+
+.sala-minerologia-subtitulo::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Debajo del texto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px; /* Ancho de la línea */
+    height: 3px; /* Grosor */
+    background-color: var(--accent-color, #D2B48C);
+    border-radius: 2px;
+}
+
+
+/* Grid para los Minerales */
+.minerales-grid {
+  display: grid;
+  /* Columnas responsivas: Mínimo 280px, máximo 1fr */
+  /* En pantallas pequeñas: 1 columna. En medianas: 2. En grandes: 3 */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 2rem; /* Espacio entre tarjetas */
+}
+
+/* --- ESTILOS PARA SalaContenidoItem --- */
+/* Asumiendo que SalaContenidoItem renderiza un div con clase 'sala-item' */
+.sala-item {
+  background-color: var(--bg-medium, #f8f9fa); /* Fondo suave para la tarjeta */
+  border-radius: var(--border-radius-lg, 12px);
+  box-shadow: var(--shadow-low, 0 2px 5px rgba(0, 0, 0, 0.08));
+  overflow: hidden; /* Para contener la imagen */
+  display: flex; /* Cambiamos a flex para controlar mejor imagen/texto */
+  flex-direction: column; /* Por defecto, imagen arriba, texto abajo */
+  transition: transform 0.3s var(--transition-ease, ease),
+              box-shadow 0.3s var(--transition-ease, ease);
+  height: 100%; /* Asegura que todas las tarjetas ocupen la misma altura en la fila del grid */
+}
+
+.sala-item:hover {
+  transform: translateY(-5px); /* Efecto sutil de elevación */
+  box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Imagen dentro de SalaContenidoItem */
+.sala-item-img {
+  width: 100%; /* Ocupa todo el ancho de la tarjeta */
+  height: 200px; /* Altura fija para la imagen */
+  object-fit: cover; /* Cubrir sin distorsionar */
+  display: block; /* Eliminar espacio extra debajo */
+  border-bottom: 1px solid var(--border-color-light, #e9ecef); /* Línea sutil opcional */
+}
+
+/* Contenido de Texto dentro de SalaContenidoItem */
+.sala-item-text {
+  padding: 1.5rem; /* Padding interno REM */
+  flex-grow: 1; /* Permite que esta parte crezca para llenar el espacio vertical */
+  display: flex; /* Para centrar el párrafo si es necesario */
+  flex-direction: column;
+  justify-content: center; /* Centrar verticalmente el contenido */
+  /* Hacemos relativo el contenedor principal del texto */
+  /* position: relative; */ /* <<<--- MOVIMOS ESTO AL NUEVO DIV INTERNO */
+}
+
+/* === NUEVO: Contenedor interno para el texto y el botón === */
+.mineral-text-content {
+    position: relative; /* Para posicionar el botón QR */
+}
+
+
+/* Párrafo dentro de SalaContenidoItem */
+.sala-item-text p {
+  margin: 0; /* Eliminar margen por defecto del párrafo */
+  font-size: 1rem; /* Tamaño REM - Consistente */
+  line-height: 1.6; /* Interlineado */
+  color: var(--text-dark, #343a40);
+  text-align: left; /* Mejor legibilidad que justificado */
+}
+
+/* Estilo para el nombre del mineral en negrita */
+.sala-item-text p strong {
+  color: var(--primary-color, #8B4513); /* Color distintivo */
+  font-weight: 700; /* Asegurar que sea bold */
+  margin-right: 0.3em; /* Pequeño espacio después */
+}
+
+/* --- Modificador para Layout Invertido (si aún lo necesitas) --- */
+/* Si el componente SalaContenidoItem AÑADE la clase 'item-reverse' al div MÁS EXTERNO */
+/* .sala-item.item-reverse { ... } */
+/* Con el layout actual (flex-direction: column), no tiene efecto visual. */
+
+
+/* --- Imagen Destacada del Salar --- */
+.salar-imagen-destacada {
+  display: block; /* Para poder centrar con margin */
+  width: 100%; /* Ancho completo del contenedor */
+  max-width: 800px; /* Ancho máximo */
+  height: auto; /* Altura automática */
+  margin: 2.5rem auto 3rem auto; /* Espacio vertical y centrado horizontal */
+  border-radius: var(--border-radius-md, 8px);
+  box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+
+/* --- Media Queries para Responsividad --- */
+
+@media (max-width: 768px) {
+  .minerales-grid {
+    /* 1 o 2 columnas en pantallas medianas */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 1.5rem;
+  }
+  .sala-minerologia-titulo {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+  }
+   .sala-minerologia-subtitulo {
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+  }
+  .sala-minerologia-intro {
+      font-size: 1rem; /* Podría ser ligeramente más pequeño en móvil */
+  }
+  .sala-item-img {
+      height: 180px; /* Imagen un poco más baja */
+  }
+   .sala-item-text {
+      padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+   .sala-minerologia-container {
+      padding: 1.5rem 1rem; /* Menos padding */
+   }
+   .minerales-grid {
+    /* Siempre 1 columna en pantallas muy pequeñas */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+   .sala-item-img {
+      height: 160px; /* Imagen aún más baja */
+  }
+   .sala-item-text p {
+       font-size: 0.95rem; /* Texto ligeramente más pequeño si es necesario */
+   }
+}
+
+
+/* ============================================== */
+/* =       ESTILOS PARA EL BOTÓN QR             = */
+/* ============================================== */
+
+.qr-code-button {
+  position: absolute;
+  top: 0.5rem; /* Ajustar según padding de .sala-item-text */
+  right: 0.5rem; /* Ajustar según padding de .sala-item-text */
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--primary-color, #8B4513);
+  border: 1px solid rgba(139, 90, 43, 0.4);
+  border-radius: 50%;
+  width: 38px; /* Ligeramente más grande */
+  height: 38px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.3rem; /* Icono más grande */
+  z-index: 5; /* Suficiente para estar sobre el texto */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.qr-code-button:hover {
+  background-color: var(--primary-color, #8B4513);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.qr-code-button:active {
+  transform: scale(1.02);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}

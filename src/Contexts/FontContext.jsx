@@ -3,10 +3,19 @@ import React, { createContext, useState, useContext, useCallback } from 'react';
 
 const FontContext = createContext();
 
-// Clases CSS: El primer elemento (tamaño normal) AHORA es null o undefined para simplificar
-// O mantenemos '' pero lo manejamos en la lógica. Vamos a mantener '' y manejarlo.
-const fontClasses = ['', 'font-size-large', 'font-size-xlarge', 'font-size-small'];
-const defaultFontIndex = 0; // Índice para tamaño normal (clase '')
+
+
+
+// *** NUEVO ORDEN LÓGICO ***
+const fontClasses = [
+  'font-size-small',  // Índice 0: Pequeño
+  '',                 // Índice 1: Normal (sin clase específica)
+  'font-size-large',  // Índice 2: Grande
+  'font-size-xlarge'  // Índice 3: Extra Grande
+];
+// *** NUEVO ÍNDICE INICIAL ***
+// El estado inicial ahora es el índice de la clase normal ('')
+const defaultFontIndex = 1;
 
 export const FontProvider = ({ children }) => {
   // Estado para el índice actual
@@ -16,17 +25,18 @@ export const FontProvider = ({ children }) => {
   const applyFontSizeClass = useCallback((currentIndex, newIndex) => {
     const oldClassName = fontClasses[currentIndex];
     const newClassName = fontClasses[newIndex];
+    const targetElement = document.body; // Aplicamos a body
 
     // Quitar la clase anterior SÓLO si existía (no era '')
     if (oldClassName) {
-      document.body.classList.remove(oldClassName);
-      // console.log('Removed class:', oldClassName); // Para depurar
+      targetElement.classList.remove(oldClassName);
+      // console.log('Removed class:', oldClassName);
     }
 
     // Añadir la nueva clase SÓLO si existe (no es '')
     if (newClassName) {
-      document.body.classList.add(newClassName);
-      // console.log('Added class:', newClassName); // Para depurar
+      targetElement.classList.add(newClassName);
+      // console.log('Added class:', newClassName);
     }
   }, []); // No necesita dependencias externas
 

@@ -1,149 +1,205 @@
-/* SalaBiodiversidad.css */
+/* SalaBiodiversidad.css (Estilos Renovados) */
 
-/* Hereda variables CSS globales y fuente MuseoSans */
+/* Hereda variables CSS globales (:root) y fuente MuseoSans */
 
 /* --- Contenedor Principal --- */
 .sala-biodiversidad-container {
-    padding: 2rem 0;
-}
-
-/* --- Título Principal --- */
-/* Reutiliza .sala-contenido-titulo-principal (definido globalmente) */
-/* Si necesitas ajustes específicos para este título: */
-/*
-.sala-biodiversidad-container .sala-contenido-titulo-principal {
-    margin-bottom: 4rem; // Más espacio debajo del título principal
-}
-*/
-
-/* --- Bloque de Contenido (Imagen + Texto) --- */
-.bio-content-block {
-    display: flex;
-    flex-direction: column; /* Apilado en móvil */
-    align-items: center;
-    margin-bottom: 4rem;
-    gap: 1.5rem;
-}
-
-/* Estilo específico para el bloque de introducción (opcional) */
-.bio-content-block.intro-block {
-   /* Podrías darle un estilo diferente si quieres,
-      ej: imagen más grande, texto centrado, etc. */
-   /* Por ahora, se comporta igual que los demás */
-}
-
-/* --- Contenedor de Imagen --- */
-.bio-image-container {
-    margin: 0;
-    width: 100%;
-    max-width: 550px; /* Limitar en móvil */
-    text-align: center;
-    flex-shrink: 0;
-}
-
-/* --- Imagen --- */
-.bio-image {
-    display: block;
-    width: 100%;
-    height: auto; /* Auto por defecto (móvil) */
-    object-fit: cover; /* Cubrir sin distorsión */
-    border-radius: var(--border-radius-lg, 12px);
-    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
-    border: 2px solid var(--accent-color-light, #e0d6c3);
-}
-
-/* --- Contenedor de Texto --- */
-.bio-text-container {
-    width: 100%;
-}
-
-/* --- Subtítulo de Sección --- */
-.bio-section-subtitle {
-    /* Estilo similar a otros subtítulos */
-    font-family: 'MuseoSans', sans-serif;
-    font-size: 1.6rem; /* Ajustar tamaño si es necesario */
+    padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding adaptable */
+    max-width: 1100px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrado */
+    background-color: var(--bg-light, #ffffff);
+  }
+  
+  /* --- Título General de la Sala (Si lo añades en el JSX) --- */
+  /* .sala-titulo-general {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 700;
-    color: var(--text-dark, #343a40);
+    color: var(--primary-color, #8B4513);
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 0.5rem;
+  } */
+  
+  /* --- Bloque de Contenido (Imagen + Texto) --- */
+  .bio-content-block {
+    display: grid; /* Usamos Grid para más control */
+    grid-template-columns: 1fr; /* Una columna por defecto (móvil) */
+    gap: 1.5rem; /* Espacio entre imagen y texto en móvil */
+    align-items: center; /* Centrar verticalmente */
+    margin-bottom: 4rem; /* Espacio entre bloques */
+    padding: 1.5rem; /* Padding interno opcional */
+    background-color: var(--bg-medium, #f8f9fa); /* Fondo suave */
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--shadow-low, 0 2px 5px rgba(0, 0, 0, 0.08));
+    overflow: hidden; /* Para bordes redondeados */
+    transition: box-shadow 0.3s var(--transition-ease, ease);
+  }
+  
+  .bio-content-block:hover {
+      box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+  }
+  
+  
+  /* Estilo especial para el bloque introductorio */
+  .bio-content-block.intro-block {
+     background-color: transparent; /* Sin fondo */
+     box-shadow: none; /* Sin sombra */
+     padding: 0; /* Sin padding extra */
+     grid-template-columns: 1fr; /* Mantiene una columna */
+     margin-bottom: 4rem; /* Mantiene espacio inferior */
+     text-align: center; /* Centrar texto de intro */
+  }
+  
+  .intro-block .bio-image-container {
+      max-width: 800px; /* Imagen de intro más ancha */
+      margin: 0 auto; /* Centrar contenedor */
+  }
+  
+  .intro-block .bio-image {
+      border: none; /* Sin borde especial */
+      box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12)); /* Sombra normal */
+      aspect-ratio: 16 / 7; /* Ratio panorámico para la primera imagen */
+      object-fit: cover;
+  }
+  
+  .intro-block .bio-text-container {
+      max-width: 800px; /* Limitar ancho del texto intro */
+      margin: 1rem auto 0 auto; /* Espacio arriba y centrado */
+  }
+  .intro-block .bio-text {
+      text-align: center; /* Texto de intro centrado */
+      font-size: 1.1rem; /* Ligeramente más grande */
+  }
+  .intro-block .bio-text strong {
+      display: block; /* El strong en bloque */
+      margin-bottom: 0.5rem; /* Espacio debajo del strong */
+      font-size: 1.2rem; /* Más grande el strong */
+  }
+  
+  
+  /* --- Contenedor de Imagen (Dentro de bloques normales) --- */
+  .bio-image-container {
+    margin: 0; /* Sin margen extra */
+    overflow: hidden; /* Para que border-radius funcione en la imagen */
+    border-radius: var(--border-radius-md, 8px); /* Redondeo */
+  }
+  
+  /* --- Imagen --- */
+  .bio-image {
+    display: block; /* Evita espacio extra */
+    width: 100%;
+    height: auto; /* Altura automática por defecto */
+    aspect-ratio: 4 / 3; /* Proporción común para las imágenes */
+    object-fit: contain;
+    border-radius: inherit; /* Hereda el redondeo del contenedor */
+    transition: transform 0.4s var(--transition-ease, ease);
+  }
+  
+  .bio-content-block:not(.intro-block):hover .bio-image {
+      transform: scale(1.05); /* Zoom sutil al pasar sobre el bloque */
+  }
+  
+  /* --- Contenedor de Texto --- */
+  .bio-text-container {
+    width: 100%;
+    /* El padding ya está en .bio-content-block, no es necesario aquí */
+  }
+  
+  /* --- Subtítulo de Sección --- */
+  .bio-section-subtitle {
+    font-size: 1.6rem; /* Tamaño REM, consistente */
+    font-weight: 700; /* Bold */
+    color: var(--primary-color, #8B4513); /* Color primario */
     margin: 0 0 1rem 0; /* Margen inferior */
-    line-height: 1.4;
-    /* Opcional: añadir el punto decorativo como en SalaDetalle */
-    /* position: relative; padding-left: 1.5rem; */
-}
-/* Opcional: punto decorativo
-.bio-section-subtitle::before {
-    content: ''; position: absolute; left: 0; top: 0.6em;
-    transform: translateY(-50%); width: 9px; height: 9px;
-    background-color: var(--primary-color, #8B4513); border-radius: 50%;
-} */
-
-
-/* --- Párrafo de Texto --- */
-.bio-text {
-    font-family: 'MuseoSans', sans-serif;
-    font-weight: 500;
-    font-size: 1.1em;
-    color: var(--text-dark-secondary, #495057);
-    line-height: 1.8;
-    text-align: justify;
-    hyphens: auto;
-    margin: 0;
-}
-/* Estilo para el <strong> si lo dejas en el HTML */
-.bio-text strong {
-    font-weight: 700; /* Asegurar que sea bold */
-    color: var(--primary-color, #8B4513); /* Darle un color distintivo */
-}
-
-
-/* ======================================================================== */
-/*          ESTILOS RESPONSIVOS (Escritorio)                             */
-/* ======================================================================== */
-
-@media (min-width: 768px) {
-    .bio-content-block {
-        flex-direction: row; /* Lado a lado */
-        align-items: center; /* Centrado vertical */
-        gap: 3rem;
-        margin-bottom: 5rem;
+    line-height: 1.3;
+    position: relative;
+    padding-bottom: 0.5rem; /* Espacio para la línea */
+  }
+  /* Línea decorativa */
+  .bio-section-subtitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--accent-color, #D2B48C);
+      border-radius: 2px;
+      transition: width 0.3s var(--transition-ease, ease);
+  }
+  .bio-content-block:not(.intro-block):hover .bio-section-subtitle::after {
+      width: 80px; /* Animar línea al pasar */
+  }
+  
+  
+  /* --- Párrafo de Texto --- */
+  .bio-text {
+    font-size: 1rem; /* Tamaño REM base, consistente con otras salas */
+    color: var(--text-dark, #343a40); /* Color oscuro */
+    line-height: 1.7; /* Buen interlineado */
+    text-align: left; /* IZQUIERDA es mejor para legibilidad que justificado */
+    /* hyphens: auto; */ /* Desactivar si se ve mal */
+    margin: 0; /* Sin margen extra */
+  }
+  
+  /* Estilo para el <strong> (usado con dangerouslySetInnerHTML) */
+  .bio-text strong {
+    font-weight: 600; /* Semi-bold */
+    color: var(--secondary-color, #A0522D); /* Color secundario, diferente al subtítulo */
+  }
+  
+  /* ======================================================================== */
+  /*          ESTILOS RESPONSIVOS (Escritorio)                             */
+  /* ======================================================================== */
+  
+  @media (min-width: 768px) {
+    /* Layout de Grid con 2 columnas en escritorio */
+    .bio-content-block:not(.intro-block) {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+      gap: 3rem; /* Espacio mayor entre columnas */
+      padding: 2rem; /* Más padding */
+      align-items: start; /* Alinear al inicio verticalmente */
     }
-
-    /* Orden inverso para bloques alternos (excepto intro si tuviera estilo diferente) */
-    .bio-content-block.reverse {
-        flex-direction: row-reverse;
+  
+    /* Orden inverso para bloques alternos */
+    .bio-content-block.reverse:not(.intro-block) .bio-image-container {
+      grid-column: 2 / 3; /* Mover imagen a la segunda columna */
+      grid-row: 1 / 2;    /* Asegurar que esté en la primera fila */
     }
-
-    /* Ajuste de proporciones */
-    .bio-image-container {
-        flex-basis: 45%;
-        max-width: none;
+    .bio-content-block.reverse:not(.intro-block) .bio-text-container {
+      grid-column: 1 / 2; /* Mover texto a la primera columna */
+      grid-row: 1 / 2;
     }
-
-    .bio-text-container {
-        flex-basis: 55%;
-    }
-
-    /* Altura fija para la imagen en escritorio para uniformidad */
+  
+    /* Ajuste de altura/aspecto de imagen en escritorio (opcional) */
     .bio-image {
-        height: 350px; /* <<< AJUSTA ESTA ALTURA (ej: 300px, 400px) */
+       /* Mantenemos aspect-ratio para flexibilidad */
+       /* Podrías fijar altura si prefieres: height: 350px; */
     }
-}
-
-/* --- Ajustes Finos (Opcional) --- */
-@media (min-width: 1200px) {
-    .bio-content-block {
-        gap: 4rem;
+  
+    /* Centrar texto verticalmente si se desea (si align-items: center en el grid) */
+    /* .bio-text-container { display: flex; flex-direction: column; justify-content: center; } */
+  }
+  
+  /* --- Ajustes Finos (Opcional) --- */
+  @media (min-width: 1200px) {
+    .bio-content-block:not(.intro-block) {
+      gap: 4rem; /* Más espacio en pantallas grandes */
     }
-    /* Ajustar altura o proporción si es necesario */
-    /* .bio-image { height: 400px; } */
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
+     .sala-biodiversidad-container {
+         padding: 1.5rem 1rem;
+     }
      .bio-content-block {
         margin-bottom: 3rem;
-        gap: 1rem;
-    }
+        gap: 1.5rem; /* Espacio en móvil */
+        padding: 1rem; /* Menos padding */
+     }
+     .intro-block .bio-image {
+         aspect-ratio: 16 / 9; /* Más cuadrado en móvil */
+     }
      .bio-section-subtitle { font-size: 1.4rem; }
-     .bio-text { font-size: 1.05em; }
-     /* Considerar quitar justificado en pantallas muy estrechas */
-     /* .bio-text { text-align: left; hyphens: none; } */
-}
+     .bio-text { font-size: 0.95rem; } /* Ligeramente más pequeño en móvil */
+  }

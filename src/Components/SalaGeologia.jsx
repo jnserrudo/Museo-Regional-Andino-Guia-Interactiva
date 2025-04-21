@@ -8,9 +8,9 @@ const temasGeologia = [
     title: "Origen y Formación Geológica", // Título ligeramente acortado para ejemplo
     image: "/fondo1.JPG", // Asumiendo que está en /public/fondo1.JPG
   },
-  { id: "volcanes", title: "Volcanes", image: "/volcanes.jpg" }, // Cambia a imágenes reales
-  { id: "geiser", title: "Géiser", image: "/geiser.jpg" },
-  { id: "salares", title: "Salares", image: "/salares.jpg" },
+  { id: "volcanes", title: "Volcanes", image: "/volcan_museo.png" }, // Cambia a imágenes reales
+  { id: "geiser", title: "Géiser", image: "/geiser_museo.png" },
+  { id: "salares", title: "Salares", image: "/salares_museo.jpeg" },
 ];
 
 export const SalaGeologia = () => {

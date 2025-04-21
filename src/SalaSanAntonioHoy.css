@@ -1,205 +1,283 @@
-/* SalaSanAntonioHoy.css */
+/* SalaSanAntonioHoy.css (v2 - Estilo Mejorado) */
 
 /* Hereda variables y fuentes globales */
 
 /* --- Contenedor Principal --- */
-.sala-san-antonio-container {
-    padding: 2rem 0;
+.sala-san-antonio-container-v2 {
+    padding: 0 0 3rem 0; /* Padding solo abajo */
     font-family: 'MuseoSans', sans-serif;
-}
-
-/* --- Título Principal --- */
-/* Reutiliza .sala-contenido-titulo-principal */
-
-/* --- Bloque de Contenido General (Imagen + Texto) --- */
-.sa-content-block {
-    display: flex;
-    flex-direction: column; /* Apilado en móvil */
-    align-items: center;
-    margin-bottom: 4rem;
-    gap: 1.5rem;
-}
-
-/* --- Contenedor y Estilo de Imagen --- */
-.sa-image-container {
-    margin: 0;
-    width: 100%;
-    max-width: 550px;
+    background-color: var(--bg-light, #ffffff);
+  }
+  
+  /* --- Títulos Principales --- */
+  .sa-main-title,
+  .sa-subtitulo {
     text-align: center;
+    color: var(--primary-color, #8B4513);
+    margin: 0 auto; /* Centrar */
+    max-width: 900px; /* Ancho máximo */
+  }
+  
+  .sa-main-title {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 700;
+    padding: 2.5rem 1rem 0.5rem 1rem; /* Padding superior/inferior */
+    line-height: 1.2;
+  }
+  
+  .sa-subtitulo {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-weight: 500; /* Menos peso que el principal */
+    color: var(--secondary-color, #A0522D); /* Color secundario */
+    margin-bottom: 3rem; /* Espacio antes del contenido */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color-light, #e0e0e0); /* Separador */
+  }
+  
+  
+  /* --- Bloque de Contenido General (Imagen + Texto) --- */
+  .sa-content-block {
+    display: flex;
+    flex-direction: column; /* Móvil: apilado */
+    align-items: stretch; /* Estirar para misma altura en flex */
+    margin: 0 auto 3.5rem auto; /* Centrado y margen inferior */
+    gap: 1.5rem; /* Espacio en móvil */
+    max-width: 1100px; /* Ancho máximo del bloque */
+    padding: 0 clamp(1rem, 5vw, 3rem); /* Padding lateral */
+  }
+  
+  /* --- Contenedor de Imagen --- */
+  .sa-image-container {
+    margin: 0;
+    line-height: 0;
+    border-radius: var(--border-radius-md, 8px); /* Redondeo */
+    overflow: hidden;
+    box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+    position: relative; /* Para pseudo-elementos */
     flex-shrink: 0;
-}
-.sa-image {
+  }
+  /* Overlay sutil opcional */
+  /* .sa-image-container::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(165deg, rgba(255,255,255,0) 70%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
+  } */
+  
+  /* --- Imagen --- */
+  .sa-image {
     display: block;
     width: 100%;
-    height: auto; /* Auto en móvil */
+    height: 100%; /* Ocupar altura del contenedor si se fija */
+    aspect-ratio: 16 / 10; /* Proporción */
     object-fit: cover;
-    border-radius: var(--border-radius-lg, 12px);
-    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
-    border: 2px solid var(--accent-color-light, #e0d6c3);
-}
-
-/* --- Contenedor y Estilo de Texto --- */
-.sa-text-container {
-    width: 100%;
-}
-.sa-text {
-    font-weight: 500;
-    font-size: 1.1em;
+    transition: transform 0.4s var(--transition-ease, ease);
+  }
+  .sa-content-block:hover .sa-image {
+      transform: scale(1.03); /* Zoom al pasar */
+  }
+  
+  /* --- Contenedor de Texto --- */
+  .sa-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrar texto verticalmente */
+    padding: 0.5rem 0; /* Padding vertical ligero */
+  }
+  
+  /* --- Subtítulo de Sección (Dentro de bloque imagen/texto) --- */
+  .sa-section-subtitle {
+    font-size: 1.6rem; /* Tamaño REM */
+    font-weight: 700;
+    color: var(--primary-color, #8B4513);
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  /* Línea decorativa */
+  .sa-section-subtitle::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 50px; height: 3px;
+    background-color: var(--accent-color, #D2B48C);
+    border-radius: 2px;
+  }
+  
+  /* --- Párrafo de Texto --- */
+  .sa-text {
+    font-size: 1rem; /* Tamaño REM base */
     color: var(--text-dark-secondary, #495057);
-    line-height: 1.8;
-    text-align: justify;
-    hyphens: auto;
-    margin: 0 0 1rem 0; /* Margen inferior entre párrafos */
-}
-.sa-text:last-child {
-    margin-bottom: 0; /* Quitar margen al último párrafo del contenedor */
-}
-
-/* --- Subtítulo de Sección (dentro de .sa-text-container) --- */
-.sa-section-subtitle {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--text-dark, #343a40);
-    margin: 0 0 1.5rem 0;
-    line-height: 1.4;
-    /* Puedes añadir el punto decorativo si quieres */
-}
-
-/* --- Bloque de Texto Solo --- */
-.sa-text-block {
-    margin-bottom: 4rem;
-    padding: 0 1rem; /* Padding lateral en móvil */
-}
-.sa-text-block .sa-section-subtitle.centered {
-    text-align: center;
-}
-.sa-text-block .sa-text.narrow-text {
-    max-width: 750px; /* Limitar ancho para mejor legibilidad */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --- Bloque de Cita --- */
-.sa-quote-block {
-    margin: 3rem auto 4rem auto;
-    padding: 1.5rem 2rem 1.5rem 3rem; /* Más padding izquierdo */
-    max-width: 700px;
-    border-left: 5px solid var(--primary-color, #8B4513); /* Borde distintivo */
-    background-color: var(--bg-light-alt, #f8f9fa); /* Fondo sutil */
-    border-radius: 0 var(--border-radius-sm, 4px) var(--border-radius-sm, 4px) 0; /* Redondeo */
-}
-.sa-quote-block h4.sa-quote-attribution {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-muted, #6c757d);
-    margin: 0 0 0.75rem 0;
-    font-style: normal;
-}
-.sa-quote-block blockquote {
-    margin: 0;
-    padding: 0;
-}
-.sa-quote-block blockquote p {
-    font-style: italic;
-    font-size: 1.05em;
     line-height: 1.7;
-    color: var(--text-dark, #343a40);
-    margin: 0;
-}
-/* Opcional: icono de comillas */
-/* .sa-quote-block blockquote::before { content: '“'; ... } */
-
-
-/* --- Bloques Destacados --- */
-.sa-highlight-block {
-    margin: 3rem auto 4rem auto;
-    padding: 2rem;
+    text-align: left; /* Mejor izquierda */
+    margin: 0 0 1rem 0; /* Espacio entre párrafos */
+  }
+  .sa-text:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* --- Bloque de Texto Solo --- */
+  .sa-text-block {
+    margin: 0 auto 3.5rem auto;
+    padding: 0 clamp(1rem, 5vw, 3rem); /* Padding lateral */
+    max-width: 800px; /* Ancho más estrecho para texto solo */
+  }
+  .sa-text-block .sa-section-subtitle {
+      /* Estilo del subtítulo es el mismo, pero puede ser centrado */
+  }
+  .sa-text-block .sa-section-subtitle.centered {
+      text-align: center;
+  }
+  .sa-text-block .sa-section-subtitle.centered::after {
+      left: 50%; /* Centrar línea si título está centrado */
+      transform: translateX(-50%);
+  }
+  .sa-text-block .sa-text {
+      /* Mismo estilo base */
+  }
+  .sa-text-block .sa-text.narrow-text {
+      /* Ya limitado por el max-width del .sa-text-block */
+       margin-left: auto;
+       margin-right: auto;
+  }
+  
+  
+  /* --- Bloque de Cita --- */
+  .sa-quote-block {
+    margin: 3rem auto 3.5rem auto;
+    padding: 2rem 2rem 2rem 2.5rem; /* Padding ajustado */
+    max-width: 750px;
+    border-left: 6px solid var(--primary-color, #8B4513);
+    background-color: #fdfaf6; /* Fondo crema muy claro */
+    border-radius: 0 var(--border-radius-md, 8px) var(--border-radius-md, 8px) 0;
+    position: relative;
+    box-shadow: var(--shadow-low);
+  }
+  /* Comillas decorativas */
+  .sa-quote-block::before {
+      content: '“';
+      position: absolute;
+      top: 0.5rem;
+      left: 0.8rem;
+      font-size: 4rem; /* Comillas grandes */
+      color: var(--primary-color-light, #a67b5b); /* Color primario claro */
+      opacity: 0.3;
+      line-height: 1;
+      z-index: 0;
+  }
+  
+  .sa-quote-block .sa-quote-title { /* Clase añadida en JSX */
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark, #343a40);
+      margin: 0 0 1rem 0;
+      position: relative; /* Para estar sobre comillas */
+      z-index: 1;
+  }
+  .sa-quote-block blockquote {
+      margin: 0; padding: 0; position: relative; z-index: 1;
+  }
+  .sa-quote-block .sa-quote-text { /* Clase añadida en JSX */
+      font-style: italic;
+      font-size: 1.05rem; /* Tamaño REM */
+      line-height: 1.7;
+      color: var(--text-dark, #343a40);
+      margin: 0;
+  }
+  /* Opcional: Atribución */
+  /* .sa-quote-attribution { text-align: right; margin-top: 1rem; font-style: normal; font-size: 0.9rem; } */
+  
+  
+  /* --- Bloques Destacados --- */
+  .sa-highlight-block {
+    margin: 3rem auto 3.5rem auto;
+    padding: 2.5rem; /* Más padding */
     border-radius: var(--border-radius-md, 8px);
     max-width: 800px;
-    box-shadow: var(--shadow-low, 0 3px 10px rgba(0,0,0,0.08));
-}
-.sa-highlight-block p {
-    font-size: 1.05em;
+    text-align: center;
+    box-shadow: var(--shadow-low);
+    border: 1px solid transparent; /* Para transición */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .sa-highlight-block:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-medium);
+  }
+  
+  .sa-highlight-block .sa-highlight-title {
+    font-size: 1.4rem; /* Tamaño REM */
+    font-weight: 700;
+    margin: 0 auto 1rem auto; /* Centrado y margen inferior */
+    line-height: 1.3;
+    display: inline-block; /* Para que borde se ajuste */
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid; /* Color definido abajo */
+  }
+  
+  .sa-highlight-block .sa-highlight-text { /* Clase añadida en JSX */
+    font-size: 1.05rem; /* Tamaño REM */
     line-height: 1.7;
     margin: 0;
-    text-align: center; /* Centrar texto en bloques destacados */
-}
-.sa-highlight-block .sa-highlight-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 0 0 1rem 0;
-    text-align: center;
-}
-
-/* Bloque Primario (ej: marrón) */
-.sa-highlight-block.highlight-primary {
-    background-color: var(--primary-color-darker, #6b4f3a); /* Un marrón oscuro */
+  }
+  
+  /* Bloque Primario (marrón) */
+  .sa-highlight-block.highlight-primary {
+    background-color: #5a3d2b; /* Marrón más intenso */
     color: var(--text-light, #f8f9fa);
-}
-.sa-highlight-block.highlight-primary .sa-highlight-title {
-    color: var(--accent-color-light, #e0d6c3); /* Título en color claro */
-}
-
-/* Bloque Secundario (ej: gris claro) */
-.sa-highlight-block.highlight-secondary {
-    background-color: var(--bg-medium, #e9ecef); /* Un gris claro */
-    color: var(--text-dark, #343a40);
-    border: 1px solid var(--border-color-light, #ced4da);
-}
-.sa-highlight-block.highlight-secondary .sa-highlight-title {
-     color: var(--primary-color, #8B4513);
-}
-
-
-/* ======================================================================== */
-/*          ESTILOS RESPONSIVOS (Escritorio)                             */
-/* ======================================================================== */
-
-@media (min-width: 768px) {
+    border-color: #4b3324;
+  }
+  .sa-highlight-block.highlight-primary .sa-highlight-title {
+    color: var(--accent-color, #D2B48C);
+    border-bottom-color: var(--accent-color-light, #e0d6c3);
+  }
+  
+  /* ======================================================================== */
+  /*          ESTILOS RESPONSIVOS (Escritorio)                             */
+  /* ======================================================================== */
+  
+  @media (min-width: 768px) {
     /* Bloque Imagen + Texto */
     .sa-content-block {
-        flex-direction: row;
-        align-items: center;
-        gap: 3rem;
-        margin-bottom: 5rem;
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+      padding: 0; /* Quitar padding lateral del bloque, ya está en el wrapper */
     }
-    .sa-content-block.image-left { /* Ya está row por defecto */ }
-    .sa-content-block.image-right { flex-direction: row-reverse; }
-
+    .sa-content-block.reverse {
+      flex-direction: row-reverse;
+    }
+  
     .sa-image-container {
-        flex-basis: 45%;
-        max-width: none;
+      flex-basis: 45%;
+      max-width: none;
     }
     .sa-text-container {
-        flex-basis: 55%;
+      flex-basis: 55%;
+      padding: 1rem 0; /* Añadir padding vertical si es necesario */
     }
-    .sa-image {
-        height: 350px; /* <<< AJUSTA ESTA ALTURA */
-    }
-
+    /* Quitamos altura fija para usar aspect-ratio */
+    /* .sa-image { height: 350px; } */
+  
     /* Ajuste padding lateral para bloques de texto solo */
     .sa-text-block { padding: 0; }
-}
-
-/* Ajustes Finos */
-@media (min-width: 1200px) {
+  }
+  
+  /* Ajustes Finos */
+  @media (min-width: 1200px) {
     .sa-content-block { gap: 4rem; }
-    /* .sa-image { height: 400px; } */
-}
-
-/* Ajustes Móvil pequeño */
-@media (max-width: 480px) {
+  }
+  
+  /* Ajustes Móvil pequeño */
+  @media (max-width: 480px) {
      .sa-content-block, .sa-text-block, .sa-quote-block, .sa-highlight-block {
         margin-bottom: 3rem;
-    }
-    .sa-text, .sa-quote-block blockquote p, .sa-highlight-block p {
-        font-size: 1.05em;
-    }
+     }
+     .sa-content-block { padding: 0 1rem; } /* Padding lateral en móvil */
+     .sa-text, .sa-quote-block .sa-quote-text, .sa-highlight-block .sa-highlight-text {
+         font-size: 0.95rem; /* Texto ligeramente más pequeño */
+     }
      .sa-section-subtitle { font-size: 1.4rem; }
-     .sa-highlight-title { font-size: 1.2rem; }
-     .sa-quote-block { padding: 1rem 1.5rem 1rem 2rem; }
-     .sa-highlight-block { padding: 1.5rem; }
-}
-
-
-
+     .sa-highlight-title { font-size: 1.25rem; }
+     .sa-quote-block { padding: 1.5rem 1.5rem 1.5rem 2rem; }
+     .sa-highlight-block { padding: 2rem 1.5rem; }
+     .sa-main-title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+     .sa-subtitulo { font-size: clamp(1.1rem, 4vw, 1.4rem); }
+  }

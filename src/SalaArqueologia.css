@@ -1,166 +1,165 @@
-/* SalaArqueologia.css */
+/* SalaArqueologia.css (v2 - Estilo Mejorado tipo Biodiversidad v1) */
 
-/* ======================================================================== */
-/*          ESTILOS PARA LA SALA DE ARQUEOLOGÍA                         */
-/* ======================================================================== */
+/* Hereda variables CSS globales (:root) y fuente MuseoSans */
 
-/* Hereda variables CSS globales (--primary-color, --text-dark, --border-radius-lg, etc.)
-   y la fuente MuseoSans definida en :root */
-
-/* --- Contenedor Principal de la Sala --- */
-.sala-arqueologia-container {
-    /* Padding vertical, el horizontal suele venir del contenedor padre */
-    padding: 2rem 0;
-    /* Hereda max-width y centrado del .sala-content-area si está dentro */
-}
-
-/* --- Título Principal de la Sala --- */
-/* Asegúrate que la clase .sala-contenido-titulo-principal esté definida
-   globalmente o copia/adapta sus estilos aquí si es necesario */
-/* Ejemplo de cómo podría ser si no estuviera global:
-.sala-arqueologia-container .sala-contenido-titulo-principal {
-    font-family: 'MuseoSans', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+/* --- Contenedor Principal --- */
+.sala-arqueologia-container-v2 {
+    padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding adaptable */
+    max-width: 1100px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado */
+    background-color: var(--bg-light, #ffffff);
+  }
+  
+  /* --- Título Principal --- */
+  .arqueologia-main-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Tamaño REM adaptable */
     font-weight: 700;
     color: var(--primary-color, #8B4513);
-    margin-bottom: 3rem; // Ajustar margen si es necesario
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--accent-color, #D2B48C);
-    display: inline-block;
-}
-*/
-
-/* --- Párrafo Introductorio (Opcional) --- */
-/* Si añades un párrafo de introducción en el componente JSX: */
-/*
-.sala-arqueologia-intro {
-    font-family: 'MuseoSans', sans-serif;
-    font-weight: 500;
-    font-size: 1.1rem;
-    color: var(--text-muted, #6c757d);
     text-align: center;
-    margin-bottom: 4rem;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
-}
-*/
-
-/* --- Bloque de Contenido (Imagen + Texto) --- */
-.arqueologia-content-block {
+    margin-bottom: 3rem;
+    padding-bottom: 0.75rem; /* Más espacio para la línea */
+    position: relative;
+    display: inline-block; /* Para centrar con transform */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* Línea decorativa bajo el título */
+  .arqueologia-main-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px; /* Ancho de la línea */
+      height: 3px;
+      background-color: var(--accent-color, #D2B48C);
+      border-radius: 2px;
+  }
+  
+  
+  /* --- Bloque de Contenido (Imagen + Texto) --- */
+  .arqueologia-content-block {
     display: flex;
-    /* Apilado por defecto en vista móvil */
-    flex-direction: column;
-    align-items: center; /* Centrar imagen horizontalmente en móvil */
-    margin-bottom: 4rem; /* Espacio vertical entre bloques */
-    gap: 1.5rem; /* Espacio entre imagen y texto cuando están apilados */
-}
-
-/* --- Contenedor de la Imagen --- */
-.arqueologia-image-container {
+    flex-direction: column; /* Apilado en móvil */
+    align-items: center; /* Centrar imagen en móvil */
+    margin-bottom: 3.5rem;
+    gap: 1.5rem;
+    background-color: var(--bg-medium, #f8f9fa); /* Fondo suave para el bloque */
+    padding: 1.5rem; /* Padding interno */
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--shadow-low, 0 2px 5px rgba(0, 0, 0, 0.08));
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .arqueologia-content-block:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
+  }
+  
+  /* --- Contenedor de Imagen --- */
+  .arqueologia-image-container {
     margin: 0;
-    width: 100%; /* Ancho completo en móvil */
-    max-width: 550px; /* Limitar tamaño en móvil para que no sea enorme */
-    text-align: center;
-    flex-shrink: 0; /* No encoger en layout flex */
-}
-
-/* --- Imagen --- */
-.arqueologia-image {
+    width: 100%;
+    max-width: 500px; /* Limitar en móvil */
+    flex-shrink: 0;
+    line-height: 0;
+    border-radius: var(--border-radius-md, 8px); /* Redondeo más pequeño que el bloque */
+    overflow: hidden; /* Importante */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1); /* Sombra sutil a la imagen misma */
+  }
+  
+  /* --- Imagen --- */
+  .arqueologia-image {
     display: block;
     width: 100%;
-    height: auto; /* Altura automática por defecto (importante para móvil) */
-    object-fit: cover; /* Clave para llenar el contenedor sin distorsión */
-    border-radius: var(--border-radius-lg, 12px); /* Bordes redondeados grandes */
-    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
-    /* Borde sutil usando variable de acento clara */
-    border: 2px solid var(--accent-color-light, #e0d6c3);
-}
-
-/* --- Contenedor del Texto --- */
-.arqueologia-text-container {
-    width: 100%; /* Ocupa el ancho en móvil */
-}
-
-/* --- Párrafo de Texto --- */
-.arqueologia-text {
-    font-family: 'MuseoSans', sans-serif; /* Asegurar fuente */
-    font-weight: 500;
-    font-size: 1.1em; /* Consistente con otros párrafos de contenido */
+    height: auto;
+    aspect-ratio: 16 / 10; /* Proporción visual */
+    object-fit: cover;
+    border-radius: inherit; /* Heredar redondeo */
+    transition: transform 0.4s var(--transition-ease, ease);
+  }
+  
+  .arqueologia-content-block:hover .arqueologia-image {
+      transform: scale(1.04); /* Zoom sutil al pasar sobre el bloque */
+  }
+  
+  /* --- Contenedor de Texto --- */
+  .arqueologia-text-container {
+    width: 100%;
+  }
+  
+  /* --- Párrafo de Texto --- */
+  .arqueologia-text {
+    font-size: 1rem; /* Tamaño REM base, escalará globalmente */
     color: var(--text-dark-secondary, #495057);
-    line-height: 1.8; /* Buena legibilidad */
-    text-align: justify; /* Justificado */
-    hyphens: auto; /* Separación de sílabas */
-    margin: 0; /* Quitar margen por defecto del <p> */
-}
-
-/* ======================================================================== */
-/*          ESTILOS RESPONSIVOS (Escritorio)                             */
-/* ======================================================================== */
-
-@media (min-width: 768px) {
-    /* --- Ajustes para el Bloque de Contenido --- */
+    line-height: 1.7;
+    text-align: left; /* IZQUIERDA es mejor para lectura */
+    margin: 0;
+  }
+  
+  /* Opcional: Estilo para la primera letra si quieres */
+  /* .arqueologia-text::first-letter {
+    font-size: 1.5em;
+    float: left;
+    margin-right: 0.1em;
+    line-height: 1;
+    color: var(--primary-color);
+  } */
+  
+  
+  /* ======================================================================== */
+  /*          ESTILOS RESPONSIVOS (Escritorio) - Layout Flexbox             */
+  /* ======================================================================== */
+  
+  @media (min-width: 768px) {
     .arqueologia-content-block {
-        flex-direction: row; /* Layout lado a lado */
-        align-items: center; /* Centrado vertical */
-        gap: 3rem; /* Espacio horizontal entre imagen y texto */
-        margin-bottom: 5rem; /* Mayor separación vertical entre bloques */
+      flex-direction: row;
+      align-items: center;
+      gap: 2.5rem; /* Más espacio en escritorio */
+      margin-bottom: 4rem;
+      padding: 2rem; /* Más padding */
     }
-
-    /* --- Orden Inverso para filas alternas --- */
+  
     .arqueologia-content-block.reverse {
-        flex-direction: row-reverse; /* Invierte el orden visual */
+      flex-direction: row-reverse;
     }
-
-    /* --- Ajuste de Proporciones Imagen/Texto --- */
+  
     .arqueologia-image-container {
-        flex-basis: 45%; /* Imagen ocupa ~45% del ancho */
-        max-width: none; /* Quitar el límite de ancho de móvil */
+      flex-basis: 48%; /* Casi 50% */
+      max-width: none;
     }
-
+  
     .arqueologia-text-container {
-        flex-basis: 55%; /* Texto ocupa ~55% del ancho */
+      flex-basis: 52%; /* Un poco más para el texto */
     }
-
-    /* --- Altura Fija para la Imagen en Escritorio --- */
-    .arqueologia-image {
-        /* Establece una altura fija para uniformidad */
-        height: 350px; /* <<< AJUSTA ESTE VALOR SEGÚN NECESITES (ej: 300px, 400px) */
-        /* width: 100% (heredado) y object-fit: cover (definido antes)
-           aseguran que la imagen llene este alto sin deformarse */
-    }
-
-     /* Opcional: Si el texto fuera muy largo, podrías limitar su altura y añadir scroll */
-    /* .arqueologia-text-container {
-        max-height: 350px; // Igual a la altura de la imagen
-        overflow-y: auto; // Añade scroll si el contenido se desborda
-    } */
-}
-
-/* --- Ajustes Finos para Pantallas Más Grandes (Opcional) --- */
-@media (min-width: 1200px) {
+  
+    /* Permitimos que la altura de la imagen sea automática basada en aspect-ratio */
+    /* Si quieres altura fija, descomenta: */
+    /* .arqueologia-image-container { height: 380px; } */
+    /* .arqueologia-image { height: 100%; aspect-ratio: unset; } */
+  
+  }
+  
+  /* --- Ajustes Finos (Opcional) --- */
+  @media (min-width: 1200px) {
     .arqueologia-content-block {
-        gap: 4rem; /* Aumentar aún más el espacio en pantallas anchas */
+      gap: 3.5rem;
     }
-
-     /* Podrías ajustar el flex-basis si quieres diferente proporción */
-    /* .arqueologia-image-container { flex-basis: 40%; } */
-    /* .arqueologia-text-container { flex-basis: 60%; } */
-
-     /* Podrías aumentar ligeramente la altura fija de la imagen */
-    /* .arqueologia-image { height: 400px; } */
-}
-
-/* --- Ajustes para Pantallas Muy Pequeñas (Opcional) --- */
-@media (max-width: 480px) {
-    .arqueologia-content-block {
-        margin-bottom: 3rem; /* Menos espacio vertical */
-        gap: 1rem; /* Menos espacio entre imagen/texto apilados */
-    }
-    .arqueologia-text {
-        font-size: 1.05em; /* Reducir un poco el tamaño del texto */
-        /* Considerar quitar justificado en pantallas muy estrechas si causa problemas */
-        /* text-align: left; hyphens: none; */
-    }
-}
+  }
+  
+  @media (max-width: 480px) {
+     .sala-arqueologia-container-v2 {
+         padding: 1.5rem 1rem;
+     }
+     .arqueologia-content-block {
+        margin-bottom: 3rem;
+        gap: 1rem;
+        padding: 1rem;
+     }
+     .arqueologia-text {
+         font-size: 0.95rem; /* Ligeramente más pequeño en móvil */
+     }
+     .arqueologia-main-title {
+         font-size: clamp(1.6rem, 5vw, 2.2rem);
+     }
+  }
