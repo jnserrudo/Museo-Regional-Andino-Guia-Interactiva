@@ -130,6 +130,36 @@ export const SalaMinerologiaMineria = () => {
         </div>
       </section>
 
+
+  {/* ============================================ */}
+      {/* =      NUEVA SECCIÓN: PROCESO DEL LITIO    = */}
+      {/* ============================================ */}
+      <section className="seccion-proceso-litio">
+        <h2 className="litio-titulo">¿Cómo se obtiene y procesa el Litio de un Salar?</h2>
+        {/* Opcional: Un ícono representativo */}
+        {/* <div className="litio-icon">⚛️</div> */}
+        <div className="litio-contenido">
+          <p className="litio-text">
+            Debajo de la costra de sal, el salar es como una esponja de sales embebida en salmuera con cloruro de sodio y otras sales disueltas como el litio, el magnesio o el potasio en concentraciones variables. Como la composición media de las salmueras es diferente para cada cuenca salina, el proceso de recuperación necesita “diseñarse a medida”.
+          </p>
+          <p className="litio-text">
+            En el salar no hay agua dulce. La salmuera es el único líquido presente en él y no es apto para el consumo humano o agrícola, pero si le sirve a la industria. La cantidad total de sales en la salmuera a la temperatura ambiente (15 a 20°C) es 7 a 10 veces mayor que la del agua de mar. {/* Corregido 'salmera' a 'sales en la salmuera' */}
+          </p>
+          <p className="litio-text">
+            Para extraer la salmuera se hace perforaciones en el salar, bombeándola y llevándola por tuberías a piletas de evaporación. Su procesamiento consiste en imitar y/o acelerar el proceso natural hasta alcanzar una escala comercial adecuada. En las piletas se realiza el mismo proceso de evaporación que en la salina, pero en condiciones controladas para lograr una mayor concentración de litio y extraer las impurezas. Las impurezas, que son sales sin interés, son devueltas al salar, su lugar de origen.
+          </p>
+          <p className="litio-text">
+            En este proceso no se consume energía, la salmuera se concentra al evaporarse el agua por acción del sol y del viento. Es exactamente igual que lo que sucede naturalmente en la salina, pero en las piletas se realiza bajo control técnico, evitando que el litio precipite y se convierta en irrecuperable.
+          </p>
+          <p className="litio-text">
+            Como en el ciclo natural del agua que ocurrió durante miles de años en los salares, el agua se evapora, se condensa en las nubes, precipita, se infiltra o escurre, a veces llega al mar. {/* Corregido 'l agua' a 'el agua' */}
+          </p>
+        </div>
+      </section>
+      {/* ============================================ */}
+      {/* =       FIN NUEVA SECCIÓN LITIO            = */}
+      {/* ============================================ */}
+
     </div>
   );
 };
