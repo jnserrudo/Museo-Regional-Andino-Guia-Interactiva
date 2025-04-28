@@ -6,6 +6,7 @@ import { QrcodeOutlined } from "@ant-design/icons"; // Importa el icono QR
 
 // --- Datos Organizados en Arrays ---
 const mineralesCorteza = [
+  // Minerales originales del array (conservados)
   {
     id: "calcita",
     img: "/calcita.jfif",
@@ -18,25 +19,199 @@ const mineralesCorteza = [
     nombre: "Fluorita",
     desc: "De vivos colores y fluorescencia, es usada en óptica e industrias metalúrgicas. Común en yacimientos hidrotermales del NOA.",
   },
-  {
-    id: "galena",
-    img: "/galena.jfif",
-    nombre: "Galena",
-    desc: "Principal fuente de plomo y a veces de plata. Fácil de identificar por su brillo metálico y peso. Presente en el noroeste argentino.",
-  },
+  // Minerales del Word (actualizados y añadidos)
   {
     id: "pirita",
-    img: "/pirita.jfif",
+    img: "/minerales/pirita.jpeg",
     nombre: "Pirita",
-    desc: 'Conocida como "el oro de los tontos", es un disulfuro de hierro que suele acompañar depósitos de oro. Muy frecuente en la región.',
+    desc: "Disulfuro de hierro con cristales cúbicos. Usada para ácido sulfúrico y asociada a depósitos de oro.",
+    clase: "Clase II (Sulfuros y Sulfosales)",
+    sistemaCristalografico: "Cúbico",
+    etimologia: "Del griego 'pyros' (fuego), por producir chispas al golpearse.",
+    propiedadDiagnostica: "Cristales cúbicos estriados, quebradiza, polvo negruzco.",
+    importanciaEconomica: "Extrae oro/cobre asociado; fuente de azufre para ácido sulfúrico.",
+    genesis: "Rocas ígneas, sedimentarias, metamórficas; vetas hidrotermales.",
+    yacimientosPuna: ["Taca Taca (Salta)", "Mina La Colorada (Salta)"],
+    otros: "Llamada 'binches' por nativos de la Puna."
   },
+  {
+    id: "calcopirita",
+    img: "/minerales/calcopirita.jpeg",
+    nombre: "Calcopirita",
+    desc: "Principal mineral de cobre, color amarillo latón y raya negra verdosa.",
+    clase: "Clase II (Sulfuros y Sulfosales)",
+    sistemaCristalografico: "Tetragonal",
+    etimologia: "Del griego 'chalkos' (cobre) + 'pirita'.",
+    propiedadDiagnostica: "Más blanda que el acero, frágil, color amarillo intenso.",
+    importanciaEconomica: "Mena principal de cobre (Cu).",
+    genesis: "Pórfidos cupríferos, vetas hidrotermales, skarn.",
+    yacimientosPuna: ["Taca Taca (Salta)", "Diablillos (Salta)"],
+    otros: ""
+  },
+  {
+    id: "tetraedrita",
+    img: "/minerales/tetraedrita.jpeg",
+    nombre: "Tetraedrita",
+    desc: "Sulfosal común en vetas epitermales, fuente de plata en su variedad 'freibergita'.",
+    clase: "Clase II (Sulfuros y Sulfosales)",
+    sistemaCristalografico: "Cúbico",
+    etimologia: "Por su forma tetraédrica (Haidinger, 1845).",
+    propiedadDiagnostica: "Color gris acero, raya negra grisácea, cristales tetraédricos.",
+    importanciaEconomica: "Contiene hasta 18% plata (Ag) en la freibergita.",
+    genesis: "Vetas epitermales (fluidos hidrotermales de baja temperatura).",
+    yacimientosPuna: ["Mina La Concordia (Salta)", "El Quévar (Salta)"],
+    otros: ""
+  },
+  {
+    id: "galena",
+    img: "/minerales/galena.jpeg",
+    nombre: "Galena",
+    desc: "Principal mena de plomo, con frecuente contenido de plata.",
+    clase: "Clase II (Sulfuros y Sulfosales)",
+    sistemaCristalografico: "Cúbico",
+    etimologia: "Del latín 'galena' (mena de plomo).",
+    propiedadDiagnostica: "Clivaje cúbico perfecto, peso específico elevado.",
+    importanciaEconomica: "Usos en baterías, soldaduras, y protección radiológica.",
+    genesis: "Yacimientos hidrotermales, tipo VMS y SEDEX.",
+    yacimientosPuna: ["Mina Pirquitas (Jujuy)", "Mina La Concordia (Salta)"],
+    otros: ""
+  },
+  {
+    id: "estibinita",
+    img: "/minerales/estibinita.jpeg",
+    nombre: "Estibinita",
+    desc: "Fuente principal de antimonio, con hábito hojoso y exfoliación perfecta.",
+    clase: "Clase II (Sulfuros y Sulfosales)",
+    sistemaCristalografico: "Rómbico",
+    etimologia: "Del griego antiguo para 'antimonio'.",
+    propiedadDiagnostica: "Baja dureza, raya negra, exfoliación perfecta.",
+    importanciaEconomica: "Usado en retardantes de fuego, baterías y metalurgia.",
+    genesis: "Soluciones hidrotermales de baja temperatura.",
+    yacimientosPuna: ["Mina Victoria (Salta)"],
+    otros: ""
+  },
+  {
+    id: "esfalerita",
+    img: "/minerales/esfalerita.jpeg",
+    nombre: "Esfalerita",
+    desc: "Principal mena de zinc, con brillo resinoso y clivaje perfecto.",
+    clase: "Clase II (Sulfuros y Sulfosales)",
+    sistemaCristalografico: "Cúbico",
+    etimologia: "Del alemán 'blenden' (ofuscar, por confundirse con galena).",
+    propiedadDiagnostica: "Brillo resinoso, clivaje perfecto, color variable.",
+    importanciaEconomica: "Galvanizado de hierro, baterías, farmacéuticos.",
+    genesis: "Vetas hidrotermales, yacimientos VMS y SEDEX.",
+    yacimientosPuna: ["Mina Pirquitas (Jujuy)", "Mina La Concordia (Salta)"],
+    otros: ""
+  },
+  {
+    id: "malaquita",
+    img: "/minerales/malaquita.jpeg",
+    nombre: "Malaquita",
+    desc: "Carbonato de cobre verde, usado como ornamental y gema.",
+    clase: "Clase V (Carbonatos y Nitratos)",
+    sistemaCristalografico: "Monoclínico",
+    etimologia: "Del griego 'malache' (malva, por su color).",
+    propiedadDiagnostica: "Color verde brillante, efervescencia con HCl.",
+    importanciaEconomica: "Piedra ornamental y gema.",
+    genesis: "Zonas de oxidación de sulfuros de cobre.",
+    yacimientosPuna: ["Aguas Amargas (Salta)", "Los Colorados (Salta)"],
+    otros: ""
+  },
+  {
+    id: "azurita",
+    img: "/minerales/azurita.jpeg",
+    nombre: "Azurita",
+    desc: "Carbonato de cobre azul, usado como pigmento y ornamental.",
+    clase: "Clase V (Carbonatos y Nitratos)",
+    sistemaCristalografico: "Monoclínico",
+    etimologia: "Del persa por su color azul.",
+    propiedadDiagnostica: "Azul marino, efervescencia con HCl.",
+    importanciaEconomica: "Piedra ornamental y pigmento.",
+    genesis: "Zonas de oxidación de sulfuros de cobre.",
+    yacimientosPuna: ["Aguas Amargas (Salta)", "Los Colorados (Salta)"],
+    otros: ""
+  },
+  {
+    id: "bornita",
+    img: "/minerales/bornita.jpeg",
+    nombre: "Bornita",
+    desc: "Sulfuro de cobre con iridiscencia púrpura ('pecho de paloma').",
+    clase: "Clase II (Sulfuros y Sulfosales)",
+    sistemaCristalografico: "Tetragonal",
+    etimologia: "En honor a Ignatius von Born (mineralogista austríaco).",
+    propiedadDiagnostica: "Color bronce fresco, iridiscencia púrpura.",
+    importanciaEconomica: "Mena de cobre (Cu).",
+    genesis: "Vetas hidrotermales, pórfidos cupríferos.",
+    yacimientosPuna: ["Taca Taca (Salta)", "Diablillos (Salta)"],
+    otros: ""
+  },
+  {
+    id: "platas_rojas",
+    img: "/minerales/platas_rojas.jpeg",
+    nombre: "Platas Rojas (Proustita y Pirargirita)",
+    desc: "Sulfosales de plata con color rojo intenso y alto contenido de plata.",
+    clase: "Clase II (Sulfuros y Sulfosales)",
+    sistemaCristalografico: "Trigonal",
+    etimologia: "Proustita (por J.L. Proust), Pirargirita (del griego 'Ag' + 'fuego').",
+    propiedadDiagnostica: "Color rojo bermellón (proustita) o rojo oscuro (pirargirita).",
+    importanciaEconomica: "Fuente de plata (Ag).",
+    genesis: "Fluidos hidrotermales epitermales.",
+    yacimientosPuna: ["Mina Pirquitas (Jujuy)", "El Quevar (Salta)"],
+    otros: "En Bolivia llamadas 'rosicleres' o 'canutillos'."
+  },
+  {
+    id: "oro",
+    img: "/minerales/oro.jpeg",
+    nombre: "Oro",
+    desc: "Metal precioso maleable, usado en joyería y reservas monetarias.",
+    clase: "Clase I (Elementos)",
+    sistemaCristalografico: "Cúbico",
+    etimologia: "Del latín 'aurum' (brillante).",
+    propiedadDiagnostica: "Color amarillo oro, maleabilidad, alto peso específico.",
+    importanciaEconomica: "Joyería, electrónica, reservas financieras.",
+    genesis: "Vetas epitermales, placeres aluviales.",
+    yacimientosPuna: ["Mina Lindero (Salta)", "Diablillos (Salta)"],
+    otros: ""
+  },
+  {
+    id: "plata",
+    img: "/minerales/plata.jpeg",
+    nombre: "Plata",
+    desc: "Metal noble usado en fotografía, electrónica y aleaciones.",
+    clase: "Clase I (Elementos)",
+    sistemaCristalografico: "Cúbico",
+    etimologia: "Conocida desde la antigüedad.",
+    propiedadDiagnostica: "Color blanco plata, maleable, alto peso específico.",
+    importanciaEconomica: "Emulsiones fotográficas, electrónica, aleaciones.",
+    genesis: "Soluciones hidrotermales con sulfuros de plata.",
+    yacimientosPuna: ["Mina Pirquitas (Jujuy)", "El Quevar (Salta)"],
+    otros: ""
+  },
+  {
+    id: "cobre",
+    img: "/minerales/cobre.jpeg",
+    nombre: "Cobre",
+    desc: "Metal rojizo esencial para conductores eléctricos y aleaciones.",
+    clase: "Clase I (Elementos)",
+    sistemaCristalografico: "Cúbico",
+    etimologia: "Conocido desde la antigüedad.",
+    propiedadDiagnostica: "Color rojo cobre, fractura astillosa, maleable.",
+    importanciaEconomica: "Cables eléctricos, industria automotriz, militar.",
+    genesis: "Zonas oxidadas de depósitos de cobre.",
+    yacimientosPuna: ["Taca Taca (Salta)", "Río Grande (Salta)"],
+    otros: "Popular en coleccionismo."
+  },
+  // Mineral original del array no presente en el Word
   {
     id: "ulexita",
     img: "/ulexite.jfif",
     nombre: "Ulexita",
-    desc: 'Llamada "piedra de la televisión", transmite imágenes a través de su estructura. Presente en salares, se usa en la industria química.',
-  },
+    desc: 'Llamada "piedra de la televisión", presente en salares del NOA.',
+  }
 ];
+
+
 
 const mineralesPuna = [
   {
@@ -127,7 +302,7 @@ export const SalaMinerologiaMineria = () => {
       {/* Sección 1: Minerales Corteza */}
       <section className="seccion-minerales">
         <h2 className="sala-minerologia-subtitulo">
-          Minerales de la Corteza Terrestre
+          Minerales
         </h2>
         <div className="minerales-grid">
           {mineralesCorteza.map((mineral, index) => (
@@ -145,11 +320,30 @@ export const SalaMinerologiaMineria = () => {
                     <QrcodeOutlined />
                   </button>
                 )}
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: `<strong>${mineral.nombre}:</strong> ${mineral.desc}`,
-                  }}
-                ></p>
+                
+                {/* --- NUEVA ESTRUCTURA DEL CONTENIDO --- */}
+                {/* Nombre del Mineral como título */}
+                <h4 className="mineral-name">{mineral.nombre}</h4>
+                {/* Descripción principal */}
+                <p className="mineral-description">{mineral.desc}</p>
+
+                {/* Div para los detalles extra (solo se renderiza si hay alguno) */}
+                {(mineral.clase || mineral.sistemaCristalografico || mineral.etimologia || mineral.propiedadDiagnostica || mineral.importanciaEconomica || mineral.genesis || mineral.yacimientosPuna || mineral.otros) && (
+                    <div className="mineral-extra-details">
+                        {mineral.clase && <p className="mineral-detail-item"><strong>Clase:</strong> {mineral.clase}</p>}
+                        {mineral.sistemaCristalografico && <p className="mineral-detail-item"><strong>Sistema Cristalografico:</strong> {mineral.sistemaCristalografico}</p>}
+                        {mineral.etimologia && <p className="mineral-detail-item"><strong>Etimología:</strong> {mineral.etimologia}</p>}
+                        {mineral.propiedadDiagnostica && <p className="mineral-detail-item"><strong>Propiedad Diagnóstica:</strong> {mineral.propiedadDiagnostica}</p>}
+                        {mineral.importanciaEconomica && <p className="mineral-detail-item"><strong>Importancia Económica:</strong> {mineral.importanciaEconomica}</p>}
+                        {mineral.genesis && <p className="mineral-detail-item"><strong>Génesis:</strong> {mineral.genesis}</p>}
+                        {/* Mapear si yacimientos es un array */}
+                        {mineral.yacimientosPuna && mineral.yacimientosPuna.length > 0 && (
+                            <p className="mineral-detail-item"><strong>Yacimientos (Puna):</strong> {mineral.yacimientosPuna.join(', ')}</p>
+                        )}
+                        {mineral.otros && <p className="mineral-detail-item"><strong>Otros:</strong> {mineral.otros}</p>}
+                    </div>
+                )}
+                 {/* --- FIN NUEVA ESTRUCTURA --- */}
               </div>
             </SalaContenidoItem>
           ))}
