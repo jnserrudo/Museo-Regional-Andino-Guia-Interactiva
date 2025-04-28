@@ -1,7 +1,7 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import { useSpeech } from '../Contexts/SpeechContext'; // Ajusta la ruta si es necesario
-import '../SalaDetalle.css'; // Asegúrate que este archivo exista y tenga los estilos NUEVOS
+import { useSpeech } from "../Contexts/SpeechContext"; // Ajusta la ruta si es necesario
+import "../SalaDetalle.css"; // Asegúrate que este archivo exista y tenga los estilos NUEVOS
 
 // ========================================================================
 // =                          DATOS DE DETALLE                          =
@@ -31,88 +31,118 @@ const detallesGeologia = {
       },
     ],
     gallery: [
-        { src: "/img/geologia/fosil_estromatolito.jpg", caption: "Estromatolitos: Vida temprana." },
-        { src: "/img/geologia/gran_canon.jpg", caption: "Capas geológicas (Gran Cañón)." },
-        { src: "/img/geologia/pliegues_rocosos.jpg", caption: "Pliegues rocosos." },
-    ]
+      {
+        src: "/img/geologia/fosil_estromatolito.jpg",
+        caption: "Estromatolitos: Vida temprana.",
+      },
+      {
+        src: "/img/geologia/gran_canon.jpg",
+        caption: "Capas geológicas (Gran Cañón).",
+      },
+      {
+        src: "/img/geologia/pliegues_rocosos.jpg",
+        caption: "Pliegues rocosos.",
+      },
+    ],
   },
 
   // --- Volcanes ---
   volcanes: {
     title: "Volcanes",
-    fullTitle: "Volcanes: Ventanas al Interior Terrestre",
+    fullTitle: "¿Cómo se forma un Volcán?",
     image: "volcan_museo.png", // RUTA ORIGINAL MANTENIDA
     sections: [
-      { text: "Los volcanes son manifestaciones superficiales de la energía interna de la Tierra. Son estructuras geológicas, generalmente montañas o colinas, por donde el magma (roca fundida), cenizas y gases del interior del planeta emergen a la superficie. Las erupciones volcánicas pueden ser espectaculares y destructivas, pero también son procesos fundamentales en la formación de nueva corteza terrestre y la liberación de gases que componen nuestra atmósfera." },
       {
+        text: `
+Cuando en las profundidades de la corteza terrestres disminuye la presión de forma abrupta. La temperatura sube a tal punto que se funden las rocas generando una sustancia llamada magma.
+El magma sube a la superficie y e su camino se carga de minerales que se encuentran en las rocas entre las que asciende.
+Al llegar a la superficie, se derrama como coladas de lava y mantos de escoria y cenizas.
+De esta manera se va construyendo gradualmente el edificio del volcán cuya forma depende de la composición de la lava.
+`,
+      },
+      /*  {
         subtitle: "Tipos de Volcanes",
         text: "Existen diversos tipos de volcanes, clasificados según su forma, tipo de erupción y composición del magma. Los principales son los volcanes en escudo (amplios, pendientes suaves, lavas fluidas), estratovolcanes o compuestos (cónicos, pendientes pronunciadas, alternancia de lava y piroclastos) y calderas volcánicas (grandes depresiones formadas por colapso tras erupciones masivas).",
-        image: "volcan_museo2.png" // RUTA ORIGINAL MANTENIDA
+        image: "volcan_museo2.png", // RUTA ORIGINAL MANTENIDA
       },
       {
         subtitle: "Volcanismo en los Andes",
         text: "La Cordillera de los Andes, donde se ubica nuestra región, es parte del Cinturón de Fuego del Pacífico, una de las zonas con mayor actividad volcánica y sísmica del mundo. El volcanismo andino está relacionado con la subducción de la Placa de Nazca bajo la Placa Sudamericana, generando numerosos volcanes activos y paisajes característicos como los que observamos en la Puna.",
-        image: "volcan_museo3.png" // RUTA ORIGINAL MANTENIDA
-      }
+        image: "volcan_museo3.png", // RUTA ORIGINAL MANTENIDA
+      }, */
     ],
-     gallery: [
-        { src: "lava_pahoehoe.jpg", caption: "Lava fluida Pahoehoe." }, // RUTA ORIGINAL MANTENIDA
-        { src: "erupcion_cenizas.jpg", caption: "Columna de cenizas." }, // RUTA ORIGINAL MANTENIDA
-        { src: "domo_lava.jpg", caption: "Domo de lava viscosa." },       // RUTA ORIGINAL MANTENIDA
-    ]
+    gallery: [
+      { src: "lava_pahoehoe.jpg", caption: "Lava fluida Pahoehoe." }, // RUTA ORIGINAL MANTENIDA
+      { src: "erupcion_cenizas.jpg", caption: "Columna de cenizas." }, // RUTA ORIGINAL MANTENIDA
+      { src: "domo_lava.jpg", caption: "Domo de lava viscosa." }, // RUTA ORIGINAL MANTENIDA
+    ],
   },
 
   // --- Géiser ---
   geiser: {
     title: "Géiser",
-    fullTitle: "Géiser: Fuente Termal Eruptiva",
+    fullTitle: "",
     image: "geiser_museo.png", // RUTA ORIGINAL MANTENIDA
     sections: [
-      { text: "Un géiser es un tipo especial de fuente termal que entra en erupción periódicamente, lanzando una columna de agua caliente y vapor al aire. Este fenómeno ocurre en áreas con actividad geotérmica donde el agua subterránea entra en contacto con rocas calentadas por magma cercano." },
+      {
+        text: "Un géiser es un tipo especial de fuente termal que entra en erupción periódicamente, lanzando una columna de agua caliente y vapor al aire. Este fenómeno ocurre en áreas con actividad geotérmica donde el agua subterránea entra en contacto con rocas calentadas por magma cercano.",
+      },
       {
         subtitle: "Cómo Funciona",
         text: "El mecanismo de un géiser implica un sistema de 'plomería' subterráneo. El agua fría se filtra hacia abajo y es calentada por encima de su punto de ebullición, pero la presión del agua superior evita que hierva. Eventualmente, el agua supercalentada forma burbujas de vapor que ascienden, reduciendo la presión sobre el agua inferior. Esto provoca una ebullición repentina y violenta, expulsando el agua y el vapor acumulados en una erupción.",
-        image: "geiser_museo2.png" // RUTA ORIGINAL MANTENIDA
+        image: "geiser_museo2.png", // RUTA ORIGINAL MANTENIDA
       },
       {
         subtitle: "Géiseres en el Mundo y los Andes",
         text: "Los campos de géiseres son raros y requieren condiciones geológicas específicas. Los más famosos se encuentran en Yellowstone (EE.UU.), Islandia y Nueva Zelanda. En los Andes, aunque menos comunes que otras manifestaciones termales, existen áreas con actividad de géiseres, como El Tatio en Chile, uno de los campos más grandes del hemisferio sur, mostrando la intensa actividad geotérmica de la región.",
-        image: "geiser_museo3.png" // RUTA ORIGINAL MANTENIDA
-      }
+        image: "geiser_museo3.png", // RUTA ORIGINAL MANTENIDA
+      },
     ],
     gallery: [
-      { src: "geiser_erupcion_detalle.jpg", caption: "Erupción en detalle." },       // RUTA ORIGINAL MANTENIDA
-      { src: "fumarolas.jpg", caption: "Fumarolas geotérmicas." },                 // RUTA ORIGINAL MANTENIDA
-      { src: "fuente_termal_colorida.jpg", caption: "Microorganismos termófilos." }, // RUTA ORIGINAL MANTENIDA
-    ]
+      { src: "geiser_erupcion_detalle.jpg", caption: "Erupción en detalle." }, // RUTA ORIGINAL MANTENIDA
+      { src: "fumarolas.jpg", caption: "Fumarolas geotérmicas." }, // RUTA ORIGINAL MANTENIDA
+      {
+        src: "fuente_termal_colorida.jpg",
+        caption: "Microorganismos termófilos.",
+      }, // RUTA ORIGINAL MANTENIDA
+    ],
   },
 
   // --- Salares ---
   salares: {
     title: "Salares Andinos",
-    fullTitle: "Salares Andinos: Desiertos de Sal y Vida Adaptada",
+    fullTitle: "¿Cómo se forma un salar?",
     image: "salares_museo.jpeg", // RUTA ORIGINAL MANTENIDA
     sections: [
-      { text: "Los salares, también conocidos como desiertos de sal o salinas, son extensas llanuras cubiertas por costras de sal y otros minerales evaporíticos. Se forman en cuencas endorreicas (sin salida al mar) de regiones áridas o semiáridas, donde la evaporación del agua supera con creces la precipitación. El agua que llega a la cuenca, cargada de sales disueltas erosionadas de las rocas circundantes, se acumula y se evapora lentamente, dejando atrás los minerales." },
       {
-        subtitle: "Riqueza Mineral y Económica",
-        text: "Los salares son importantes depósitos de minerales como halita (sal común), yeso, ulexita y, de forma destacada en los Andes, litio y potasio. El litio, contenido en las salmueras bajo la costra salina, se ha vuelto crucial para la fabricación de baterías, convirtiendo a los salares andinos en puntos estratégicos a nivel mundial. La extracción de estos recursos debe realizarse considerando la sostenibilidad y el frágil equilibrio del ecosistema.",
-        image: "extraccion_litio_salar.jpg" // RUTA ORIGINAL MANTENIDA
+        text: `Hace falta: una depresión sin salida; volcanes en plena actividad; aguas termales; diferentes minerales y un clima árido.
+Hace muchos años, cuando los volcanes de la Puna estaban activos, se formaron unas depresiones en el terreno que no tenían salida hacia ningún lado. 
+Se fueron llenando con agua de la superficie, con aguas termales cargadas de minerales que subían desde el subsuelo, con pequeñísimos fragmentos de rocas erosionadas, con polvo traído por el viento y con cenizas volcánicas. 
+Elementos químicos contenidos en gases y líquidos liberados por los volcanes se unieron con los que había en la tierra y se formaron diferentes sales. Después, el gran calor del ambiente evaporó el agua dejando en las depresiones todas las sales minerales formadas. 
+Además, en el interior de estas sales sólidas quedó un agua muy salada, llamada salmuera, que contiene minerales como litio, potasio y magnesio que no precipitan, es decir, no se convierten en algo sólido.
+
+`,
       },
       {
+        subtitle: "En un año",
+        text: ` En todo un año, apenas llueven unos 200 mm en el este puneño y hacia el oeste no superan los 50mm. Al chocar los vientos contra las serranías pierden casi toda su humedad precipitándola como luvia de un lado de las montañas y pasando casi secos hacia la Puna. Los "cerros brujos", avisan a los puneños cómo va a comportarse el clima. La manera que se disponen las nubes alrededor de la cumbre de estos cerros "avisadores" les indica que se avecina una nevada. La gran diferencia de temperatura entre el día y la noche (amplitud térmica) alimenta el desierto. 
+        Las altas temperaturas durante el día y las frías temperaturas bajo cero durante la noche provocan que las rocas se agrieten y partan generando pedregullo y arena.
+        `,
+        image: "extraccion_litio_salar.jpg", // RUTA ORIGINAL MANTENIDA
+      },
+      /* {
         subtitle: "Un Ecosistema Extremo",
         text: "A pesar de su apariencia inhóspita, los salares albergan ecosistemas únicos adaptados a condiciones extremas de salinidad, radiación solar y fluctuaciones de temperatura. Microorganismos extremófilos forman la base de la cadena alimenticia. En las lagunas asociadas a los salares, es común encontrar flamencos andinos que se alimentan de pequeños crustáceos, así como vicuñas y otra fauna adaptada al altiplano que utiliza estos espacios.",
-        image: "flamencos_salar.jpg" // RUTA ORIGINAL MANTENIDA
-      }
+        image: "flamencos_salar.jpg", // RUTA ORIGINAL MANTENIDA
+      }, */
     ],
     gallery: [
       { src: "texturas_sal.jpg", caption: "Texturas de la costra salina." }, // RUTA ORIGINAL MANTENIDA
-      { src: "ojos_de_salar.jpg", caption: "'Ojos de salar'." },             // RUTA ORIGINAL MANTENIDA
-      { src: "vicunas_altiplano.jpg", caption: "Vicuñas en el altiplano." },   // RUTA ORIGINAL MANTENIDA
-    ]
+      { src: "ojos_de_salar.jpg", caption: "'Ojos de salar'." }, // RUTA ORIGINAL MANTENIDA
+      { src: "vicunas_altiplano.jpg", caption: "Vicuñas en el altiplano." }, // RUTA ORIGINAL MANTENIDA
+    ],
   },
 };
-
 
 // ========================================================================
 // =                       COMPONENTE DE DETALLE                        =
@@ -127,8 +157,8 @@ export const SalaGeologiaDetalle = () => {
   const textoCompletoParaVoz = useMemo(() => {
     if (!tema) return "";
     return `${tema.fullTitle || tema.title}. ${tema.sections
-      .map(s => `${s.subtitle ? s.subtitle + '. ' : ''}${s.text}`)
-      .join('. ')}`;
+      .map((s) => `${s.subtitle ? s.subtitle + ". " : ""}${s.text}`)
+      .join(". ")}`;
   }, [tema]);
 
   useEffect(() => {
@@ -149,15 +179,19 @@ export const SalaGeologiaDetalle = () => {
   }
 
   // Determina si hay imágenes en las secciones para aplicar estilos condicionales
-  const hasSectionImages = tema.sections.some(section => section.image);
+  const hasSectionImages = tema.sections.some((section) => section.image);
 
   return (
     // Quitamos la animación fadeIn del contenedor principal por ahora para evitar efectos indeseados
     <article className="sala-detalle-container" id={`detalle-${id}`}>
-
       {/* --- HERO SECTION --- */}
       {/* Usamos la imagen del tema. ASEGÚRATE QUE ESTAS RUTAS FUNCIONEN EN TU PROYECTO */}
-      <header className="sala-detalle-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${tema.image})` }}>
+      <header
+        className="sala-detalle-hero"
+        style={{
+          backgroundImage: `url(${import.meta.env.BASE_URL}${tema.image})`,
+        }}
+      >
         {/* Overlay aplicado vía CSS con ::before para más control */}
         <div className="sala-detalle-hero-content">
           <h1 className="sala-detalle-titulo-principal">{tema.title}</h1>
@@ -166,11 +200,17 @@ export const SalaGeologiaDetalle = () => {
       </header>
 
       {/* --- CONTENIDO PRINCIPAL --- */}
-      <div className={`sala-detalle-contenido ${hasSectionImages ? 'has-section-images' : ''}`}>
+      <div
+        className={`sala-detalle-contenido ${
+          hasSectionImages ? "has-section-images" : ""
+        }`}
+      >
         {tema.sections.map((section, index) => (
           <section
             key={index}
-            className={`sala-detalle-seccion ${section.image ? 'with-image' : 'text-only'} section-${index % 2 === 0 ? 'even' : 'odd'}`} // Alternar clases para layout
+            className={`sala-detalle-seccion ${
+              section.image ? "with-image" : "text-only"
+            } section-${index % 2 === 0 ? "even" : "odd"}`} // Alternar clases para layout
           >
             <div className="sala-detalle-seccion-content">
               {section.subtitle && (
@@ -181,13 +221,13 @@ export const SalaGeologiaDetalle = () => {
             </div>
             {section.image && (
               <figure className="sala-detalle-imagen-seccion">
-                 {/* IMAGEN DESCOMENTADA - Usa la ruta de la sección */}
-                 {/* ASEGÚRATE QUE ESTAS RUTAS FUNCIONEN EN TU PROYECTO */}
-                 
-                 {/* <img src={`${import.meta.env.BASE_URL}${section.image}`} alt={section.subtitle || `Ilustración de ${tema.title}`} loading="lazy" />
-                  */}
-                 {/* Puedes añadir figcaption si lo necesitas */}
-                 {/* <figcaption>Descripción opcional</figcaption> */}
+                {/* IMAGEN DESCOMENTADA - Usa la ruta de la sección */}
+                {/* ASEGÚRATE QUE ESTAS RUTAS FUNCIONEN EN TU PROYECTO */}
+
+                {/* <img src={`${import.meta.env.BASE_URL}${section.image}`} alt={section.subtitle || `Ilustración de ${tema.title}`} loading="lazy" />
+                 */}
+                {/* Puedes añadir figcaption si lo necesitas */}
+                {/* <figcaption>Descripción opcional</figcaption> */}
               </figure>
             )}
           </section>
@@ -204,14 +244,20 @@ export const SalaGeologiaDetalle = () => {
               <figure key={index} className="sala-detalle-galeria-item">
                 {/* IMAGEN DESCOMENTADA - Usa la ruta de la galería */}
                 {/* ASEGÚRATE QUE ESTAS RUTAS FUNCIONEN EN TU PROYECTO */}
-                <img src={`${import.meta.env.BASE_URL}${img.src}`} alt={img.caption || `Imagen ${index + 1} de la galería ${tema.title}`} loading="lazy"/>
+                <img
+                  src={`${import.meta.env.BASE_URL}${img.src}`}
+                  alt={
+                    img.caption ||
+                    `Imagen ${index + 1} de la galería ${tema.title}`
+                  }
+                  loading="lazy"
+                />
                 {img.caption && <figcaption>{img.caption}</figcaption>}
               </figure>
             ))}
           </div>
         </aside>
       )}
-
     </article>
   );
 };

@@ -61,7 +61,7 @@ export const Home = () => {
       {/* Eliminado data-aos="fade-up" */}
       <section className="info-section">
         <div className="info-content">
-            <h3 className="info-title">Explora Nuestra Herencia</h3>
+            <h3 className="info-title"></h3>
             <p>
             El Museo Regional Andino de San Antonio de los Cobres se dedica a la conservación
             y promoción del invaluable patrimonio cultural y natural de la Puna Salteña.
@@ -70,8 +70,10 @@ export const Home = () => {
             historia y tradiciones de nuestra comunidad andina.
             </p>
             <Link to="/sobre-nosotros">
-              <Button type="link" className="info-link">Conoce más sobre el museo →</Button>
-            </Link>
+{/*
+               <Button type="link" className="info-link">Conoce más sobre el museo →</Button>
+ */}
+             </Link>
         </div>
         <div className="info-visual">
              {/* Podrías poner un SVG, un icono temático o una imagen pequeña aquí */}

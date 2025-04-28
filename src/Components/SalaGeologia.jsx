@@ -3,11 +3,11 @@ import '../SalaSubtemas.css'; // <<< --- IMPORTA EL NUEVO CSS
 
 // Asegúrate que las imágenes existan en tu carpeta public o sean importadas correctamente
 const temasGeologia = [
-  {
+  /* {
     id: "origen",
     title: "Origen y Formación Geológica", // Título ligeramente acortado para ejemplo
     image: "/fondo1.JPG", // Asumiendo que está en /public/fondo1.JPG
-  },
+  }, */
   { id: "volcanes", title: "Volcanes", image: "/volcan_museo.png" }, // Cambia a imágenes reales
   { id: "geiser", title: "Géiser", image: "/geiser_museo.png" },
   { id: "salares", title: "Salares", image: "/salares_museo.jpeg" },

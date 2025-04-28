@@ -182,3 +182,167 @@
       margin-bottom: 0rem; /* Quizás un poco menos de espacio en móvil */
   }
   }
+
+
+
+  /* ----------------------------------------------------- */
+
+  /* Sala.css (o global) - Añadir estos estilos */
+
+/* Contenedor para las tarjetas de geología dentro de la intro */
+.geologia-subtemas-en-intro {
+  margin-top: 2.5rem; /* Espacio sobre las tarjetas */
+  padding-top: 2rem; /* Espacio interno */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Línea separadora sutil */
+  width: 100%;
+  max-width: 900px; /* Ancho máximo para las tarjetas */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Título opcional sobre las tarjetas */
+.geologia-subtemas-titulo {
+  font-size: 1.3rem; /* Tamaño REM */
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9); /* Blanco semi-transparente */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Ajuste para el botón volver cuando está en un detalle */
+.sala-detail-content-wrapper {
+    padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding similar al de otras salas */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.detail-back-button {
+    /* Puedes darle un estilo ligeramente diferente si quieres */
+    /* Por ejemplo, alinearlo a la izquierda */
+    /* display: inline-flex !important; */
+}
+
+/* Ocultar la pista de click para Geología específicamente si es necesario */
+.sala-page-container.view-intro[data-sala-id="geologia"] .sala-intro-click-hint {
+   /* display: none; */ /* Descomenta si la pista molesta */
+}
+
+/* Asegúrate que la intro de geología no tenga el onClick visualmente */
+.sala-page-container.view-intro[data-sala-id="geologia"] .sala-intro-hero {
+    cursor: default; /* Cursor normal, no de puntero */
+}
+
+
+
+/* -------------------- */
+
+
+/* Sala.css - Añadir estilos para opciones de Ramal en Intro */
+
+.ramal-subtemas-en-intro {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 900px; /* O el ancho que prefieras */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ramal-subtemas-titulo {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Ajustes para usar las tarjetas de subtema como opciones de Ramal */
+.ramal-choices-container {
+    /* Puedes usar el grid de subtemas */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); /* Ajusta minmax */
+    gap: 1rem; /* Menos gap si son solo 2 */
+}
+
+/* Estilos específicos si reutilizas .sala-subtema-card para Ramal */
+.sala-subtema-card.ramal-choice-card {
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo casi opaco */
+    color: var(--text-dark); /* Texto oscuro */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Sombra más visible */
+}
+ /* Quitamos imagen de fondo */
+.ramal-choice-card .sala-subtema-image {
+    display: none;
+}
+
+/* Layout interno específico para tarjeta Ramal */
+.ramal-choice-card .sala-subtema-info.ramal-choice-card-layout {
+    padding: 1rem 1.5rem; /* Padding interno */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%; /* Ocupar todo el ancho de la tarjeta */
+}
+
+/* Icono */
+.ramal-choice-card .ramal-choice-icon.intro-card-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    background: none; /* Sin fondo circular */
+    padding: 0;
+    width: auto; height: auto;
+}
+
+/* Info (Título + Descripción) */
+.ramal-choice-card .ramal-choice-info.intro-card-info {
+    flex-grow: 1; /* Ocupa espacio */
+    text-align: left;
+}
+.ramal-choice-card .ramal-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Título en primario */
+    margin: 0 0 0.2rem 0;
+    /* Resetear estilos de .sala-subtema-title si es necesario */
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    padding-right: 0;
+}
+.ramal-choice-card .ramal-card-description {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Flecha */
+.ramal-choice-card .ramal-card-arrow {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    opacity: 0.5; /* Siempre visible pero tenue */
+    transform: translateX(0);
+    transition: transform 0.2s ease;
+}
+.ramal-choice-card:hover .ramal-card-arrow {
+    opacity: 1;
+    transform: translateX(5px); /* Mover un poco a la derecha */
+}
+
+
+/* Ajustes responsivos para tarjetas Ramal */
+ @media (max-width: 767px) {
+    .ramal-choices-container {
+         grid-template-columns: 1fr; /* Una columna */
+     }
+ }
+ @media (max-width: 480px) {
+    .ramal-choice-card .sala-subtema-info.ramal-choice-card-layout {
+         padding: 0.8rem 1rem;
+         gap: 0.8rem;
+     }
+    .ramal-choice-card .ramal-choice-icon.intro-card-icon { font-size: 1.8rem; }
+    .ramal-choice-card .ramal-card-title { font-size: 1rem; }
+    .ramal-choice-card .ramal-card-description { font-size: 0.85rem; }
+ }

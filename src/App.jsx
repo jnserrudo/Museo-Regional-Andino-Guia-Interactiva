@@ -1,17 +1,19 @@
+// App.js (CORREGIDO - Asegúrate que esté así)
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "antd";
-
-import { useState } from "react";
 import { Navbar } from "./Components/Navbar";
 import { Sidebar } from "./Components/Sidebar";
-import { Salas } from "./Components/Salas";
 import { Footer } from "./Components/Footer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Pages/Home";
-import { Sala } from "./Components/Sala";
+// --- IMPORTANTE: Importa Sala Y los wrappers EXPORTADOS desde Sala.jsx ---
+import { Sala, SalaPrincipal, SalaDetalleWrapper } from "./Components/Sala";
+import { Salas } from "./Components/Salas"; // Para la vista de lista de salas
 import { PuzzleGame } from "./Components/PuzzleGame";
 import { MapaMuseo } from "./Components/MapaMuseo";
 import { SpeechProvider } from "./Contexts/SpeechContext";
 import { FontProvider } from "./Contexts/FontContext";
+import { useState } from "react";
+
 const { Content } = Layout;
 
 const App = () => {
@@ -27,13 +29,29 @@ const App = () => {
               visible={sidebarVisible}
               onClose={() => setSidebarVisible(false)}
             />
-            <Content style={{ padding: "16px" }}>
+            <Content style={{ padding: "0" }}> {/* Padding 0 si hijos lo manejan */}
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/salas" element={<Salas />} />
-                <Route path="/salas/:salaId/*" element={<Sala />} />
+
+                {/* --- RUTA PADRE PARA LAS SALAS --- */}
+                {/* Renderiza SIEMPRE el componente Sala, que actúa como layout */}
+                <Route path="/salas/:salaId" element={<Sala />}> {/* Layout */}
+                    {/* --- RUTAS HIJAS (Anidadas) --- */}
+                    {/* Se renderizarán DENTRO del <Outlet/> de Sala.jsx */}
+
+                    {/* Ruta "índice" (ej: /salas/biodiversidad o /salas/geologia) */}
+                    <Route index element={<SalaPrincipal />} />
+
+                    {/* Ruta de detalle (ej: /salas/geologia/volcanes) */}
+                    <Route path=":id" element={<SalaDetalleWrapper />} />
+
+                </Route> {/* --- Fin Ruta Padre Salas --- */}
+
                 <Route path="/puzzle" element={<PuzzleGame />} />
                 <Route path="/mapa" element={<MapaMuseo />} />
+
+                {/* <Route path="*" element={<div>404</div>} /> */}
               </Routes>
             </Content>
             <Footer />

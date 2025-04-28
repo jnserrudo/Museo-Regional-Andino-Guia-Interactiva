@@ -1,6 +1,6 @@
 import { Layout, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
-
+import {Link } from "react-router-dom";
 const { Header } = Layout;
 
 export const Navbar = ({ onMenuClick }) => {
@@ -8,8 +8,9 @@ export const Navbar = ({ onMenuClick }) => {
     <Header className="header" style={{ background: "#8B5A2B" }}>
       <div className="cont_menu_txt">
         <Button type="text" icon={<MenuOutlined />} onClick={onMenuClick} style={{ color: "#fff" }} />
-        <p className="txt_nav" >MUSEO REGIONAL ANDINO</p>
-
+        <Link to="/" onClick={() => onClose()}>
+          <p className="txt_nav" >MUSEO REGIONAL ANDINO</p>
+        </Link>
       </div>
       <div className="cont_band_leng">
         <div className="band_leng">
