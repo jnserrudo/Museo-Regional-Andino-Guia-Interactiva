@@ -1,0 +1,117 @@
+/* SalaGeologiaDetalleVolcanes.css */
+
+/* Estilos específicos para la galería de imágenes de la sección Volcanes */
+
+.volcanes-image-gallery {
+    margin-top: 4rem; /* Espacio sobre la galería */
+    margin-bottom: 2rem; /* Espacio debajo */
+    padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding lateral consistente con el contenido */
+    max-width: 1200px; /* Ancho máximo */
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid var(--border-color-light, #e9ecef); /* Separador superior */
+    background-color: var(--bg-medium, #f8f9fa); /* Fondo suave */
+    border-radius: var(--border-radius-lg, 12px); /* Opcional: redondear el contenedor */
+  }
+  
+  .volcanes-gallery-title {
+    font-size: clamp(1.5rem, 4vw, 2rem); /* Tamaño REM adaptable */
+    font-weight: 700;
+    color: var(--secondary-color, #A0522D); /* Color secundario */
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .volcanes-gallery-grid {
+    display: grid;
+    /* Columnas responsivas, mínimo 150px, preferiblemente más anchas */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.2rem; /* Espacio entre imágenes */
+  }
+  
+  .volcanes-gallery-item {
+    position: relative; /* Para el caption */
+    overflow: hidden; /* Para redondear imagen y contener efectos */
+    border-radius: var(--border-radius-md, 8px);
+    box-shadow: var(--shadow-low, 0 3px 8px rgba(0,0,0,0.1));
+    cursor: pointer; /* Indica clickeable (para lightbox futuro) */
+    transition: transform 0.3s var(--transition-ease, ease),
+                box-shadow 0.3s var(--transition-ease, ease);
+    aspect-ratio: 1 / 1; /* Hacer las tarjetas cuadradas */
+  }
+  
+  .volcanes-gallery-item:hover,
+  .volcanes-gallery-item:focus-within { /* Efecto también al enfocar */
+    transform: scale(1.05);
+    box-shadow: var(--shadow-high, 0 8px 25px rgba(0, 0, 0, 0.15));
+    z-index: 10; /* Para que la sombra se vea bien */
+  }
+  
+  /* Quitar outline por defecto al enfocar si se prefiere */
+  .volcanes-gallery-item:focus {
+      outline: none;
+  }
+  /* Añadir un outline personalizado al enfocar */
+  .volcanes-gallery-item:focus-visible {
+      outline: 3px solid var(--primary-color-light, #a67b5b);
+      outline-offset: 2px;
+  }
+  
+  
+  .volcanes-gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%; /* Ocupar toda la altura del figure (definida por aspect-ratio) */
+    object-fit: cover; /* Asegura que la imagen cubra sin distorsionarse */
+    transition: transform 0.5s var(--transition-ease, ease);
+  }
+  
+  .volcanes-gallery-item:hover .volcanes-gallery-image {
+    transform: scale(1.1); /* Zoom interno a la imagen */
+  }
+  
+  .volcanes-gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 40%, transparent 100%);
+    color: #fff;
+    padding: 1.5rem 0.8rem 0.6rem 0.8rem; /* Más padding arriba */
+    font-size: 0.85rem; /* Tamaño REM */
+    font-weight: 500;
+    text-align: center;
+    opacity: 0; /* Oculto por defecto */
+    transform: translateY(20%); /* Empieza ligeramente abajo */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* No interfiere con hover del item */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+  
+  .volcanes-gallery-item:hover .volcanes-gallery-caption,
+  .volcanes-gallery-item:focus-within .volcanes-gallery-caption {
+    opacity: 1;
+    transform: translateY(0); /* Aparece desde abajo */
+  }
+  
+  /* --- Responsividad Galería --- */
+  @media (max-width: 768px) {
+      .volcanes-gallery-grid {
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+          gap: 1rem;
+      }
+      .volcanes-gallery-caption {
+          font-size: 0.8rem;
+          padding: 1.2rem 0.6rem 0.5rem 0.6rem;
+      }
+  }
+  
+  @media (max-width: 480px) {
+      .volcanes-gallery-grid {
+          grid-template-columns: repeat(2, 1fr); /* Forzar 2 columnas */
+          gap: 0.8rem;
+      }
+       .volcanes-gallery-caption {
+          font-size: 0.75rem; /* Aún más pequeño */
+       }
+  }

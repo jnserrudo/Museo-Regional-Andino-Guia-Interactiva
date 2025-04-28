@@ -14,9 +14,10 @@
   .sala-subtemas-grid {
     display: grid;
     /* Columnas responsivas: Mínimo 250px, máximo 1fr */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: 1.5rem; /* Espacio entre tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%,300px), 1fr));
+    gap: 2.5rem; /* Espacio entre tarjetas */
     padding: 0; /* Sin padding extra en el grid mismo */
+    width: 100%;
   }
   
   /* --- Estilo de cada Tarjeta --- */
@@ -44,7 +45,7 @@
   /* --- Contenedor de la Imagen --- */
   .sala-subtema-image {
     width: 100%;
-    padding-top: 65%; /* Relación de aspecto (ej: ~16:10). Ajusta este % */
+    padding-top: 50%; /* Relación de aspecto (ej: ~16:10). Ajusta este % */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -136,3 +137,70 @@
           font-size: 1.3rem;
       }
   }
+
+
+
+
+  /* ---  --- */
+
+  /* === AJUSTES PARA TARJETAS EN INTRO (Sala.css o al final de SalaSubtemas.css) === */
+
+/* Ajusta el grid DENTRO de las intros */
+.geologia-subtemas-en-intro .sala-subtemas-grid,
+.ramal-subtemas-en-intro .sala-subtemas-grid {
+  max-width: 800px; /* Limita el ancho máximo del grid dentro de la intro */
+  margin-left: auto;
+  margin-right: auto;
+  gap: 1rem; /* Reduce el espacio entre tarjetas un poco */
+
+  /* Hacemos las columnas un poco más estrechas en su base para móvil */
+  /* Antes era min(100%, 300px) o 250px */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}
+
+/* Ajusta la altura de las imágenes de las tarjetas de GEOLOGÍA en la intro */
+.geologia-subtemas-en-intro .sala-subtema-image {
+  /* Reducimos el padding-top para hacerlas más bajas (menos altas) */
+  /* Prueba valores como 55%, 50%, etc. */
+  padding-top: 55%; /* <--- AJUSTA ESTE VALOR PARA LA ALTURA */
+}
+
+/* Ajustes específicos para las TARJETAS RAMAL dentro de la intro */
+.ramal-subtemas-en-intro .sala-subtema-card.ramal-choice-card {
+  /* Mantenemos el fondo y sombra que ya tenías */
+  /* Puedes ajustar el padding si lo ves necesario */
+  /* padding: 1rem; */ /* Ejemplo */
+  min-height: 90px; /* Añade una altura mínima para evitar que sean demasiado bajas */
+}
+
+.ramal-subtemas-en-intro .ramal-choice-card .sala-subtema-info.ramal-choice-card-layout {
+   /* Ajusta el padding si es necesario para el balance vertical */
+   padding: 1rem 1.2rem;
+   min-height: auto; /* Quita altura mínima aquí si la pusiste en la tarjeta */
+}
+
+/* Ajustes más específicos para móvil si aún se ven mal */
+@media (max-width: 500px) {
+    .geologia-subtemas-en-intro .sala-subtemas-grid,
+    .ramal-subtemas-en-intro .sala-subtemas-grid {
+        /* Forzar una columna un poco antes si es necesario */
+        /* grid-template-columns: 1fr; */
+        gap: 1rem;
+         /* Un mínimo aún menor para pantallas muy estrechas */
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    }
+
+    .geologia-subtemas-en-intro .sala-subtema-image {
+      padding-top: 60%; /* Quizás un poco más altas en móvil se ven mejor */
+    }
+
+    .ramal-subtemas-en-intro .ramal-choice-card .sala-subtema-info.ramal-choice-card-layout {
+        padding: 0.8rem 1rem; /* Menos padding en móvil */
+        gap: 0.8rem;
+    }
+     /* Ajustar tamaño de icono/texto en móvil para Ramal si es necesario */
+    .ramal-subtemas-en-intro .ramal-choice-card .ramal-choice-icon.intro-card-icon { font-size: 1.6rem; }
+    .ramal-subtemas-en-intro .ramal-choice-card .ramal-card-title { font-size: 1rem; }
+    .ramal-subtemas-en-intro .ramal-choice-card .ramal-card-description { font-size: 0.8rem; line-height: 1.3;}
+
+}

@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useSpeech } from "../Contexts/SpeechContext"; // Ajusta la ruta si es necesario
 import "../SalaDetalle.css"; // Asegúrate que este archivo exista y tenga los estilos NUEVOS
-
+import "./SalaGeologiaDetalleVolcanes.css"; // <<<--- NUEVO CSS para la galería específica
 // ========================================================================
 // =                          DATOS DE DETALLE                          =
 // ========================================================================
@@ -144,6 +144,95 @@ Además, en el interior de estas sales sólidas quedó un agua muy salada, llama
   },
 };
 
+// --- NUEVO: Datos para la Galería de Volcanes ---
+const imagenesVolcanes = [
+  // (Tu array completo de imágenes aquí)
+  {
+    nombre: "Cero archibarca",
+    fecha: "23/4/2025 10:49",
+    tipo: "Archivo JPG",
+    tamaño: "52 KB",
+    nombreArchivo: "Cerro_archibarca.jpg",
+  },
+  {
+    nombre: "mapa_puna_argentina",
+    fecha: "23/4/2025 09:13",
+    tipo: "Archivo PNG",
+    tamaño: "322 KB",
+    nombreArchivo: "mapa_puna_argentina.png",
+  },
+  {
+    nombre: "Nevado de acay",
+    fecha: "23/4/2025 10:12",
+    tipo: "Archivo JPG",
+    tamaño: "32 KB",
+    nombreArchivo: "Nevado_acay.jpg",
+  },
+  {
+    nombre: "Volcan Aracar",
+    fecha: "22/4/2025 18:49",
+    tipo: "Archivo JPG",
+    tamaño: "60 KB",
+    nombreArchivo: "Volcan_Aracar.jpg",
+  },
+  {
+    nombre: "Volcan de Pocitos",
+    fecha: "23/4/2025 10:16",
+    tipo: "Archivo JPG",
+    tamaño: "255 KB",
+    nombreArchivo: "Volcan_Pocitos.jpg",
+  },
+  {
+    nombre: "Volcan Lastarria",
+    fecha: "22/4/2025 19:14",
+    tipo: "Archivo JPG",
+    tamaño: "1,523 KB",
+    nombreArchivo: "Volcan_Lastarria.jpg",
+  },
+  {
+    nombre: "Volcan Quehuar",
+    fecha: "23/4/2025 10:06",
+    tipo: "Archivo JPG",
+    tamaño: "365 KB",
+    nombreArchivo: "Volcan_Quehuar.jpg",
+  },
+  {
+    nombre: "Volcan Tuzgle - Puna",
+    fecha: "22/4/2025 18:19",
+    tipo: "Archivo JPG",
+    tamaño: "137 KB",
+    nombreArchivo: "Volcan_Tuzgle_Puna.jpg",
+  },
+  {
+    nombre: "Volcan_llullaillaco_cara_oeste_christian_vitry_3",
+    fecha: "22/4/2025 17:46",
+    tipo: "Archivo JPG",
+    tamaño: "189 KB",
+    nombreArchivo: "Volcan_llullaillaco_cara_oeste_christian_vitry_3.jpg",
+  },
+  {
+    nombre: "Volcan_llullaillaco_christian_vitry_23-vista sur",
+    fecha: "22/4/2025 17:47",
+    tipo: "Archivo JPG",
+    tamaño: "231 KB",
+    nombreArchivo: "Volcan_llullaillaco_christian_vitry_23-vista_sur.jpg",
+  },
+  {
+    nombre: "Volcan_Ratones_panoramio",
+    fecha: "23/4/2025 10:02",
+    tipo: "Archivo JPG",
+    tamaño: "24 KB",
+    nombreArchivo: "Volcan_Ratones_panoramio.jpg",
+  },
+  {
+    nombre: "Volcan_Socompa",
+    fecha: "22/4/2025 14:23",
+    tipo: "Archivo JPG",
+    tamaño: "126 KB",
+    nombreArchivo: "Volcan_Socompa.jpg",
+  },
+];
+
 // ========================================================================
 // =                       COMPONENTE DE DETALLE                        =
 // ========================================================================
@@ -233,6 +322,45 @@ export const SalaGeologiaDetalle = () => {
           </section>
         ))}
       </div>
+
+      {/* ============================================================ */}
+      {/* =      NUEVA GALERÍA DE IMÁGENES (Solo para Volcanes)      = */}
+      {/* ============================================================ */}
+      {id === "volcanes" && (
+        <aside className="volcanes-image-gallery">
+          <h3 className="volcanes-gallery-title">
+            Galería de Volcanes Andinos
+          </h3>
+          <div className="volcanes-gallery-grid">
+            {imagenesVolcanes.map((imgData, index) => (
+              <figure
+                key={imgData.nombreArchivo + index}
+                className="volcanes-gallery-item"
+                tabIndex="0"
+              >
+                {/* Enlace opcional para futuro lightbox */}
+                {/* <a href={`${import.meta.env.BASE_URL}${imgData.nombreArchivo}`} target="_blank" rel="noopener noreferrer"> */}
+                <img
+                  src={`${import.meta.env.BASE_URL}/volcanes/${
+                    imgData.nombreArchivo
+                  }`}
+                  alt={imgData.nombre}
+                  className="volcanes-gallery-image"
+                  loading="lazy"
+                />
+                <figcaption className="volcanes-gallery-caption">
+                  {/* Reemplaza guiones bajos con espacios para mostrar nombre */}
+                  {imgData.nombre.replace(/_/g, " ")}
+                </figcaption>
+                {/* </a> */}
+              </figure>
+            ))}
+          </div>
+        </aside>
+      )}
+      {/* ============================================================ */}
+      {/* =             FIN NUEVA GALERÍA DE VOLCANES                = */}
+      {/* ============================================================ */}
 
       {/* --- GALERÍA DE IMÁGENES --- */}
       {/* GALERÍA DESCOMENTADA Y HABILITADA (false && -> true &&) */}

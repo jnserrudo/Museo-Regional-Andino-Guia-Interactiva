@@ -56,11 +56,11 @@
     text-align: center;
     color: var(--text-light);
     padding: 2rem;
-    max-width: 750px; /* Limita ancho del texto */
+    max-width:90%; /* Limita ancho del texto */
     /* Opcional: Fondo levemente difuminado */
-    /* background: rgba(0, 0, 0, 0.2); */
-    /* backdrop-filter: blur(4px); */
-    /* border-radius: var(--border-radius-md); */
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    border-radius: var(--border-radius-md);
   }
   
   .sala-intro-title {
@@ -346,3 +346,10 @@
     .ramal-choice-card .ramal-card-title { font-size: 1rem; }
     .ramal-choice-card .ramal-card-description { font-size: 0.85rem; }
  }
+
+
+
+
+ /* ----------------------------- */
+
+ 
