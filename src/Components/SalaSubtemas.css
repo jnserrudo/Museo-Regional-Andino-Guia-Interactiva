@@ -11,14 +11,21 @@
   }
   
   /* --- Contenedor Grid para las Tarjetas --- */
-  .sala-subtemas-grid {
-    display: grid;
-    /* Columnas responsivas: Mínimo 250px, máximo 1fr */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%,300px), 1fr));
-    gap: 2.5rem; /* Espacio entre tarjetas */
-    padding: 0; /* Sin padding extra en el grid mismo */
-    width: 100%;
-  }
+.sala-subtemas-grid {
+  display: grid;
+  /* --- CAMBIOS AQUÍ --- */
+  /* 1. Define el ANCHO MÍNIMO deseado para cada tarjeta (ej: 320px) */
+  /* 2. Quita !important */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); /* <-- Ajusta 320px */
+
+  /* 3. Define el GAP deseado (ej: 2.5rem) */
+  /* 4. Quita !important */
+  gap: 3.5rem ; /* <-- Ajusta este valor de gap */
+  /* --- FIN CAMBIOS --- */
+
+  padding: 0;
+  width: 100%;
+}
   
   /* --- Estilo de cada Tarjeta --- */
   .sala-subtema-card {
@@ -45,7 +52,7 @@
   /* --- Contenedor de la Imagen --- */
   .sala-subtema-image {
     width: 100%;
-    padding-top: 50%; /* Relación de aspecto (ej: ~16:10). Ajusta este % */
+    padding-top: 40%; /* Relación de aspecto (ej: ~16:10). Ajusta este % */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -73,9 +80,11 @@
   .sala-subtema-info {
     padding: 1rem 1.2rem; /* Padding interno */
     display: flex;
-    justify-content: space-between; /* Título a la izq, flecha a la der */
+    justify-content: center; /* Título a la izq, flecha a la der */
     align-items: center;
-    background-color: var(--bg-light, #fff); /* Fondo para el texto */
+    color: white !important;
+    border: 2px white solid;
+    background-color: rgb(45, 3, 3); /* Fondo para el texto */
     /* border-top: 1px solid var(--border-color-light, #eee); */ /* Borde opcional */
   }
   

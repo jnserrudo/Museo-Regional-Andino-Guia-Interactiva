@@ -1,4 +1,4 @@
-import { useState,useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   useParams,
   Routes,
@@ -31,156 +31,118 @@ import { SalaRamalTrenDetalle } from "./SalaRamalTrenDetalle"; // <-- NUEVO
 import { SalaRamalTimelineDetalle } from "./SalaRamalTimelineDetalle"; // <-- NUEVO
 import { useLocation } from "react-router-dom"; // Asegura importar useLocation
 
-
 import "./Sala.css";
 
 // --- IMPORTAMOS EL CSS DE LAS TARJETAS DE SUBTEMAS ---
 import "./SalaSubtemas.css"; // <-- Necesitamos estos estilos
 
-
-import '../SalaRamalC14.css'; // Para estilos específicos del ramal si son necesarios
-
+import "../SalaRamalC14.css"; // Para estilos específicos del ramal si son necesarios
 
 // --- Datos de las salas (igual que antes) ---
 const salasData = {
   gobernacion_de_los_andes: {
     title: "GOBERNACIÓN DE LOS ANDES",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de la Gobernación de Los Andes, un espacio donde la historia cobra vida para contarnos cómo se organizó y gobernó esta región única del país.
+    description: `Bienvenidos a la Sala de la Gobernación de Los Andes, un espacio donde la historia cobra vida para contarnos cómo se organizó y gobernó esta región única del país. La Gobernación de Los Andes fue una división territorial creada en 1900 por el gobierno nacional con el objetivo de administrar una zona estratégica en el noroeste argentino, que abarcaba sectores de las actuales provincias de Salta, Jujuy y Catamarca. San Antonio de los Cobres fue su cabecera y principal centro administrativo. Aquí vas a poder conocer:
+* Documentos originales, fotografías y objetos que muestran cómo era la vida política, social y económica de la época.
 
-La Gobernación de Los Andes fue una división territorial creada en 1900 por el gobierno nacional con el objetivo de administrar una zona estratégica en el noroeste argentino, que abarcaba sectores de las actuales provincias de Salta, Jujuy y Catamarca. San Antonio de los Cobres fue su cabecera y principal centro administrativo.
+* Las funciones del gobernador y cómo se ejercía el poder en esta región aislada y diversa.
 
-Aquí vas a poder conocer:
+* El papel de la Gobernación en el desarrollo del ferrocarril, la minería y la integración con los pueblos originarios.
 
-*Documentos originales, fotografías y objetos que muestran cómo era la vida política, social y económica de la época.
-
-*Las funciones del gobernador y cómo se ejercía el poder en esta región aislada y diversa.
-
-*El papel de la Gobernación en el desarrollo del ferrocarril, la minería y la integración con los pueblos originarios.
-
-*La historia de cómo este territorio fue reorganizado e integrado a las provincias actuales en 1943.`,
+* La historia de cómo este territorio fue reorganizado e integrado a las provincias actuales en 1943.`,
   },
   geologia: {
     title: "SALA DE GEOLOGÍA",
     image: "imagen_to_salas.webp",
     description: `
-    Bienvenido a la sala de geología
-    Fuerzas de la Tierra en lo más alto de los Andes
-Bienvenidos a la Sala de Geología del Museo Regional Andino. Esta sala te invita a conocer los paisajes extremos y sorprendentes que forman parte de la Puna salteña: un territorio donde la Tierra todavía está viva.
+    Bienvenido a la sala de geología. Fuerzas de la Tierra en lo más alto de los Andes. Esta sala te invita a conocer los paisajes extremos y sorprendentes que forman parte de la Puna salteña: un territorio donde la Tierra todavía está viva. En esta región de gran altura, los volcanes dormidos, los géiseres humeantes, los salares brillantes y las extrañas formaciones rocosas son el resultado de procesos geológicos que siguen en marcha, moldeando el paisaje día a día. A lo largo del recorrido vas a descubrir:
 
-En esta región de gran altura, los volcanes dormidos, los géiseres humeantes, los salares brillantes y las extrañas formaciones rocosas son el resultado de procesos geológicos que siguen en marcha, moldeando el paisaje día a día.
+* Cómo se forman los volcanes.
 
-A lo largo del recorrido vas a descubrir:
+* Qué son los géiseres.
 
-*Cómo se forman los volcanes.
-
-*Qué son los géiseres.
-
-*Por qué se forman los salares y qué minerales se esconden en ellos.
+* Por qué se forman los salares y qué minerales se esconden en ellos.
     `,
   },
   minerologia_y_mineria: {
     title: "MINEROLOGÍA Y MINERÍA",
     image: "imagen_to_salas.webp",
     description: `
-    Bienvenidos a la Sala de Mineralogía y Minería. En esta sala vas a descubrir el asombroso mundo de los minerales: cómo se forman, qué formas y colores tienen, y por qué son tan importantes para la vida cotidiana.
+    Bienvenidos a la Sala de Mineralogía y Minería. En esta sala vas a descubrir el asombroso mundo de los minerales: cómo se forman, qué formas y colores tienen, y por qué son tan importantes para la vida cotidiana. La Puna salteña es una de las regiones más ricas en minerales de toda la Argentina. Desde tiempos antiguos, sus recursos fueron aprovechados por los pueblos originarios, y más tarde, por la minería moderna. Oro, plata, cobre, hierro, litio y muchos otros elementos forman parte del suelo de San Antonio de los Cobres y sus alrededores. Durante tu visita vas a poder:
 
-La Puna salteña es una de las regiones más ricas en minerales de toda la Argentina. Desde tiempos antiguos, sus recursos fueron aprovechados por los pueblos originarios, y más tarde, por la minería moderna. Oro, plata, cobre, hierro, litio y muchos otros elementos forman parte del suelo de San Antonio de los Cobres y sus alrededores.
+* Observar una colección de minerales de la región andina.
 
-Durante tu visita vas a poder:
+* Conocer cómo se extraen y procesan los minerales.
 
-*Observar una colección de minerales de la región andina.
+* Aprender para qué se usan en la vida diaria: desde un anillo hasta un celular.
 
-*Conocer cómo se extraen y procesan los minerales.
-
-*Aprender para qué se usan en la vida diaria: desde un anillo hasta un celular.
-
-*Descubrir el papel de la minería en la economía, el ambiente y la cultura local.`,
+* Descubrir el papel de la minería en la economía, el ambiente y la cultura local.`,
   },
   biodiversidad: {
     title: "BIODIVERSIDAD",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Biodiversidad. En esta sala vas a conocer las formas de vida que habitan uno de los ambientes más extremos del planeta: la Puna andina.
+    description: `Bienvenidos a la Sala de Biodiversidad. En esta sala vas a conocer las formas de vida que habitan uno de los ambientes más extremos del planeta: la Puna andina. A más de 3.500 metros de altura, con frío intenso, poca lluvia y mucho viento, la naturaleza se adapta de manera sorprendente. Animales, plantas y microorganismos desarrollaron estrategias únicas para sobrevivir y convivir con el paisaje. Durante tu visita vas a poder:
 
-A más de 3.500 metros de altura, con frío intenso, poca lluvia y mucho viento, la naturaleza se adapta de manera sorprendente. Animales, plantas y microorganismos desarrollaron estrategias únicas para sobrevivir y convivir con el paisaje.
+* Descubrir especies emblemáticas como la vicuña, el suri o el cardón.
 
-Durante tu visita vas a poder:
+* Conocer cómo los pueblos originarios aprendieron a vivir en equilibrio con este entorno.
 
-*Descubrir especies emblemáticas como la vicuña, el suri o el cardón.
+* Entender la importancia de conservar esta biodiversidad única y frágil.
 
-*Conocer cómo los pueblos originarios aprendieron a vivir en equilibrio con este entorno.
-
-*Entender la importancia de conservar esta biodiversidad única y frágil.
-
-*Sorprenderte con pequeños ecosistemas ocultos entre salares, lagunas y montañas.`,
+* Sorprenderte con pequeños ecosistemas ocultos entre salares, lagunas y montañas.`,
   },
   arqueologia: {
     title: "ARQUEOLOGÍA",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Arqueología. Este espacio te invita a viajar en el tiempo y descubrir cómo vivieron las comunidades que habitaron la Puna andina miles de años antes de la llegada de los europeos.
+    description: `Bienvenidos a la Sala de Arqueología. Este espacio te invita a viajar en el tiempo y descubrir cómo vivieron las comunidades que habitaron la Puna andina miles de años antes de la llegada de los europeos. A través de excavaciones, hallazgos y estudios, la arqueología nos permite conocer cómo eran sus viviendas, qué herramientas usaban, cómo se alimentaban, qué creencias tenían y cómo se relacionaban con su entorno. En esta sala vas a poder:
 
-A través de excavaciones, hallazgos y estudios, la arqueología nos permite conocer cómo eran sus viviendas, qué herramientas usaban, cómo se alimentaban, qué creencias tenían y cómo se relacionaban con su entorno.
+* Ver piezas auténticas como cerámicas, puntas de flecha, tejidos y objetos rituales.
 
-En esta sala vas a poder:
+* Conocer cómo los pueblos originarios aprovechaban los recursos del desierto de altura.
 
-*Ver piezas auténticas como cerámicas, puntas de flecha, tejidos y objetos rituales.
+* Descubrir las rutas de intercambio que conectaban la Puna con otros pueblos andinos.
 
-*Conocer cómo los pueblos originarios aprovechaban los recursos del desierto de altura.
-
-*Descubrir las rutas de intercambio que conectaban la Puna con otros pueblos andinos.
-
-*Reflexionar sobre la continuidad cultural y la presencia viva de estas raíces en la actualidad.`,
+* Reflexionar sobre la continuidad cultural y la presencia viva de estas raíces en la actualidad.`,
   },
   ramal_c14: {
     title: "RAMAL C14",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la sala dedicada al Ramal C14, una de las obras ferroviarias más imponentes y desafiantes de la Argentina. Este ramal fue parte esencial del Ferrocarril General Belgrano y unió el norte del país con la frontera chilena, atravesando los paisajes extremos de la Puna salteña.
+    description: `Bienvenidos a la sala dedicada al Ramal C14, una de las obras ferroviarias más imponentes y desafiantes de la Argentina. Este ramal fue parte esencial del Ferrocarril General Belgrano y unió el norte del país con la frontera chilena, atravesando los paisajes extremos de la Puna salteña. Construido entre las décadas de 1920 y 1940, el Ramal C14 es famoso por su ingeniería audaz, sus puentes y viaductos, sus curvas imposibles y su recorrido a más de 4.000 metros sobre el nivel del mar. Su tramo más conocido es el que atraviesa San Antonio de los Cobres y culmina en el icónico Viaducto La Polvorilla. En esta sala vas a poder:
 
-Construido entre las décadas de 1920 y 1940, el Ramal C14 es famoso por su ingeniería audaz, sus puentes y viaductos, sus curvas imposibles y su recorrido a más de 4.000 metros sobre el nivel del mar. Su tramo más conocido es el que atraviesa San Antonio de los Cobres y culmina en el icónico Viaducto La Polvorilla.
+* Conocer cómo fue el trabajo de los obreros, ingenieros y comunidades que hicieron posible este proyecto.
 
-En esta sala vas a poder:
+* Ver planos, herramientas, uniformes y fotografías históricas del ramal.
 
-*Conocer cómo fue el trabajo de los obreros, ingenieros y comunidades que hicieron posible este proyecto.
+* Entender el impacto que tuvo el tren en la vida económica y social de la región.
 
-*Ver planos, herramientas, uniformes y fotografías históricas del ramal.
-
-*Entender el impacto que tuvo el tren en la vida económica y social de la región.
-
-*Descubrir cómo esta línea sigue viva hoy a través del famoso Tren a las Nubes.`,
+* Descubrir cómo esta línea sigue viva hoy a través del famoso Tren a las Nubes.`,
   },
   "san-antonio-hoy": {
     title: "SAN ANTONIO HOY",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la sala “San Antonio de los Cobres hoy”, un espacio dedicado a mostrar cómo las costumbres, creencias y modos de vida de la Puna siguen presentes y en constante evolución.
+    description: `Bienvenidos a la sala “San Antonio de los Cobres hoy”, un espacio dedicado a mostrar cómo las costumbres, creencias y modos de vida de la Puna siguen presentes y en constante evolución. San Antonio de los Cobres no es solo un lugar geográfico: es una comunidad que mantiene viva su identidad cultural en cada gesto cotidiano. Aquí, la tradición y la modernidad conviven entre rituales ancestrales, celebraciones populares, oficios heredados y nuevas formas de habitar el territorio. En esta sala vas a conocer:
 
-San Antonio de los Cobres no es solo un lugar geográfico: es una comunidad que mantiene viva su identidad cultural en cada gesto cotidiano. Aquí, la tradición y la modernidad conviven entre rituales ancestrales, celebraciones populares, oficios heredados y nuevas formas de habitar el territorio.
+* Las principales fiestas y ceremonias del calendario local, como la Pachamama, la Señalada o las Fiestas Patronales.
 
-En esta sala vas a conocer:
+* Las prácticas cotidianas que reflejan una relación respetuosa con la naturaleza, los animales y la tierra.
 
-*Las principales fiestas y ceremonias del calendario local, como la Pachamama, la Señalada o las Fiestas Patronales.
+* El valor del tejido, la cerámica y otros oficios tradicionales que aún se transmiten entre generaciones.
 
-*Las prácticas cotidianas que reflejan una relación respetuosa con la naturaleza, los animales y la tierra.
-
-*El valor del tejido, la cerámica y otros oficios tradicionales que aún se transmiten entre generaciones.
-
-*Cómo los habitantes de San Antonio construyen comunidad, conservan la memoria y se adaptan a los desafíos del presente sin perder sus raíces.`,
+* Cómo los habitantes de San Antonio construyen comunidad, conservan la memoria y se adaptan a los desafíos del presente sin perder sus raíces.`,
   },
   historia: {
     title: "HISTORIA",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Historia. Este espacio te invita a recorrer el pasado de la región a través de sus protagonistas: los pueblos originarios, los viajeros, los mineros, los ferroviarios y todas las personas que, a lo largo del tiempo, construyeron la identidad de la Puna.
+    description: `Bienvenidos a la Sala de Historia. Este espacio te invita a recorrer el pasado de la región a través de sus protagonistas: los pueblos originarios, los viajeros, los mineros, los ferroviarios y todas las personas que, a lo largo del tiempo, construyeron la identidad de la Puna. San Antonio de los Cobres y sus alrededores guardan huellas profundas de miles de años de historia. Desde las primeras comunidades andinas hasta la llegada del ferrocarril, cada etapa dejó su marca en el territorio, en las tradiciones y en la memoria colectiva. En esta sala vas a poder:
 
-San Antonio de los Cobres y sus alrededores guardan huellas profundas de miles de años de historia. Desde las primeras comunidades andinas hasta la llegada del ferrocarril, cada etapa dejó su marca en el territorio, en las tradiciones y en la memoria colectiva.
+* Conocer cómo vivían y se organizaban las comunidades prehispánicas.
 
-En esta sala vas a poder:
+* Descubrir objetos de la vida cotidiana, ceremonias y prácticas ancestrales.
 
-*Conocer cómo vivían y se organizaban las comunidades prehispánicas.
+* Ver cómo cambió la región con la llegada de los colonizadores, la minería y el Estado nacional.
 
-*Descubrir objetos de la vida cotidiana, ceremonias y prácticas ancestrales.
-
-*Ver cómo cambió la región con la llegada de los colonizadores, la minería y el Estado nacional.
-
-*Entender cómo la historia de la Puna forma parte del gran relato del noroeste argentino.`,
+* Entender cómo la historia de la Puna forma parte del gran relato del noroeste argentino.`,
   },
 };
 
@@ -211,11 +173,20 @@ const temasGeologia = [
   { id: "salares", title: "Salares", image: "/salares_museo.jpeg" },
 ];
 
-
 // --- NUEVO: Datos subtemas Ramal C-14 ---
 const temasRamal = [
-  { id: "tren", title: "Tren a las Nubes", description: "Descubre la historia y la proeza ingenieril.", icon: "🚂" },
-  { id: "linea-tiempo", title: "Línea de Tiempo", description: "Sigue los hitos clave de su construcción.", icon: "📜" }
+  {
+    id: "tren",
+    title: "Tren a las Nubes",
+    description: "Descubre la historia y la proeza ingenieril.",
+    icon: "",
+  },
+  {
+    id: "linea-tiempo",
+    title: "Línea de Tiempo",
+    description: "Sigue los hitos clave de su construcción.",
+    icon: "",
+  },
 ];
 
 // --- Componente para contenido inválido/no encontrado ---
@@ -253,36 +224,39 @@ export const Sala = () => {
   // --- NUEVO: Determina si esta sala es la de geología ---
   const esSalaGeologia = salaId === "geologia";
 
-  const esSalaRamal = salaId === 'ramal_c14'; // <-- NUEVO check
+  const esSalaRamal = salaId === "ramal_c14"; // <-- NUEVO check
 
   // Determina si estamos en la ruta base de la sala actual
   const location = useLocation();
-const estamosEnRutaBaseSala = location.pathname === `/salas/${salaId}` || location.pathname.endsWith(`/salas/${salaId}/`);
-  
-const estamosEnDetalle = !!detailId;
+  const estamosEnRutaBaseSala =
+    location.pathname === `/salas/${salaId}` ||
+    location.pathname.endsWith(`/salas/${salaId}/`);
 
+  const estamosEnDetalle = !!detailId;
 
   // Estado para la intro de salas NO geológicas
   const [mostrarIntroNoGeologia, setMostrarIntroNoGeologia] = useState(true);
   // Resetear al cambiar de sala
-  useEffect(() => { setMostrarIntroNoGeologia(true); }, [salaId]);
+  useEffect(() => {
+    setMostrarIntroNoGeologia(true);
+  }, [salaId]);
 
+  // *** AÑADIR ESTAS DOS LÍNEAS DE VUELTA ***
+  const [ocultarIntroNormal, setOcultarIntroNormal] = useState(false);
+  useEffect(() => {
+    console.log(`Reseteando ocultarIntroNormal para salaId: ${salaId}`); // Log útil
+    setOcultarIntroNormal(false); // Siempre empieza mostrando la intro para no-especiales
+  }, [salaId]);
+  // *** FIN DE LÍNEAS A AÑADIR ***
 
- // *** AÑADIR ESTAS DOS LÍNEAS DE VUELTA ***
- const [ocultarIntroNormal, setOcultarIntroNormal] = useState(false);
- useEffect(() => {
-   console.log(`Reseteando ocultarIntroNormal para salaId: ${salaId}`); // Log útil
-   setOcultarIntroNormal(false); // Siempre empieza mostrando la intro para no-especiales
- }, [salaId]);
- // *** FIN DE LÍNEAS A AÑADIR ***
+  // Decisión final: Mostrar la sección Intro SI:
+  // 1. Es Geología O Ramal Y estamos EXACTAMENTE en su ruta base
+  // 2. NO es Geología NI Ramal Y el estado dice que NO la ocultemos todavía
+  const mostrarSeccionIntro =
+    (esSalaGeologia && estamosEnRutaBaseSala) ||
+    (esSalaRamal && estamosEnRutaBaseSala) ||
+    (!esSalaGeologia && !esSalaRamal && !ocultarIntroNormal);
 
-// Decisión final: Mostrar la sección Intro SI:
-// 1. Es Geología O Ramal Y estamos EXACTAMENTE en su ruta base
-// 2. NO es Geología NI Ramal Y el estado dice que NO la ocultemos todavía
-const mostrarSeccionIntro = (esSalaGeologia && estamosEnRutaBaseSala) ||
-                            (esSalaRamal && estamosEnRutaBaseSala) ||
-                            (!esSalaGeologia && !esSalaRamal && !ocultarIntroNormal);
-  
   // Si la entrada en salasData no existe en absoluto
   if (!sala) {
     return (
@@ -291,7 +265,6 @@ const mostrarSeccionIntro = (esSalaGeologia && estamosEnRutaBaseSala) ||
       </div>
     );
   }
-
 
   // Función para manejar el click en la intro (SOLO si NO es geología)
   const handleIntroClick = () => {
@@ -305,17 +278,15 @@ const mostrarSeccionIntro = (esSalaGeologia && estamosEnRutaBaseSala) ||
 
   // Función para manejar el click en las tarjetas de geología
   const handleGeologiaCardClick = (subtemaId) => {
-/*     navigate(`/salas/geologia/${subtemaId}`); // Navega al detalle
- */
-// Navega a la ruta hija relativa: ':id' se reemplazará por subtemaId
-navigate(subtemaId);
+    /*     navigate(`/salas/geologia/${subtemaId}`); // Navega al detalle
+     */
+    // Navega a la ruta hija relativa: ':id' se reemplazará por subtemaId
+    navigate(subtemaId);
+  };
 
-};
-
-const handleSubtemaCardClick = (subtemaId) => {
-  navigate(subtemaId);
-};
-
+  const handleSubtemaCardClick = (subtemaId) => {
+    navigate(subtemaId);
+  };
 
   // --- Función para manejar el click de "Volver" ---
   const handleGoBack = () => {
@@ -323,80 +294,216 @@ const handleSubtemaCardClick = (subtemaId) => {
   };
 
   // --- Renderizado ---
-  
+
   return (
     <div
       // La clase ahora solo diferencia visualmente si es intro o no
-      className={`sala-page-container ${mostrarSeccionIntro ? "view-intro" : "view-content"}`}
+      className={`sala-page-container ${
+        mostrarSeccionIntro ? "view-intro" : "view-content"
+      }`}
       data-sala-id={salaId}
     >
+       
       {mostrarSeccionIntro ? (
         // --- VISTA DE INTRODUCCIÓN (CON TARJETAS GEO SI APLICA) ---
-        <div className="sala-intro-hero" onClick={handleIntroClick} style={{ cursor: esSalaGeologia ? 'default' : 'pointer' }}>
+        <div
+          className="sala-intro-hero"
+          onClick={handleIntroClick}
+          style={{ cursor: esSalaGeologia ? "default" : "pointer" }}
+        >
+          {/* --- BOTÓN VOLVER (AHORA FUERA DEL CONDICIONAL) --- */}
+       <Button
+          className="sala-back-button-fixed" // NUEVA Clase para posicionamiento
+          type="default"
+          icon={<ArrowLeftOutlined />}
+          onClick={handleGoBack}
+          // Quitamos el style inline de marginBottom
+      >
+          Volver
+      </Button>
+      {/* --- FIN BOTÓN VOLVER --- */}
           <div className="sala-intro-overlay"></div>
           <div className="sala-intro-content">
             <h1 className="sala-intro-title">{sala.title}</h1>
-            <p className="sala-intro-description" style={{ textAlign: "justify" }}>
-              {sala.description}
+            <p
+              className="sala-intro-description"
+              style={{ textAlign: "justify" }}
+            >
+              {(() => {
+                if (!sala?.description) {
+                  return (
+                    <p className="sala-intro-description">
+                      []
+                    </p>
+                  );
+                }
+
+                const lines = sala.description.trim().split("\n");
+                const elements = []; // Array para guardar párrafos y listas
+                let currentListItems = []; // Lista temporal para los items *
+
+                lines.forEach((line, index) => {
+                  const trimmedLine = line.trim();
+
+                  if (trimmedLine.startsWith("* ")) {
+                    // Es un item de lista, añadirlo a la lista temporal
+                    currentListItems.push(trimmedLine.substring(2));
+                  } else {
+                    // NO es un item de lista
+                    // Si teníamos items en la lista temporal, es hora de renderizar esa lista
+                    if (currentListItems.length > 0) {
+                      elements.push(
+                        <ul
+                          key={`list-${elements.length}`}
+                          className="sala-intro-list"
+                        >
+                          {currentListItems.map((item, itemIndex) => (
+                            <li key={`li-${elements.length}-${itemIndex}`}>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                      currentListItems = []; // Resetear la lista temporal
+                    }
+                    // Si la línea actual NO está vacía, añadirla como párrafo
+                    if (trimmedLine) {
+                      elements.push(
+                        <p
+                          key={`p-${elements.length}`}
+                          className="sala-intro-description"
+                          style={{ textAlign: "justify" }}
+                        >
+                          {trimmedLine}
+                        </p>
+                      );
+                    }
+                  }
+                });
+
+                // Asegurarse de renderizar la última lista si la descripción termina con items *
+                if (currentListItems.length > 0) {
+                  elements.push(
+                    <ul
+                      key={`list-${elements.length}`}
+                      className="sala-intro-list"
+                    >
+                      {currentListItems.map((item, itemIndex) => (
+                        <li key={`li-${elements.length}-${itemIndex}`}>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                }
+
+                // Retorna todos los elementos (párrafos y listas)
+                return elements;
+              })()}
+
+              {/* --- FIN: Bloque Modificado --- */}
             </p>
             {esSalaGeologia && (
               <div className="geologia-subtemas-en-intro">
-                 <h2 className="geologia-subtemas-titulo">Explora los temas:</h2>
-                 <div className="sala-subtemas-grid">
-                    {temasGeologia.map((tema, index) => (
-                    <article key={tema.id} className="sala-subtema-card"
-                      onClick={(e) => { e.stopPropagation(); handleGeologiaCardClick(tema.id); }}
-                      style={{ animationDelay: `${index * 0.1}s`, cursor: 'pointer' }}
-                      tabIndex="0" role="link" aria-label={`Explorar ${tema.title}`}
+                <h2 className="geologia-subtemas-titulo">Explora los temas:</h2>
+                <div className="sala-subtemas-grid">
+                  {temasGeologia.map((tema, index) => (
+                    <article
+                      key={tema.id}
+                      className="sala-subtema-card"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleGeologiaCardClick(tema.id);
+                      }}
+                      style={{
+                        animationDelay: `${index * 0.1}s`,
+                        cursor: "pointer",
+                      }}
+                      tabIndex="0"
+                      role="link"
+                      aria-label={`Explorar ${tema.title}`}
                     >
-                        <div className="sala-subtema-image" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${tema.image})` }}>
-                         <div className="sala-subtema-image-overlay"></div>
-                        </div>
-                        <div className="sala-subtema-info">
-                         <h3 className="sala-subtema-title">{tema.title}</h3>
-                         <span className="sala-subtema-arrow" aria-hidden="true">→</span>
-                        </div>
+                      <div
+                        className="sala-subtema-image"
+                        style={{
+                          backgroundImage: `url(${import.meta.env.BASE_URL}${
+                            tema.image
+                          })`,
+                        }}
+                      >
+                        <div className="sala-subtema-image-overlay"></div>
+                      </div>
+                      <div className="sala-subtema-info">
+                        <h3 className="sala-subtema-title">{tema.title}</h3>
+                        {/* 
+                         <span className="sala-subtema-arrow" aria-hidden="true">→</span> */}
+                      </div>
                     </article>
-                    ))}
+                  ))}
                 </div>
               </div>
             )}
 
-          {/* --- Tarjetas Ramal C14 --- */}
-          {esSalaRamal && (
-            <div className="ramal-subtemas-en-intro">
-              <h2 className="ramal-subtemas-titulo">Explora las secciones:</h2>
-              {/* Reutilizamos el grid y card */}
-              <div className="sala-subtemas-grid ramal-choices-container">
-                {temasRamal.map((tema, index) => (
-                  <article
-                    key={tema.id}
-                    className="sala-subtema-card ramal-choice-card" // Clases combinadas
-                    // Usa el handler genérico para subtemas
-                    onClick={(e) => { e.stopPropagation(); handleSubtemaCardClick(tema.id); }}
-                    style={{ animationDelay: `${index * 0.1}s`, cursor: 'pointer' }}
-                    tabIndex="0" role="link" aria-label={`Explorar ${tema.title}`}
-                  >
-                    {/* Layout específico para tarjetas Ramal */}
-                    <div className="sala-subtema-info ramal-choice-card-layout">
-                      <span className="ramal-choice-icon intro-card-icon" aria-hidden="true">{tema.icon}</span>
-                      <div className="ramal-choice-info intro-card-info">
-                        <h3 className="sala-subtema-title ramal-card-title">{tema.title}</h3>
-                        <p className="ramal-card-description">{tema.description}</p>
+            {/* --- Tarjetas Ramal C14 --- */}
+            {esSalaRamal && (
+              <div className="ramal-subtemas-en-intro">
+                <h2 className="ramal-subtemas-titulo">
+                  Explora las secciones:
+                </h2>
+                {/* Reutilizamos el grid y card */}
+                <div className="sala-subtemas-grid ramal-choices-container">
+                  {temasRamal.map((tema, index) => (
+                    <article
+                      key={tema.id}
+                      className="sala-subtema-card ramal-choice-card" // Clases combinadas
+                      // Usa el handler genérico para subtemas
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleSubtemaCardClick(tema.id);
+                      }}
+                      style={{
+                        animationDelay: `${index * 0.1}s`,
+                        cursor: "pointer",
+                      }}
+                      tabIndex="0"
+                      role="link"
+                      aria-label={`Explorar ${tema.title}`}
+                    >
+                      {/* Layout específico para tarjetas Ramal */}
+                      <div className="sala-subtema-info ramal-choice-card-layout">
+                        <span
+                          className="ramal-choice-icon intro-card-icon"
+                          aria-hidden="true"
+                        >
+                          {tema.icon}
+                        </span>
+                        <div className="ramal-choice-info intro-card-info">
+                          <h3 className="sala-subtema-title ramal-card-title">
+                            {tema.title}
+                          </h3>
+                          <p className="ramal-card-description">
+                            {tema.description}
+                          </p>
+                        </div>
+                        <span
+                          className="sala-subtema-arrow ramal-card-arrow"
+                          aria-hidden="true"
+                        >
+                          →
+                        </span>
                       </div>
-                      <span className="sala-subtema-arrow ramal-card-arrow" aria-hidden="true">→</span>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Pista de click (Asegúrate que esta condición también incluya !esSalaRamal) */}
-          {!esSalaGeologia && !esSalaRamal && (
-            <div className="sala-intro-click-hint"><span>Toca o haz click para explorar</span></div>
-          )}
-
+            {/* Pista de click (Asegúrate que esta condición también incluya !esSalaRamal) */}
+            {!esSalaGeologia && !esSalaRamal && (
+              <div className="sala-intro-click-hint">
+                <span>Toca o haz click para explorar</span>
+              </div>
+            )}
           </div>
         </div>
       ) : (
@@ -404,17 +511,22 @@ const handleSubtemaCardClick = (subtemaId) => {
         // Renderiza SIEMPRE el Outlet cuando NO se muestra la intro.
         // React Router decidirá qué poner dentro (SalaPrincipal o SalaDetalleWrapper)
         <div className="sala-content-area">
-           {/* Botón Volver SIEMPRE presente en esta vista */}
-           <Button className="sala-back-button" type="default" icon={<ArrowLeftOutlined />} onClick={handleGoBack} style={{ marginBottom: "2rem" }}>
-               Volver
-           </Button>
+          {/* Botón Volver SIEMPRE presente en esta vista */}
+          <Button
+            className="sala-back-button"
+            type="default"
+            icon={<ArrowLeftOutlined />}
+            onClick={handleGoBack}
+            style={{ marginBottom: "2rem" }}
+          >
+            Volver
+          </Button>
           <Outlet /> {/* ¡AQUÍ SE RENDERIZA EL HIJO! */}
         </div>
       )}
     </div>
   );
 };
-
 
 // --- Wrappers (¡ASEGÚRATE DE EXPORTARLOS!) ---
 // Estos SÍ necesitan estar exportados
@@ -423,11 +535,14 @@ export const SalaPrincipal = () => {
   const ContentComponent = salaComponentMap[salaId] || null;
 
   // Si es Geología O Ramal -> null
-  if (salaId === 'geologia' || salaId === 'ramal_c14') { // <-- AÑADIDO RAMAL
-      return null;
+  if (salaId === "geologia" || salaId === "ramal_c14") {
+    // <-- AÑADIDO RAMAL
+    return null;
   }
 
-  if (!ContentComponent) { return <SalaInvalida />; }
+  if (!ContentComponent) {
+    return <SalaInvalida />;
+  }
   return <ContentComponent />;
 };
 export const SalaDetalleWrapper = () => {
@@ -435,20 +550,21 @@ export const SalaDetalleWrapper = () => {
   let DetailComponent = null;
 
   // Lógica específica para Ramal C14
-  if (salaId === 'ramal_c14') {
-      if (detailId === 'tren') {
-          DetailComponent = SalaRamalTrenDetalle;
-      } else if (detailId === 'linea-tiempo') { // Usa el id del temaRamal
-          DetailComponent = SalaRamalTimelineDetalle;
-      }
+  if (salaId === "ramal_c14") {
+    if (detailId === "tren") {
+      DetailComponent = SalaRamalTrenDetalle;
+    } else if (detailId === "linea-tiempo") {
+      // Usa el id del temaRamal
+      DetailComponent = SalaRamalTimelineDetalle;
+    }
   } else {
-      // Lógica para otras salas (como Geología)
-      DetailComponent = salaDetailComponentMap[salaId] || null;
+    // Lógica para otras salas (como Geología)
+    DetailComponent = salaDetailComponentMap[salaId] || null;
   }
 
   // Si no encontramos un componente de detalle válido
   if (!DetailComponent) {
-      return <SalaInvalida isDetail={true} />;
+    return <SalaInvalida isDetail={true} />;
   }
 
   // Renderiza el componente de detalle encontrado

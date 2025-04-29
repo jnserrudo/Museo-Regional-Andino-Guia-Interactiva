@@ -284,7 +284,6 @@ export const SalaGeologiaDetalle = () => {
         {/* Overlay aplicado vía CSS con ::before para más control */}
         <div className="sala-detalle-hero-content">
           <h1 className="sala-detalle-titulo-principal">{tema.title}</h1>
-          <p className="sala-detalle-subtitulo-hero">{tema.fullTitle}</p>
         </div>
       </header>
 
@@ -294,6 +293,7 @@ export const SalaGeologiaDetalle = () => {
           hasSectionImages ? "has-section-images" : ""
         }`}
       >
+        <p className="sala-detalle-subtitulo-hero">{tema.fullTitle}</p>
         {tema.sections.map((section, index) => (
           <section
             key={index}

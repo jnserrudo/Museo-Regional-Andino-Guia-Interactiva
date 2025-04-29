@@ -9,20 +9,20 @@ const mineralesCorteza = [
   // Minerales originales del array (conservados)
   {
     id: "calcita",
-    img: "/calcita.jfif",
+    img: "/calcita.png",
     nombre: "Calcita",
     desc: "Mineral abundante compuesto por carbonato de calcio. Presente en formaciones sedimentarias, se usa en construcción y decoración.",
   },
   {
     id: "fluorita",
-    img: "/fluorita.jfif",
+    img: "/fluorita.png",
     nombre: "Fluorita",
     desc: "De vivos colores y fluorescencia, es usada en óptica e industrias metalúrgicas. Común en yacimientos hidrotermales del NOA.",
   },
   // Minerales del Word (actualizados y añadidos)
   {
     id: "pirita",
-    img: "/minerales/pirita.jpeg",
+    img: "/minerales/pirita.png",
     nombre: "Pirita",
     desc: "Disulfuro de hierro con cristales cúbicos. Usada para ácido sulfúrico y asociada a depósitos de oro.",
     clase: "Clase II (Sulfuros y Sulfosales)",
@@ -36,7 +36,7 @@ const mineralesCorteza = [
   },
   {
     id: "calcopirita",
-    img: "/minerales/calcopirita.jpeg",
+    img: "/minerales/calcopirita.png",
     nombre: "Calcopirita",
     desc: "Principal mineral de cobre, color amarillo latón y raya negra verdosa.",
     clase: "Clase II (Sulfuros y Sulfosales)",
@@ -50,7 +50,7 @@ const mineralesCorteza = [
   },
   {
     id: "tetraedrita",
-    img: "/minerales/tetraedrita.jpeg",
+    img: "/minerales/tetraedrita.png",
     nombre: "Tetraedrita",
     desc: "Sulfosal común en vetas epitermales, fuente de plata en su variedad 'freibergita'.",
     clase: "Clase II (Sulfuros y Sulfosales)",
@@ -64,7 +64,7 @@ const mineralesCorteza = [
   },
   {
     id: "galena",
-    img: "/minerales/galena.jpeg",
+    img: "/minerales/galena.png",
     nombre: "Galena",
     desc: "Principal mena de plomo, con frecuente contenido de plata.",
     clase: "Clase II (Sulfuros y Sulfosales)",
@@ -78,7 +78,7 @@ const mineralesCorteza = [
   },
   {
     id: "estibinita",
-    img: "/minerales/estibinita.jpeg",
+    img: "/minerales/estibinita.png",
     nombre: "Estibinita",
     desc: "Fuente principal de antimonio, con hábito hojoso y exfoliación perfecta.",
     clase: "Clase II (Sulfuros y Sulfosales)",
@@ -92,7 +92,7 @@ const mineralesCorteza = [
   },
   {
     id: "esfalerita",
-    img: "/minerales/esfalerita.jpeg",
+    img: "/minerales/esfalerita.png",
     nombre: "Esfalerita",
     desc: "Principal mena de zinc, con brillo resinoso y clivaje perfecto.",
     clase: "Clase II (Sulfuros y Sulfosales)",
@@ -106,7 +106,7 @@ const mineralesCorteza = [
   },
   {
     id: "malaquita",
-    img: "/minerales/malaquita.jpeg",
+    img: "/minerales/malaquita.png",
     nombre: "Malaquita",
     desc: "Carbonato de cobre verde, usado como ornamental y gema.",
     clase: "Clase V (Carbonatos y Nitratos)",
@@ -120,7 +120,7 @@ const mineralesCorteza = [
   },
   {
     id: "azurita",
-    img: "/minerales/azurita.jpeg",
+    img: "/minerales/azurita.png",
     nombre: "Azurita",
     desc: "Carbonato de cobre azul, usado como pigmento y ornamental.",
     clase: "Clase V (Carbonatos y Nitratos)",
@@ -134,7 +134,7 @@ const mineralesCorteza = [
   },
   {
     id: "bornita",
-    img: "/minerales/bornita.jpeg",
+    img: "/minerales/bornita.png",
     nombre: "Bornita",
     desc: "Sulfuro de cobre con iridiscencia púrpura ('pecho de paloma').",
     clase: "Clase II (Sulfuros y Sulfosales)",
@@ -148,7 +148,7 @@ const mineralesCorteza = [
   },
   {
     id: "platas_rojas",
-    img: "/minerales/platas_rojas.jpeg",
+    img: "/minerales/platas_rojas.png",
     nombre: "Platas Rojas (Proustita y Pirargirita)",
     desc: "Sulfosales de plata con color rojo intenso y alto contenido de plata.",
     clase: "Clase II (Sulfuros y Sulfosales)",
@@ -162,7 +162,7 @@ const mineralesCorteza = [
   },
   {
     id: "oro",
-    img: "/minerales/oro.jpeg",
+    img: "/minerales/oro.png",
     nombre: "Oro",
     desc: "Metal precioso maleable, usado en joyería y reservas monetarias.",
     clase: "Clase I (Elementos)",
@@ -176,7 +176,7 @@ const mineralesCorteza = [
   },
   {
     id: "plata",
-    img: "/minerales/plata.jpeg",
+    img: "/minerales/plata.png",
     nombre: "Plata",
     desc: "Metal noble usado en fotografía, electrónica y aleaciones.",
     clase: "Clase I (Elementos)",
@@ -190,7 +190,7 @@ const mineralesCorteza = [
   },
   {
     id: "cobre",
-    img: "/minerales/cobre.jpeg",
+    img: "/minerales/cobre.png",
     nombre: "Cobre",
     desc: "Metal rojizo esencial para conductores eléctricos y aleaciones.",
     clase: "Clase I (Elementos)",

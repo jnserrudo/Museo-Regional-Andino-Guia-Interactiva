@@ -28,7 +28,7 @@
     display: grid;
     /* Por defecto 1 columna, se ajustará en media queries */
     grid-template-columns: 1fr;
-    gap: 1.5rem; /* Espacio entre tarjetas (ajusta según necesites) */
+    gap: 2.5rem; /* Espacio entre tarjetas (ajusta según necesites) */
 }
 
 /* --- Tarjeta de Subtema --- */
@@ -82,8 +82,8 @@
     position: absolute;
     inset: 0; /* Cubre todo el div (top, right, bottom, left = 0) */
     /* Gradiente sutil para oscurecer un poco y mejorar contraste */
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
-    opacity: 0.8;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 80%);
+    opacity: 0.2;
     transition: opacity 0.3s ease;
 }
 
@@ -104,15 +104,18 @@
     flex-grow: 1; /* Ocupa el espacio restante */
     padding: 1rem 1.5rem; /* Espaciado interno */
     display: flex;
-    justify-content: space-between; /* Separa título y flecha */
+    justify-content: center; /* Separa título y flecha */
     align-items: center; /* Centra verticalmente */
     font-family: 'MuseoSans', sans-serif; /* Asegurar fuente */
+    color: white !important;
+    background-color: rgb(45, 3, 3);
+    
 }
 
 .sala-subtema-title {
     font-weight: 700; /* Título más destacado */
     font-size: 1.15rem; /* Tamaño de fuente (ajusta) */
-    color: var(--text-dark, #343a40);
+    color: white !important;
     margin: 0;
     line-height: 1.4;
     transition: color 0.3s ease;
