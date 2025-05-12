@@ -1,0 +1,54 @@
+/* AccessibilityWidget.css */
+.accessibility-widget {
+    position: fixed; /* Clave para que flote */
+    bottom: 20px;    /* O top, según prefieras */
+    right: 20px;
+    z-index: 1050; /* Encima de la mayoría del contenido, pero debajo de modales si es necesario */
+    background-color: var(--color-dark-theart, #1a1a1a); /* Usa tus variables */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    display: flex;
+    flex-direction: column; /* Si tienes un botón de toggle y luego los controles */
+    gap: 8px;
+}
+
+.widget-controls {
+    display: flex;
+    /* Por defecto horizontal. Si quieres vertical: */
+    /* flex-direction: column; */
+    gap: 8px;
+}
+
+.widget-btn {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--color-text-light-theart, #f0f0f0) !important;
+    font-size: 1.5em !important; /* Iconos más grandes */
+    padding: 10px !important;
+    transition: color 0.3s, background-color 0.3s, transform 0.2s !important;
+}
+
+.widget-btn:hover,
+.widget-btn:focus {
+    color: var(--color-accent-theart, #c8a07d) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(1.1);
+}
+
+.widget-btn:disabled {
+    color: rgba(240, 240, 240, 0.4) !important;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.widget-btn.speaking { /* Similar al del footer */
+    color: var(--accent-color-original, #e7a84c) !important; /* O var(--color-accent-theart) */
+    /* Podrías querer una animación diferente o ninguna aquí */
+}
+
+/* Estilo para un botón de toggle (si decides implementarlo) */
+.widget-toggle-btn {
+    /* Estilos similares a widget-btn pero podría ser diferente */
+}

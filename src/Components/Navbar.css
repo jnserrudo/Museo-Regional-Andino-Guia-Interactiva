@@ -1,0 +1,152 @@
+/* Navbar.css */
+.theart-main-header {
+    background-color: var(--color-dark-theart);
+    color: var(--color-text-light-theart);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.theart-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px; /* Ancho máximo de la plantilla */
+    margin: 0 auto;
+}
+
+.theart-logo {
+    font-family: var(--font-heading-theart);
+    font-size: 1.8em; /* Ajusta según tu logo */
+    color: var(--color-text-light-theart) !important; /* Para sobreescribir color de link base */
+    font-weight: 700;
+    text-decoration: none;
+}
+.theart-logo:hover {
+    color: var(--color-accent-theart) !important;
+    text-decoration: none;
+}
+
+.theart-main-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.theart-main-nav ul li {
+    margin-left: 25px;
+}
+
+.theart-main-nav ul li a {
+    color: var(--color-text-light-theart);
+    font-family: var(--font-body-theart);
+    font-weight: bold;
+    padding-bottom: 5px;
+    text-decoration: none;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.theart-main-nav ul li a:hover,
+.theart-main-nav ul li a.active { /* Clase 'active' para el enlace actual */
+    color: var(--color-accent-theart);
+    border-bottom: 2px solid var(--color-accent-theart);
+}
+
+.theart-header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.theart-action-icon {
+    color: var(--color-text-light-theart);
+    margin-left: 15px;
+    font-size: 1.2em; /* Ajusta el tamaño de los iconos */
+    text-decoration: none;
+}
+.theart-action-icon:hover {
+    color: var(--color-accent-theart);
+    text-decoration: none;
+}
+.theart-action-icon .cart-count {
+    font-size: 0.7em;
+    vertical-align: super;
+}
+
+.theart-language-selector {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Espacio antes de los selectores de idioma */
+    border-left: 1px solid var(--color-grey-dark-theart); /* Separador opcional */
+    padding-left: 20px;
+}
+
+.theart-lang-btn {
+    background: none;
+    border: none;
+    color: var(--color-grey-light-theart); /* Color más sutil para no activos */
+    font-family: var(--font-body-theart);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+.theart-lang-btn:hover,
+.theart-lang-btn.active {
+    color: var(--color-text-light-theart); /* El activo es más brillante */
+}
+.theart-lang-flag {
+    width: 18px; /* Ajusta tamaño de bandera */
+    height: auto;
+    margin-right: 5px;
+    border-radius: 2px; /* Opcional */
+}
+
+/* Para mobile, podrías ocultar .theart-main-nav y .theart-language-selector, y mostrar .theart-mobile-menu-toggle */
+.theart-mobile-menu-toggle {
+    display: none; /* Oculto por defecto */
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+@media (max-width: 992px) { /* Ajusta el breakpoint según necesites */
+    .theart-main-nav {
+        display: none; /* Ocultar nav principal en pantallas más pequeñas */
+    }
+    .theart-language-selector { /* Podrías moverlo al menú desplegable también */
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+    /* .theart-mobile-menu-toggle {
+        display: block;
+    } */
+    .theart-header-container {
+        /* Podrías querer centrar el logo si el nav desaparece, o ajustar el espacio */
+    }
+}
+@media (max-width: 768px) {
+    .theart-header-container {
+        flex-wrap: wrap; /* Permitir que los elementos se envuelvan si no caben */
+    }
+    .theart-logo {
+        font-size: 1.5em;
+    }
+    .theart-language-selector {
+        /* Considera ocultarlos o moverlos a un menú off-canvas */
+        display: none;
+    }
+    .theart-action-icon {
+        font-size: 1em;
+        margin-left: 10px;
+    }
+     /* Aquí es donde el onMenuClick y un Drawer de AntD serían útiles */
+}

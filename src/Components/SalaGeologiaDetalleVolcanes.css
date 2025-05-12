@@ -1,117 +1,371 @@
-/* SalaGeologiaDetalleVolcanes.css */
+  /* SalaGeologiaDetalleVolcanes.css */
 
-/* Estilos específicos para la galería de imágenes de la sección Volcanes */
+  /* Estilos específicos para la galería de imágenes de la sección Volcanes */
+
+  .volcanes-image-gallery {
+      margin-top: 4rem; /* Espacio sobre la galería */
+      margin-bottom: 2rem; /* Espacio debajo */
+      padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding lateral consistente con el contenido */
+      max-width: 1200px; /* Ancho máximo */
+      margin-left: auto;
+      margin-right: auto;
+      border-top: 1px solid var(--border-color-light, #e9ecef); /* Separador superior */
+      background-color: var(--bg-medium, #f8f9fa); /* Fondo suave */
+      border-radius: var(--border-radius-lg, 12px); /* Opcional: redondear el contenedor */
+    }
+    
+    .volcanes-gallery-title {
+      font-size: clamp(1.5rem, 4vw, 2rem); /* Tamaño REM adaptable */
+      font-weight: 700;
+      color: var(--secondary-color, #A0522D); /* Color secundario */
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .volcanes-gallery-grid {
+      display: grid;
+      /* Columnas responsivas, mínimo 150px, preferiblemente más anchas */
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 1.2rem; /* Espacio entre imágenes */
+    }
+    
+    .volcanes-gallery-item {
+      position: relative; /* Para el caption */
+      overflow: hidden; /* Para redondear imagen y contener efectos */
+      border-radius: var(--border-radius-md, 8px);
+      box-shadow: var(--shadow-low, 0 3px 8px rgba(0,0,0,0.1));
+      cursor: pointer; /* Indica clickeable (para lightbox futuro) */
+      transition: transform 0.3s var(--transition-ease, ease),
+                  box-shadow 0.3s var(--transition-ease, ease);
+      aspect-ratio: 1 / 1; /* Hacer las tarjetas cuadradas */
+    }
+    
+    .volcanes-gallery-item:hover,
+    .volcanes-gallery-item:focus-within { /* Efecto también al enfocar */
+      transform: scale(1.05);
+      box-shadow: var(--shadow-high, 0 8px 25px rgba(0, 0, 0, 0.15));
+      z-index: 10; /* Para que la sombra se vea bien */
+    }
+    
+    /* Quitar outline por defecto al enfocar si se prefiere */
+    .volcanes-gallery-item:focus {
+        outline: none;
+    }
+    /* Añadir un outline personalizado al enfocar */
+    .volcanes-gallery-item:focus-visible {
+        outline: 3px solid var(--primary-color-light, #a67b5b);
+        outline-offset: 2px;
+    }
+    
+    
+    .volcanes-gallery-image {
+      display: block;
+      width: 100%;
+      height: 100%; /* Ocupar toda la altura del figure (definida por aspect-ratio) */
+      object-fit: cover; /* Asegura que la imagen cubra sin distorsionarse */
+      transition: transform 0.5s var(--transition-ease, ease);
+    }
+    
+    .volcanes-gallery-item:hover .volcanes-gallery-image {
+      transform: scale(1.1); /* Zoom interno a la imagen */
+    }
+    
+    .volcanes-gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 40%, transparent 100%);
+      color: #fff;
+      padding: 1.5rem 0.8rem 0.6rem 0.8rem; /* Más padding arriba */
+      font-size: 0.85rem; /* Tamaño REM */
+      font-weight: 500;
+      text-align: center;
+      opacity: 0; /* Oculto por defecto */
+      transform: translateY(20%); /* Empieza ligeramente abajo */
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none; /* No interfiere con hover del item */
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    .volcanes-gallery-item:hover .volcanes-gallery-caption,
+    .volcanes-gallery-item:focus-within .volcanes-gallery-caption {
+      opacity: 1;
+      transform: translateY(0); /* Aparece desde abajo */
+    }
+    
+    /* --- Responsividad Galería --- */
+    @media (max-width: 768px) {
+        .volcanes-gallery-grid {
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+            gap: 1rem;
+        }
+        .volcanes-gallery-caption {
+            font-size: 0.8rem;
+            padding: 1.2rem 0.6rem 0.5rem 0.6rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .volcanes-gallery-grid {
+            grid-template-columns: repeat(2, 1fr); /* Forzar 2 columnas */
+            gap: 0.8rem;
+        }
+        .volcanes-gallery-caption {
+            font-size: 0.75rem; /* Aún más pequeño */
+        }
+    }
+
+
+
+    /* -------------------------------------- */
+
+
+
+    /* SalaGeologiaDetalleVolcanes.css - Refinamientos Adicionales */
 
 .volcanes-image-gallery {
-    margin-top: 4rem; /* Espacio sobre la galería */
-    margin-bottom: 2rem; /* Espacio debajo */
-    padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding lateral consistente con el contenido */
-    max-width: 1200px; /* Ancho máximo */
-    margin-left: auto;
-    margin-right: auto;
-    border-top: 1px solid var(--border-color-light, #e9ecef); /* Separador superior */
-    background-color: var(--bg-medium, #f8f9fa); /* Fondo suave */
-    border-radius: var(--border-radius-lg, 12px); /* Opcional: redondear el contenedor */
-  }
-  
-  .volcanes-gallery-title {
-    font-size: clamp(1.5rem, 4vw, 2rem); /* Tamaño REM adaptable */
-    font-weight: 700;
-    color: var(--secondary-color, #A0522D); /* Color secundario */
-    text-align: center;
-    margin-bottom: 2.5rem;
-  }
-  
+  margin-top: 5rem; /* Más espacio sobre la galería */
+  padding: 3rem clamp(1rem, 5vw, 3rem);
+  background-color: var(--color-bg-section-sala, #f5f0e6); /* Usar el beige de Theart */
+  border-radius: var(--border-radius-sala, 6px); /* Consistencia */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Sombra más difusa */
+}
+
+.volcanes-gallery-title {
+  font-family: var(--font-heading-sala, 'Playfair Display', serif);
+  font-size: clamp(1.8rem, 5vw, 2.6rem); /* Más grande */
+  font-weight: 700;
+  color: var(--color-primary-sala, #1a1a1a); /* Color oscuro de Theart */
+  margin-bottom: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--color-accent-sala, #c8a07d); /* Línea de acento debajo del título */
+  display: inline-block; /* Para que el borde solo ocupe el ancho del texto */
+}
+/* Centrar el título si es inline-block */
+.volcanes-image-gallery > h3.volcanes-gallery-title { /* Mayor especificidad si es necesario */
+  display: table; /* Truco para centrar inline-block con border-bottom */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.volcanes-gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); /* Imágenes un poco más pequeñas por defecto si hay muchas */
+  gap: 1.5rem; /* Más espacio */
+}
+
+.volcanes-gallery-item {
+  border-radius: var(--border-radius-sala, 6px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  /* aspect-ratio: 4 / 3; /* Proporción más panorámica si las imágenes lo permiten, o mantener 1/1 */
+  transition: transform 0.35s cubic-bezier(0.215, 0.610, 0.355, 1),
+              box-shadow 0.35s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.volcanes-gallery-item:hover,
+.volcanes-gallery-item:focus-within {
+  transform: translateY(-6px) scale(1.03); /* Un poco más de elevación y escala */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.volcanes-gallery-item:focus-visible {
+  outline: 3px solid var(--color-accent-sala, #c8a07d); /* Usar color de acento para outline */
+  outline-offset: 3px; /* Un poco más separado */
+}
+
+.volcanes-gallery-image {
+  transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1); /* Easing más suave */
+}
+.volcanes-gallery-item:hover .volcanes-gallery-image {
+  transform: scale(1.12); /* Un poco más de zoom interno */
+}
+
+.volcanes-gallery-caption {
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.75) 50%, transparent 100%); /* Gradiente más intenso */
+  padding: 1.8rem 1rem 0.8rem 1rem; /* Más padding superior para que no se corte el texto */
+  font-size: 0.9rem; /* Caption un poco más grande */
+  font-weight: 600;
+  line-height: 1.3; /* Mejor interlineado para el caption */
+}
+
+/* --- Responsividad Galería Volcanes --- */
+@media (max-width: 768px) {
+  .volcanes-gallery-title { font-size: clamp(1.5rem, 4.5vw, 2.2rem); margin-bottom: 2.5rem; }
   .volcanes-gallery-grid {
-    display: grid;
-    /* Columnas responsivas, mínimo 150px, preferiblemente más anchas */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-    gap: 1.2rem; /* Espacio entre imágenes */
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 1.2rem;
   }
-  
-  .volcanes-gallery-item {
-    position: relative; /* Para el caption */
-    overflow: hidden; /* Para redondear imagen y contener efectos */
-    border-radius: var(--border-radius-md, 8px);
-    box-shadow: var(--shadow-low, 0 3px 8px rgba(0,0,0,0.1));
-    cursor: pointer; /* Indica clickeable (para lightbox futuro) */
-    transition: transform 0.3s var(--transition-ease, ease),
-                box-shadow 0.3s var(--transition-ease, ease);
-    aspect-ratio: 1 / 1; /* Hacer las tarjetas cuadradas */
+}
+
+@media (max-width: 480px) {
+  .volcanes-gallery-title { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+  .volcanes-gallery-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); /* Más pequeñas en móvil para que quepan más */
+      /* O forzar 2 columnas si se prefiere: grid-template-columns: repeat(2, 1fr); */
+      gap: 1rem;
   }
-  
-  .volcanes-gallery-item:hover,
-  .volcanes-gallery-item:focus-within { /* Efecto también al enfocar */
-    transform: scale(1.05);
-    box-shadow: var(--shadow-high, 0 8px 25px rgba(0, 0, 0, 0.15));
-    z-index: 10; /* Para que la sombra se vea bien */
-  }
-  
-  /* Quitar outline por defecto al enfocar si se prefiere */
-  .volcanes-gallery-item:focus {
-      outline: none;
-  }
-  /* Añadir un outline personalizado al enfocar */
-  .volcanes-gallery-item:focus-visible {
-      outline: 3px solid var(--primary-color-light, #a67b5b);
-      outline-offset: 2px;
-  }
-  
-  
-  .volcanes-gallery-image {
-    display: block;
-    width: 100%;
-    height: 100%; /* Ocupar toda la altura del figure (definida por aspect-ratio) */
-    object-fit: cover; /* Asegura que la imagen cubra sin distorsionarse */
-    transition: transform 0.5s var(--transition-ease, ease);
-  }
-  
-  .volcanes-gallery-item:hover .volcanes-gallery-image {
-    transform: scale(1.1); /* Zoom interno a la imagen */
-  }
-  
   .volcanes-gallery-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 40%, transparent 100%);
-    color: #fff;
-    padding: 1.5rem 0.8rem 0.6rem 0.8rem; /* Más padding arriba */
-    font-size: 0.85rem; /* Tamaño REM */
-    font-weight: 500;
-    text-align: center;
-    opacity: 0; /* Oculto por defecto */
-    transform: translateY(20%); /* Empieza ligeramente abajo */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* No interfiere con hover del item */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      font-size: 0.8rem;
+      padding: 1.5rem 0.8rem 0.6rem 0.8rem;
   }
-  
-  .volcanes-gallery-item:hover .volcanes-gallery-caption,
-  .volcanes-gallery-item:focus-within .volcanes-gallery-caption {
-    opacity: 1;
-    transform: translateY(0); /* Aparece desde abajo */
-  }
-  
-  /* --- Responsividad Galería --- */
-  @media (max-width: 768px) {
-      .volcanes-gallery-grid {
-          grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-          gap: 1rem;
-      }
-      .volcanes-gallery-caption {
-          font-size: 0.8rem;
-          padding: 1.2rem 0.6rem 0.5rem 0.6rem;
-      }
-  }
-  
-  @media (max-width: 480px) {
-      .volcanes-gallery-grid {
-          grid-template-columns: repeat(2, 1fr); /* Forzar 2 columnas */
-          gap: 0.8rem;
-      }
-       .volcanes-gallery-caption {
-          font-size: 0.75rem; /* Aún más pequeño */
-       }
-  }
+}
+
+
+/* -------------------------------------------------------- */
+
+
+/* SalaGeologiaDetalleVolcanes.css - Estilos para Galería Innovadora */
+
+/* Contenedor general de la galería (puede heredar de antes) */
+.volcanes-image-gallery.innovative-gallery {
+  margin-top: 5rem;
+  padding: 3rem clamp(1rem, 5vw, 2rem); /* Ajustar padding si es necesario */
+  background-color: var(--color-dark-theart, #1a1a1a); /* FONDO OSCURO para la galería */
+  color: var(--color-text-light-theart, #f0f0f0); /* Texto claro por defecto */
+  border-radius: var(--border-radius-sala, 6px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* Título de la galería */
+.volcanes-image-gallery.innovative-gallery .volcanes-gallery-title {
+  font-family: var(--font-heading-sala, 'Playfair Display', serif);
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text-light-theart, #f0f0f0); /* Título claro sobre fondo oscuro */
+  margin-bottom: 3rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 4px solid var(--color-accent-sala, #c8a07d); /* Acento más grueso */
+  text-align: center; /* Centrado explícito */
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Estilos para Masonry --- */
+.volcanes-masonry-grid {
+display: flex;
+margin-left: -20px; /* Ajusta el gap negativo (igual al gap/2 de las columnas) */
+width: auto;
+}
+
+.volcanes-masonry-grid_column {
+padding-left: 20px; /* Espacio entre columnas (gap) */
+background-clip: padding-box;
+}
+.volcanes-masonry-grid_column > figure { /* Estilo para el item dentro de la columna */
+  margin-bottom: 20px; /* Espacio vertical entre items */
+}
+
+/* --- Estilos para cada Item de la Galería --- */
+.volcanes-gallery-item-innovative {
+  position: relative; /* Para el overlay */
+  overflow: hidden;
+  border-radius: var(--border-radius-sala, 6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra más oscura sobre fondo oscuro */
+  display: block; /* Asegurar que figure sea block */
+  transition: transform 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor: pointer;
+  background-color: #333; /* Placeholder mientras carga imagen */
+}
+.volcanes-gallery-item-innovative:focus { outline: none; }
+.volcanes-gallery-item-innovative:focus-visible {
+  outline: 3px solid var(--color-accent-sala, #c8a07d);
+  outline-offset: 3px;
+}
+
+.volcanes-gallery-image-innovative {
+  display: block;
+  width: 100%;
+  height: auto; /* Masonry maneja la altura */
+  border-radius: inherit; /* Heredar borde redondeado */
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+              filter 0.4s ease; /* Transición para filtro */
+}
+
+/* --- Estilos para el Overlay Interactivo --- */
+.volcanes-gallery-item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 26, 26, 0.85); /* Fondo oscuro semi-transparente de Theart */
+  backdrop-filter: blur(5px); /* Desenfoque sutil del fondo */
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: inherit;
+  opacity: 0; /* Oculto por defecto */
+  transition: opacity 0.4s ease-out;
+  display: flex;
+  align-items: center; /* Centrar contenido verticalmente */
+  justify-content: center; /* Centrar contenido horizontalmente */
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.overlay-content {
+  transform: translateY(15px); /* Empezar ligeramente abajo */
+  transition: transform 0.4s ease-out 0.1s; /* Retraso ligero para la animación del texto */
+}
+
+.overlay-title {
+  font-family: var(--font-heading-sala, 'Playfair Display', serif);
+  font-size: clamp(1.1rem, 3vw, 1.5rem); /* Tamaño adecuado para overlay */
+  color: var(--color-text-light-theart, #f0f0f0);
+  font-weight: 700;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.3;
+}
+
+.overlay-metadata {
+  font-family: var(--font-body-sala, 'Lato', sans-serif);
+  font-size: 0.8rem;
+  color: var(--color-grey-light-theart, #aaa);
+  line-height: 1.5;
+}
+.overlay-metadata p {
+  margin: 0.3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* Espacio entre icono y texto */
+}
+.overlay-metadata .anticon { /* Estilo para los iconos de AntD */
+  color: var(--color-accent-sala, #c8a07d); /* Color acento para iconos */
+  font-size: 1em; /* Ajustar tamaño si es necesario */
+}
+
+/* --- Efectos Hover --- */
+.volcanes-gallery-item-innovative:hover {
+  transform: scale(1.03); /* Escalar ligeramente el item */
+}
+
+.volcanes-gallery-item-innovative:hover .volcanes-gallery-image-innovative {
+  transform: scale(1.15); /* Zoom más pronunciado a la imagen */
+  filter: brightness(0.6) saturate(1.1); /* Oscurecer y saturar un poco la imagen */
+}
+
+.volcanes-gallery-item-innovative:hover .volcanes-gallery-item-overlay {
+  opacity: 1; /* Mostrar overlay */
+}
+
+.volcanes-gallery-item-innovative:hover .overlay-content {
+  transform: translateY(0); /* Animar texto a su posición */
+}
+
+/* --- Responsividad Específica para Masonry y Overlay --- */
+@media (max-width: 700px) {
+  .volcanes-masonry-grid { margin-left: -15px; }
+  .volcanes-masonry-grid_column { padding-left: 15px; }
+  .volcanes-masonry-grid_column > figure { margin-bottom: 15px; }
+  .overlay-title { font-size: clamp(1rem, 4vw, 1.3rem); }
+  .overlay-metadata { font-size: 0.75rem; }
+}
+@media (max-width: 500px) {
+   .volcanes-masonry-grid { margin-left: -10px; }
+   .volcanes-masonry-grid_column { padding-left: 10px; }
+   .volcanes-masonry-grid_column > figure { margin-bottom: 10px; }
+   /* Quizás ocultar parte de la metadata en pantallas muy pequeñas si se superpone */
+   /* .overlay-metadata p:nth-child(3) { display: none; } */
+}

@@ -221,3 +221,40 @@ body.font-size-xlarge h3 { font-size: 1.5em; }
 .sala-item-img { width: 120px; height: 120px; object-fit: cover; flex-shrink: 0; border-radius: 4px; }
 /* ¡¡Quitamos font-size aquí!! Debería heredar de body p */
 .sala-item-text { flex: 1; line-height: 1.6; }
+
+
+/* -------------- ----------------------------- */
+
+:root {
+  --font-heading-theart: 'Playfair Display', serif;
+  --font-body-theart: 'Lato', sans-serif;
+  --color-dark-theart: #1a1a1a;
+  --color-light-beige-theart: #f5f0e6;
+  --color-text-dark-theart: #333333;
+  --color-text-light-theart: #f0f0f0;
+  --color-accent-theart: #c8a07d;
+  --color-grey-light-theart: #aaa; /* Para textos secundarios en footer */
+  --color-grey-dark-theart: #444; /* Para bordes en footer */
+
+  /* Mantén tus variables originales si las necesitas para otras partes */
+  --primary-color-original: #046ba3; /* Renombrada para claridad */
+  --accent-color-original: #e7a84c;
+  /* ... etc ... */
+}
+
+body {
+  font-family: var(--font-body-theart); /* Establece la fuente base */
+  margin: 0;
+  background-color: var(--color-light-beige-theart); /* Fondo general de la página */
+  color: var(--color-text-dark-theart);
+  line-height: 1.6;
+}
+
+/* Estilos básicos para enlaces */
+a {
+  text-decoration: none;
+  color: var(--color-accent-theart); /* Color de enlace por defecto de la plantilla Theart */
+}
+a:hover {
+  text-decoration: underline; /* O el estilo de hover que prefieras */
+}

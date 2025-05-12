@@ -1,0 +1,232 @@
+/* Home.css - Reescrito para el estilo "Theart" */
+
+/* --- Variables CSS de la plantilla "Theart" (Adaptadas) --- */
+:root {
+    --font-heading-theart: 'Playfair Display', serif;
+    --font-body-theart: 'Lato', sans-serif;
+    --color-dark-theart: #1a1a1a;
+    --color-light-beige-theart: #f5f0e6; /* Fondo principal de secciones de contenido */
+    --color-text-dark-theart: #333333;
+    --color-text-light-theart: #f0f0f0; /* Texto sobre fondos oscuros */
+    --color-accent-theart: #c8a07d; /* Un dorado/bronce sutil */
+
+    /* Variables originales (puedes decidir si las mantienes o fusionas) */
+    --primary-color: #046ba3;
+    --primary-hover: #03527d;
+    --accent-color-original: #e7a84c; /* Renombrada para evitar conflicto */
+    /* ... otras variables originales que puedas necesitar para otras partes no rediseñadas */
+}
+
+/* --- Estilos Base para este componente/vista --- */
+.home-container-theart {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: var(--font-body-theart);
+    color: var(--color-text-dark-theart);
+    background-color: var(--color-light-beige-theart); /* Fondo general de la página */
+}
+
+/* --- Botones Estilo Theart --- */
+.theart-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: var(--font-body-theart); /* Asegurar la fuente correcta */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-decoration: none;
+    border: 1px solid transparent; /* Base para variantes */
+    cursor: pointer;
+    text-align: center;
+}
+
+.theart-btn-light { /* Para Hero: fondo claro (beige), texto oscuro */
+    background-color: var(--color-light-beige-theart);
+    color: var(--color-text-dark-theart);
+    border-color: var(--color-text-dark-theart); /* O var(--color-light-beige-theart) si no quieres borde visible */
+}
+.theart-btn-light:hover {
+    background-color: var(--color-text-dark-theart);
+    color: var(--color-light-beige-theart);
+    border-color: var(--color-text-dark-theart);
+}
+
+.theart-btn-dark { /* Para About: fondo oscuro, texto claro */
+    background-color: var(--color-dark-theart);
+    color: var(--color-text-light-theart);
+    border-color: var(--color-dark-theart);
+}
+.theart-btn-dark:hover {
+    background-color: var(--color-accent-theart); /* Usamos accent en hover */
+    color: var(--color-text-light-theart);
+    border-color: var(--color-accent-theart);
+}
+
+
+/* --- Sección Hero Estilo Theart --- */
+.theart-hero {
+    height: 90vh; /* Plantilla usa 90vh */
+    position: relative;
+    color: var(--color-text-light-theart);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    /* background-attachment: fixed; Tu estilo original, mantenlo si te gusta */
+}
+
+.theart-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay oscuro como en la plantilla */
+    z-index: 1;
+}
+
+.theart-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px; /* Límite de ancho para el contenido */
+    padding: 20px;
+}
+
+.theart-hero-subtitle {
+    font-family: var(--font-body-theart);
+    font-size: 1.2em; /* Ajusta según necesites */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(240, 240, 240, 0.9); /* Ligeramente transparente */
+}
+
+.theart-hero-title {
+    font-family: var(--font-heading-theart);
+    font-size: clamp(2.5rem, 6vw, 4rem); /* Adaptable */
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--color-text-light-theart);
+    line-height: 1.2;
+}
+
+/* --- Sección About Estilo Theart (tu antigua info-section) --- */
+.theart-about-section {
+    padding: 60px 20px; /* Espaciado de la plantilla */
+    background-color: var(--color-light-beige-theart); /* Fondo beige claro */
+}
+
+.theart-about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    max-width: 1100px; /* Ancho máximo del contenido */
+    margin: 0 auto;
+}
+
+.theart-about-text {
+    flex: 1;
+}
+
+.theart-section-subtitle { /* Subtítulo pequeño encima del título principal de la sección */
+    font-family: var(--font-body-theart);
+    font-size: 0.9em;
+    color: #777; /* Un gris sutil */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5em;
+}
+
+.theart-section-title-main { /* Título principal de la sección */
+    font-family: var(--font-heading-theart);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--color-text-dark-theart);
+    margin-bottom: 20px;
+}
+
+.theart-about-text p {
+    font-family: var(--font-body-theart);
+    font-size: 1rem; /* Ajusta si es necesario */
+    line-height: 1.7;
+    color: #555; /* Un gris más oscuro para el párrafo */
+    margin-bottom: 25px;
+}
+
+.theart-about-image {
+    flex: 1;
+    max-width: 500px; /* Limita el tamaño de la imagen */
+}
+
+.theart-about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Indicador de Scroll (Mantenido de tu CSS original si te gusta) --- */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3; /* Asegura que esté sobre el overlay */
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 6px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 4px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  animation: scroll-anim 2s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes scroll-anim {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+/* --- Media Queries (Adaptadas de la plantilla Theart) --- */
+@media (max-width: 768px) {
+    .theart-hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    .theart-hero-subtitle {
+        font-size: 1em;
+    }
+
+    .theart-about-content {
+        flex-direction: column;
+        text-align: center; /* Centrar texto en móvil para la sección about */
+    }
+    .theart-about-image {
+        max-width: 100%; /* Imagen ocupa todo el ancho disponible */
+        margin-top: 30px;
+    }
+    .theart-section-subtitle,
+    .theart-section-title-main {
+        text-align: center;
+    }
+}

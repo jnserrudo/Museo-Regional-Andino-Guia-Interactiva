@@ -1,0 +1,148 @@
+/* SalaGeologiaDetalleVolcanes3D.css */
+
+/* Contenedor general de la sección 3D */
+.volcanes-3d-gallery-section {
+    margin-top: 4rem;
+    padding: 3rem 0; /* Padding vertical, sin padding horizontal */
+    background-color: var(--color-dark-theart, #1a1a1a);
+    color: var(--color-text-light-theart, #f0f0f0);
+    border-radius: var(--border-radius-sala, 6px); /* O sin radius si ocupa todo el ancho */
+}
+
+.volcanes-3d-gallery-title {
+    font-family: var(--font-heading-sala, 'Playfair Display', serif);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: inherit; /* Hereda color del contenedor */
+    text-align: center;
+    margin-bottom: 1rem; /* Menos margen si las instrucciones van debajo */
+    padding-bottom: 0.8rem;
+    border-bottom: 3px solid var(--color-accent-sala, #c8a07d);
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.volcano-explorer-container {
+    width: 100%;
+    height: 70vh; /* ALTURA DEFINIDA PARA EL CANVAS 3D - ¡MUY IMPORTANTE! */
+    max-height: 600px; /* Limitar altura máxima si es necesario */
+    cursor: grab; /* Indicar que se puede interactuar */
+    margin-bottom: 1rem;
+}
+.volcano-explorer-container:active {
+    cursor: grabbing;
+}
+
+.volcano-explorer-instructions {
+    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-grey-light-theart, #aaa);
+    padding: 0 1rem;
+}
+
+/* --- Estilos para el Panel de Información HTML Flotante --- */
+.volcano-info-panel {
+    background-color: rgba(40, 40, 40, 0.9); /* Fondo oscuro para el panel */
+    color: var(--color-text-light-theart, #f0f0f0);
+    padding: 15px 20px;
+    border-radius: var(--border-radius-sala, 6px);
+    width: 220px; /* Ancho fijo para el panel */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* pointer-events: none; Ya aplicado inline, pero por si acaso */
+}
+
+.volcano-info-panel h4 {
+    font-family: var(--font-heading-sala, 'Playfair Display', serif);
+    font-size: 1.1rem;
+    color: #fff; /* Blanco puro para el título del panel */
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-accent-sala, #c8a07d);
+    padding-bottom: 5px;
+}
+
+.volcano-info-panel p {
+    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    font-size: 0.8rem;
+    color: var(--color-grey-light-theart, #aaa);
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.volcano-info-panel .anticon {
+    color: var(--color-accent-sala, #c8a07d);
+    font-size: 0.9em;
+}
+
+
+/* -------------------------------- */
+
+/* SalaGeologiaDetalleVolcanes3D.css - Actualizaciones */
+
+/* ... (Estilos generales de la sección y título como antes) ... */
+
+.volcano-explorer-container {
+    /* ... (Mantener altura y cursor) ... */
+    background-color: #0a0a0a; /* Fondo del canvas un poco más oscuro si se desea */
+}
+
+/* --- Estilos para el Panel de Información HTML EN VISTA DETALLADA --- */
+.volcano-info-panel.detailed-view { /* Estilos específicos para cuando está enfocado */
+    background-color: rgba(30, 30, 30, 0.95); /* Fondo más opaco */
+    color: var(--color-text-light-theart, #f0f0f0);
+    padding: 20px 25px;
+    border-radius: var(--border-radius-sala, 6px);
+    width: 260px; /* Un poco más ancho */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px); /* Más blur */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.volcano-info-panel.detailed-view h4 {
+    font-size: 1.3rem; /* Título más grande en detalle */
+    color: var(--color-accent-sala, #c8a07d); /* Usar color acento para el título */
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-accent-sala, #c8a07d);
+}
+
+.volcano-info-panel.detailed-view p {
+    font-size: 0.9rem; /* Texto de metadata un poco más grande */
+    color: var(--color-grey-light-theart, #ccc); /* Ligeramente más claro */
+    margin: 8px 0;
+}
+.volcano-info-panel.detailed-view .anticon {
+    color: var(--color-accent-sala, #c8a07d);
+    font-size: 1em; /* Ajustar tamaño si es necesario */
+}
+
+/* --- Botón para cerrar la vista enfocada --- */
+.close-focus-button {
+    position: fixed; /* O absolute si el canvas no es full viewport */
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100; /* Encima de otros elementos */
+    padding: 10px 25px;
+    background-color: var(--color-accent-sala, #c8a07d);
+    color: var(--color-dark-theart, #1a1a1a);
+    border: none;
+    border-radius: 25px;
+    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.close-focus-button:hover {
+    background-color: var(--color-text-light-theart, #f0f0f0);
+    transform: translateY(-2px) scale(1.02);
+}

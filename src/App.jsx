@@ -13,6 +13,7 @@ import { MapaMuseo } from "./Components/MapaMuseo";
 import { SpeechProvider } from "./Contexts/SpeechContext";
 import { FontProvider } from "./Contexts/FontContext";
 import { useState } from "react";
+import { AccessibilityWidget } from "./Components/AccessibilityWidget";
 
 const { Content } = Layout;
 
@@ -56,6 +57,7 @@ const App = () => {
             </Content>
             <Footer />
           </Layout>
+          <AccessibilityWidget />
         </FontProvider>
       </SpeechProvider>
     </BrowserRouter>

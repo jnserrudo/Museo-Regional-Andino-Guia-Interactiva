@@ -272,3 +272,211 @@
   to { opacity: 1; }
 }
 /* Puedes aplicar 'animation: fadeIn 0.5s ease-out forwards;' al .sala-detalle-container si lo deseas */
+
+
+
+
+
+/* ----------------------------- */
+
+
+
+/* SalaDetalle.css - Refinamientos Adicionales */
+
+/* --- Variables Globales (Asegúrate que estas estén definidas y sean consistentes) --- */
+:root {
+    /* ... (tus variables existentes) ... */
+    --font-heading-sala: var(--font-heading-theart, 'Playfair Display', serif); /* Usar la fuente de Theart para títulos */
+    --font-body-sala: var(--font-body-theart, 'Lato', sans-serif); /* Usar la fuente de Theart para cuerpo */
+    --color-primary-sala: var(--color-dark-theart, #1a1a1a); /* Color oscuro de Theart como primario aquí */
+    --color-accent-sala: var(--color-accent-theart, #c8a07d); /* Acento de Theart */
+    --color-bg-content-sala: #ffffff; /* Fondo blanco limpio para contenido */
+    --color-bg-section-sala: var(--color-light-beige-theart, #f5f0e6); /* Fondo beige para secciones alternas o galerías */
+    --color-text-sala: var(--color-text-dark-theart, #333333);
+    --color-text-muted-sala: #6c757d;
+    --border-radius-sala: 6px; /* Un radio de borde consistente */
+}
+
+/* --- Contenedor Principal --- */
+.sala-detalle-container {
+    font-family: var(--font-body-sala);
+    color: var(--color-text-sala);
+    line-height: 1.75; /* Un poco más de interlineado */
+    font-size: 1.05rem; /* Ligeramente más grande para mejor lectura */
+    background-color: var(--color-bg-content-sala); /* Fondo blanco para el cuerpo principal */
+}
+
+/* --- Hero Section --- */
+.sala-detalle-hero {
+    min-height: 60vh; /* Un poco más alto para impacto */
+    max-height: 80vh;
+    background-size: cover; /* Asegurar 'cover' para inmersión */
+    background-attachment: fixed; /* Efecto parallax sutil, opcional */
+}
+
+.sala-detalle-hero::before {
+    /* Gradiente más suave y menos oscuro en la parte superior */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.75) 100%);
+}
+
+.sala-detalle-hero-content {
+    max-width: 800px; /* Consistente con otras secciones */
+    padding: 1.5rem; /* Un poco más de padding */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Sombra de texto más definida */
+}
+
+.sala-detalle-titulo-principal {
+    font-family: var(--font-heading-sala);
+    font-size: clamp(2.5rem, 7vw, 4.5rem); /* Rango de tamaño adaptable */
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px; /* Espaciado sutil */
+}
+
+/* Subtítulo del tema principal, debajo del hero */
+.sala-detalle-subtitulo-hero {
+    font-family: var(--font-heading-sala);
+    font-size: clamp(1.3rem, 4vw, 1.8rem); /* Más grande y con fuente de heading */
+    font-weight: 400;
+    color: var(--color-primary-sala); /* Color primario oscuro */
+    text-align: center;
+    margin: 2rem auto 3rem auto; /* Más margen vertical */
+    max-width: 700px;
+    line-height: 1.4;
+}
+
+/* --- Contenido Principal (Secciones) --- */
+.sala-detalle-contenido {
+    padding: 2rem clamp(1rem, 5vw, 3rem); /* Reducir padding vertical si el subtitulo-hero ya da espacio */
+}
+
+.sala-detalle-seccion {
+    background-color: transparent; /* Hacer transparente por defecto */
+    border-radius: var(--border-radius-sala);
+    margin-bottom: 4rem; /* Más espacio entre secciones */
+    padding: 0; /* El padding lo controlarán los hijos o se añadirá si hay fondo */
+    transition: none; /* Quitar transiciones de la sección entera si no aportan mucho */
+}
+
+/* Estilo para secciones con fondo alterno (si decides usarlo) */
+.sala-detalle-seccion.section-highlight {
+    background-color: var(--color-bg-section-sala);
+    padding: clamp(2rem, 5vw, 3rem); /* Solo padding si hay fondo */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+}
+
+.sala-detalle-seccion.with-image {
+    gap: 3rem; /* Más espacio en el grid */
+}
+
+.sala-detalle-subtitulo {
+    font-family: var(--font-heading-sala);
+    font-size: clamp(1.6rem, 5vw, 2.2rem); /* Títulos de sección más grandes */
+    font-weight: 700;
+    color: var(--color-primary-sala);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem; /* Más espacio para la línea */
+}
+.sala-detalle-subtitulo::after {
+    height: 4px; /* Línea más gruesa */
+    background-color: var(--color-accent-sala); /* Usar el acento consistentemente */
+    /* Quitar animación de la línea si distrae, o mantenerla si gusta */
+    /* transition: width var(--transition-speed) var(--transition-ease); */
+}
+/* .sala-detalle-seccion:hover .sala-detalle-subtitulo::after {
+    width: 80px;
+} */
+
+.sala-detalle-parrafo {
+    font-size: clamp(1rem, 2.5vw, 1.15rem); /* Ligeramente más grande */
+    color: var(--color-text-sala);
+    margin-bottom: 1.8rem; /* Más espacio */
+    font-weight: 400; /* Asegurar peso normal */
+}
+
+.sala-detalle-imagen-seccion {
+    border-radius: var(--border-radius-sala);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12); /* Sombra más pronunciada */
+    /* Quitar transición de la figura, aplicar solo a la imagen interna si se desea */
+    /* transition: transform var(--transition-speed) var(--transition-ease),
+                box-shadow var(--transition-speed) var(--transition-ease); */
+}
+/* .sala-detalle-seccion:hover .sala-detalle-imagen-seccion {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+} */
+.sala-detalle-imagen-seccion img {
+    max-height: 450px; /* Permitir imágenes un poco más altas */
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Easing más sofisticado para zoom */
+}
+.sala-detalle-imagen-seccion:hover img { /* Zoom solo al pasar sobre la imagen, no la sección entera */
+    transform: scale(1.08);
+}
+
+.sala-detalle-imagen-seccion figcaption {
+    font-size: 0.9rem;
+    color: var(--color-text-muted-sala);
+    padding: 0.5rem 0; /* Solo padding vertical, el horizontal lo da el contenedor */
+}
+
+/* --- Galería General (si se reactiva) --- */
+.sala-detalle-galeria {
+    padding: 3rem clamp(1rem, 5vw, 3rem);
+    margin-top: 4rem; /* Más margen superior */
+    background-color: var(--color-bg-section-sala); /* Fondo beige para destacar la galería */
+    border-top: none; /* Quitar borde si el fondo ya diferencia */
+    border-radius: var(--border-radius-sala); /* Redondear el contenedor de la galería */
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.05); /* Sombra interna sutil */
+}
+.sala-detalle-galeria-titulo {
+    font-family: var(--font-heading-sala);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-primary-sala);
+    margin-bottom: 3rem;
+}
+.sala-detalle-galeria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Imágenes un poco más grandes */
+    gap: 1.5rem; /* Más espaciado */
+}
+.sala-detalle-galeria-item {
+    border-radius: var(--border-radius-sala);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    /* Mantener efecto hover sutil para la tarjeta */
+}
+.sala-detalle-galeria-item:hover {
+    transform: translateY(-4px) scale(1.02); /* Elevar y escalar un poco */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.sala-detalle-galeria-item img {
+    height: 180px; /* Imágenes de galería más altas */
+    transition: transform 0.35s ease-out, filter 0.35s ease-out;
+}
+.sala-detalle-galeria-item:hover img {
+    transform: scale(1.05); /* Zoom más sutil en la imagen interna */
+    filter: brightness(1.05); /* Un poco más brillante */
+}
+.sala-detalle-galeria-item figcaption {
+    font-weight: 600; /* Caption un poco más destacado */
+    font-size: 0.85rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 40%, transparent 100%); /* Gradiente más oscuro */
+    /* El efecto de aparición del caption ya está bien */
+}
+
+/* --- Ajustes Responsividad --- */
+@media (max-width: 767px) {
+    .sala-detalle-hero { min-height: 50vh; } /* Un poco menos alto en móvil */
+    .sala-detalle-titulo-principal { font-size: clamp(2rem, 8vw, 3.5rem); }
+    .sala-detalle-subtitulo-hero { font-size: clamp(1.1rem, 3.5vw, 1.5rem); margin: 1.5rem auto 2rem auto; }
+
+    .sala-detalle-contenido { padding: 1.5rem clamp(0.8rem, 4vw, 1.5rem); }
+    .sala-detalle-seccion.with-image { gap: 2rem; } /* Menos gap en móvil */
+    .sala-detalle-subtitulo { font-size: clamp(1.4rem, 4.5vw, 1.8rem); }
+    .sala-detalle-parrafo { font-size: clamp(0.95rem, 2.8vw, 1.05rem); }
+
+    .sala-detalle-galeria { padding: 2rem clamp(0.8rem, 4vw, 1.5rem); margin-top: 3rem; }
+    .sala-detalle-galeria-titulo { font-size: clamp(1.5rem, 4.5vw, 2rem); margin-bottom: 2rem; }
+    .sala-detalle-galeria-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+    .sala-detalle-galeria-item img { height: 150px; }
+}

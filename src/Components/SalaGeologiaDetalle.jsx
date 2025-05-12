@@ -3,6 +3,12 @@ import { useParams } from "react-router-dom";
 import { useSpeech } from "../Contexts/SpeechContext"; // Ajusta la ruta si es necesario
 import "../SalaDetalle.css"; // Asegúrate que este archivo exista y tenga los estilos NUEVOS
 import "./SalaGeologiaDetalleVolcanes.css"; // <<<--- NUEVO CSS para la galería específica
+
+// QUITA la importación de Masonry si ya no la usas en otro lado
+// import Masonry from 'react-masonry-css';
+import { VolcanoExplorer3D } from "./VolcanoExplorer3D"; // <<<--- IMPORTA EL NUEVO COMPONENTE 3D
+import "./SalaGeologiaDetalleVolcanes3D.css"; // <<<--- NUEVO ARCHIVO CSS para estilos del overlay HTML
+
 // ========================================================================
 // =                          DATOS DE DETALLE                          =
 // ========================================================================
@@ -327,36 +333,22 @@ export const SalaGeologiaDetalle = () => {
       {/* =      NUEVA GALERÍA DE IMÁGENES (Solo para Volcanes)      = */}
       {/* ============================================================ */}
       {id === "volcanes" && (
-        <aside className="volcanes-image-gallery">
-          <h3 className="volcanes-gallery-title">
-            Galería de Volcanes Andinos
+        <section className="volcanes-3d-gallery-section">
+          {" "}
+          {/* Contenedor general */}
+          <h3 className="volcanes-3d-gallery-title">
+            Explorador Geológico Interactivo
           </h3>
-          <div className="volcanes-gallery-grid">
-            {imagenesVolcanes.map((imgData, index) => (
-              <figure
-                key={imgData.nombreArchivo + index}
-                className="volcanes-gallery-item"
-                tabIndex="0"
-              >
-                {/* Enlace opcional para futuro lightbox */}
-                {/* <a href={`${import.meta.env.BASE_URL}${imgData.nombreArchivo}`} target="_blank" rel="noopener noreferrer"> */}
-                <img
-                  src={`${import.meta.env.BASE_URL}/volcanes/${
-                    imgData.nombreArchivo
-                  }`}
-                  alt={imgData.nombre}
-                  className="volcanes-gallery-image"
-                  loading="lazy"
-                />
-                <figcaption className="volcanes-gallery-caption">
-                  {/* Reemplaza guiones bajos con espacios para mostrar nombre */}
-                  {imgData.nombre.replace(/_/g, " ")}
-                </figcaption>
-                {/* </a> */}
-              </figure>
-            ))}
+          <div className="volcano-explorer-container">
+            {" "}
+            {/* Contenedor para el canvas 3D */}
+            <VolcanoExplorer3D images={imagenesVolcanes} />
           </div>
-        </aside>
+          <p className="volcano-explorer-instructions">
+            Haz clic y arrastra para rotar. Usa la rueda del ratón para hacer
+            zoom. Pasa el cursor sobre una imagen para ver detalles.
+          </p>
+        </section>
       )}
       {/* ============================================================ */}
       {/* =             FIN NUEVA GALERÍA DE VOLCANES                = */}

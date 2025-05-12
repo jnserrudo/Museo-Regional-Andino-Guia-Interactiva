@@ -213,3 +213,182 @@
     .ramal-subtemas-en-intro .ramal-choice-card .ramal-card-description { font-size: 0.8rem; line-height: 1.3;}
 
 }
+
+
+
+
+
+/* -------------------------------------- */
+
+/* SalaSubtemas.css - Estilos para Tarjetas Inmersivas */
+
+/* --- Variables (Asegurarse que usan las de Theart si es posible) --- */
+:root {
+  /* ... tus variables globales ... */
+  --font-heading-subtema: var(--font-heading-theart, 'Playfair Display', serif);
+  --font-body-subtema: var(--font-body-theart, 'Lato', sans-serif);
+  --color-text-light-subtema: var(--color-text-light-theart, #f0f0f0);
+  --color-accent-subtema: var(--color-accent-theart, #c8a07d);
+  --border-radius-card-subtema: 8px; /* Radio consistente */
+}
+
+/* Contenedor y descripción (sin cambios grandes necesarios, ajustar si se quiere) */
+.sala-subtemas-container {
+  padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding general */
+}
+.sala-contenido-titulo-principal { /* Reutilizando de SalaDetalle si existe */
+  font-family: var(--font-heading-subtema);
+  text-align: center;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--color-primary-sala, #1a1a1a);
+  margin-bottom: 1rem;
+}
+.sala-subtemas-descripcion {
+  font-family: var(--font-body-subtema);
+  font-weight: 400; /* Un poco más ligero */
+  font-size: 1.1rem;
+  color: var(--color-text-muted-sala, #6c757d);
+  text-align: center;
+  margin-bottom: 3.5rem; /* Más espacio antes de las tarjetas */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* --- Grid --- */
+.sala-subtemas-grid {
+  display: grid;
+  /* Por defecto 1 columna, ajustable */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); /* Mínimo 300px */
+  gap: 2rem; /* Espacio entre tarjetas */
+}
+
+/* --- Nueva Tarjeta Inmersiva --- */
+.sala-subtema-card-immersive {
+  position: relative; /* Para el overlay */
+  height: 350px; /* Altura fija considerable para mostrar bien la imagen */
+  border-radius: var(--border-radius-card-subtema);
+  overflow: hidden; /* Contener imagen y overlay */
+  cursor: pointer;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+              box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: var(--color-text-light-subtema); /* Texto claro por defecto */
+
+  /* Animación de entrada (más pronunciada) */
+  opacity: 0;
+  transform: translateY(30px) scale(0.98); /* Empieza más abajo y ligeramente escalado */
+  animation: subtemaFadeInUpNew 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes subtemaFadeInUpNew {
+  to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+  }
+}
+
+.sala-subtema-card-immersive:hover,
+.sala-subtema-card-immersive:focus-visible {
+  transform: scale(1.04); /* Escalar un poco más */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+/* Opcional: outline visible en focus */
+.sala-subtema-card-immersive:focus-visible {
+   outline: 3px solid var(--color-accent-subtema);
+   outline-offset: 4px;
+}
+
+
+/* Contenedor del Overlay y Contenido */
+.sala-subtema-content-overlay {
+  position: absolute;
+  bottom: 0; /* Anclado abajo */
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.8rem; /* Buen padding */
+  background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 10%, rgba(15, 15, 15, 0.8) 50%, transparent 100%); /* Gradiente oscuro desde abajo */
+  display: flex;
+  justify-content: space-between; /* Título a la izq, indicador a la der */
+  align-items: flex-end; /* Alinear elementos abajo */
+  min-height: 40%; /* Asegurar altura mínima para el gradiente y contenido */
+  transition: background 0.4s ease; /* Transición suave del fondo */
+}
+
+.sala-subtema-card-immersive:hover .sala-subtema-content-overlay {
+   /* Hacer el gradiente un poco más intenso o cubrir más en hover */
+   background: linear-gradient(to top, rgba(10, 10, 10, 0.98) 20%, rgba(10, 10, 10, 0.85) 60%, transparent 100%);
+}
+
+
+/* Título del Subtema */
+.sala-subtema-content-overlay .sala-subtema-title {
+  font-family: var(--font-heading-subtema);
+  font-size: clamp(1.4rem, 4vw, 1.8rem); /* Tamaño responsivo */
+  font-weight: 700;
+  color: inherit; /* Hereda el blanco del overlay */
+  margin: 0;
+  line-height: 1.3;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+  flex-grow: 1; /* Permitir que ocupe espacio */
+  margin-right: 1rem; /* Espacio antes del indicador */
+}
+
+/* Indicador (Texto/Flecha) */
+.sala-subtema-indicator {
+  font-family: var(--font-body-subtema);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--color-accent-subtema); /* Color acento */
+  opacity: 0; /* Oculto por defecto */
+  transform: translateX(-15px); /* Empieza desplazado */
+  transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s; /* Transición con retraso */
+  flex-shrink: 0; /* No encoger */
+  white-space: nowrap; /* Evitar que se rompa en dos líneas */
+}
+
+.sala-subtema-card-immersive:hover .sala-subtema-indicator,
+.sala-subtema-card-immersive:focus-visible .sala-subtema-indicator {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Ajustes Responsivos --- */
+@media (max-width: 768px) {
+  .sala-subtema-card-immersive {
+      height: 300px; /* Un poco menos altas en tablet/móvil */
+  }
+  .sala-subtema-content-overlay {
+      padding: 1.2rem 1.5rem;
+  }
+  .sala-subtema-content-overlay .sala-subtema-title {
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+  .sala-subtema-indicator {
+      font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+   .sala-subtemas-grid {
+      grid-template-columns: 1fr; /* Siempre una columna en móvil */
+      gap: 1.5rem;
+  }
+  .sala-subtema-card-immersive {
+      height: 280px;
+  }
+   .sala-subtema-content-overlay {
+      padding: 1rem 1.2rem;
+      align-items: center; /* Centrar verticalmente en móvil si se ve mejor */
+      min-height: 45%; /* Asegurar espacio para el texto */
+  }
+   .sala-subtema-content-overlay .sala-subtema-title {
+      font-size: clamp(1.1rem, 6vw, 1.4rem);
+  }
+   /* Opcional: Hacer el indicador siempre visible en móvil si el hover no es ideal */
+   /* .sala-subtema-indicator { opacity: 1; transform: translateX(0); } */
+}

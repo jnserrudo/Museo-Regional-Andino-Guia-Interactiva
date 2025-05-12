@@ -172,20 +172,28 @@ const temasGeologia = [
   { id: "geiser", title: "Géiser", image: "/geiser_museo.png" },
   { id: "salares", title: "Salares", image: "/salares_museo.jpeg" },
 ];
-
+import { CloudServerOutlined, ClockCircleOutlined } from "@ant-design/icons"; // Ejemplos
 // --- NUEVO: Datos subtemas Ramal C-14 ---
 const temasRamal = [
   {
     id: "tren",
     title: "Tren a las Nubes",
     description: "Descubre la historia y la proeza ingenieril.",
-    icon: "",
+    icon: (
+      <CloudServerOutlined
+        style={{ fontSize: "2.5em", marginBottom: "0.5em" }}
+      />
+    ),
   },
   {
     id: "linea-tiempo",
     title: "Línea de Tiempo",
     description: "Sigue los hitos clave de su construcción.",
-    icon: "",
+    icon: (
+      <ClockCircleOutlined
+        style={{ fontSize: "2.5em", marginBottom: "0.5em" }}
+      />
+    ),
   },
 ];
 
@@ -303,7 +311,6 @@ export const Sala = () => {
       }`}
       data-sala-id={salaId}
     >
-       
       {mostrarSeccionIntro ? (
         // --- VISTA DE INTRODUCCIÓN (CON TARJETAS GEO SI APLICA) ---
         <div
@@ -312,16 +319,16 @@ export const Sala = () => {
           style={{ cursor: esSalaGeologia ? "default" : "pointer" }}
         >
           {/* --- BOTÓN VOLVER (AHORA FUERA DEL CONDICIONAL) --- */}
-       <Button
-          className="sala-back-button-fixed" // NUEVA Clase para posicionamiento
-          type="default"
-          icon={<ArrowLeftOutlined />}
-          onClick={handleGoBack}
-          // Quitamos el style inline de marginBottom
-      >
-          Volver
-      </Button>
-      {/* --- FIN BOTÓN VOLVER --- */}
+          <Button
+            className="sala-back-button-fixed" // NUEVA Clase para posicionamiento
+            type="default"
+            icon={<ArrowLeftOutlined />}
+            onClick={handleGoBack}
+            // Quitamos el style inline de marginBottom
+          >
+            Volver
+          </Button>
+          {/* --- FIN BOTÓN VOLVER --- */}
           <div className="sala-intro-overlay"></div>
           <div className="sala-intro-content">
             <h1 className="sala-intro-title">{sala.title}</h1>
@@ -331,11 +338,7 @@ export const Sala = () => {
             >
               {(() => {
                 if (!sala?.description) {
-                  return (
-                    <p className="sala-intro-description">
-                      []
-                    </p>
-                  );
+                  return <p className="sala-intro-description">[]</p>;
                 }
 
                 const lines = sala.description.trim().split("\n");
@@ -408,37 +411,35 @@ export const Sala = () => {
                 <h2 className="geologia-subtemas-titulo">Explora los temas:</h2>
                 <div className="sala-subtemas-grid">
                   {temasGeologia.map((tema, index) => (
+                    // *** AÑADE: La nueva tarjeta inmersiva ***
                     <article
                       key={tema.id}
-                      className="sala-subtema-card"
+                      className="sala-subtema-card-immersive" // <<<--- USAR LA NUEVA CLASE
                       onClick={(e) => {
-                        e.stopPropagation();
+                        e.stopPropagation(); // Evita que el click active handleIntroClick
                         handleGeologiaCardClick(tema.id);
                       }}
                       style={{
-                        animationDelay: `${index * 0.1}s`,
-                        cursor: "pointer",
+                        backgroundImage: `url(${import.meta.env.BASE_URL}${
+                          tema.image
+                        })`,
+                        animationDelay: `${index * 0.12}s`,
                       }}
                       tabIndex="0"
                       role="link"
                       aria-label={`Explorar ${tema.title}`}
                     >
-                      <div
-                        className="sala-subtema-image"
-                        style={{
-                          backgroundImage: `url(${import.meta.env.BASE_URL}${
-                            tema.image
-                          })`,
-                        }}
-                      >
-                        <div className="sala-subtema-image-overlay"></div>
-                      </div>
-                      <div className="sala-subtema-info">
+                      <div className="sala-subtema-content-overlay">
                         <h3 className="sala-subtema-title">{tema.title}</h3>
-                        {/* 
-                         <span className="sala-subtema-arrow" aria-hidden="true">→</span> */}
+                        <span
+                          className="sala-subtema-indicator"
+                          aria-hidden="true"
+                        >
+                          Explorar →
+                        </span>
                       </div>
                     </article>
+                    // *** FIN: Nueva tarjeta inmersiva ***
                   ))}
                 </div>
               </div>
@@ -453,46 +454,48 @@ export const Sala = () => {
                 {/* Reutilizamos el grid y card */}
                 <div className="sala-subtemas-grid ramal-choices-container">
                   {temasRamal.map((tema, index) => (
+                    // *** AÑADE: La nueva tarjeta inmersiva (adaptada) ***
                     <article
                       key={tema.id}
-                      className="sala-subtema-card ramal-choice-card" // Clases combinadas
-                      // Usa el handler genérico para subtemas
+                      // Usamos la misma clase base, pero añadimos una específica
+                      className="sala-subtema-card-immersive ramal-card-no-image"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleSubtemaCardClick(tema.id);
                       }}
                       style={{
-                        animationDelay: `${index * 0.1}s`,
-                        cursor: "pointer",
+                        // Sin backgroundImage, el fondo lo dará el CSS
+                        animationDelay: `${index * 0.12}s`,
                       }}
                       tabIndex="0"
                       role="link"
                       aria-label={`Explorar ${tema.title}`}
                     >
-                      {/* Layout específico para tarjetas Ramal */}
-                      <div className="sala-subtema-info ramal-choice-card-layout">
-                        <span
-                          className="ramal-choice-icon intro-card-icon"
-                          aria-hidden="true"
-                        >
-                          {tema.icon}
-                        </span>
-                        <div className="ramal-choice-info intro-card-info">
-                          <h3 className="sala-subtema-title ramal-card-title">
-                            {tema.title}
-                          </h3>
+                      {/* Usamos el overlay para controlar el fondo y contenido */}
+                      <div className="sala-subtema-content-overlay ramal-overlay-layout">
+                        {/* Contenedor para el contenido principal (icono, título, desc) */}
+                        <div className="ramal-card-main-content">
+                          {/* Renderizar el icono */}
+                          {tema.icon && (
+                            <div className="ramal-card-icon-wrapper">
+                              {tema.icon}
+                            </div>
+                          )}
+                          <h3 className="sala-subtema-title">{tema.title}</h3>
                           <p className="ramal-card-description">
                             {tema.description}
                           </p>
                         </div>
+                        {/* Indicador que aparece en hover (abajo) */}
                         <span
-                          className="sala-subtema-arrow ramal-card-arrow"
+                          className="sala-subtema-indicator ramal-indicator"
                           aria-hidden="true"
                         >
-                          →
+                          Explorar →
                         </span>
                       </div>
                     </article>
+                    // *** FIN: Nueva tarjeta inmersiva (adaptada) ***
                   ))}
                 </div>
               </div>
