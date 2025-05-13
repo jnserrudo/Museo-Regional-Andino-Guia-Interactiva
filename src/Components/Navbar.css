@@ -19,8 +19,8 @@
 }
 
 .theart-logo {
-    font-family: var(--font-heading-theart);
-    font-size: 1.8em; /* Ajusta según tu logo */
+/*     font-family: var(--font-heading-theart);
+ */    font-size: 1.8em; /* Ajusta según tu logo */
     color: var(--color-text-light-theart) !important; /* Para sobreescribir color de link base */
     font-weight: 700;
     text-decoration: none;
@@ -43,8 +43,8 @@
 
 .theart-main-nav ul li a {
     color: var(--color-text-light-theart);
-    font-family: var(--font-body-theart);
-    font-weight: bold;
+/*     font-family: var(--font-body-theart);
+ */    font-weight: bold;
     padding-bottom: 5px;
     text-decoration: none;
     transition: color 0.3s, border-color 0.3s;
@@ -88,8 +88,8 @@
     background: none;
     border: none;
     color: var(--color-grey-light-theart); /* Color más sutil para no activos */
-    font-family: var(--font-body-theart);
-    font-weight: bold;
+/*     font-family: var(--font-body-theart);
+ */    font-weight: bold;
     cursor: pointer;
     padding: 5px 8px;
     display: flex;

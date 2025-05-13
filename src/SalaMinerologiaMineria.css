@@ -421,3 +421,213 @@
       font-size: 0.8rem;
   }
 }
+
+
+/* ------------------------ */
+
+/* SalaMinerologiaMineria.css - NUEVOS ESTILOS PARA TARJETAS DE MINERALES */
+
+/* --- Variables (asegurar consistencia con Theart) --- */
+:root {
+  /* ... tus variables ... */
+  --font-heading-mineral: var(--font-heading-theart, 'Playfair Display', serif);
+  --font-body-mineral: var(--font-body-theart, 'Lato', sans-serif);
+  --color-bg-card-mineral: var(--color-light-beige-theart, #f5f0e6); /* Fondo beige para la tarjeta */
+  --color-text-card-mineral: var(--color-text-dark-theart, #333);
+  --color-primary-mineral: var(--color-dark-theart, #1a1a1a); /* Para títulos */
+  --color-accent-mineral: var(--color-accent-theart, #c8a07d);
+  --border-radius-card-mineral: 8px;
+}
+
+
+/* --- Grid para los Minerales (sin cambios grandes, asegurar gap) --- */
+.minerales-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); /* Ajustar minmax */
+gap: 2rem; /* Mantener o ajustar gap */
+}
+
+/* --- Nueva Tarjeta de Mineral Moderna --- */
+.mineral-card-modern {
+  background-color: var(--color-bg-card-mineral);
+  border-radius: var(--border-radius-card-mineral);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Para que todas las tarjetas en una fila tengan la misma altura */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mineral-card-modern:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.mineral-card-image-wrapper {
+  position: relative; /* Para posicionar el botón QR si va sobre la imagen */
+  width: 100%;
+  height: 220px; /* Altura fija para la imagen del mineral */
+  overflow: hidden; /* Por si la imagen es más grande */
+}
+
+.mineral-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cubre el área sin distorsionar */
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.mineral-card-modern:hover .mineral-card-image {
+  transform: scale(1.08); /* Sutil zoom a la imagen en hover */
+}
+
+/* Botón QR sobre la imagen (opcional) */
+.qr-code-button.mineral-qr-on-image {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  /* Hereda estilos de .qr-code-button, ajustar si es necesario */
+  background-color: rgba(26, 26, 26, 0.7); /* Fondo más oscuro para contraste sobre imagen */
+  color: var(--color-text-light-theart, #f0f0f0);
+  border: 1px solid rgba(240, 240, 240, 0.3);
+}
+.qr-code-button.mineral-qr-on-image:hover {
+  background-color: var(--color-accent-mineral);
+  color: var(--color-dark-theart);
+}
+
+
+/* Contenido de la tarjeta */
+.mineral-card-content {
+  padding: 1.5rem; /* Buen padding */
+  flex-grow: 1; /* Ocupa el espacio restante */
+  display: flex;
+  flex-direction: column;
+}
+
+.mineral-card-name {
+  font-family: var(--font-heading-mineral);
+  font-size: clamp(1.25rem, 3vw, 1.6rem); /* Tamaño responsivo */
+  font-weight: 700;
+  color: var(--color-primary-mineral);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.3;
+}
+
+.mineral-card-description-main {
+  font-family: var(--font-body-mineral);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text-card-mineral);
+  margin: 0 0 1.2rem 0;
+  flex-grow: 1; /* Permite que esta descripción crezca si hay poco contenido de detalles */
+}
+
+.mineral-card-extra-details {
+  margin-top: auto; /* Empuja los detalles hacia abajo si la descripción es corta */
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.1); /* Separador sutil */
+  font-family: var(--font-body-mineral);
+}
+
+.mineral-card-extra-details .mineral-detail-item { /* Aplicar aquí los estilos de .mineral-detail-item */
+  font-size: 0.8rem; /* Más pequeños */
+  line-height: 1.5;
+  color: #555; /* Gris más oscuro para detalles */
+  margin: 0 0 0.3rem 0;
+}
+
+.mineral-card-extra-details .mineral-detail-item strong {
+  font-weight: 600;
+  color: var(--color-primary-mineral); /* Color primario para la etiqueta */
+  margin-right: 0.4em;
+}
+
+/* --- Ajustes Responsivos para Tarjetas de Minerales --- */
+@media (max-width: 768px) {
+  .mineral-card-image-wrapper {
+      height: 200px; /* Un poco menos alta en tablet */
+  }
+  .mineral-card-content {
+      padding: 1.2rem;
+  }
+  .mineral-card-name {
+      font-size: clamp(1.15rem, 3.5vw, 1.4rem);
+  }
+  .mineral-card-description-main {
+      font-size: 0.9rem;
+  }
+  .mineral-card-extra-details .mineral-detail-item {
+      font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .minerales-grid {
+      grid-template-columns: 1fr; /* Una columna en móvil */
+      gap: 1.5rem;
+  }
+  .mineral-card-image-wrapper {
+      height: 180px; /* Aún menos alta */
+  }
+   .mineral-card-name {
+      padding-right: 0; /* Quitar padding si el botón QR no está */
+  }
+  /* Si el botón QR se mueve al área de contenido en móvil, necesitarás ajustar el padding del título */
+}
+
+/* ---- ELIMINA O COMENTA LOS ESTILOS ANTIGUOS PARA: ---- */
+/* .sala-item { ... } */
+/* .sala-item-img { ... } */
+/* .sala-item-text { ... } */
+/* .mineral-text-content { ... } (Si era la clase antigua) */
+/* .mineral-name { ... } (Si era la clase antigua) */
+/* .mineral-description { ... } (Si era la clase antigua) */
+/* .mineral-extra-details { ... } (Si era la clase antigua) */
+/* .mineral-detail-item { ... } (Si era la clase antigua) */
+
+
+/* ---------PARA LOS MINERALES PUNAAA --------- */
+
+
+/* SalaMinerologiaMineria.css - Adiciones/Ajustes Opcionales para mineralesPuna */
+
+/* ... (Estilos existentes para .mineral-card-modern, etc.) ... */
+
+/* Estilo para la descripción de mineralesPuna si necesita ajustes
+   (por ejemplo, si el dangerouslySetInnerHTML añade <p> y quieres controlar su margen) */
+   .mineral-card-content .puna-description p {
+    margin-bottom: 0; /* Ejemplo: quitar margen inferior del último párrafo generado */
+}
+.mineral-card-content .puna-description {
+    flex-grow: 1; /* Para que ocupe el espacio si no hay detalles extra */
+    display: flex; /* Si quieres centrar verticalmente su contenido */
+    flex-direction: column;
+    justify-content: center; /* Centraría el texto verticalmente si la tarjeta es alta */
+}
+
+
+/* Opcional: Estilo para diferenciar visualmente los items "reverse" */
+.mineral-card-modern.item-reverse-visual-effect {
+    /* Ejemplo: un borde de acento sutil */
+    /* border-left: 4px solid var(--color-accent-mineral); */
+
+    /* O un ligero cambio en el fondo del contenido */
+    /* background-color: #f0ebe5; */ /* Un beige ligeramente diferente */
+}
+
+/* Si quieres que la imagen en los "reverse" tenga un overlay diferente (ejemplo) */
+/* .mineral-card-modern.item-reverse-visual-effect .mineral-card-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgba(var(--color-accent-rgb, 200, 160, 125), 0.1), transparent 50%);
+    z-index: 1;
+    pointer-events: none;
+} */

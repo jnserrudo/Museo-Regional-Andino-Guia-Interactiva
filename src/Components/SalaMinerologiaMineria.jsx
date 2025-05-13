@@ -306,12 +306,15 @@ export const SalaMinerologiaMineria = () => {
         </h2>
         <div className="minerales-grid">
           {mineralesCorteza.map((mineral, index) => (
-            <SalaContenidoItem key={mineral.id} img={mineral.img}>
-              {/* Contenedor interno relativo */}
-              <div className="mineral-text-content">
-                {index % 2 !== 0 && ( // Botón en impares (Fluorita, Pirita)
+            // *** INICIO: MODIFICAR EL CONTENIDO DE SalaContenidoItem o su estructura ***
+            // Si SalaContenidoItem es muy rígido, puedes reemplazarlo por esta estructura:
+            <article key={mineral.id} className="mineral-card-modern">
+              <div className="mineral-card-image-wrapper">
+                <img src={`${import.meta.env.BASE_URL}${mineral.img}`} alt={mineral.nombre} className="mineral-card-image" />
+                {/* Botón QR sobre la imagen si se desea o en el contenido */}
+                {index % 2 !== 0 && (
                   <button
-                    className="qr-code-button"
+                    className="qr-code-button mineral-qr-on-image" // Nueva clase para posicionamiento
                     onClick={(e) => handleQrClick(e)}
                     aria-label={`Escanear QR para ${mineral.nombre}`}
                     title={`Escanear QR para ${mineral.nombre}`}
@@ -320,32 +323,28 @@ export const SalaMinerologiaMineria = () => {
                     <QrcodeOutlined />
                   </button>
                 )}
-                
-                {/* --- NUEVA ESTRUCTURA DEL CONTENIDO --- */}
-                {/* Nombre del Mineral como título */}
-                <h4 className="mineral-name">{mineral.nombre}</h4>
-                {/* Descripción principal */}
-                <p className="mineral-description">{mineral.desc}</p>
+              </div>
+              <div className="mineral-card-content">
+                <h4 className="mineral-card-name">{mineral.nombre}</h4>
+                <p className="mineral-card-description-main">{mineral.desc}</p>
 
-                {/* Div para los detalles extra (solo se renderiza si hay alguno) */}
                 {(mineral.clase || mineral.sistemaCristalografico || mineral.etimologia || mineral.propiedadDiagnostica || mineral.importanciaEconomica || mineral.genesis || mineral.yacimientosPuna || mineral.otros) && (
-                    <div className="mineral-extra-details">
+                    <div className="mineral-card-extra-details">
                         {mineral.clase && <p className="mineral-detail-item"><strong>Clase:</strong> {mineral.clase}</p>}
-                        {mineral.sistemaCristalografico && <p className="mineral-detail-item"><strong>Sistema Cristalografico:</strong> {mineral.sistemaCristalografico}</p>}
+                        {mineral.sistemaCristalografico && <p className="mineral-detail-item"><strong>Sistema Cristal.:</strong> {mineral.sistemaCristalografico}</p>}
                         {mineral.etimologia && <p className="mineral-detail-item"><strong>Etimología:</strong> {mineral.etimologia}</p>}
-                        {mineral.propiedadDiagnostica && <p className="mineral-detail-item"><strong>Propiedad Diagnóstica:</strong> {mineral.propiedadDiagnostica}</p>}
-                        {mineral.importanciaEconomica && <p className="mineral-detail-item"><strong>Importancia Económica:</strong> {mineral.importanciaEconomica}</p>}
+                        {mineral.propiedadDiagnostica && <p className="mineral-detail-item"><strong>Prop. Diagnóstica:</strong> {mineral.propiedadDiagnostica}</p>}
+                        {mineral.importanciaEconomica && <p className="mineral-detail-item"><strong>Importancia Econ.:</strong> {mineral.importanciaEconomica}</p>}
                         {mineral.genesis && <p className="mineral-detail-item"><strong>Génesis:</strong> {mineral.genesis}</p>}
-                        {/* Mapear si yacimientos es un array */}
                         {mineral.yacimientosPuna && mineral.yacimientosPuna.length > 0 && (
                             <p className="mineral-detail-item"><strong>Yacimientos (Puna):</strong> {mineral.yacimientosPuna.join(', ')}</p>
                         )}
                         {mineral.otros && <p className="mineral-detail-item"><strong>Otros:</strong> {mineral.otros}</p>}
                     </div>
                 )}
-                 {/* --- FIN NUEVA ESTRUCTURA --- */}
               </div>
-            </SalaContenidoItem>
+            </article>
+            // *** FIN: MODIFICACIÓN ***
           ))}
         </div>
       </section>
@@ -366,17 +365,18 @@ export const SalaMinerologiaMineria = () => {
         />
         <div className="minerales-grid">
           {mineralesPuna.map((mineral, index) => (
-            <SalaContenidoItem
+            // *** INICIO: REEMPLAZAR SalaContenidoItem CON NUEVA ESTRUCTURA ***
+            <article
               key={mineral.id}
-              img={mineral.img}
-              // Pasamos la clase si existe en los datos
-              className={mineral.reverse ? "item-reverse" : ""}
+              className={`mineral-card-modern ${mineral.reverse ? "item-reverse-visual-effect" : ""}`} // Aplicar nueva clase base
+                                                                                                     // 'item-reverse-visual-effect' es opcional si quieres diferenciar visualmente
             >
-              {/* Contenedor interno relativo */}
-              <div className="mineral-text-content">
-                {index % 2 !== 0 && ( // Botón en impares (Pómez, Yeso, Litio - ajusta si quieres otros)
+              <div className="mineral-card-image-wrapper">
+                <img src={`${import.meta.env.BASE_URL}${mineral.img}`} alt={mineral.nombre} className="mineral-card-image" />
+                {/* Botón QR (misma lógica de posicionamiento o ajuste) */}
+                {index % 2 !== 0 && (
                   <button
-                    className="qr-code-button"
+                    className="qr-code-button mineral-qr-on-image"
                     onClick={(e) => handleQrClick(e)}
                     aria-label={`Escanear QR para ${mineral.nombre}`}
                     title={`Escanear QR para ${mineral.nombre}`}
@@ -385,9 +385,18 @@ export const SalaMinerologiaMineria = () => {
                     <QrcodeOutlined />
                   </button>
                 )}
-                <p dangerouslySetInnerHTML={{ __html: mineral.desc }}></p>
               </div>
-            </SalaContenidoItem>
+              <div className="mineral-card-content">
+                <h4 className="mineral-card-name">{mineral.nombre}</h4>
+                {/* La descripción para mineralesPuna usa dangerouslySetInnerHTML, lo mantenemos */}
+                <div
+                  className="mineral-card-description-main puna-description" // Clase adicional para posible estilo específico
+                  dangerouslySetInnerHTML={{ __html: mineral.desc }}
+                ></div>
+                {/* No hay 'mineral-card-extra-details' aquí porque mineralesPuna no los tiene */}
+              </div>
+            </article>
+            // *** FIN: REEMPLAZO ***
           ))}
         </div>
       </section>

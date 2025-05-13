@@ -21,8 +21,8 @@
 .home-container-theart {
     width: 100%;
     overflow-x: hidden;
-    font-family: var(--font-body-theart);
-    color: var(--color-text-dark-theart);
+/*     font-family: var(--font-body-theart);
+ */    color: var(--color-text-dark-theart);
     background-color: var(--color-light-beige-theart); /* Fondo general de la página */
 }
 
@@ -31,7 +31,7 @@
     display: inline-block;
     padding: 12px 25px;
     border-radius: 25px;
-    font-family: var(--font-body-theart); /* Asegurar la fuente correcta */
+/*     font-family: var(--font-body-theart); */ /* Asegurar la fuente correcta */
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -97,8 +97,8 @@
 }
 
 .theart-hero-subtitle {
-    font-family: var(--font-body-theart);
-    font-size: 1.2em; /* Ajusta según necesites */
+/*     font-family: var(--font-body-theart);
+ */    font-size: 1.2em; /* Ajusta según necesites */
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -133,8 +133,8 @@
 }
 
 .theart-section-subtitle { /* Subtítulo pequeño encima del título principal de la sección */
-    font-family: var(--font-body-theart);
-    font-size: 0.9em;
+/*     font-family: var(--font-body-theart);
+ */    font-size: 0.9em;
     color: #777; /* Un gris sutil */
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -150,8 +150,8 @@
 }
 
 .theart-about-text p {
-    font-family: var(--font-body-theart);
-    font-size: 1rem; /* Ajusta si es necesario */
+/*     font-family: var(--font-body-theart);
+ */    font-size: 1rem; /* Ajusta si es necesario */
     line-height: 1.7;
     color: #555; /* Un gris más oscuro para el párrafo */
     margin-bottom: 25px;
