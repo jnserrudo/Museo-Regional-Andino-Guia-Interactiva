@@ -30,9 +30,9 @@ export const Navbar = ({ onMenuClick }) => { // onMenuClick podría usarse para 
             {/* Estos son ejemplos, adáptalos a tus rutas reales */}
             <li><Link to="/" className="active">Inicio</Link></li>
             <li><Link to="/salas">Salas</Link></li>
-            <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
-            <li><Link to="/eventos">Eventos</Link></li>
-            {/* Puedes añadir más enlaces según la plantilla: Pages, Shop, Blog, Contact */}
+{/*             <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
+ */}{/*             <li><Link to="/eventos">Eventos</Link></li>
+ */}            {/* Puedes añadir más enlaces según la plantilla: Pages, Shop, Blog, Contact */}
           </ul>
         </nav>
 

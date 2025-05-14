@@ -289,3 +289,257 @@
     .sala-theme-icon { display: none; } /* Ocultar icono temático en pantallas muy pequeñas */
     .sala-title-group { margin-bottom: 0; } /* Ajustar si no hay icono */
   }
+
+
+
+  /* ----------------------------------------------- */
+
+
+  /* Salas.css - ESTILOS PARA TARJETAS DE SALAS INMERSIVAS */
+
+/* --- Variables (Asegurar consistencia con Theart) --- */
+:root {
+  /* ... tus variables globales ... */
+  --font-heading-salas: var(--font-heading-theart, 'Playfair Display', serif);
+  --font-body-salas: var(--font-body-theart, 'Lato', sans-serif);
+  --color-text-light-salas: var(--color-text-light-theart, #f0f0f0);
+  --color-accent-salas: var(--color-accent-theart, #c8a07d);
+  --border-radius-card-salas: 10px; /* Un poco más redondeado */
+}
+
+/* --- Contenedor y Títulos (Mantener o ajustar los que ya tienes) --- */
+.salas-container {
+  max-width: 1200px;
+  margin: 4rem auto 6rem auto;
+  padding: 0 clamp(1rem, 5vw, 2rem); /* Padding lateral adaptable */
+}
+
+.salas-main-title {
+  /* font-family: var(--font-heading-salas); */ /* Aplicar fuente de Theart */
+  font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--color-dark-theart, #1a1a1a); /* Usar color oscuro de Theart */
+  text-align: center;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+.salas-main-title span {
+  display: block;
+  /* font-family: var(--font-body-salas); */ /* Fuente de cuerpo para el subtítulo */
+  font-size: 0.6em; /* Relativo al título principal */
+  font-weight: 500;
+  color: var(--color-accent-salas); /* Color acento */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.salas-subtitle {
+  /* font-family: var(--font-body-salas); */
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-text-muted-sala, #555); /* Un gris más oscuro y legible */
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* --- Lista y Animación de Entrada (puedes mantener la animación scaleUp) --- */
+/* .salas-list-immersive { ... } si necesitas estilos específicos para la lista */
+
+.sala-list-item-immersive { /* Clase para el List.Item */
+  opacity: 0;
+  transform: translateY(20px) scale(0.97); /* Inicia un poco más abajo y escalado */
+  animation: salaCardFadeInUp 0.55s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes salaCardFadeInUp { /* Nueva animación o ajustar la existente */
+  to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+  }
+}
+
+/* --- Nueva Tarjeta de Sala Inmersiva --- */
+.sala-card-immersive-link {
+  display: block; /* Importante para que el Link ocupe espacio */
+  position: relative;
+  height: 280px; /* Altura considerable para la tarjeta */
+  border-radius: var(--border-radius-card-salas);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
+              box-shadow 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+  text-decoration: none; /* Quitar subrayado del link */
+  color: var(--color-text-light-salas); /* Texto claro por defecto */
+}
+
+.sala-card-immersive-link:hover,
+.sala-card-immersive-link:focus-visible {
+  transform: scale(1.05); /* Efecto de zoom elegante */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+.sala-card-immersive-link:focus-visible {
+  outline: 3px solid var(--color-accent-salas);
+  outline-offset: 3px;
+}
+
+/* Efecto de brillo sutil en hover (opcional, como en Theart) */
+.sala-card-immersive-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.1); /* Ligero oscurecimiento inicial sobre la imagen */
+  transition: background-color 0.4s ease;
+  z-index: 1; /* Debajo del contenido */
+}
+.sala-card-immersive-link:hover::after {
+  background-color: rgba(0,0,0, 0.25); /* Oscurecer un poco más en hover */
+}
+
+
+/* Contenido Superpuesto */
+.sala-card-immersive-content-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2rem 1.5rem; /* Ajustar padding */
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.98) 0%, rgba(10, 10, 10, 0.85) 40%, transparent 100%);
+  display: flex;
+  flex-direction: column; /* Apilar icono, título, indicador */
+  align-items: flex-start; /* Alinea a la izquierda */
+  justify-content: flex-end; /* Contenido hacia abajo */
+  min-height: 50%; /* Que el gradiente ocupe buena parte */
+  z-index: 2; /* Encima del ::after */
+  transition: background 0.4s ease; /* Para un posible cambio en hover */
+}
+
+/* Opcional: intensificar gradiente en hover */
+/* .sala-card-immersive-link:hover .sala-card-immersive-content-overlay {
+  background: linear-gradient(to top, rgba(5, 5, 5, 0.99) 0%, rgba(5, 5, 5, 0.9) 50%, transparent 100%);
+} */
+
+.sala-card-immersive-icon {
+  font-size: 2rem; /* Tamaño del icono emoji */
+  margin-bottom: 0.5rem;
+  line-height: 1; /* Para que no añada espacio extra */
+  opacity: 0.9;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); /* Sombra para el icono */
+}
+
+.sala-card-immersive-title {
+  font-family: var(--font-heading-salas);
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem); /* Tamaño responsivo y elegante */
+  font-weight: 700;
+  color: var(--color-text-light-salas);
+  margin: 0 0 0.4rem 0; /* Espacio debajo del título, antes del indicador */
+  line-height: 1.25;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6); /* Sombra fuerte para legibilidad */
+}
+
+.sala-card-immersive-indicator {
+  font-family: var(--font-body-salas);
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--color-accent-salas);
+  opacity: 0;
+  transform: translateY(10px); /* Empieza abajo y desplazado */
+  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+  align-self: flex-end; /* Indicador a la derecha */
+}
+
+.sala-card-immersive-link:hover .sala-card-immersive-indicator,
+.sala-card-immersive-link:focus-visible .sala-card-immersive-indicator {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* --- Ajustes Responsivos para las Tarjetas de Salas --- */
+@media (max-width: 991px) { /* Tablets */
+  .sala-card-immersive-link {
+      height: 260px; /* Un poco menos altas */
+  }
+  .sala-card-immersive-title {
+      font-size: clamp(1.2rem, 3.8vw, 1.6rem);
+  }
+  .sala-card-immersive-icon {
+      font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 767px) { /* Móviles grandes */
+  .salas-container {
+      margin: 3rem auto 4rem auto;
+  }
+  .salas-main-title { font-size: clamp(1.8rem, 5vw, 2.4rem); }
+  .salas-subtitle { font-size: 1.05rem; margin-bottom: 3rem; }
+
+  .sala-card-immersive-link {
+      height: 240px;
+  }
+  .sala-card-immersive-content-overlay {
+      padding: 1rem 1.2rem;
+      min-height: 55%; /* Más espacio para contenido en móvil */
+  }
+  .sala-card-immersive-title {
+      font-size: clamp(1.1rem, 4vw, 1.5rem);
+  }
+  .sala-card-immersive-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
+  }
+  /* Mantener el indicador visible en móvil si el hover no es tan común */
+  .sala-card-immersive-indicator {
+      opacity: 0.8; /* Ligeramente visible */
+      transform: translateY(0);
+  }
+  .sala-card-immersive-link:hover .sala-card-immersive-indicator {
+      opacity: 1; /* Completamente visible en "hover" (tap) */
+  }
+
+  /* Simplificar efectos hover en táctil si es necesario */
+  .sala-card-immersive-link:hover,
+  .sala-card-immersive-link:focus-visible {
+      transform: scale(1.02); /* Menos zoom */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  }
+   .sala-card-immersive-link::after { /* Quitar el brillo de fondo si es muy sutil o no se ve bien */
+      /* background-color: rgba(0,0,0, 0.15); */
+  }
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+  .sala-card-immersive-link {
+      height: 220px;
+  }
+  .sala-card-immersive-content-overlay {
+      padding: 0.8rem 1rem;
+  }
+  .sala-card-immersive-title {
+      font-size: clamp(1rem, 4.5vw, 1.3rem);
+  }
+}
+
+/* ---- ELIMINA O COMENTA LOS ESTILOS ANTIGUOS PARA: ---- */
+/* .sala-link-wrapper { ... } */
+/* .sala-card-inner { ... } */
+/* .sala-image-container { ... } */
+/* .sala-image { ... } */
+/* .sala-image-overlay { ... } */
+/* .sala-info-container { ... } */
+/* .sala-title-group { ... } */
+/* .sala-theme-icon { ... } (la clase antigua) */
+/* .sala-title { ... } (la clase antigua) */
+/* .sala-arrow-icon { ... } */
+/* El .sala-link-wrapper::before { ... } (efecto brillo) si no lo quieres */

@@ -16,6 +16,7 @@
     width: 90%;
     max-width: 1200px; /* Ancho máximo de la plantilla */
     margin: 0 auto;
+    gap: 15px; /* Añadir un gap para espaciado cuando se envuelven */
 }
 
 .theart-logo {
@@ -24,6 +25,7 @@
     color: var(--color-text-light-theart) !important; /* Para sobreescribir color de link base */
     font-weight: 700;
     text-decoration: none;
+    flex-shrink: 0; /* Evitar que el logo se encoja demasiado */
 }
 .theart-logo:hover {
     color: var(--color-accent-theart) !important;
@@ -120,7 +122,7 @@
 
 @media (max-width: 992px) { /* Ajusta el breakpoint según necesites */
     .theart-main-nav {
-        display: none; /* Ocultar nav principal en pantallas más pequeñas */
+       /*  display: none; */ /* Ocultar nav principal en pantallas más pequeñas */
     }
     .theart-language-selector { /* Podrías moverlo al menú desplegable también */
         margin-left: 10px;
@@ -149,4 +151,154 @@
         margin-left: 10px;
     }
      /* Aquí es donde el onMenuClick y un Drawer de AntD serían útiles */
+}
+
+
+/* ----------------------------------------------------------- */
+
+
+
+/* Navbar.css - Modificaciones para Responsive con flex-wrap */
+
+/* ... (Estilos generales como .theart-main-header, .theart-logo sin cambios importantes) ... */
+
+.theart-header-container {
+    display: flex;
+    justify-content: space-between; /* Mantiene la distribución en desktop */
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 15px; /* Añadir un gap para espaciado cuando se envuelven */
+}
+
+.theart-logo {
+    font-size: 1.8em;
+    color: var(--color-text-light-theart) !important;
+    font-weight: 700;
+    text-decoration: none;
+    flex-shrink: 0; /* Evitar que el logo se encoja demasiado */
+}
+/* ... (hover del logo) ... */
+
+.theart-main-nav {
+    flex-shrink: 0; /* Evitar que la navegación se encoja demasiado antes de envolver */
+}
+.theart-main-nav ul {
+    list-style: none;
+    display: flex; /* Mantener flex para los items de la nav */
+    flex-wrap: wrap; /* Permitir que los <li> se envuelvan si son muchos */
+    margin: 0;
+    padding: 0;
+    gap: 5px 15px; /* Espacio entre li, útil si se envuelven */
+}
+.theart-main-nav ul li {
+    margin-left: 0; /* Quitar margen izquierdo si usamos gap */
+    /* margin-left: 25px; Reemplazado por gap en ul */
+}
+/* ... (estilos de .theart-main-nav ul li a sin cambios) ... */
+
+
+.theart-header-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Evitar que este bloque se encoja demasiado */
+    flex-wrap: wrap; /* Permitir que los elementos internos (idiomas, otros iconos) se envuelvan */
+    gap: 10px; /* Espacio entre selector de idioma y otros iconos si los hay */
+}
+
+.theart-language-selector {
+    display: flex;
+    align-items: center;
+    /* Quitar margen y borde izquierdo si se maneja con gap o si se envuelve de forma independiente */
+    /* margin-left: 20px; */
+    /* padding-left: 20px; */
+    /* border-left: 1px solid var(--color-grey-dark-theart); */
+    gap: 5px; /* Espacio entre botones de idioma */
+}
+/* ... (estilos de .theart-lang-btn y .theart-lang-flag sin cambios) ... */
+
+/* ELIMINAR COMPLETAMENTE el .theart-mobile-menu-toggle y sus estilos si no lo quieres */
+/* .theart-mobile-menu-toggle { ... } */
+
+
+/* --- INICIO DE MEDIA QUERIES PARA FLEX-WRAP --- */
+
+/* Breakpoint donde quieres que los elementos empiecen a envolverse.
+   Este valor (ej. 992px o 768px) dependerá de cuán anchos sean tus elementos.
+*/
+@media (max-width: 850px) { /* Ajusta este breakpoint según sea necesario */
+    .theart-header-container {
+        flex-wrap: wrap; /* ¡LA CLAVE! Permite que los elementos bajen */
+        justify-content: center; /* Centrar los elementos cuando se envuelven */
+        gap: 20px; /* Aumentar gap cuando están envueltos */
+    }
+
+    .theart-logo {
+        /* Hacer que el logo ocupe todo el ancho disponible en su propia línea o centrarlo */
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px; /* Espacio si otros elementos están debajo */
+        font-size: 1.6em; /* Un poco más pequeño */
+    }
+
+    .theart-main-nav {
+        width: 100%; /* Que la navegación ocupe todo el ancho */
+        order: 2; /* Opcional: si quieres cambiar el orden visual */
+    }
+    .theart-main-nav ul {
+        justify-content: center; /* Centrar los <li> de navegación */
+        gap: 10px 20px; /* Ajustar gap para los li */
+    }
+    .theart-main-nav ul li {
+      /* No es necesario margin-left si usas gap en el ul */
+    }
+
+
+    .theart-header-actions {
+        width: 100%; /* Que las acciones ocupen todo el ancho */
+        justify-content: center; /* Centrar los elementos de acciones */
+        order: 3; /* Opcional: si quieres cambiar el orden visual */
+        margin-top: 10px; /* Espacio si está debajo de la nav */
+    }
+
+    .theart-language-selector {
+        /* El border-left puede no tener sentido si se envuelve, quitarlo si estaba */
+        border-left: none;
+        padding-left: 0;
+        /* justify-content: center; si quieres centrar los botones de idioma */
+    }
+
+    /* Si tenías otros .theart-action-icon (búsqueda, carrito): */
+    .theart-action-icon {
+        /* Ajustar márgenes si es necesario */
+        /* margin-left: 10px; */
+    }
+}
+
+@media (max-width: 480px) {
+    .theart-header-container {
+        gap: 15px; /* Reducir gap en pantallas muy pequeñas */
+        padding: 0 10px; /* Menos padding lateral */
+    }
+    .theart-logo {
+        font-size: 1.4em;
+        margin-bottom: 5px;
+    }
+    .theart-main-nav ul {
+        gap: 5px 10px; /* Menos gap entre items de nav */
+    }
+    .theart-main-nav ul li a {
+        font-size: 0.9em; /* Enlaces un poco más pequeños */
+    }
+    .theart-header-actions {
+        margin-top: 5px;
+    }
+    .theart-lang-btn {
+        font-size: 0.85em; /* Botones de idioma más pequeños */
+        padding: 5px;
+    }
+    .theart-lang-flag {
+        width: 16px;
+    }
 }

@@ -175,22 +175,23 @@ const temasGeologia = [
 import { CloudServerOutlined, ClockCircleOutlined } from "@ant-design/icons"; // Ejemplos
 // --- NUEVO: Datos subtemas Ramal C-14 ---
 const temasRamal = [
+  
   {
-    id: "tren",
-    title: "Tren a las Nubes",
-    description: "Descubre la historia y la proeza ingenieril.",
+    id: "linea-tiempo",
+    title: "Historia Ramal C-14",
+    description: "Sigue los hitos clave de su construcción.",
     icon: (
-      <CloudServerOutlined
+      <ClockCircleOutlined
         style={{ fontSize: "2.5em", marginBottom: "0.5em" }}
       />
     ),
   },
   {
-    id: "linea-tiempo",
-    title: "Línea de Tiempo",
-    description: "Sigue los hitos clave de su construcción.",
+    id: "tren",
+    title: "Tren a las Nubes",
+    description: "El Magnífico Tren a las Nubes.",
     icon: (
-      <ClockCircleOutlined
+      <CloudServerOutlined
         style={{ fontSize: "2.5em", marginBottom: "0.5em" }}
       />
     ),
