@@ -81,9 +81,9 @@ export const Salas = () => {
               aria-label={`Explorar sala ${item.title}`}
             >
               <div className="sala-card-immersive-content-overlay">
-                <div className="sala-card-immersive-icon" aria-hidden="true">
+                {/* <div className="sala-card-immersive-icon" aria-hidden="true">
                   {item.icon}
-                </div>
+                </div> */}
                 <h3 className="sala-card-immersive-title">{item.title}</h3>
                 <span className="sala-card-immersive-indicator" aria-hidden="true">
                   Ingresar →

@@ -10,10 +10,15 @@ import { Sala, SalaPrincipal, SalaDetalleWrapper } from "./Components/Sala";
 import { Salas } from "./Components/Salas"; // Para la vista de lista de salas
 import { PuzzleGame } from "./Components/PuzzleGame";
 import { MapaMuseo } from "./Components/MapaMuseo";
+import { PlanoInteractivoMuseo } from "./Components/PlanoInteractivoMuseo";
+import { MapaGeograficoMuseo } from "./Components/MapaGeograficoMuseo";
 import { SpeechProvider } from "./Contexts/SpeechContext";
 import { FontProvider } from "./Contexts/FontContext";
 import { useState } from "react";
 import { AccessibilityWidget } from "./Components/AccessibilityWidget";
+
+
+import 'leaflet/dist/leaflet.css';
 
 const { Content } = Layout;
 
@@ -50,7 +55,8 @@ const App = () => {
                 </Route> {/* --- Fin Ruta Padre Salas --- */}
 
                 <Route path="/puzzle" element={<PuzzleGame />} />
-                <Route path="/mapa" element={<MapaMuseo />} />
+                {/* <Route path="/mapa" element={<MapaMuseo />} /> */}
+                <Route path="/mapa" element={<MapaGeograficoMuseo />} />
 
                 {/* <Route path="*" element={<div>404</div>} /> */}
               </Routes>

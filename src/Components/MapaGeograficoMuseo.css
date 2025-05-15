@@ -1,0 +1,195 @@
+/* MapaGeograficoMuseo.css */
+
+.mapa-geo-page-wrapper {
+    padding: 2rem clamp(1rem, 5vw, 3rem);
+    background-color: var(--color-light-beige-theart, #f5f0e6);
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mapa-geo-main-title {
+    font-family: var(--font-heading-theart, 'Playfair Display', serif);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: var(--color-dark-theart, #1a1a1a);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.mapa-geo-permissions-message {
+    font-family: var(--font-body-theart, 'Lato', sans-serif);
+    background-color: #fff3cd; /* Amarillo pálido para advertencia */
+    color: #664d03;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ffecb5;
+    border-radius: var(--border-radius-card-subtema, 8px);
+    text-align: center;
+    max-width: 600px;
+}
+
+.mapa-geo-container-leaflet {
+    width: 100%;
+    max-width: 1100px;
+    height: 70vh;
+    min-height: 500px;
+    border: 3px solid var(--color-dark-theart, #1a1a1a);
+    border-radius: var(--border-radius-card-subtema, 8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1.5rem;
+    background-color: #d1e0e0; /* Color mientras carga tiles */
+}
+
+/* Estilos para L.DivIcon y Popups (pueden ser los mismos que en PlanoInteractivoMuseo.css) */
+.custom-leaflet-div-icon {
+    background: none !important;
+    border: none !important;
+    margin-left: 0px !important;
+    margin-top: 0px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaflet-antd-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.leaflet-antd-icon-wrapper.user-location-icon .anticon {
+    /* Estilos específicos para el icono de usuario si es necesario */
+    /* El estilo base ya se da inline */
+}
+.leaflet-antd-icon-wrapper.poi-icon .anticon {
+    /* Estilos específicos para el icono de POI si es necesario */
+}
+
+
+.leaflet-popup-content-wrapper {
+    background-color: var(--color-dark-theart, #1a1a1a) !important;
+    color: var(--color-text-light-theart, #f0f0f0) !important;
+    border-radius: var(--border-radius-card-subtema, 8px) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    padding: 0 !important;
+}
+.leaflet-popup-content {
+    margin: 0 !important;
+    padding: 12px 15px !important;
+    font-family: var(--font-body-theart, 'Lato', sans-serif) !important;
+    line-height: 1.6 !important;
+    min-width: 200px; /* Ancho mínimo del popup */
+}
+.leaflet-popup-tip {
+    background-color: var(--color-dark-theart, #1a1a1a) !important;
+}
+.poi-popup-content h4 {
+    font-family: var(--font-heading-theart, 'Playfair Display', serif);
+    color: var(--color-accent-theart, #c8a07d) !important;
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--color-accent-theart, #c8a07d);
+}
+.poi-popup-content p {
+    font-size: 0.9rem;
+    margin: 0 0 0.6rem 0;
+    color: var(--color-grey-light-theart, #ccc) !important;
+}
+.poi-popup-link { /* Asegúrate que este estilo exista y funcione con <Link> */
+    color: var(--color-accent-theart, #c8a07d) !important;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+.poi-popup-link:hover {
+    text-decoration: underline;
+}
+
+.mapa-geo-instructions {
+    font-family: var(--font-body-theart, 'Lato', sans-serif);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-muted-sala, #6c757d);
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    .mapa-geo-container-leaflet {
+        height: 65vh;
+        min-height: 450px;
+    }
+    .mapa-geo-main-title {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        margin-bottom: 1rem;
+    }
+     .mapa-geo-permissions-message {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+
+/* ------------------ */
+
+
+/* MapaGeograficoMuseo.css */
+
+/* ... (Estilos generales y de popup como antes) ... */
+
+/* --- Estilos para los Marcadores con L.DivIcon y Ant Design Icons --- */
+.custom-leaflet-div-icon {
+    background: none !important;
+    border: none !important;
+    /* margin-left y margin-top suelen ser ajustados por Leaflet,
+       pero si necesitas forzar, usa !important.
+       Generalmente, el iconAnchor maneja bien el posicionamiento. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wrapper para el icono de Ant Design dentro del DivIcon */
+.leaflet-antd-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0; /* Ayuda a alinear verticalmente el icono AntD */
+}
+
+/* Estilos específicos para el icono del POI */
+.leaflet-antd-icon-wrapper.poi-icon-wrapper .anticon {
+    /* El tamaño y color se definen inline en el JS */
+    /* Puedes añadir una animación sutil si quieres */
+    /* transition: transform 0.2s ease-in-out; */
+}
+/* .leaflet-marker-icon.poi-marker:hover .poi-icon-wrapper .anticon {
+    transform: scale(1.15);
+} */
+
+
+/* Estilos para el marcador de ubicación del usuario (punto simple) */
+.leaflet-antd-icon-wrapper.user-icon-wrapper .user-location-dot {
+    width: 16px; /* Tamaño del punto principal */
+    height: 16px;
+    background-color: #1890ff; /* Azul estándar */
+    border-radius: 50%;
+    border: 3px solid white; /* Borde blanco para destacar */
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.5), /* Anillo exterior semitransparente */
+                0 1px 3px rgba(0,0,0,0.3); /* Sombra sutil */
+    /* Animación de pulso (opcional) */
+    /* animation: pulseUserLocation 2s infinite ease-in-out; */
+}
+
+/* @keyframes pulseUserLocation {
+    0% { box-shadow: 0 0 0 0px rgba(24, 144, 255, 0.5), 0 1px 3px rgba(0,0,0,0.3); }
+    70% { box-shadow: 0 0 0 10px rgba(24, 144, 255, 0), 0 1px 3px rgba(0,0,0,0.3); }
+    100% { box-shadow: 0 0 0 0px rgba(24, 144, 255, 0), 0 1px 3px rgba(0,0,0,0.3); }
+} */
+
+
+/* Si usas un icono de AntD para el usuario también, podrías necesitar: */
+/* .leaflet-antd-icon-wrapper.user-icon-wrapper .anticon {
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+} */

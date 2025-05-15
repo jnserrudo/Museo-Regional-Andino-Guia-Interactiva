@@ -1,0 +1,94 @@
+/* PlanoInteractivoMuseo.css */
+
+.plano-museo-page-wrapper {
+    padding: 2rem clamp(1rem, 5vw, 3rem);
+    background-color: var(--color-light-beige-theart, #f5f0e6); /* Fondo de página estilo Theart */
+    min-height: 80vh; /* Asegurar altura */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plano-museo-main-title {
+    font-family: var(--font-heading-theart, 'Playfair Display', serif);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: var(--color-dark-theart, #1a1a1a);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.plano-museo-container-leaflet {
+    width: 100%;
+    max-width: 1000px; /* Ancho máximo para el mapa */
+    height: 65vh;      /* Altura del contenedor del mapa */
+    min-height: 450px; /* Altura mínima */
+    border: 3px solid var(--color-dark-theart, #1a1a1a); /* Borde estilo Theart */
+    border-radius: var(--border-radius-card-subtema, 8px); /* Consistencia */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1.5rem;
+    background-color: #e0e0e0; /* Color de fondo mientras carga el mapa */
+}
+
+/* Estilos para el Popup de Leaflet */
+.leaflet-popup-content-wrapper {
+    background-color: var(--color-dark-theart, #1a1a1a) !important;
+    color: var(--color-text-light-theart, #f0f0f0) !important;
+    border-radius: var(--border-radius-card-subtema, 8px) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    padding: 0 !important; /* Quitamos el padding por defecto para controlar el nuestro */
+}
+
+.leaflet-popup-content {
+    margin: 0 !important; /* Quitamos margen por defecto */
+    padding: 12px 15px !important; /* Nuestro padding */
+    font-family: var(--font-body-theart, 'Lato', sans-serif) !important;
+    line-height: 1.6 !important;
+    min-width: 180px; /* Ancho mínimo del popup */
+}
+
+.leaflet-popup-tip {
+    background-color: var(--color-dark-theart, #1a1a1a) !important;
+}
+
+.poi-popup-content h4 {
+    font-family: var(--font-heading-theart, 'Playfair Display', serif);
+    color: var(--color-accent-theart, #c8a07d) !important;
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--color-accent-theart, #c8a07d);
+}
+
+.poi-popup-content p {
+    font-size: 0.9rem;
+    margin: 0 0 0.6rem 0;
+    color: var(--color-grey-light-theart, #ccc) !important;
+}
+
+.poi-popup-content a {
+    color: var(--color-accent-theart, #c8a07d) !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+.poi-popup-content a:hover {
+    text-decoration: underline;
+}
+
+.plano-museo-instructions {
+    font-family: var(--font-body-theart, 'Lato', sans-serif);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-muted-sala, #6c757d);
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    .plano-museo-container-leaflet {
+        height: 60vh;
+        min-height: 400px;
+    }
+    .plano-museo-main-title {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        margin-bottom: 1.5rem;
+    }
+}
