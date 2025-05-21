@@ -133,8 +133,8 @@
 }
 
 .volcanes-gallery-title {
-  font-family: var(--font-heading-sala, 'Playfair Display', serif);
-  font-size: clamp(1.8rem, 5vw, 2.6rem); /* Más grande */
+/*   font-family: var(--font-heading-sala, 'Playfair Display', serif);
+ */  font-size: clamp(1.8rem, 5vw, 2.6rem); /* Más grande */
   font-weight: 700;
   color: var(--color-primary-sala, #1a1a1a); /* Color oscuro de Theart */
   margin-bottom: 3rem;
@@ -229,8 +229,8 @@
 
 /* Título de la galería */
 .volcanes-image-gallery.innovative-gallery .volcanes-gallery-title {
-  font-family: var(--font-heading-sala, 'Playfair Display', serif);
-  font-size: clamp(2rem, 5.5vw, 3rem);
+/*   font-family: var(--font-heading-sala, 'Playfair Display', serif);
+ */  font-size: clamp(2rem, 5.5vw, 3rem);
   font-weight: 700;
   color: var(--color-text-light-theart, #f0f0f0); /* Título claro sobre fondo oscuro */
   margin-bottom: 3rem;
@@ -310,8 +310,8 @@ background-clip: padding-box;
 }
 
 .overlay-title {
-  font-family: var(--font-heading-sala, 'Playfair Display', serif);
-  font-size: clamp(1.1rem, 3vw, 1.5rem); /* Tamaño adecuado para overlay */
+/*   font-family: var(--font-heading-sala, 'Playfair Display', serif);
+ */  font-size: clamp(1.1rem, 3vw, 1.5rem); /* Tamaño adecuado para overlay */
   color: var(--color-text-light-theart, #f0f0f0);
   font-weight: 700;
   margin: 0 0 0.8rem 0;

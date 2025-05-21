@@ -206,8 +206,8 @@
     padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding general */
 }
 .sala-contenido-titulo-principal { /* Reutilizando de SalaDetalle si existe */
-    font-family: var(--font-heading-subtema);
-    text-align: center;
+/*     font-family: var(--font-heading-subtema);
+ */    text-align: center;
     font-size: clamp(2rem, 6vw, 3rem);
     color: var(--color-primary-sala, #1a1a1a);
     margin-bottom: 1rem;
@@ -296,8 +296,8 @@
 
 /* Título del Subtema */
 .sala-subtema-content-overlay .sala-subtema-title {
-    font-family: var(--font-heading-subtema);
-    font-size: clamp(1.4rem, 4vw, 1.8rem); /* Tamaño responsivo */
+/*     font-family: var(--font-heading-subtema);
+ */    font-size: clamp(1.4rem, 4vw, 1.8rem); /* Tamaño responsivo */
     font-weight: 700;
     color: inherit; /* Hereda el blanco del overlay */
     margin: 0;

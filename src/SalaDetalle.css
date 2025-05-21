@@ -326,8 +326,8 @@
 }
 
 .sala-detalle-titulo-principal {
-    font-family: var(--font-heading-sala);
-    font-size: clamp(2.5rem, 7vw, 4.5rem); /* Rango de tamaño adaptable */
+/*     font-family: var(--font-heading-sala);
+ */    font-size: clamp(2.5rem, 7vw, 4.5rem); /* Rango de tamaño adaptable */
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.5px; /* Espaciado sutil */
@@ -335,8 +335,8 @@
 
 /* Subtítulo del tema principal, debajo del hero */
 .sala-detalle-subtitulo-hero {
-    font-family: var(--font-heading-sala);
-    font-size: clamp(1.3rem, 4vw, 1.8rem); /* Más grande y con fuente de heading */
+/*     font-family: var(--font-heading-sala);
+ */    font-size: clamp(1.3rem, 4vw, 1.8rem); /* Más grande y con fuente de heading */
     font-weight: 400;
     color: var(--color-primary-sala); /* Color primario oscuro */
     text-align: center;
@@ -370,8 +370,8 @@
 }
 
 .sala-detalle-subtitulo {
-    font-family: var(--font-heading-sala);
-    font-size: clamp(1.6rem, 5vw, 2.2rem); /* Títulos de sección más grandes */
+/*     font-family: var(--font-heading-sala);
+ */    font-size: clamp(1.6rem, 5vw, 2.2rem); /* Títulos de sección más grandes */
     font-weight: 700;
     color: var(--color-primary-sala);
     margin-bottom: 1.5rem;
@@ -429,8 +429,8 @@
     box-shadow: inset 0 3px 10px rgba(0,0,0,0.05); /* Sombra interna sutil */
 }
 .sala-detalle-galeria-titulo {
-    font-family: var(--font-heading-sala);
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
+/*     font-family: var(--font-heading-sala);
+ */    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 700;
     color: var(--color-primary-sala);
     margin-bottom: 3rem;

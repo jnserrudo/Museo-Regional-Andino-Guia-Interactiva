@@ -10,8 +10,8 @@
 }
 
 .volcanes-3d-gallery-title {
-    font-family: var(--font-heading-sala, 'Playfair Display', serif);
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
+/*     font-family: var(--font-heading-sala, 'Playfair Display', serif);
+ */    font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 700;
     color: inherit; /* Hereda color del contenedor */
     text-align: center;
@@ -55,8 +55,8 @@
 }
 
 .volcano-info-panel h4 {
-    font-family: var(--font-heading-sala, 'Playfair Display', serif);
-    font-size: 1.1rem;
+/*     font-family: var(--font-heading-sala, 'Playfair Display', serif);
+ */    font-size: 1.1rem;
     color: #fff; /* Blanco puro para el título del panel */
     margin: 0 0 10px 0;
     font-weight: 700;

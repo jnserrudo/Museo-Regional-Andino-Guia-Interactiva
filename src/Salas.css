@@ -438,8 +438,8 @@
 }
 
 .sala-card-immersive-title {
-  font-family: var(--font-heading-salas);
-  font-size: clamp(1.3rem, 3.5vw, 1.7rem); /* Tamaño responsivo y elegante */
+/*   font-family: var(--font-heading-salas);
+ */  font-size: clamp(1.3rem, 3.5vw, 1.7rem); /* Tamaño responsivo y elegante */
   font-weight: 700;
   color: var(--color-text-light-salas);
   margin: 0 0 0.4rem 0; /* Espacio debajo del título, antes del indicador */

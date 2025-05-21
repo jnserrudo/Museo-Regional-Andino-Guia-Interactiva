@@ -509,8 +509,8 @@ gap: 2rem; /* Mantener o ajustar gap */
 }
 
 .mineral-card-name {
-  font-family: var(--font-heading-mineral);
-  font-size: clamp(1.25rem, 3vw, 1.6rem); /* Tamaño responsivo */
+/*   font-family: var(--font-heading-mineral);
+ */  font-size: clamp(1.25rem, 3vw, 1.6rem); /* Tamaño responsivo */
   font-weight: 700;
   color: var(--color-primary-mineral);
   margin: 0 0 0.75rem 0;
