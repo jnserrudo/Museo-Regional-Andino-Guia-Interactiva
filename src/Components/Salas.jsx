@@ -39,7 +39,7 @@ const data = [
   },
   {
     title: "HISTORIA",
-    image: "historia_museo.png",
+    image: "historia_museo.jfif",
     path: "historia",
     icon: "📜",
   },

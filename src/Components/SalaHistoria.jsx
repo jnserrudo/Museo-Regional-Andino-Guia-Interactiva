@@ -38,7 +38,7 @@ export const SalaHistoria = () => {
           {/* Usamos H3 para subtítulo de sección */}
           <h3 className="sh-section-subtitle">Organización Territorial Argentina</h3>
           <p className="sh-text">
-            Hacia fines del siglo XIX y principios del XX, el Estado argentino buscaba consolidar su soberanía sobre vastas áreas poco pobladas o disputadas. Un Decreto Presidencial del 28 de septiembre de 1902 fue clave en la creación formal del Territorio Nacional de Los Andes.
+            Hacia fines del siglo XIX y principios del XX, el Estado argentino buscaba consolidar su soberanía sobre vastas áreas poco pobladas o disputadas. Un Decreto Presidencial del 26 de septiembre de 1902 fue clave en la creación formal del Territorio Nacional de Los Andes.
           </p>
           <p className="sh-text">
             Los Territorios Nacionales eran jurisdicciones administradas directamente por el Poder Ejecutivo Nacional, a diferencia de las provincias autónomas. Su creación buscaba integrar estas regiones, fomentar su poblamiento y explotación económica, y definir fronteras.

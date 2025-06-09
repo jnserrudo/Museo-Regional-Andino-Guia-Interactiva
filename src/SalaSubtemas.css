@@ -5,364 +5,377 @@
 
 /* Contenedor Principal */
 .sala-subtemas-container {
-    padding: 1rem 0; /* Espaciado vertical si es necesario */
-    /* Hereda la fuente global */
+  padding: 1rem 0; /* Espaciado vertical si es necesario */
+  /* Hereda la fuente global */
 }
 
 /* Estilo opcional para la descripción */
 .sala-subtemas-descripcion {
-    font-family: 'MuseoSans', sans-serif; /* Asegura la fuente correcta */
-    font-weight: 500;
-    font-size: 1.1rem;
-    color: var(--text-muted, #6c757d);
-    text-align: center;
-    margin-bottom: 3rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
+  font-family: "MuseoSans", sans-serif; /* Asegura la fuente correcta */
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--text-muted, #6c757d);
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
 }
 
 /* --- Grilla de Subtemas --- */
 .sala-subtemas-grid {
-    display: grid;
-    /* Por defecto 1 columna, se ajustará en media queries */
-    grid-template-columns: 1fr;
-    gap: 2.5rem; /* Espacio entre tarjetas (ajusta según necesites) */
+  display: grid;
+  /* Por defecto 1 columna, se ajustará en media queries */
+  grid-template-columns: 1fr;
+  gap: 2.5rem; /* Espacio entre tarjetas (ajusta según necesites) */
 }
 
 /* --- Tarjeta de Subtema --- */
 .sala-subtema-card {
-    display: flex; /* Imagen a la izquierda, texto a la derecha */
-    /* Alternativa: display: block; si quieres imagen arriba, texto abajo */
-    background-color: var(--bg-light, #ffffff);
-    border-radius: var(--border-radius-md, 8px);
-    overflow: hidden; /* Importante para bordes redondeados e imagen */
-    box-shadow: var(--shadow-low, 0 3px 10px rgba(0, 0, 0, 0.08));
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
-                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    min-height: 110px; /* Altura mínima para consistencia */
+  display: flex; /* Imagen a la izquierda, texto a la derecha */
+  /* Alternativa: display: block; si quieres imagen arriba, texto abajo */
+  background-color: var(--bg-light, #ffffff);
+  border-radius: var(--border-radius-md, 8px);
+  overflow: hidden; /* Importante para bordes redondeados e imagen */
+  box-shadow: var(--shadow-low, 0 3px 10px rgba(0, 0, 0, 0.08));
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  min-height: 110px; /* Altura mínima para consistencia */
 
-    /* Animación de entrada */
-    opacity: 0;
-    transform: translateY(15px);
-    animation: subtemaFadeInUp 0.5s ease-out forwards;
+  /* Animación de entrada */
+  opacity: 0;
+  transform: translateY(15px);
+  animation: subtemaFadeInUp 0.5s ease-out forwards;
 }
 
 @keyframes subtemaFadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-
 .sala-subtema-card:hover,
-.sala-subtema-card:focus-visible { /* Estilo para foco de teclado */
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
-    outline: none; /* Quitar outline por defecto si se maneja con sombra/transform */
+.sala-subtema-card:focus-visible {
+  /* Estilo para foco de teclado */
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.12));
+  outline: none; /* Quitar outline por defecto si se maneja con sombra/transform */
 }
 
 /* --- Imagen del Subtema --- */
 .sala-subtema-image {
-    flex: 0 0 160px; /* Ancho fijo para la imagen */
-    /* Si usas display: block en card: width: 100%; height: 150px; flex: none; */
-    background-size: cover;
-    background-position: center center;
-    position: relative; /* Para el overlay */
-    transition: transform 0.5s ease;
+  flex: 0 0 160px; /* Ancho fijo para la imagen */
+  /* Si usas display: block en card: width: 100%; height: 150px; flex: none; */
+  background-size: cover;
+  background-position: center center;
+  position: relative; /* Para el overlay */
+  transition: transform 0.5s ease;
 }
 
 .sala-subtema-image-overlay {
-    position: absolute;
-    inset: 0; /* Cubre todo el div (top, right, bottom, left = 0) */
-    /* Gradiente sutil para oscurecer un poco y mejorar contraste */
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.3) 80%);
-    opacity: 0.2;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  inset: 0; /* Cubre todo el div (top, right, bottom, left = 0) */
+  /* Gradiente sutil para oscurecer un poco y mejorar contraste */
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.3) 80%
+  );
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
 }
 
 .sala-subtema-card:hover .sala-subtema-image-overlay,
 .sala-subtema-card:focus-visible .sala-subtema-image-overlay {
-    opacity: 0.5; /* El overlay se aclara un poco en hover */
+  opacity: 0.5; /* El overlay se aclara un poco en hover */
 }
 
 /* Opcional: ligero zoom a la imagen en hover */
 .sala-subtema-card:hover .sala-subtema-image,
 .sala-subtema-card:focus-visible .sala-subtema-image {
-     /* Descomenta si quieres este efecto, puede ser pesado */
-    /* transform: scale(1.05); */
+  /* Descomenta si quieres este efecto, puede ser pesado */
+  /* transform: scale(1.05); */
 }
 
 /* --- Información del Subtema --- */
 .sala-subtema-info {
-    flex-grow: 1; /* Ocupa el espacio restante */
-    padding: 1rem 1.5rem; /* Espaciado interno */
-    display: flex;
-    justify-content: center; /* Separa título y flecha */
-    align-items: center; /* Centra verticalmente */
-    font-family: 'MuseoSans', sans-serif; /* Asegurar fuente */
-    color: white !important;
-    background-color: rgb(45, 3, 3);
-    
+  flex-grow: 1; /* Ocupa el espacio restante */
+  padding: 1rem 1.5rem; /* Espaciado interno */
+  display: flex;
+  justify-content: center; /* Separa título y flecha */
+  align-items: center; /* Centra verticalmente */
+  font-family: "MuseoSans", sans-serif; /* Asegurar fuente */
+  color: white !important;
+  background-color: rgb(45, 3, 3);
 }
 
 .sala-subtema-title {
-    font-weight: 700; /* Título más destacado */
-    font-size: 1.15rem; /* Tamaño de fuente (ajusta) */
-    color: white !important;
-    margin: 0;
-    line-height: 1.4;
-    transition: color 0.3s ease;
-    /* Evitar que el texto empuje la flecha si es muy largo */
-    margin-right: 0.5rem;
+  font-weight: 700; /* Título más destacado */
+  font-size: 1.15rem; /* Tamaño de fuente (ajusta) */
+  color: white !important;
+  margin: 0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+  /* Evitar que el texto empuje la flecha si es muy largo */
+  margin-right: 0.5rem;
 }
 
 .sala-subtema-card:hover .sala-subtema-title,
 .sala-subtema-card:focus-visible .sala-subtema-title {
-    color: var(--primary-color, #8B4513); /* Color primario en hover */
+  color: var(--primary-color, #8b4513); /* Color primario en hover */
 }
 
 /* --- Flecha Indicadora --- */
 .sala-subtema-arrow {
-    font-size: 1.6rem; /* Tamaño de la flecha */
-    color: var(--primary-color, #8B4513);
-    opacity: 0; /* Oculta por defecto */
-    transform: translateX(-10px); /* Ligeramente desplazada a la izquierda */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    flex-shrink: 0; /* Evita que se encoja */
+  font-size: 1.6rem; /* Tamaño de la flecha */
+  color: var(--primary-color, #8b4513);
+  opacity: 0; /* Oculta por defecto */
+  transform: translateX(-10px); /* Ligeramente desplazada a la izquierda */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0; /* Evita que se encoja */
 }
 
 .sala-subtema-card:hover .sala-subtema-arrow,
 .sala-subtema-card:focus-visible .sala-subtema-arrow {
-    opacity: 1; /* Visible en hover/focus */
-    transform: translateX(0); /* Vuelve a su posición */
+  opacity: 1; /* Visible en hover/focus */
+  transform: translateX(0); /* Vuelve a su posición */
 }
-
 
 /* --- Ajustes Responsivos --- */
 @media (min-width: 600px) {
-    .sala-subtemas-grid {
-        /* 2 columnas en pantallas medianas */
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.8rem; /* Un poco más de espacio */
-    }
+  .sala-subtemas-grid {
+    /* 2 columnas en pantallas medianas */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem; /* Un poco más de espacio */
+  }
 }
 
 @media (min-width: 992px) {
-    .sala-subtemas-grid {
-        /* Opcional: 3 columnas en pantallas grandes si caben bien */
-        /* grid-template-columns: repeat(3, 1fr); */
-    }
-     .sala-subtema-image {
-        flex-basis: 200px; /* Imagen un poco más ancha en pantallas grandes */
-    }
+  .sala-subtemas-grid {
+    /* Opcional: 3 columnas en pantallas grandes si caben bien */
+    /* grid-template-columns: repeat(3, 1fr); */
+  }
+  .sala-subtema-image {
+    flex-basis: 200px; /* Imagen un poco más ancha en pantallas grandes */
+  }
 }
 
 @media (max-width: 480px) {
-    .sala-subtema-card {
-        /* En pantallas muy pequeñas, apilar imagen y texto */
-        flex-direction: column;
-        min-height: auto; /* Resetear altura mínima */
-    }
-    .sala-subtema-image {
-        flex-basis: auto; /* Resetear flex-basis */
-        width: 100%;
-        height: 130px; /* Altura fija para la imagen */
-    }
-    .sala-subtema-info {
-        padding: 1rem; /* Ajustar padding */
-    }
-    .sala-subtema-title {
-        font-size: 1.05rem; /* Ajustar tamaño de fuente */
-    }
-     /* Opcional: Mantener la flecha visible siempre en móvil */
-     /* .sala-subtema-arrow { opacity: 1; transform: translateX(0); } */
+  .sala-subtema-card {
+    /* En pantallas muy pequeñas, apilar imagen y texto */
+    flex-direction: column;
+    min-height: auto; /* Resetear altura mínima */
+  }
+  .sala-subtema-image {
+    flex-basis: auto; /* Resetear flex-basis */
+    width: 100%;
+    height: 130px; /* Altura fija para la imagen */
+  }
+  .sala-subtema-info {
+    padding: 1rem; /* Ajustar padding */
+  }
+  .sala-subtema-title {
+    font-size: 1.05rem; /* Ajustar tamaño de fuente */
+  }
+  /* Opcional: Mantener la flecha visible siempre en móvil */
+  /* .sala-subtema-arrow { opacity: 1; transform: translateX(0); } */
 }
 
-
 /* ------------------------------------ */
-
 
 /* SalaSubtemas.css - Estilos para Tarjetas Inmersivas */
 
 /* --- Variables (Asegurarse que usan las de Theart si es posible) --- */
 :root {
-    /* ... tus variables globales ... */
-    --font-heading-subtema: var(--font-heading-theart, 'Playfair Display', serif);
-    --font-body-subtema: var(--font-body-theart, 'Lato', sans-serif);
-    --color-text-light-subtema: var(--color-text-light-theart, #f0f0f0);
-    --color-accent-subtema: var(--color-accent-theart, #c8a07d);
-    --border-radius-card-subtema: 8px; /* Radio consistente */
+  /* ... tus variables globales ... */
+  --font-heading-subtema: var(--font-heading-theart, "Playfair Display", serif);
+  --font-body-subtema: var(--font-body-theart, "Lato", sans-serif);
+  --color-text-light-subtema: var(--color-text-light-theart, #f0f0f0);
+  --color-accent-subtema: var(--color-accent-theart, #c8a07d);
+  --border-radius-card-subtema: 8px; /* Radio consistente */
 }
 
 /* Contenedor y descripción (sin cambios grandes necesarios, ajustar si se quiere) */
 .sala-subtemas-container {
-    padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding general */
+  padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding general */
 }
-.sala-contenido-titulo-principal { /* Reutilizando de SalaDetalle si existe */
-/*     font-family: var(--font-heading-subtema);
- */    text-align: center;
-    font-size: clamp(2rem, 6vw, 3rem);
-    color: var(--color-primary-sala, #1a1a1a);
-    margin-bottom: 1rem;
+.sala-contenido-titulo-principal {
+  /* Reutilizando de SalaDetalle si existe */
+  /*     font-family: var(--font-heading-subtema);
+ */
+  text-align: center;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--color-primary-sala, #1a1a1a);
+  margin-bottom: 1rem;
 }
 .sala-subtemas-descripcion {
-    font-family: var(--font-body-subtema);
-    font-weight: 400; /* Un poco más ligero */
-    font-size: 1.1rem;
-    color: var(--color-text-muted-sala, #6c757d);
-    text-align: center;
-    margin-bottom: 3.5rem; /* Más espacio antes de las tarjetas */
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
+  font-family: var(--font-body-subtema);
+  font-weight: 400; /* Un poco más ligero */
+  font-size: 1.1rem;
+  color: var(--color-text-muted-sala, #6c757d);
+  text-align: center;
+  margin-bottom: 3.5rem; /* Más espacio antes de las tarjetas */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
 }
 
 /* --- Grid --- */
 .sala-subtemas-grid {
-    display: grid;
-    /* Por defecto 1 columna, ajustable */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); /* Mínimo 300px */
-    gap: 2rem; /* Espacio entre tarjetas */
+  display: grid;
+  /* Por defecto 1 columna, ajustable */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 300px), 1fr)
+  ); /* Mínimo 300px */
+  gap: 2rem; /* Espacio entre tarjetas */
 }
 
 /* --- Nueva Tarjeta Inmersiva --- */
 .sala-subtema-card-immersive {
-    position: relative; /* Para el overlay */
-    height: 350px; /* Altura fija considerable para mostrar bien la imagen */
-    border-radius: var(--border-radius-card-subtema);
-    overflow: hidden; /* Contener imagen y overlay */
-    cursor: pointer;
-    background-size: cover;
-    background-position: center center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    color: var(--color-text-light-subtema); /* Texto claro por defecto */
+  position: relative; /* Para el overlay */
+  height: 350px; /* Altura fija considerable para mostrar bien la imagen */
+  border-radius: var(--border-radius-card-subtema);
+  overflow: hidden; /* Contener imagen y overlay */
+  cursor: pointer;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: var(--color-text-light-subtema); /* Texto claro por defecto */
 
-    /* Animación de entrada (más pronunciada) */
-    opacity: 0;
-    transform: translateY(30px) scale(0.98); /* Empieza más abajo y ligeramente escalado */
-    animation: subtemaFadeInUpNew 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  /* Animación de entrada (más pronunciada) */
+  opacity: 0;
+  transform: translateY(30px) scale(0.98); /* Empieza más abajo y ligeramente escalado */
+  animation: subtemaFadeInUpNew 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 @keyframes subtemaFadeInUpNew {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .sala-subtema-card-immersive:hover,
 .sala-subtema-card-immersive:focus-visible {
-    transform: scale(1.04); /* Escalar un poco más */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    outline: none;
+  transform: scale(1.04); /* Escalar un poco más */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  outline: none;
 }
 /* Opcional: outline visible en focus */
 .sala-subtema-card-immersive:focus-visible {
-     outline: 3px solid var(--color-accent-subtema);
-     outline-offset: 4px;
+  outline: 3px solid var(--color-accent-subtema);
+  outline-offset: 4px;
 }
-
 
 /* Contenedor del Overlay y Contenido */
 .sala-subtema-content-overlay {
-    position: absolute;
-    bottom: 0; /* Anclado abajo */
-    left: 0;
-    right: 0;
-    padding: 1.5rem 1.8rem; /* Buen padding */
-    background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 10%, rgba(15, 15, 15, 0.8) 50%, transparent 100%); /* Gradiente oscuro desde abajo */
-    display: flex;
-    justify-content: space-between; /* Título a la izq, indicador a la der */
-    align-items: flex-end; /* Alinear elementos abajo */
-    min-height: 40%; /* Asegurar altura mínima para el gradiente y contenido */
-    transition: background 0.4s ease; /* Transición suave del fondo */
+  position: absolute;
+  bottom: 0; /* Anclado abajo */
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.8rem; /* Buen padding */
+  background: linear-gradient(
+    to top,
+    rgba(15, 15, 15, 0.95) 10%,
+    rgba(15, 15, 15, 0.8) 50%,
+    transparent 100%
+  ); /* Gradiente oscuro desde abajo */
+  display: flex;
+  justify-content: space-between; /* Título a la izq, indicador a la der */
+  align-items: flex-end; /* Alinear elementos abajo */
+  min-height: 40%; /* Asegurar altura mínima para el gradiente y contenido */
+  transition: background 0.4s ease; /* Transición suave del fondo */
 }
 
 .sala-subtema-card-immersive:hover .sala-subtema-content-overlay {
-     /* Hacer el gradiente un poco más intenso o cubrir más en hover */
-     background: linear-gradient(to top, rgba(10, 10, 10, 0.98) 20%, rgba(10, 10, 10, 0.85) 60%, transparent 100%);
+  /* Hacer el gradiente un poco más intenso o cubrir más en hover */
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.98) 20%,
+    rgba(10, 10, 10, 0.85) 60%,
+    transparent 100%
+  );
 }
-
 
 /* Título del Subtema */
 .sala-subtema-content-overlay .sala-subtema-title {
-/*     font-family: var(--font-heading-subtema);
- */    font-size: clamp(1.4rem, 4vw, 1.8rem); /* Tamaño responsivo */
-    font-weight: 700;
-    color: inherit; /* Hereda el blanco del overlay */
-    margin: 0;
-    line-height: 1.3;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Sombra para legibilidad */
-    flex-grow: 1; /* Permitir que ocupe espacio */
-    margin-right: 1rem; /* Espacio antes del indicador */
+  /*     font-family: var(--font-heading-subtema);
+ */
+  font-size: 1.1rem !important; /* Tamaño responsivo */
+  font-weight: 700;
+  color: inherit; /* Hereda el blanco del overlay */
+  margin: 0;
+
+  line-height: 1.3;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+  flex-grow: 1; /* Permitir que ocupe espacio */
+  margin-right: 2rem !important; /* Espacio antes del indicador */
 }
 
 /* Indicador (Texto/Flecha) */
 .sala-subtema-indicator {
-    font-family: var(--font-body-subtema);
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: var(--color-accent-subtema); /* Color acento */
-    opacity: 0; /* Oculto por defecto */
-    transform: translateX(-15px); /* Empieza desplazado */
-    transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s; /* Transición con retraso */
-    flex-shrink: 0; /* No encoger */
-    white-space: nowrap; /* Evitar que se rompa en dos líneas */
+  font-family: var(--font-body-subtema);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--color-accent-subtema); /* Color acento */
+  opacity: 0; /* Oculto por defecto */
+  transform: translateX(-15px); /* Empieza desplazado */
+  transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s; /* Transición con retraso */
+  flex-shrink: 0; /* No encoger */
+  white-space: nowrap; /* Evitar que se rompa en dos líneas */
 }
 
 .sala-subtema-card-immersive:hover .sala-subtema-indicator,
 .sala-subtema-card-immersive:focus-visible .sala-subtema-indicator {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* --- Ajustes Responsivos --- */
 @media (max-width: 768px) {
-    .sala-subtema-card-immersive {
-        height: 300px; /* Un poco menos altas en tablet/móvil */
-    }
-    .sala-subtema-content-overlay {
-        padding: 1.2rem 1.5rem;
-    }
-    .sala-subtema-content-overlay .sala-subtema-title {
-        font-size: clamp(1.2rem, 5vw, 1.6rem);
-    }
-    .sala-subtema-indicator {
-        font-size: 0.85rem;
-    }
+  .sala-subtema-card-immersive {
+    height: 300px; /* Un poco menos altas en tablet/móvil */
+  }
+  .sala-subtema-content-overlay {
+    padding: 1.2rem 1.5rem;
+  }
+  .sala-subtema-content-overlay .sala-subtema-title {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+  .sala-subtema-indicator {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
-     .sala-subtemas-grid {
-        grid-template-columns: 1fr; /* Siempre una columna en móvil */
-        gap: 1.5rem;
-    }
-    .sala-subtema-card-immersive {
-        height: 280px;
-    }
-     .sala-subtema-content-overlay {
-        padding: 1rem 1.2rem;
-        align-items: center; /* Centrar verticalmente en móvil si se ve mejor */
-        min-height: 45%; /* Asegurar espacio para el texto */
-    }
-     .sala-subtema-content-overlay .sala-subtema-title {
-        font-size: clamp(1.1rem, 6vw, 1.4rem);
-    }
-     /* Opcional: Hacer el indicador siempre visible en móvil si el hover no es ideal */
-     /* .sala-subtema-indicator { opacity: 1; transform: translateX(0); } */
+  .sala-subtemas-grid {
+    grid-template-columns: 1fr; /* Siempre una columna en móvil */
+    gap: 1.5rem;
+  }
+  .sala-subtema-card-immersive {
+    height: 280px;
+  }
+  .sala-subtema-content-overlay {
+    padding: 1rem 1.2rem;
+    align-items: center; /* Centrar verticalmente en móvil si se ve mejor */
+    min-height: 45%; /* Asegurar espacio para el texto */
+  }
+  .sala-subtema-content-overlay .sala-subtema-title {
+    font-size: clamp(1.1rem, 6vw, 1.4rem);
+  }
+  /* Opcional: Hacer el indicador siempre visible en móvil si el hover no es ideal */
+  /* .sala-subtema-indicator { opacity: 1; transform: translateX(0); } */
 }
-
-
 
 /* --------------------------- */
 
@@ -371,29 +384,29 @@
 /* --- Estilos Específicos para Tarjetas Ramal (Sin Imagen) --- */
 
 .sala-subtema-card-immersive.ramal-card-no-image {
-    /* Hereda height, border-radius, overflow, cursor, shadow, transition, color, animation */
-    background-color: var(--color-dark-theart, #2a2a2a); /* Fondo oscuro sólido */
-    /* O un gradiente sutil */
-    /* background-image: linear-gradient(145deg, #333, #1f1f1f); */
-    display: flex; /* Para centrar el contenido del overlay */
-    align-items: center;
-    justify-content: center;
-    text-align: center; /* Centrar texto por defecto */
+  /* Hereda height, border-radius, overflow, cursor, shadow, transition, color, animation */
+  background-color: var(--color-dark-theart, #2a2a2a); /* Fondo oscuro sólido */
+  /* O un gradiente sutil */
+  /* background-image: linear-gradient(145deg, #333, #1f1f1f); */
+  display: flex; /* Para centrar el contenido del overlay */
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Centrar texto por defecto */
 }
 
 /* Anular el overlay de gradiente de la tarjeta base */
 .ramal-card-no-image .sala-subtema-content-overlay {
-    position: static; /* Ya no es absoluto */
-    background: none; /* Sin gradiente de fondo */
-    padding: 2rem 1.5rem; /* Ajustar padding */
-    min-height: auto; /* Sin altura mínima */
-    display: flex; /* Usar flex para layout interno */
-    flex-direction: column; /* Apilar contenido principal e indicador */
-    justify-content: center; /* Centrar verticalmente */
-    align-items: center; /* Centrar horizontalmente */
-    width: 100%;
-    height: 100%; /* Ocupar toda la tarjeta */
-    transition: background-color 0.4s ease; /* Transición del fondo del overlay si se desea */
+  position: static; /* Ya no es absoluto */
+  background: none; /* Sin gradiente de fondo */
+  padding: 2rem 1.5rem; /* Ajustar padding */
+  min-height: auto; /* Sin altura mínima */
+  display: flex; /* Usar flex para layout interno */
+  flex-direction: column; /* Apilar contenido principal e indicador */
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  width: 100%;
+  height: 100%; /* Ocupar toda la tarjeta */
+  transition: background-color 0.4s ease; /* Transición del fondo del overlay si se desea */
 }
 
 /* Opcional: Cambiar fondo del overlay en hover */
@@ -401,68 +414,80 @@
     background-color: rgba(255, 255, 255, 0.03);
 } */
 
-
 .ramal-card-main-content {
-    flex-grow: 1; /* Ocupar espacio disponible */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem; /* Espacio antes del indicador */
+  flex-grow: 1; /* Ocupar espacio disponible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem; /* Espacio antes del indicador */
 }
 
-
 .ramal-card-icon-wrapper {
-    color: var(--color-accent-subtema); /* Color acento para el icono */
-    /* El tamaño se define en el style inline del componente Icono */
+  color: var(--color-accent-subtema); /* Color acento para el icono */
+  /* El tamaño se define en el style inline del componente Icono */
 }
 
 /* Ajustar título para layout sin imagen */
 .ramal-card-no-image .sala-subtema-content-overlay .sala-subtema-title {
-    /* Hereda fuente, peso, sombra */
-    font-size: clamp(1.5rem, 4.5vw, 2rem); /* Ligeramente más grande */
-    color: var(--color-text-light-subtema); /* Asegurar color claro */
-    margin: 0 0 0.5rem 0; /* Margen inferior */
-    flex-grow: 0; /* No necesita crecer */
-    margin-right: 0; /* Sin margen derecho */
+  /* Hereda fuente, peso, sombra */
+  font-size: clamp(1.5rem, 4.5vw, 2rem); /* Ligeramente más grande */
+  color: var(--color-text-light-subtema); /* Asegurar color claro */
+  margin: 0 0 0.5rem 0; /* Margen inferior */
+  flex-grow: 0; /* No necesita crecer */
+  margin-right: 0; /* Sin margen derecho */
 }
 
 .ramal-card-description {
-    font-family: var(--font-body-subtema);
-    font-size: 0.95rem;
-    color: var(--color-grey-light-theart, #ccc); /* Un gris más claro */
-    line-height: 1.5;
-    max-width: 85%; /* Limitar ancho para mejor lectura */
-    margin: 0 auto; /* Centrar si tiene max-width */
+  font-family: var(--font-body-subtema);
+  font-size: 0.95rem;
+  color: var(--color-grey-light-theart, #ccc); /* Un gris más claro */
+  line-height: 1.5;
+  max-width: 85%; /* Limitar ancho para mejor lectura */
+  margin: 0 auto; /* Centrar si tiene max-width */
 }
 
 /* Ajustar indicador para layout sin imagen */
 .ramal-card-no-image .sala-subtema-indicator {
-    /* Hereda fuente, color, peso, transiciones */
-    position: static; /* Ya no es absoluto */
-    transform: translateY(10px); /* Empezar ligeramente abajo */
-    margin-top: auto; /* Empujar hacia abajo */
-    padding-top: 0.5rem; /* Espacio arriba */
-    transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s;
+  /* Hereda fuente, color, peso, transiciones */
+  position: static; /* Ya no es absoluto */
+  transform: translateY(10px); /* Empezar ligeramente abajo */
+  margin-top: auto; /* Empujar hacia abajo */
+  padding-top: 0.5rem; /* Espacio arriba */
+  transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s;
 }
 
 .ramal-card-no-image:hover .sala-subtema-indicator,
 .ramal-card-no-image:focus-visible .sala-subtema-indicator {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
-
 
 /* --- Ajustes Responsivos Específicos Ramal --- */
 @media (max-width: 768px) {
-    .ramal-card-no-image .sala-subtema-content-overlay { padding: 1.5rem 1.2rem; }
-    .ramal-card-no-image .sala-subtema-content-overlay .sala-subtema-title { font-size: clamp(1.3rem, 5vw, 1.8rem); }
-    .ramal-card-description { font-size: 0.9rem; max-width: 90%; }
-    .ramal-card-no-image .sala-subtema-indicator { font-size: 0.85rem; }
+  .ramal-card-no-image .sala-subtema-content-overlay {
+    padding: 1.5rem 1.2rem;
+  }
+  .ramal-card-no-image .sala-subtema-content-overlay .sala-subtema-title {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+  .ramal-card-description {
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+  .ramal-card-no-image .sala-subtema-indicator {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
-     .ramal-card-no-image .sala-subtema-content-overlay { padding: 1.2rem 1rem; }
-     .ramal-card-no-image .sala-subtema-content-overlay .sala-subtema-title { font-size: clamp(1.2rem, 6vw, 1.6rem); }
-     .ramal-card-description { font-size: 0.85rem; }
+  .ramal-card-no-image .sala-subtema-content-overlay {
+    padding: 1.2rem 1rem;
+  }
+  .ramal-card-no-image .sala-subtema-content-overlay .sala-subtema-title {
+    font-size: clamp(1.2rem, 6vw, 1.6rem);
+  }
+  .ramal-card-description {
+    font-size: 0.85rem;
+  }
 }

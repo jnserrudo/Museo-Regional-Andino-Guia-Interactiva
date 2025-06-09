@@ -59,28 +59,28 @@ export const Footer = () => {
               <li>
                 <Tooltip title="Inicio">
                   <Link to="/" className="theart-footer-action-link"> {/* Clase para estilizar como link */}
-                    <Button type="text" icon={<HomeOutlined />} className="footer-btn-theart-style" /> Inicio
+                    <Button type="text" icon={<HomeOutlined style={{ color: 'white' }} />} className="footer-btn-theart-style" /> Inicio
                   </Link>
                 </Tooltip>
               </li>
               <li>
                 <Tooltip title="Eventos (Próximamente)">
                   <Link to="/eventos" className="theart-footer-action-link">
-                    <Button type="text" icon={<CalendarOutlined />} disabled className="footer-btn-theart-style" /> Eventos
+                    <Button type="text" icon={<CalendarOutlined style={{ color: 'white' }} />} disabled className="footer-btn-theart-style" /> Eventos
                   </Link>
                 </Tooltip>
               </li>
               <li>
                 <Tooltip title="Rompecabezas">
                   <Link to="/puzzle" className="theart-footer-action-link">
-                    <Button type="text" icon={<AppstoreOutlined />} className="footer-btn-theart-style" /> Rompecabezas
+                    <Button type="text" icon={<AppstoreOutlined style={{ color: 'white' }} />} className="footer-btn-theart-style" /> Rompecabezas
                   </Link>
                 </Tooltip>
               </li>
               <li>
                 <Tooltip title="Mapa del Museo">
                   <Link to="/mapa" className="theart-footer-action-link">
-                    <Button type="text" icon={<GlobalOutlined />} className="footer-btn-theart-style" /> Mapa del Museo
+                    <Button type="text" icon={<GlobalOutlined style={{ color: 'white' }} />} className="footer-btn-theart-style" /> Mapa del Museo
                   </Link>
                 </Tooltip>
               </li>
@@ -105,7 +105,7 @@ export const Footer = () => {
               <Tooltip title="Aumentar Tamaño de Texto">
                 <Button
                   type="text"
-                  icon={<ZoomInOutlined />}
+                  icon={<ZoomInOutlined style={{ color: 'white' }} />}
                   onClick={increaseFontSize}
                   className="footer-btn-theart-style accessibility-btn" // Clase adicional
                   aria-label="Aumentar Tamaño de Texto"
@@ -114,7 +114,7 @@ export const Footer = () => {
               <Tooltip title="Disminuir Tamaño de Texto">
                 <Button
                   type="text"
-                  icon={<ZoomOutOutlined />}
+                  icon={<ZoomOutOutlined style={{ color: 'white' }} />  }
                   onClick={decreaseFontSize}
                   className="footer-btn-theart-style accessibility-btn" // Clase adicional
                   aria-label="Disminuir Tamaño de Texto"

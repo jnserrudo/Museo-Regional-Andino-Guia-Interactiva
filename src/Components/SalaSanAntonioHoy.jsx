@@ -30,12 +30,17 @@ export const SalaSanAntonioHoy = () => {
           <p className="sa-text">
             San Antonio de los Cobres se ubica a una altura de 3776 metros. Posee una superficie cercana a los 11.420 km2 con una población estimada de 7000 habitantes. El pueblo es ideal para descubrir las tradiciones y costumbres de los habitantes de La Puna, además de disfrutar de hermosos paisajes de cerros y salares. La zona donde se levanta San Antonio de los Cobres es árida y por la altura se recomienda caminar lentamente y evitar agitarse para no sufrir el apunamiento, también conocido como soroche o mal de altura.
           </p>
+          {/* Sin título explícito aquí, solo párrafos */}
+        <p className="sa-text">
+          Esta emplazada a 3776 metros sobre el nivel del mar. Posee una superficie cercana a los 11.420 km2, con una población estimada de 7000 habitantes.
+        </p>
+        <p className="sa-text">
+          El 13 de junio se celebra la fiesta de su Patrono que es San Antonio de Padua. Llegó hasta este lugar el año 1775 desde la Mina de Cobres ubicada en la localidad homónima distante a 70 km de San Antonio.
+        </p>
         </div>
       </section>
-
-      {/* Sección 2: Datos básicos (Texto solo) */}
+{/* 
       <section className="sa-text-block">
-        {/* Sin título explícito aquí, solo párrafos */}
         <p className="sa-text">
           Esta emplazada a 3776 metros sobre el nivel del mar. Posee una superficie cercana a los 11.420 km2, con una población estimada de 7000 habitantes.
         </p>
@@ -43,7 +48,7 @@ export const SalaSanAntonioHoy = () => {
           El 13 de junio se celebra la fiesta de su Patrono que es San Antonio de Padua. Llegó hasta este lugar el año 1775 desde la Mina de Cobres ubicada en la localidad homónima distante a 70 km de San Antonio.
         </p>
       </section>
-
+ */}
       {/* Sección 3: Mina de Cobres */}
       <section className="sa-content-block reverse"> {/* Añadimos clase 'reverse' para alternar */}
         <figure className="sa-image-container">

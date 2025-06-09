@@ -363,15 +363,15 @@
 .sala-intro-list {
   list-style: none; /* Quitar viñetas por defecto */
   padding-left: 1.5rem; /* Indentación para espacio del marcador */
-  margin-top: 1.5rem; /* Espacio sobre la lista */
-  margin-bottom: 2.5rem; /* Espacio bajo la lista (ajusta si es necesario) */
+  margin-top: 0.5rem; /* Espacio sobre la lista */
+  margin-bottom: 1.5rem; /* Espacio bajo la lista (ajusta si es necesario) */
   text-align: left; /* Alinear texto de lista a la izquierda */
   max-width: 85%; /* Que no sea tan ancha como la descripción */
   margin-left: auto;
   margin-right: auto;
   color: rgba(255, 255, 255, 0.9); /* Mismo color que descripción */
   font-size: clamp(1rem, 2.8vw, 1.15rem); /* Tamaño REM ligeramente menor */
-  line-height: 1.6; /* Interlineado de lista */
+  line-height: 1.1; /* Interlineado de lista */
 }
 
 .sala-intro-list li {
@@ -382,7 +382,7 @@
 
 /* Marcador personalizado (viñeta) */
 .sala-intro-list li::before {
-  content: '❖'; /* Puedes usar '•', '–', '✦', '★' o cualquier otro símbolo */
+  content: '-'; /* Puedes usar '•', '–', '✦', '★' o cualquier otro símbolo */
   position: absolute;
   left: 0;
   top: 0.05em; /* Ajuste vertical fino */

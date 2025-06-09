@@ -134,7 +134,7 @@ const salasData = {
   historia: {
     title: "HISTORIA",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Historia. Este espacio te invita a recorrer el pasado de la región a través de sus protagonistas: los pueblos originarios, los viajeros, los mineros, los ferroviarios y todas las personas que, a lo largo del tiempo, construyeron la identidad de la Puna. San Antonio de los Cobres y sus alrededores guardan huellas profundas de miles de años de historia. Desde las primeras comunidades andinas hasta la llegada del ferrocarril, cada etapa dejó su marca en el territorio, en las tradiciones y en la memoria colectiva. En esta sala vas a poder:
+    description: `Bienvenidos a la Sala de Historia. Esta sala te invita a conocer un capítulo clave pero poco conocido de la historia argentina: la conformación del Territorio Nacional de Los Andes, en el corazón de la Puna. Un espacio donde confluyen geografía, geopolítica, diplomacia y vida cotidiana en altura. En esta sala vas a poder:
 
 * Conocer cómo vivían y se organizaban las comunidades prehispánicas.
 
