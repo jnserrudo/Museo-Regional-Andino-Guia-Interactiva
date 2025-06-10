@@ -356,7 +356,7 @@ export const Sala = () => {
                     // NO es un item de lista
                     // Si teníamos items en la lista temporal, es hora de renderizar esa lista
                     if (currentListItems.length > 0) {
-                      elements.push(
+                      /* elements.push(
                         <ul
                           key={`list-${elements.length}`}
                           className="sala-intro-list"
@@ -367,7 +367,7 @@ export const Sala = () => {
                             </li>
                           ))}
                         </ul>
-                      );
+                      ); */
                       currentListItems = []; // Resetear la lista temporal
                     }
                     // Si la línea actual NO está vacía, añadirla como párrafo
@@ -387,7 +387,7 @@ export const Sala = () => {
 
                 // Asegurarse de renderizar la última lista si la descripción termina con items *
                 if (currentListItems.length > 0) {
-                  elements.push(
+                  /* elements.push(
                     <ul
                       key={`list-${elements.length}`}
                       className="sala-intro-list"
@@ -398,7 +398,7 @@ export const Sala = () => {
                         </li>
                       ))}
                     </ul>
-                  );
+                  ); */
                 }
 
                 // Retorna todos los elementos (párrafos y listas)

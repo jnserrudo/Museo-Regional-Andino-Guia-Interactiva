@@ -114,40 +114,64 @@ De esta manera se va construyendo gradualmente el edificio del volcán cuya form
     ],
   },
 
-  // --- Salares ---
-  salares: {
-    title: "Salares Andinos",
-    fullTitle: "¿Cómo se forma un salar?",
-    image: "salares_museo.jpeg", // RUTA ORIGINAL MANTENIDA
-    sections: [
-      {
-        text: `Hace falta: una depresión sin salida; volcanes en plena actividad; aguas termales; diferentes minerales y un clima árido.
-Hace muchos años, cuando los volcanes de la Puna estaban activos, se formaron unas depresiones en el terreno que no tenían salida hacia ningún lado. 
-Se fueron llenando con agua de la superficie, con aguas termales cargadas de minerales que subían desde el subsuelo, con pequeñísimos fragmentos de rocas erosionadas, con polvo traído por el viento y con cenizas volcánicas. 
-Elementos químicos contenidos en gases y líquidos liberados por los volcanes se unieron con los que había en la tierra y se formaron diferentes sales. Después, el gran calor del ambiente evaporó el agua dejando en las depresiones todas las sales minerales formadas. 
-Además, en el interior de estas sales sólidas quedó un agua muy salada, llamada salmuera, que contiene minerales como litio, potasio y magnesio que no precipitan, es decir, no se convierten en algo sólido.
+  // ================ INICIO DEL BLOQUE A REEMPLAZAR ================
 
-`,
+  // --- Salares (SECCIÓN ACTUALIZADA) ---
+  salares: {
+    title: "Salares",
+    fullTitle: "El Misterio Blanco de la Puna: ¿Cómo se forma un salar?",
+    image: "panel-final-atardecer.jpg", // Usamos la imagen final como hero
+    sections: [
+      { // Panel 1
+        subtitle: "¿Qué Son los Salares?",
+        text: "Miren esta imagen. ¿Ven esa superficie blanca y brillante? ¡Eso es un salar! Piensen en ellos como enormes espejos blancos hechos de sal sobre la tierra. La palabra \"salar\" viene de \"sal\", que es una palabra antigua. ¿Sabían que la palabra \"salario\" viene de cuando a los romanos les pagaban con sal? El término \"salar\" nació aquí, en América, para hablar de estos lugares tan salados, sobre todo en las montañas de los Andes.",
+        image: "panel-1-cristales.jpg",
       },
-      {
-        subtitle: "En un año",
-        text: ` En todo un año, apenas llueven unos 200 mm en el este puneño y hacia el oeste no superan los 50mm. Al chocar los vientos contra las serranías pierden casi toda su humedad precipitándola como luvia de un lado de las montañas y pasando casi secos hacia la Puna. Los "cerros brujos", avisan a los puneños cómo va a comportarse el clima. La manera que se disponen las nubes alrededor de la cumbre de estos cerros "avisadores" les indica que se avecina una nevada. La gran diferencia de temperatura entre el día y la noche (amplitud térmica) alimenta el desierto. 
-        Las altas temperaturas durante el día y las frías temperaturas bajo cero durante la noche provocan que las rocas se agrieten y partan generando pedregullo y arena.
-        `,
-        image: "extraccion_litio_salar.jpg", // RUTA ORIGINAL MANTENIDA
+      { // Panel de Nombres de Salares (Lo integramos aquí)
+        subtitle: "Nuestros Gigantes Blancos",
+        text: "En nuestra provincia de Salta tenemos muchos salares importantes, ¡algunos súper grandes! Como Arizaro, Pocitos, Rincón, Pastos Grandes, Ratones, Diablillos, Incahuasi, Centenario, Río Grande, y también compartimos Salinas Grandes, Antofalla y Hombre Muerto con otras provincias.",
+        // Aquí podríamos añadir el componente interactivo más adelante
       },
-      /* {
-        subtitle: "Un Ecosistema Extremo",
-        text: "A pesar de su apariencia inhóspita, los salares albergan ecosistemas únicos adaptados a condiciones extremas de salinidad, radiación solar y fluctuaciones de temperatura. Microorganismos extremófilos forman la base de la cadena alimenticia. En las lagunas asociadas a los salares, es común encontrar flamencos andinos que se alimentan de pequeños crustáceos, así como vicuñas y otra fauna adaptada al altiplano que utiliza estos espacios.",
-        image: "flamencos_salar.jpg", // RUTA ORIGINAL MANTENIDA
-      }, */
+      { // Panel 2
+        subtitle: "¿Cómo se Formaron los Salares de la Puna?",
+        text: "Esto pasó hace mucho tiempo, cuando la Tierra se movía un montón (eso se llama tectónica andina) y había volcanes activos. Estos movimientos crearon grandes \"pozos\" o cuencas en el suelo, en los que el agua no tenía por dónde salir. Hace mucho, había lagos de agua dulce aquí. Pero el clima cambió, ¡se volvió muy seco y caluroso! Los lagos empezaron a secarse, y el agua que quedaba se puso cada vez más salada, ¡se \"salinizaron\"! Además, los volcanes activos siguieron trayendo minerales disueltos que se mezclaban con el agua.",
+        image: "panel-2-formacion.jpg",
+      },
+      { // Panel 3
+        subtitle: "¡El Secreto es la Evaporación!",
+        text: "Aquí está la clave de los salares: ¡la evaporación!. Como en la Puna hace mucho calor y llueve muy poquito, el agua que llega (de la lluvia o de las montañas) se evapora súper rápido. Imaginen un vaso con agua y sal. Si lo dejan al sol, el agua desaparece, ¡pero la sal se queda pegada al vaso! En los salares pasa algo parecido, ¡pero a lo grande! El agua se evapora y deja atrás todos los minerales que traía disueltos. Esto pasa de dos formas: el agua de la superficie se evapora y, a veces, el agua subterránea sube por el suelo y se evapora justo en la superficie, dejando una capa blanca y quebradiza de sal.",
+        image: "panel-3-evaporacion.jpg",
+      },
+      { // Panel 4
+        subtitle: "Más Allá de la Sal Común: Las Salmueras",
+        text: "Los salares no tienen solo la sal que usamos para cocinar. Tienen una parte sólida (la sal y la tierra), ¡y una parte líquida que son las salmueras! Las salmueras son aguas súper, súper saladas. Aunque no se pueden beber, ¡son muy importantes porque, además de sal, tienen otros elementos valiosos como el boro, el magnesio, el potasio y, el más famoso de todos: el Litio!",
+        image: "panel-4-piletas.jpg",
+      },
+      { // Panel 5
+        subtitle: "El Litio: El Tesoro de la Puna",
+        text: "El Litio es como el \"oro blanco\". ¿Saben por qué es tan valioso? ¡Porque se usa para hacer las baterías de casi todo lo que usamos con electricidad! Tu celular, tu computadora y los coches eléctricos usan baterías de Litio. Para sacar estos minerales, usamos el mismo truco de la naturaleza: la evaporación. Bombeamos las salmueras a unas piletas gigantes al aire libre y el sol hace el resto.",
+        image: "panel-5-bateria.jpg",
+      },
+      { // Panel 6
+        subtitle: "¿Son Todos los Salares Iguales? El Ciclo de Vida",
+        text: "Aunque se parecen, los salares son un poco diferentes. Algunos tienen más tierra y barro (Salares Terrosos como Salinas Grandes) y otros tienen capas de sal más gruesas (Salares Cristalinos como Hombre Muerto). Además, los salares tienen un ciclo de vida: se llenan de agua con las lluvias y luego se secan casi por completo. Este ciclo, junto con fenómenos como \"La Niña\" y \"El Niño\", influye en las capas de sal que se forman cada año.",
+        image: "panel-6-ciclo-vida.jpg",
+      },
+      { // Panel Final
+        subtitle: "Un Paisaje Único",
+        text: "¡Increíble, ¿verdad?! Los salares de la Puna Salteña no son solo paisajes espectaculares. Son lugares con una historia geológica fascinante, un ejemplo de cómo el clima seco crea maravillas naturales, y una fuente muy importante de minerales que usamos en nuestra vida diaria. ¡No dejes de explorar el resto de la sala para descubrir más secretos de nuestro planeta!",
+        // Dejamos esta última sección sin imagen para variar el layout
+      }
     ],
+    // La galería de imágenes de abajo puede ser una selección de las mejores fotos
     gallery: [
-      { src: "texturas_sal.jpg", caption: "Texturas de la costra salina." }, // RUTA ORIGINAL MANTENIDA
-      { src: "ojos_de_salar.jpg", caption: "'Ojos de salar'." }, // RUTA ORIGINAL MANTENIDA
-      { src: "vicunas_altiplano.jpg", caption: "Vicuñas en el altiplano." }, // RUTA ORIGINAL MANTENIDA
+      { src: "panel-1-cristales.jpg", caption: "Cristales de sal en la superficie." },
+      { src: "panel-4-piletas.jpg", caption: "Piletas de evaporación para la extracción de litio." },
+      { src: "panel-final-atardecer.jpg", caption: "Atardecer en un salar andino." },
     ],
   },
+
+// ================== FIN DEL BLOQUE A REEMPLAZAR ==================
 };
 
 // --- NUEVO: Datos para la Galería de Volcanes ---
@@ -319,8 +343,8 @@ export const SalaGeologiaDetalle = () => {
                 {/* IMAGEN DESCOMENTADA - Usa la ruta de la sección */}
                 {/* ASEGÚRATE QUE ESTAS RUTAS FUNCIONEN EN TU PROYECTO */}
 
-                {/* <img src={`${import.meta.env.BASE_URL}${section.image}`} alt={section.subtitle || `Ilustración de ${tema.title}`} loading="lazy" />
-                 */}
+                <img src={`${import.meta.env.BASE_URL}${section.image}`} alt={section.subtitle || `Ilustración de ${tema.title}`} loading="lazy" />
+                
                 {/* Puedes añadir figcaption si lo necesitas */}
                 {/* <figcaption>Descripción opcional</figcaption> */}
               </figure>

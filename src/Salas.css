@@ -370,7 +370,7 @@
   height: 280px; /* Altura considerable para la tarjeta */
   border-radius: var(--border-radius-card-salas);
   overflow: hidden;
-  background-size: cover;
+  background-size: 115%; /* <--- ¡ESTA ES LA LÍNEA CLAVE! */
   background-position: center center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
