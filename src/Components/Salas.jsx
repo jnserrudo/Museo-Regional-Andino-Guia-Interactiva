@@ -11,10 +11,10 @@ const data = [
     path: "gobernacion_de_los_andes",
     icon: "🏛️",
   },
-  { title: "GEOLOGÍA", image: "geologia.jfif", path: "geologia", icon: "🪨" },
+  { title: "GEOLOGÍA", image: "geologia.jpg", path: "geologia", icon: "🪨" },
   {
     title: "MINEROLOGÍA Y MINERÍA",
-    image: "minerologia.jfif",
+    image: "minerologia.jpg",
     path: "minerologia_y_mineria",
     icon: "⛏️",
   },
@@ -26,11 +26,11 @@ const data = [
   },
   {
     title: "ARQUEOLOGÍA",
-    image: "arqueologia.jfif",
+    image: "arqueologia.jpg",
     path: "arqueologia",
     icon: "🏺",
   },
-  { title: "RAMAL C14", image: "ramalC14.jfif", path: "ramal_c14", icon: "🚆" },
+  { title: "RAMAL C14", image: "ramalC14.jpg", path: "ramal_c14", icon: "🚆" },
   {
     title: "SAN ANTONIO HOY",
     image: "san_antonio_cobres.jfif",

@@ -19,7 +19,7 @@ export const Home = () => {
             Descubre la riqueza cultural de San Antonio de los Cobres
           </p>
           <div className="button-group">
-            <Button
+            {/* <Button
               className="btn-custom btn-outline"
               icon={<EyeOutlined />}
               size="large"
@@ -28,7 +28,7 @@ export const Home = () => {
               // disabled
             >
               Visita Virtual (Próximamente)
-            </Button>
+            </Button> */}
             <Link to="/salas/geologia">
               <Button
                 className="btn-custom btn-filled"

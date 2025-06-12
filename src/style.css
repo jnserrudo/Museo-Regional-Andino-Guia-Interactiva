@@ -242,6 +242,10 @@ body.font-size-xlarge h3 { font-size: 1.5em; }
   /* ... etc ... */
 }
 
+p{
+  text-align: justify !important;
+}
+
 body {
   font-family: var(--font-body-theart); /* Establece la fuente base */
   margin: 0;

@@ -27,12 +27,15 @@ const mineralesCorteza = [
     desc: "Disulfuro de hierro con cristales cúbicos. Usada para ácido sulfúrico y asociada a depósitos de oro.",
     clase: "Clase II (Sulfuros y Sulfosales)",
     sistemaCristalografico: "Cúbico",
-    etimologia: "Del griego 'pyros' (fuego), por producir chispas al golpearse.",
-    propiedadDiagnostica: "Cristales cúbicos estriados, quebradiza, polvo negruzco.",
-    importanciaEconomica: "Extrae oro/cobre asociado; fuente de azufre para ácido sulfúrico.",
+    etimologia:
+      "Del griego 'pyros' (fuego), por producir chispas al golpearse.",
+    propiedadDiagnostica:
+      "Cristales cúbicos estriados, quebradiza, polvo negruzco.",
+    importanciaEconomica:
+      "Extrae oro/cobre asociado; fuente de azufre para ácido sulfúrico.",
     genesis: "Rocas ígneas, sedimentarias, metamórficas; vetas hidrotermales.",
     yacimientosPuna: ["Taca Taca (Salta)", "Mina La Colorada (Salta)"],
-    otros: "Llamada 'binches' por nativos de la Puna."
+    otros: "Llamada 'binches' por nativos de la Puna.",
   },
   {
     id: "calcopirita",
@@ -42,11 +45,12 @@ const mineralesCorteza = [
     clase: "Clase II (Sulfuros y Sulfosales)",
     sistemaCristalografico: "Tetragonal",
     etimologia: "Del griego 'chalkos' (cobre) + 'pirita'.",
-    propiedadDiagnostica: "Más blanda que el acero, frágil, color amarillo intenso.",
+    propiedadDiagnostica:
+      "Más blanda que el acero, frágil, color amarillo intenso.",
     importanciaEconomica: "Mena principal de cobre (Cu).",
     genesis: "Pórfidos cupríferos, vetas hidrotermales, skarn.",
     yacimientosPuna: ["Taca Taca (Salta)", "Diablillos (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "tetraedrita",
@@ -56,11 +60,12 @@ const mineralesCorteza = [
     clase: "Clase II (Sulfuros y Sulfosales)",
     sistemaCristalografico: "Cúbico",
     etimologia: "Por su forma tetraédrica (Haidinger, 1845).",
-    propiedadDiagnostica: "Color gris acero, raya negra grisácea, cristales tetraédricos.",
+    propiedadDiagnostica:
+      "Color gris acero, raya negra grisácea, cristales tetraédricos.",
     importanciaEconomica: "Contiene hasta 18% plata (Ag) en la freibergita.",
     genesis: "Vetas epitermales (fluidos hidrotermales de baja temperatura).",
     yacimientosPuna: ["Mina La Concordia (Salta)", "El Quévar (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "galena",
@@ -71,10 +76,11 @@ const mineralesCorteza = [
     sistemaCristalografico: "Cúbico",
     etimologia: "Del latín 'galena' (mena de plomo).",
     propiedadDiagnostica: "Clivaje cúbico perfecto, peso específico elevado.",
-    importanciaEconomica: "Usos en baterías, soldaduras, y protección radiológica.",
+    importanciaEconomica:
+      "Usos en baterías, soldaduras, y protección radiológica.",
     genesis: "Yacimientos hidrotermales, tipo VMS y SEDEX.",
     yacimientosPuna: ["Mina Pirquitas (Jujuy)", "Mina La Concordia (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "estibinita",
@@ -85,10 +91,11 @@ const mineralesCorteza = [
     sistemaCristalografico: "Rómbico",
     etimologia: "Del griego antiguo para 'antimonio'.",
     propiedadDiagnostica: "Baja dureza, raya negra, exfoliación perfecta.",
-    importanciaEconomica: "Usado en retardantes de fuego, baterías y metalurgia.",
+    importanciaEconomica:
+      "Usado en retardantes de fuego, baterías y metalurgia.",
     genesis: "Soluciones hidrotermales de baja temperatura.",
     yacimientosPuna: ["Mina Victoria (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "esfalerita",
@@ -102,7 +109,7 @@ const mineralesCorteza = [
     importanciaEconomica: "Galvanizado de hierro, baterías, farmacéuticos.",
     genesis: "Vetas hidrotermales, yacimientos VMS y SEDEX.",
     yacimientosPuna: ["Mina Pirquitas (Jujuy)", "Mina La Concordia (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "malaquita",
@@ -116,7 +123,7 @@ const mineralesCorteza = [
     importanciaEconomica: "Piedra ornamental y gema.",
     genesis: "Zonas de oxidación de sulfuros de cobre.",
     yacimientosPuna: ["Aguas Amargas (Salta)", "Los Colorados (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "azurita",
@@ -130,7 +137,7 @@ const mineralesCorteza = [
     importanciaEconomica: "Piedra ornamental y pigmento.",
     genesis: "Zonas de oxidación de sulfuros de cobre.",
     yacimientosPuna: ["Aguas Amargas (Salta)", "Los Colorados (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "bornita",
@@ -144,7 +151,7 @@ const mineralesCorteza = [
     importanciaEconomica: "Mena de cobre (Cu).",
     genesis: "Vetas hidrotermales, pórfidos cupríferos.",
     yacimientosPuna: ["Taca Taca (Salta)", "Diablillos (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "platas_rojas",
@@ -153,12 +160,14 @@ const mineralesCorteza = [
     desc: "Sulfosales de plata con color rojo intenso y alto contenido de plata.",
     clase: "Clase II (Sulfuros y Sulfosales)",
     sistemaCristalografico: "Trigonal",
-    etimologia: "Proustita (por J.L. Proust), Pirargirita (del griego 'Ag' + 'fuego').",
-    propiedadDiagnostica: "Color rojo bermellón (proustita) o rojo oscuro (pirargirita).",
+    etimologia:
+      "Proustita (por J.L. Proust), Pirargirita (del griego 'Ag' + 'fuego').",
+    propiedadDiagnostica:
+      "Color rojo bermellón (proustita) o rojo oscuro (pirargirita).",
     importanciaEconomica: "Fuente de plata (Ag).",
     genesis: "Fluidos hidrotermales epitermales.",
     yacimientosPuna: ["Mina Pirquitas (Jujuy)", "El Quevar (Salta)"],
-    otros: "En Bolivia llamadas 'rosicleres' o 'canutillos'."
+    otros: "En Bolivia llamadas 'rosicleres' o 'canutillos'.",
   },
   {
     id: "oro",
@@ -168,11 +177,12 @@ const mineralesCorteza = [
     clase: "Clase I (Elementos)",
     sistemaCristalografico: "Cúbico",
     etimologia: "Del latín 'aurum' (brillante).",
-    propiedadDiagnostica: "Color amarillo oro, maleabilidad, alto peso específico.",
+    propiedadDiagnostica:
+      "Color amarillo oro, maleabilidad, alto peso específico.",
     importanciaEconomica: "Joyería, electrónica, reservas financieras.",
     genesis: "Vetas epitermales, placeres aluviales.",
     yacimientosPuna: ["Mina Lindero (Salta)", "Diablillos (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "plata",
@@ -186,7 +196,7 @@ const mineralesCorteza = [
     importanciaEconomica: "Emulsiones fotográficas, electrónica, aleaciones.",
     genesis: "Soluciones hidrotermales con sulfuros de plata.",
     yacimientosPuna: ["Mina Pirquitas (Jujuy)", "El Quevar (Salta)"],
-    otros: ""
+    otros: "",
   },
   {
     id: "cobre",
@@ -200,7 +210,7 @@ const mineralesCorteza = [
     importanciaEconomica: "Cables eléctricos, industria automotriz, militar.",
     genesis: "Zonas oxidadas de depósitos de cobre.",
     yacimientosPuna: ["Taca Taca (Salta)", "Río Grande (Salta)"],
-    otros: "Popular en coleccionismo."
+    otros: "Popular en coleccionismo.",
   },
   // Mineral original del array no presente en el Word
   {
@@ -208,10 +218,8 @@ const mineralesCorteza = [
     img: "/ulexite.jfif",
     nombre: "Ulexita",
     desc: 'Llamada "piedra de la televisión", presente en salares del NOA.',
-  }
+  },
 ];
-
-
 
 const mineralesPuna = [
   {
@@ -294,6 +302,25 @@ export const SalaMinerologiaMineria = () => {
         aria-hidden="true"
       />
 
+      <p className="sala-minerologia-intro">
+        Desde las profundidades del planeta hasta la superficie de las montañas,
+        los minerales forman parte esencial del mundo que habitamos. Cada uno
+        encierra una historia sobre su origen, su composición y su relación con
+        nuestras vidas. Te invitamos a explorar la colección de minerales del
+        museo, compuesta por ejemplares representativos de nuestra región y de
+        otras partes del mundo. Para facilitar su comprensión, los agrupamos en
+        dos grandes categorías: * Minerales metalíferos, como el cobre, el oro,
+        la plata o el hierro, que contienen metales y son fundamentales para la
+        industria, la tecnología y la energía. * Minerales no metalíferos, como
+        el cuarzo, la sal o el yeso, valorados por sus propiedades físicas o
+        químicas, con usos diversos en la vida cotidiana. También destacan
+        minerales como el litio y los boratos, extraídos en ambientes salinos de
+        la Puna. Estos recursos estratégicos son clave en la transición
+        energética y en la fabricación de nuevas tecnologías. A lo largo del
+        recorrido, encontrarás piezas señalizadas con códigos QR. Escaneándolos
+        con tu dispositivo móvil, podrás acceder a contenidos en realidad
+        aumentada para observar detalles de su estructura o características.
+      </p>
       <h1 className="sala-minerologia-titulo">Explora la colección</h1>
       <p className="sala-minerologia-intro">
         Tipos de Minerales Comunes en la Región Andina de Argentina
@@ -301,16 +328,18 @@ export const SalaMinerologiaMineria = () => {
 
       {/* Sección 1: Minerales Corteza */}
       <section className="seccion-minerales">
-        <h2 className="sala-minerologia-subtitulo">
-          Minerales
-        </h2>
+        <h2 className="sala-minerologia-subtitulo">Minerales</h2>
         <div className="minerales-grid">
           {mineralesCorteza.map((mineral, index) => (
             // *** INICIO: MODIFICAR EL CONTENIDO DE SalaContenidoItem o su estructura ***
             // Si SalaContenidoItem es muy rígido, puedes reemplazarlo por esta estructura:
             <article key={mineral.id} className="mineral-card-modern">
               <div className="mineral-card-image-wrapper">
-                <img src={`${import.meta.env.BASE_URL}${mineral.img}`} alt={mineral.nombre} className="mineral-card-image" />
+                <img
+                  src={`${import.meta.env.BASE_URL}${mineral.img}`}
+                  alt={mineral.nombre}
+                  className="mineral-card-image"
+                />
                 {/* Botón QR sobre la imagen si se desea o en el contenido */}
                 {index % 2 !== 0 && (
                   <button
@@ -328,19 +357,61 @@ export const SalaMinerologiaMineria = () => {
                 <h4 className="mineral-card-name">{mineral.nombre}</h4>
                 <p className="mineral-card-description-main">{mineral.desc}</p>
 
-                {(mineral.clase || mineral.sistemaCristalografico || mineral.etimologia || mineral.propiedadDiagnostica || mineral.importanciaEconomica || mineral.genesis || mineral.yacimientosPuna || mineral.otros) && (
-                    <div className="mineral-card-extra-details">
-                        {mineral.clase && <p className="mineral-detail-item"><strong>Clase:</strong> {mineral.clase}</p>}
-                        {mineral.sistemaCristalografico && <p className="mineral-detail-item"><strong>Sistema Cristal.:</strong> {mineral.sistemaCristalografico}</p>}
-                        {mineral.etimologia && <p className="mineral-detail-item"><strong>Etimología:</strong> {mineral.etimologia}</p>}
-                        {mineral.propiedadDiagnostica && <p className="mineral-detail-item"><strong>Prop. Diagnóstica:</strong> {mineral.propiedadDiagnostica}</p>}
-                        {mineral.importanciaEconomica && <p className="mineral-detail-item"><strong>Importancia Econ.:</strong> {mineral.importanciaEconomica}</p>}
-                        {mineral.genesis && <p className="mineral-detail-item"><strong>Génesis:</strong> {mineral.genesis}</p>}
-                        {mineral.yacimientosPuna && mineral.yacimientosPuna.length > 0 && (
-                            <p className="mineral-detail-item"><strong>Yacimientos (Puna):</strong> {mineral.yacimientosPuna.join(', ')}</p>
-                        )}
-                        {mineral.otros && <p className="mineral-detail-item"><strong>Otros:</strong> {mineral.otros}</p>}
-                    </div>
+                {(mineral.clase ||
+                  mineral.sistemaCristalografico ||
+                  mineral.etimologia ||
+                  mineral.propiedadDiagnostica ||
+                  mineral.importanciaEconomica ||
+                  mineral.genesis ||
+                  mineral.yacimientosPuna ||
+                  mineral.otros) && (
+                  <div className="mineral-card-extra-details">
+                    {mineral.clase && (
+                      <p className="mineral-detail-item">
+                        <strong>Clase:</strong> {mineral.clase}
+                      </p>
+                    )}
+                    {mineral.sistemaCristalografico && (
+                      <p className="mineral-detail-item">
+                        <strong>Sistema Cristal.:</strong>{" "}
+                        {mineral.sistemaCristalografico}
+                      </p>
+                    )}
+                    {mineral.etimologia && (
+                      <p className="mineral-detail-item">
+                        <strong>Etimología:</strong> {mineral.etimologia}
+                      </p>
+                    )}
+                    {mineral.propiedadDiagnostica && (
+                      <p className="mineral-detail-item">
+                        <strong>Prop. Diagnóstica:</strong>{" "}
+                        {mineral.propiedadDiagnostica}
+                      </p>
+                    )}
+                    {mineral.importanciaEconomica && (
+                      <p className="mineral-detail-item">
+                        <strong>Importancia Econ.:</strong>{" "}
+                        {mineral.importanciaEconomica}
+                      </p>
+                    )}
+                    {mineral.genesis && (
+                      <p className="mineral-detail-item">
+                        <strong>Génesis:</strong> {mineral.genesis}
+                      </p>
+                    )}
+                    {mineral.yacimientosPuna &&
+                      mineral.yacimientosPuna.length > 0 && (
+                        <p className="mineral-detail-item">
+                          <strong>Yacimientos (Puna):</strong>{" "}
+                          {mineral.yacimientosPuna.join(", ")}
+                        </p>
+                      )}
+                    {mineral.otros && (
+                      <p className="mineral-detail-item">
+                        <strong>Otros:</strong> {mineral.otros}
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
             </article>
@@ -358,21 +429,27 @@ export const SalaMinerologiaMineria = () => {
           Dependemos en buena parte de la Puna para sostener nuestra
           cotidianeidad.
         </p>
-        <img
+        {/* <img
           src={`${import.meta.env.BASE_URL}/salar.jfif`}
           alt="Paisaje de Salar en la Puna"
           className="salar-imagen-destacada"
-        />
+        /> */}
         <div className="minerales-grid">
           {mineralesPuna.map((mineral, index) => (
             // *** INICIO: REEMPLAZAR SalaContenidoItem CON NUEVA ESTRUCTURA ***
             <article
               key={mineral.id}
-              className={`mineral-card-modern ${mineral.reverse ? "item-reverse-visual-effect" : ""}`} // Aplicar nueva clase base
-                                                                                                     // 'item-reverse-visual-effect' es opcional si quieres diferenciar visualmente
+              className={`mineral-card-modern ${
+                mineral.reverse ? "item-reverse-visual-effect" : ""
+              }`} // Aplicar nueva clase base
+              // 'item-reverse-visual-effect' es opcional si quieres diferenciar visualmente
             >
               <div className="mineral-card-image-wrapper">
-                <img src={`${import.meta.env.BASE_URL}${mineral.img}`} alt={mineral.nombre} className="mineral-card-image" />
+                <img
+                  src={`${import.meta.env.BASE_URL}${mineral.img}`}
+                  alt={mineral.nombre}
+                  className="mineral-card-image"
+                />
                 {/* Botón QR (misma lógica de posicionamiento o ajuste) */}
                 {index % 2 !== 0 && (
                   <button
@@ -404,12 +481,11 @@ export const SalaMinerologiaMineria = () => {
       {/* ============================================ */}
       {/* =      NUEVA SECCIÓN: PROCESO DEL LITIO    = */}
       {/* ============================================ */}
-      <section className="seccion-proceso-litio">
+      {/* <section className="seccion-proceso-litio">
         <h2 className="litio-titulo">
           ¿Cómo se obtiene y procesa el Litio de un Salar?
         </h2>
-        {/* Opcional: Un ícono representativo */}
-        {/* <div className="litio-icon">⚛️</div> */}
+        
         <div className="litio-contenido">
           <p className="litio-text">
             Debajo de la costra de sal, el salar es como una esponja de sales
@@ -425,7 +501,6 @@ export const SalaMinerologiaMineria = () => {
             si le sirve a la industria. La cantidad total de sales en la
             salmuera a la temperatura ambiente (15 a 20°C) es 7 a 10 veces mayor
             que la del agua de mar.{" "}
-            {/* Corregido 'salmera' a 'sales en la salmuera' */}
           </p>
           <p className="litio-text">
             Para extraer la salmuera se hace perforaciones en el salar,
@@ -448,7 +523,6 @@ export const SalaMinerologiaMineria = () => {
             Como en el ciclo natural del agua que ocurrió durante miles de años
             en los salares, el agua se evapora, se condensa en las nubes,
             precipita, se infiltra o escurre, a veces llega al mar.{" "}
-            {/* Corregido 'l agua' a 'el agua' */}
           </p>
           <p className="litio-text">
             Las únicas sustancias que se agregan a la salmuera en un proceso
@@ -460,7 +534,7 @@ export const SalaMinerologiaMineria = () => {
             adaptarse a las características de cada salmuera extraída.
           </p>
         </div>
-      </section>
+      </section> */}
       {/* ============================================ */}
       {/* =       FIN NUEVA SECCIÓN LITIO            = */}
       {/* ============================================ */}

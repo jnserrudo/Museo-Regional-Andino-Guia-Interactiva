@@ -21,12 +21,14 @@ import { AccessibilityWidget } from "./Components/AccessibilityWidget";
 import 'leaflet/dist/leaflet.css';
 
 const { Content } = Layout;
+import { ScrollToTop } from "./Components/ScrollToTop";
 
 const App = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
       <SpeechProvider>
         <FontProvider>
           <Layout style={{ minHeight: "100vh" }}>

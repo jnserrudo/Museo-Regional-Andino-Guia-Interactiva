@@ -63,13 +63,13 @@ export const Footer = () => {
                   </Link>
                 </Tooltip>
               </li>
-              <li>
+              {/* <li>
                 <Tooltip title="Eventos (Próximamente)">
                   <Link to="/eventos" className="theart-footer-action-link">
                     <Button type="text" icon={<CalendarOutlined style={{ color: 'white' }} />} disabled className="footer-btn-theart-style" /> Eventos
                   </Link>
                 </Tooltip>
-              </li>
+              </li> */}
               <li>
                 <Tooltip title="Rompecabezas">
                   <Link to="/puzzle" className="theart-footer-action-link">

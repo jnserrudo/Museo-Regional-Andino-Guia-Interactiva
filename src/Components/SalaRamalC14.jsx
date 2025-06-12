@@ -5,10 +5,20 @@ import { LineaTiempo } from "./LineaTiempo";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import '../SalaRamalC14.css'; // <<<--- Importa el CSS principal de la sala
 
+
+
+import "./SalaRamalGaleria.css"; // <<<--- NUEVO CSS para la galería específica
+
+
+
+
 export const SalaRamalC14 = () => {
   const [view, setView] = useState('initial');
 
   const handleGoBack = () => { setView('initial'); };
+
+
+
 
   const renderContent = () => {
     switch (view) {
@@ -120,6 +130,9 @@ export const SalaRamalC14 = () => {
                 Hitos del Ramal C-14
              </h3>
             <LineaTiempo /> {/* Asume que LineaTiempo tiene sus propios estilos */}
+
+
+
           </div>
         );
       case 'initial':

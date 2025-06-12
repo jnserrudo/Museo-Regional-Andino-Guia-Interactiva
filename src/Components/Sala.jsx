@@ -69,7 +69,7 @@ const salasData = {
     title: "MINEROLOGÍA Y MINERÍA",
     image: "imagen_to_salas.webp",
     description: `
-    Bienvenidos a la Sala de Mineralogía y Minería. En esta sala vas a descubrir el asombroso mundo de los minerales: cómo se forman, qué formas y colores tienen, y por qué son tan importantes para la vida cotidiana. La Puna salteña es una de las regiones más ricas en minerales de toda la Argentina. Desde tiempos antiguos, sus recursos fueron aprovechados por los pueblos originarios, y más tarde, por la minería moderna. Oro, plata, cobre, hierro, litio y muchos otros elementos forman parte del suelo de San Antonio de los Cobres y sus alrededores. Durante tu visita vas a poder:
+    Bienvenidos a la Sala de Mineralogía y Minería. En esta sala vas a descubrir el asombroso mundo de los minerales: cómo se forman, qué formas y colores tienen, y por qué son tan importantes para la vida cotidiana. La Puna salteña es una de las regiones más ricas en minerales de toda la Argentina. Desde tiempos antiguos, sus recursos fueron aprovechados por los pueblos originarios, y más tarde, por la minería moderna. Oro, plata, cobre, hierro, litio y muchos otros elementos forman parte del suelo de San Antonio de los Cobres y sus alrededores.
 
 * Observar una colección de minerales de la región andina.
 
@@ -82,7 +82,7 @@ const salasData = {
   biodiversidad: {
     title: "BIODIVERSIDAD",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Biodiversidad. En esta sala vas a conocer las formas de vida que habitan uno de los ambientes más extremos del planeta: la Puna andina. A más de 3.500 metros de altura, con frío intenso, poca lluvia y mucho viento, la naturaleza se adapta de manera sorprendente. Animales, plantas y microorganismos desarrollaron estrategias únicas para sobrevivir y convivir con el paisaje. Durante tu visita vas a poder:
+    description: `Bienvenidos a la Sala de Biodiversidad. En esta sala vas a conocer las formas de vida que habitan uno de los ambientes más extremos del planeta: la Puna andina. A más de 3.500 metros de altura, con frío intenso, poca lluvia y mucho viento, la naturaleza se adapta de manera sorprendente. Animales, plantas y microorganismos desarrollaron estrategias únicas para sobrevivir y convivir con el paisaje.
 
 * Descubrir especies emblemáticas como la vicuña, el suri o el cardón.
 
