@@ -369,3 +369,76 @@ background-clip: padding-box;
    /* Quizás ocultar parte de la metadata en pantallas muy pequeñas si se superpone */
    /* .overlay-metadata p:nth-child(3) { display: none; } */
 }
+
+
+
+/* --------- */
+
+
+/* Estilo para la tabla */
+.volcanes-table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.volcanes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.volcanes-table th, .volcanes-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.volcanes-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.volcanes-table img {
+  width: 100px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+/* Estilo para las tarjetas (opción 2) */
+.volcanes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.volcan-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.volcan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.volcan-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.volcan-card h4 {
+  margin: 10px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.volcan-card p {
+  margin: 0 10px 10px;
+  color: #666;
+  font-size: 0.9rem;
+}

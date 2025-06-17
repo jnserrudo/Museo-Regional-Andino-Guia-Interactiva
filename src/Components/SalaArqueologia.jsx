@@ -29,6 +29,34 @@ export const SalaArqueologia = () => {
       <h1 className="arqueologia-main-title">ARQUEOLOGÍA</h1> {/* O usa un título local */}
 
 
+
+      {/* ====================================================== */}
+      {/* ================ NUEVO BLOQUE DE VIDEO ================ */}
+      {/* ====================================================== */}
+      <section className="arqueologia-content-block video-section">
+        <div className="video-player-container">
+          <video
+            className="arqueologia-video"
+            controls
+            preload="metadata" // Carga solo la info básica, no el video completo
+            // Importante: Un poster evita un recuadro negro feo antes de dar play.
+            poster={`${import.meta.env.BASE_URL}arqueologia.jfif`} // <-- REEMPLAZA LA IMAGEN
+            src={`${import.meta.env.BASE_URL}Arqueologia_video.mp4`} // <-- REEMPLAZA EL VIDEO
+          >
+            Tu navegador no soporta la etiqueta de video.
+          </video>
+        </div>
+        <div className="arqueologia-text-container video-text-container">
+          <h3 className="video-title">La Voz de la Experiencia</h3>
+          <p className="arqueologia-text">
+            El Dr. Federico Restifo, Arqueólogo-Investigador CONICET.
+          </p>
+        </div>
+      </section>
+      {/* ====================================================== */}
+      {/* ================ FIN BLOQUE DE VIDEO ================= */}
+      {/* ====================================================== */}
+
       {arqueologiaData.map((item, index) => (
         <section
           key={index}

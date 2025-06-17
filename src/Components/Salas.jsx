@@ -14,7 +14,7 @@ const data = [
   { title: "GEOLOGÍA", image: "geologia.jpg", path: "geologia", icon: "🪨" },
   {
     title: "MINEROLOGÍA Y MINERÍA",
-    image: "minerologia.jpg",
+    image: "minerologia_y_mineria.jpg",
     path: "minerologia_y_mineria",
     icon: "⛏️",
   },
@@ -26,11 +26,11 @@ const data = [
   },
   {
     title: "ARQUEOLOGÍA",
-    image: "arqueologia.jpg",
+    image: "arqueologia.jfif",
     path: "arqueologia",
     icon: "🏺",
   },
-  { title: "RAMAL C14", image: "ramalC14.jpg", path: "ramal_c14", icon: "🚆" },
+  { title: "RAMAL C14", image: "ramalc14_tarjeta.jpg", path: "ramal_c14", icon: "🚆" },
   {
     title: "SAN ANTONIO HOY",
     image: "san_antonio_cobres.jfif",
@@ -76,7 +76,7 @@ export const Salas = () => {
             {/* --- INICIO: NUEVA ESTRUCTURA DE TARJETA INMERSIVA --- */}
             <Link
               to={`/salas/${item.path}`}
-              className="sala-card-immersive-link" // Nueva clase para el Link
+              className={`sala-card-immersive-link ${item.path === "historia" ? "sala-historia-link" : ""}`}
               style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${item.image})` }}
               aria-label={`Explorar sala ${item.title}`}
             >

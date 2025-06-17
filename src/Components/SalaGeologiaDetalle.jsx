@@ -67,6 +67,76 @@ Al llegar a la superficie, se derrama como coladas de lava y mantos de escoria y
 De esta manera se va construyendo gradualmente el edificio del volcán cuya forma depende de la composición de la lava.
 `,
       },
+
+      {
+        subtitle: "El planeta Tierra y su estructura interna",
+        text: "La Tierra tiene un radio de aproximadamente 6,400 km y se divide en capas según su composición química o comportamiento físico. El modelo estático divide al planeta en corteza, manto superior e inferior y núcleo interno y externo. El modelo dinámico lo divide en corteza, litósfera, astenosfera, mesosfera y endosfera externa e interna.",
+        image: "estructura_tierra.png", // Necesitarás esta imagen
+      },
+      {
+        subtitle: "Magma y Lava",
+        text: "El magma es una mezcla de roca fundida (líquido), cristales (sólido) y volátiles (gaseoso) que se forma en el interior de la Tierra. Según su contenido de sílice, los magmas pueden ser: básicos (<50% SiO2), intermedios (50-60% SiO2) o ácidos (>60% SiO2). La lava es magma que ha llegado a la superficie.",
+        image: "magma_y_lava.png", // Necesitarás esta imagen
+      },
+      {
+        subtitle: "Estructura de un volcán",
+        text: "Un volcán es una estructura geológica formada por la acumulación de materiales expulsados del interior de la Tierra. Está constituido por: una cámara magmática (donde se almacena el magma), una chimenea (conducto por donde asciende el magma), un cráter (abertura superior) y un cono volcánico (relieve formado por los materiales acumulados).",
+        image: "magma_lava.png", // Necesitarás esta imagen
+      },
+      {
+        subtitle: "Tipos de volcanismo",
+        text: "Existen dos tipos principales: 1) Erupciones efusivas: no violentas, con magma básico, alta temperatura y poca viscosidad. Forman coladas de lava fluidas. 2) Erupciones explosivas: violentas, con magma ácido, menor temperatura, alta viscosidad y gran contenido de gases. Producen columnas piroclásticas que pueden superar los 20 km de altura.",
+        image: "tipos_erupciones.png", // Necesitarás esta imagen
+      },
+      {
+        subtitle: "Índice de Explosividad Volcánica (IEV)",
+        text: "El IEV (VEI en inglés) mide la intensidad de una erupción basándose en el volumen de material expulsado, duración y altura de la columna de cenizas. Es una escala de 0 a 8 que indica el potencial destructivo de una erupción.",
+      },
+      {
+        subtitle: "Tipos de estructuras volcánicas",
+        text: "Los principales tipos son: 1) Estratovolcanes: forma cónica, empinada, con capas alternas de lava y ceniza. 2) Volcanes en escudo: perfil bajo y amplio, formados por lava basáltica fluida. 3) Conos de ceniza: estructuras pequeñas y empinadas formadas por piroclastos. 4) Calderas volcánicas: grandes depresiones formadas por colapso de la cámara magmática.",
+        image: "estructura_volcan.png", // Necesitarás esta imagen
+      },
+      {
+        subtitle: "Rocas volcánicas",
+        text: "Según la composición del magma, se forman diferentes rocas: basaltos (oscuros, con olivinos y piroxenos), andesitas (con mafitos), dacitas (con biotita) y riolitas (claras, con cuarzo y feldespatos). También existen rocas piroclásticas formadas por fragmentos de erupciones explosivas, clasificadas por tamaño en cenizas, lapilli y bombas.",
+        image: "rocas_volcanicas.png", // Necesitarás esta imagen
+      },
+      {
+        subtitle: "Volcanes activos en Salta",
+        text: "Nuestra región alberga algunos de los volcanes más impresionantes de los Andes:",
+        content: `
+          <div class="volcanes-grid">
+            <div class="volcan-card">
+              <img src="${import.meta.env.BASE_URL}volcan_aracar.png" alt="Volcán Aracar" loading="lazy">
+              <h4>Volcán Aracar</h4>
+              <p>5,940 m.s.n.m</p>
+            </div>
+            <div class="volcan-card">
+              <img src="${import.meta.env.BASE_URL}volcan_llullaillaco.png" alt="Volcán Llullaillaco" loading="lazy">
+              <h4>Volcán Llullaillaco</h4>
+              <p>6,739 m.s.n.m</p>
+            </div>
+            <div class="volcan-card">
+              <img src="${import.meta.env.BASE_URL}cerro_escorial.png" alt="Cerro Escorial" loading="lazy">
+              <h4>Cerro Escorial</h4>
+              <p>5,451 m.s.n.m</p>
+            </div>
+            <div class="volcan-card">
+              <img src="${import.meta.env.BASE_URL}volcan_socompa.png" alt="Volcán Socompa" loading="lazy">
+              <h4>Volcán Socompa</h4>
+              <p>6,049 m.s.n.m</p>
+            </div>
+            <div class="volcan-card">
+              <img src="${import.meta.env.BASE_URL}volcan_azufre_lastarria.png" alt="Volcán Lastarria" loading="lazy">
+              <h4>Volcán Azufre o Lastarria</h4>
+              <p>5,706 m.s.n.m</p>
+            </div>
+          </div>
+        `,
+        isHTML: true,
+      },
+
       /*  {
         subtitle: "Tipos de Volcanes",
         text: "Existen diversos tipos de volcanes, clasificados según su forma, tipo de erupción y composición del magma. Los principales son los volcanes en escudo (amplios, pendientes suaves, lavas fluidas), estratovolcanes o compuestos (cónicos, pendientes pronunciadas, alternancia de lava y piroclastos) y calderas volcánicas (grandes depresiones formadas por colapso tras erupciones masivas).",
@@ -376,6 +446,12 @@ export const SalaGeologiaDetalle = () => {
               )}
               {/* Renderizamos el texto */}
               <p className="sala-detalle-parrafo">{section.text}</p>
+              {section.isHTML && (
+                <div
+                  className="section-html-content"
+                  dangerouslySetInnerHTML={{ __html: section.content }}
+                />
+              )}
             </div>
             {section.image && (
               <figure
@@ -456,29 +532,40 @@ export const SalaGeologiaDetalle = () => {
         </aside>
       )}
 
-
-
       {/* --- Renderizado del Modal con Portal --- */}
-      {selectedImage && ReactDOM.createPortal(
-        <div className="ramalc14-modal-overlay" onClick={closeModal}>
-            <div className="ramalc14-modal-content" onClick={(e) => e.stopPropagation()}>
-                <button className="ramalc14-modal-close" onClick={closeModal} aria-label="Cerrar imagen">×</button>
-                <figure className="ramalc14-modal-figure">
-                    <img
-                        src={`${import.meta.env.BASE_URL}${selectedImage.nombreArchivo.startsWith('/') ? selectedImage.nombreArchivo.substring(1) : selectedImage.nombreArchivo}`}
-                        alt={selectedImage.nombre}
-                        className="ramalc14-modal-image"
-                    />
-                    <figcaption className="ramalc14-modal-caption">
-                        {selectedImage.nombre.replace(/_/g, ' ').replace(/-+/g, ' ')}
-                    </figcaption>
-                </figure>
+      {selectedImage &&
+        ReactDOM.createPortal(
+          <div className="ramalc14-modal-overlay" onClick={closeModal}>
+            <div
+              className="ramalc14-modal-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="ramalc14-modal-close"
+                onClick={closeModal}
+                aria-label="Cerrar imagen"
+              >
+                ×
+              </button>
+              <figure className="ramalc14-modal-figure">
+                <img
+                  src={`${import.meta.env.BASE_URL}${
+                    selectedImage.nombreArchivo.startsWith("/")
+                      ? selectedImage.nombreArchivo.substring(1)
+                      : selectedImage.nombreArchivo
+                  }`}
+                  alt={selectedImage.nombre}
+                  className="ramalc14-modal-image"
+                />
+                <figcaption className="ramalc14-modal-caption">
+                  {selectedImage.nombre.replace(/_/g, " ").replace(/-+/g, " ")}
+                </figcaption>
+              </figure>
             </div>
-        </div>,
-        document.body
-      )}
+          </div>,
+          document.body
+        )}
       {/* --- Fin del Modal --- */}
-
     </article>
   );
 };

@@ -372,11 +372,16 @@
   overflow: hidden;
   background-size: 115%; /* <--- ¡ESTA ES LA LÍNEA CLAVE! */
   background-position: center center;
+  background-size: cover;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
               box-shadow 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
   text-decoration: none; /* Quitar subrayado del link */
   color: var(--color-text-light-salas); /* Texto claro por defecto */
+}
+
+.sala-historia-link{
+  background-size: 115%;
 }
 
 .sala-card-immersive-link:hover,
