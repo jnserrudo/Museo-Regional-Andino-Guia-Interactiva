@@ -61,10 +61,15 @@ const detallesGeologia = {
     sections: [
       {
         text: `
-Cuando en las profundidades de la corteza terrestres disminuye la presión de forma abrupta. La temperatura sube a tal punto que se funden las rocas generando una sustancia llamada magma.
-El magma sube a la superficie y e su camino se carga de minerales que se encuentran en las rocas entre las que asciende.
-Al llegar a la superficie, se derrama como coladas de lava y mantos de escoria y cenizas.
-De esta manera se va construyendo gradualmente el edificio del volcán cuya forma depende de la composición de la lava.
+La historia de un volcán empieza en las profundidades de la corteza terrestre . Piensen en la Tierra como si tuviera diferentes capas en su interior, algunas muy, muy calientes
+El primer paso para que nazca un volcán es la creación del magma. Esto ocurre cuando, en lo profundo, disminuye la presión de forma abrupta y la temperatura sube muchísimo . ¡Tanto, que las rocas se funden! .
+El magma no es solo roca derretida; es una mezcla súper caliente de roca líquida, trocitos de cristales sólidos, y gases atrapados. Se forma en el interior de la Tierra a altísimas presiones y temperaturas.
+Una vez que el magma se forma, busca una salida. El magma sube a la superficie . Imaginen que viaja por un conducto o una especie de "chimenea" desde las profundidades. En su camino, puede recoger minerales de las rocas por donde pasa.
+Aquí viene una distinción importante: mientras está dentro de la Tierra, se llama magma. Pero, al llegar a la superficie, cuando sale por una abertura, ¡cambia de nombre! Ahora es lava.
+Cuando esta lava y otros materiales salen de la Tierra, se derraman como coladas de lava (como ríos lentos de roca derretida) y también caen mantos de escoria y cenizas. La escoria son pedazos de roca volcánica porosa, y las cenizas son fragmentos muy finos.
+Todos estos materiales que son expulsados la lava, la escoria, las cenizas se van acumulando alrededor de la abertura por donde salieron.
+De esta manera, se va construyendo gradualmente el edificio del volcán . Esta acumulación de materiales es lo que le da forma a la montaña que vemos.
+Y un dato interesante es que la forma final de este edificio del volcán depende de la composición de la lava , es decir, del tipo de magma original. Por eso, no todos los volcanes tienen la misma forma. Algunos son altos y empinados, otros son más planos y extendidos, ¡depende de cómo se construyeron con la lava y los materiales que salieron!.
 `,
       },
 
