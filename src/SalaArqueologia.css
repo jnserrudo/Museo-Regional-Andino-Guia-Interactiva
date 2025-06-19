@@ -1,165 +1,174 @@
-/* SalaArqueologia.css (v2 - Estilo Mejorado tipo Biodiversidad v1) */
+/* SalaArqueologia.css (v4 - Rediseño total enfocado en elegancia y narrativa) */
 
-/* Hereda variables CSS globales (:root) y fuente MuseoSans */
+/* Hereda variables globales, pero podemos definir algunas locales si es necesario */
+:root {
+  --arqueo-bg-color: #fdfcfb;
+  --arqueo-text-color: #3d3d3d;
+  --arqueo-primary-color: #8b4513; /* Marrón silla de montar */
+  --arqueo-accent-color: #c5a787; /* Un beige más suave */
+  --arqueo-border-color: #e5e0da;
+}
 
-/* --- Contenedor Principal --- */
-.sala-arqueologia-container-v2 {
-    padding: 2rem clamp(1rem, 5vw, 3rem); /* Padding adaptable */
-    max-width: 1100px; /* Ancho máximo */
-    margin: 0 auto; /* Centrado */
-    background-color: var(--bg-light, #ffffff);
+.sala-arqueologia-container {
+  background-color: var(--arqueo-bg-color);
+  padding: 3rem clamp(1rem, 5vw, 3rem);
+  font-family: var(--font-museo-sans); /* Aseguramos la fuente */
+}
+
+/* --- Encabezado de la Sala --- */
+.sala-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sala-main-title {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  color: var(--arqueo-primary-color);
+  margin: 0;
+}
+
+.sala-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: #6c757d;
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+/* ================================================== */
+/*          SECCIÓN HERO DEL VIDEO (LA ESTRELLA)      */
+/* ================================================== */
+.video-hero-section {
+  max-width: 900px;
+  margin: 0 auto 5rem auto; /* Centrado y con buen espacio inferior */
+}
+
+.video-wrapper {
+  position: relative; /* Clave para la capa del botón de play */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+  transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.arqueologia-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: inherit;
+}
+
+/* La magia para que se vea como un video profesional */
+.play-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  /* pointer-events: none; <-- QUITAMOS ESTA LÍNEA */
+  cursor: pointer; /* <-- AÑADIMOS ESTA LÍNEA */
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Ocultar el ícono de play cuando el wrapper tiene la clase 'is-playing' (manejado por JS) */
+.video-wrapper.is-playing .play-button-overlay {
+  opacity: 0;
+}
+
+.play-icon-container {
+  width: clamp(60px, 12vw, 90px);
+  height: clamp(60px, 12vw, 90px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: clamp(30px, 6vw, 45px); /* Tamaño del SVG */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Leyenda del Video --- */
+.video-caption {
+  text-align: center;
+  padding: 1.5rem 1rem 0 1rem;
+}
+.video-title {
+  font-size: 1.25rem; /* No se toca tamaño, sino peso y color */
+  font-weight: 700;
+  color: var(--arqueo-primary-color);
+  margin: 0 0 0.25rem 0;
+}
+.video-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ================================================== */
+/*          SECCIÓN NARRATIVA (TEXTO ELEGANTE)        */
+/* ================================================== */
+.arqueologia-narrative {
+  max-width: 750px; /* Ancho de columna ideal para leer */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Espacio entre bloques de texto */
+}
+
+.narrative-block {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--arqueo-border-color);
+}
+
+.narrative-block:last-child {
+  border-bottom: none; /* El último no necesita línea */
+  padding-bottom: 0;
+}
+
+.narrative-title {
+  font-size: 1.5rem; /* NO TOCADO, solo peso y color */
+  font-weight: 700;
+  color: var(--arqueo-primary-color);
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.narrative-text {
+  /* ¡NO SE TOCA font-size, solo espaciado y color! */
+  font-size: 1rem;
+  color: var(--arqueo-text-color);
+  line-height: 1.8; /* Más espaciado para mejor lectura */
+  text-align: justify; /* Justificado para un look de libro/artículo */
+}
+
+/* Ajustes finos para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .sala-arqueologia-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
-  
-  /* --- Título Principal --- */
-  .arqueologia-main-title {
-    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Tamaño REM adaptable */
-    font-weight: 700;
-    color: var(--primary-color, #8B4513);
-    text-align: center;
+  .sala-header {
     margin-bottom: 3rem;
-    padding-bottom: 0.75rem; /* Más espacio para la línea */
-    position: relative;
-    display: inline-block; /* Para centrar con transform */
-    left: 50%;
-    transform: translateX(-50%);
   }
-  /* Línea decorativa bajo el título */
-  .arqueologia-main-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px; /* Ancho de la línea */
-      height: 3px;
-      background-color: var(--accent-color, #D2B48C);
-      border-radius: 2px;
+  .video-hero-section {
+    margin-bottom: 4rem;
   }
-  
-  
-  /* --- Bloque de Contenido (Imagen + Texto) --- */
-  .arqueologia-content-block {
-    display: flex;
-    flex-direction: column; /* Apilado en móvil */
-    align-items: center; /* Centrar imagen en móvil */
-    margin-bottom: 3.5rem;
-    gap: 1.5rem;
-    background-color: var(--bg-medium, #f8f9fa); /* Fondo suave para el bloque */
-    padding: 1.5rem; /* Padding interno */
-    border-radius: var(--border-radius-lg, 12px);
-    box-shadow: var(--shadow-low, 0 2px 5px rgba(0, 0, 0, 0.08));
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  .narrative-text {
+    text-align: left; /* El justificado puede verse mal en pantallas angostas */
   }
-  
-  .arqueologia-content-block:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-medium, 0 5px 15px rgba(0, 0, 0, 0.1));
-  }
-  
-  /* --- Contenedor de Imagen --- */
-  .arqueologia-image-container {
-    margin: 0;
-    width: 100%;
-    max-width: 500px; /* Limitar en móvil */
-    flex-shrink: 0;
-    line-height: 0;
-    border-radius: var(--border-radius-md, 8px); /* Redondeo más pequeño que el bloque */
-    overflow: hidden; /* Importante */
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1); /* Sombra sutil a la imagen misma */
-  }
-  
-  /* --- Imagen --- */
-  .arqueologia-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 10; /* Proporción visual */
-    object-fit: cover;
-    border-radius: inherit; /* Heredar redondeo */
-    transition: transform 0.4s var(--transition-ease, ease);
-  }
-  
-  .arqueologia-content-block:hover .arqueologia-image {
-      transform: scale(1.04); /* Zoom sutil al pasar sobre el bloque */
-  }
-  
-  /* --- Contenedor de Texto --- */
-  .arqueologia-text-container {
-    width: 100%;
-  }
-  
-  /* --- Párrafo de Texto --- */
-  .arqueologia-text {
-    font-size: 1rem; /* Tamaño REM base, escalará globalmente */
-    color: var(--text-dark-secondary, #495057);
-    line-height: 1.7;
-    text-align: left; /* IZQUIERDA es mejor para lectura */
-    margin: 0;
-  }
-  
-  /* Opcional: Estilo para la primera letra si quieres */
-  /* .arqueologia-text::first-letter {
-    font-size: 1.5em;
-    float: left;
-    margin-right: 0.1em;
-    line-height: 1;
-    color: var(--primary-color);
-  } */
-  
-  
-  /* ======================================================================== */
-  /*          ESTILOS RESPONSIVOS (Escritorio) - Layout Flexbox             */
-  /* ======================================================================== */
-  
-  @media (min-width: 768px) {
-    .arqueologia-content-block {
-      flex-direction: row;
-      align-items: center;
-      gap: 2.5rem; /* Más espacio en escritorio */
-      margin-bottom: 4rem;
-      padding: 2rem; /* Más padding */
-    }
-  
-    .arqueologia-content-block.reverse {
-      flex-direction: row-reverse;
-    }
-  
-    .arqueologia-image-container {
-      flex-basis: 48%; /* Casi 50% */
-      max-width: none;
-    }
-  
-    .arqueologia-text-container {
-      flex-basis: 52%; /* Un poco más para el texto */
-    }
-  
-    /* Permitimos que la altura de la imagen sea automática basada en aspect-ratio */
-    /* Si quieres altura fija, descomenta: */
-    /* .arqueologia-image-container { height: 380px; } */
-    /* .arqueologia-image { height: 100%; aspect-ratio: unset; } */
-  
-  }
-  
-  /* --- Ajustes Finos (Opcional) --- */
-  @media (min-width: 1200px) {
-    .arqueologia-content-block {
-      gap: 3.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-     .sala-arqueologia-container-v2 {
-         padding: 1.5rem 1rem;
-     }
-     .arqueologia-content-block {
-        margin-bottom: 3rem;
-        gap: 1rem;
-        padding: 1rem;
-     }
-     .arqueologia-text {
-         font-size: 0.95rem; /* Ligeramente más pequeño en móvil */
-     }
-     .arqueologia-main-title {
-         font-size: clamp(1.6rem, 5vw, 2.2rem);
-     }
-  }
+}

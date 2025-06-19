@@ -11,53 +11,30 @@ const mineralesCorteza = [
     id: "calcita",
     img: "/calcita.png",
     nombre: "Calcita",
-    desc: `Clase: Carbonatos. 
-Composición: Principalmente carbonato de calcio (CaCO3). 
-Sistema cristalográfico: Trigonal. 
-Etimología: Del latín "calx", que significa cal viva. 
-Propiedad diagnóstica: Efervescencia ante el ácido clorhídrico (HCl). 
-Importancia económica y usos:
-Construcción: Principal componente del cemento y la cal. 
-Industria papelera: Material de relleno y recubrimiento. 
-Industria de plásticos: Aditivo y material de relleno. 
-Industria del vidrio: Reduce la temperatura de fusión y mejora propiedades ópticas. 
-Tratamiento de agua: Reduce sólidos y mejora la calidad. 
-Fertilizantes, metales, caucho, pinturas. 
-Génesis:
-Sedimentaria: Formación por precipitación en soluciones acuosas. 
-Biológica: Componente de conchas y eskeletos de organismos. 
-Metamórfica: En mármoles. 
-Ejemplos de yacimientos en la Puna:
-Yacimientos sedimentarios en rocas calcáreas y dolomías. 
-Yacimientos metamórficos en mármoles. 
-Otros datos de interés:
-Puede encontrarse en diferentes colores (incolora, blanca, gris, etc.). 
-Su dureza en la escala de Mohs es de 3. 
-Puede presentar birrefringencia (doble imagen). 
-En la Puna, puede ser conocida localmente como "cal viva" o "piedra de cal". `,
+    desc: "Mineral fundamental, componente principal del cemento y la cal, con efervescencia característica ante el ácido clorhídrico.",
+    clase: "Carbonatos",
+    composicion: "Principalmente carbonato de calcio (CaCO3)",
+    sistemaCristalografico: "Trigonal",
+    etimologia: 'Del latín "calx", que significa cal viva.',
+    propiedadDiagnostica: "Efervescencia con HCl, dureza 3 en escala Mohs, birrefringencia.",
+    importanciaEconomica: "Construcción (cemento, cal), Industria papelera (relleno), plásticos, vidrio, tratamiento de agua, fertilizantes.",
+    genesis: "Sedimentaria, Biológica (conchas, esqueletos), Metamórfica (mármoles).",
+    yacimientosPuna: ["Yacimientos sedimentarios y metamórficos en la región."],
+    otros: 'Conocida localmente como "cal viva" o "piedra de cal".'
   },
   {
     id: "fluorita",
     img: "/fluorita.png",
     nombre: "Fluorita",
-    desc: `La fluorita es un mineral de fórmula química CaF₂ (fluoruro de calcio), conocido por su amplia gama de colores y por ser una fuente importante de flúor. Se caracteriza por su dureza de 4 en la escala de Mohs, exfoliación perfecta en forma de octaedro y por su brillo vítreo. 
-Propiedades y Características:
-Sistema cristalino:
-Isométrico, formando cristales cúbicos o octaédricos. 
-Colores:
-Puede ser incolora, pero también presenta una variedad de colores como violeta, verde, amarillo, azul, rosa, debido a impurezas o trazas de otros minerales. 
-Fluorescencia:
-Brilla bajo luz ultravioleta, lo que le da su nombre (de "fluere", "fluir" en latín, por su facilidad para fundirse). 
-Usos industriales:
-Principalmente como fuente de flúor, en la producción de ácido fluorhídrico, como fundente en la producción de acero y vidrio, y en la fabricación de lentes ópticas. 
-Formación y Distribución:
-Se forma en rocas sedimentarias e ígneas, en filones hidrotermales, pegmatitas y grietas alpinas.
-Yacimientos importantes: Canadá, Estados Unidos, China, Sudáfrica, México, Perú, Tailandia, Polonia, República Checa, Hungría, Noruega, Inglaterra, España, Alemania. 
-Usos y Aplicaciones:
-Industria: Principalmente como fuente de flúor, para la producción de ácido fluorhídrico, como fundente en la producción de acero y vidrio, y en la fabricación de lentes ópticas. 
-Ornamental: Se utiliza en joyería y como pieza decorativa. 
-Cristaloterapia: Se cree que tiene propiedades calmantes y relajantes, y que puede ayudar a equilibrar las emociones. 
-En resumen, la fluorita es un mineral versátil con aplicaciones industriales, ornamentales y, en algunos casos, terapéuticas, reconocido por su color y capacidad para fluorescer. `,
+    desc: "Conocida por su amplia gama de colores y su fluorescencia bajo luz UV, es la principal fuente de flúor para la industria.",
+    clase: "Haluros",
+    composicion: "Fluoruro de calcio (CaF₂)",
+    sistemaCristalografico: "Isométrico (cúbico u octaédrico).",
+    propiedadDiagnostica: "Dureza 4, exfoliación octaédrica perfecta, brillo vítreo, fluorescencia.",
+    importanciaEconomica: "Fuente de flúor (ácido fluorhídrico), fundente en acero y vidrio, fabricación de lentes ópticas, joyería.",
+    genesis: "Rocas sedimentarias, ígneas, filones hidrotermales.",
+    yacimientosPuna: ["Presente en varios yacimientos de la región."],
+    otros: 'Su nombre viene del latín "fluere" (fluir) por su facilidad para fundirse.'
   },
   // Minerales del Word (actualizados y añadidos)
   {
@@ -253,148 +230,92 @@ En resumen, la fluorita es un mineral versátil con aplicaciones industriales, o
     otros: "Popular en coleccionismo.",
   },
   // Mineral original del array no presente en el Word
-  {
-    id: "ulexita",
-    img: "/ulexite.jfif",
-    nombre: "Ulexita",
-    desc: `Características generales:
-Composición:
-La ulexita es un borato de sodio y calcio hidratado, de fórmula Na₂B₅O₈(OH)₄·3H₂O. 
-Apariencia:
-Generalmente se presenta en forma granular, de color grisáceo, con un tamaño de partícula de 2-4 mm. 
-Propiedades:
-Es un producto inodoro, de bajo peso específico y una liberación lenta de boro. 
-Contenido de Boro:
-La ulexita natural suele tener un contenido de boro del 10-15%, pudiendo variar según la fuente y el proceso de granulación. 
-Usos principales:
-Fertilizante:
-Se utiliza como fuente de boro de liberación lenta en cultivos, especialmente en suelos arenosos. 
-Industria Cerámica:
-Se emplea como materia prima en la fabricación de esmaltes y frías cerámicas, aportando boro, sodio y calcio. 
-Aislamiento:
-Se utiliza en la producción de aislamientos térmicos y acústicos en la construcción y la industria automotriz. 
-Otras aplicaciones:
-En la industria de la refinería de oro, en la producción de ácido bórico y bórax, y como agente de liberación lenta en otros procesos. 
-Beneficios:
-Libreción lenta de boro: Su baja solubilidad la hace ideal para aplicaciones agrícolas, donde se necesita una liberación gradual de boro. 
-Mejora la estructura del suelo: Puede ayudar a retener agua y mejorar la aireación del suelo. 
-Ajusta el pH del suelo: Puede elevar el pH en suelos ácidos. 
-Aumenta la calidad de los cultivos: Garantiza un suministro adecuado de boro, un nutriente esencial para el desarrollo de los cultivos. 
-Consideraciones adicionales:
-La ulexita granular 2-4 mm es una opción popular para aplicaciones agrícolas debido a su fácil aplicación y distribución uniforme. 
-La liberación de boro de la ulexita puede variar según el tipo de suelo y las condiciones ambientales. 
-Existen diferentes marcas y presentaciones de ulexita, como la ulexita natural y la ulexita granular, con diferentes porcentajes de boro. `,
-  },
+  // REEMPLAZA EL OBJETO 'ulexita' ANTIGUO POR ESTE NUEVO
+
+{
+  id: "ulexita",
+  img: "/ulexite.jfif",
+  nombre: "Ulexita",
+  desc: "Conocida como la 'piedra televisión' por su capacidad de transmitir imágenes a través de sus fibras ópticas naturales. Es una fuente importante de boro para la agricultura y la industria.",
+  clase: "Boratos",
+  composicion: "Borato de sodio y calcio hidratado (NaCaB₅O₉·8H₂O).",
+  sistemaCristalografico: "Triclínico",
+  propiedadDiagnostica: "Hábito fibroso, efecto de fibra óptica ('televisión'), baja dureza, color blanco a grisáceo.",
+  importanciaEconomica: "Fuente de boro para fertilizantes de liberación lenta, industria cerámica (esmaltes), aislamientos térmicos y acústicos.",
+  genesis: "Evaporítico, formado en salares y playas de lagos boratados en climas áridos.",
+  otros: "Su estructura fibrosa es la que permite el curioso fenómeno óptico que le da su apodo."
+},
 ];
 
 const mineralesPuna = [
   {
     id: "sal",
     img: "/sal.jfif",
-    nombre: "Sal",
-    desc: `Aunque muchos no lo sepan, en casi todos los hogares de Argentina hay algo proveniente de la Puna. Literalmente nos comemos un pedacito de Puna todos los días cuando ingerimos la sal común.
-           La sal es un mineral común, científicamente conocido como cloruro de sodio (NaCl). Se caracteriza por ser un compuesto iónico con estructura cristalina cúbica, altamente soluble en agua y con un sabor salado característico. Además de sodio y cloro, algunas sales contienen otros minerales como magnesio, calcio y potasio. 
-Características principales de la sal:
-Composición química: Principalmente cloruro de sodio (NaCl). 
-Estructura cristalina: Forma cubos o cristales. 
-Solubilidad: Alta solubilidad en agua. 
-Sabor: Salado, distintivo de la sal. 
-Color: Generalmente blanco, pero puede variar a rojo, amarillo, rosa o azul. 
-Brillo: Vítreo. 
-Dureza: Baja dureza, se puede raspar fácilmente con un cuchillo. 
-Aplicaciones: Uso en la alimentación, como conservante, en la industria y como materia prima para la producción de otros productos.
-    `,
+    nombre: "Sal (Halita)",
+    desc: "Componente esencial en la alimentación, la sal común o halita es abundante en los salares de la Puna, formándose por la evaporación de antiguas lagunas.",
+    clase: "Haluros",
+    composicion: "Cloruro de sodio (NaCl)",
+    sistemaCristalografico: "Cúbico",
+    propiedadDiagnostica: "Sabor salado, alta solubilidad en agua, clivaje cúbico perfecto.",
+    importanciaEconomica: "Alimentación, conservación de alimentos, industria química.",
+    genesis: "Evaporítico, formado en salares y cuencas marinas cerradas.",
   },
   {
     id: "pomez",
     img: "/pomez.jfif",
     nombre: "Piedra Pómez",
-    desc: `Muchas personas se frotan la piel con lava ácida eruptada violentamente por antiquísimos volcanes: la llamamos piedra pómez.
-    La piedra pómez es una roca volcánica extrusiva, ligera y muy porosa, que se forma cuando la lava rica en gases se enfría rápidamente. Su principal característica es su extrema ligereza, que permite que la mayoría de los fragmentos floten en el agua. 
-
-Características:
-Textura:
-Vesicular, con numerosas cavidades (vesículas) de tamaño variable (desde 1 mm hasta más de 1 cm). 
-Ligereza:
-Muy ligera, con densidades entre 0,4 y 0,9 g/cm3, lo que permite que flote en el agua. 
-Porosidad:
-Alta porosidad, alrededor del 90%, debido a las numerosas vesículas internas. 
-Color:
-Puede variar desde el blanco hasta el gris claro y el marrón tostado. 
-Aislamiento térmico:
-Es un buen aislante térmico gracias a sus vesículas, que atrapan aire. 
-Abrasividad:
-Tiene una textura abrasiva, lo que la convierte en un buen material para exfoliar la piel.
-    `,
-    reverse: true,
+    desc: "Roca volcánica extremadamente porosa y ligera, formada por el enfriamiento rápido de lava rica en gases. A menudo, puede flotar en el agua.",
+    clase: "Roca Ígnea Volcánica (no es un mineral)",
+    composicion: "Vidrio volcánico de composición ácida (riolítica).",
+    propiedadDiagnostica: "Muy ligera, alta porosidad (vesicular), textura abrasiva.",
+    importanciaEconomica: "Abrasivo industrial, cosmética (exfoliante), horticultura (mejora de sustratos), construcción ligera.",
+    genesis: "Erupciones volcánicas explosivas.",
   },
   {
     id: "onix",
     img: "/onix.jfif",
-    nombre: "Ónix",
-    desc: `El ónix, o mármol ónix, es una piedra semipreciosa de la familia de las calcedonias, conocida por su translucidez y elegancia. Es una roca natural con características técnicas que la hacen ideal para aplicaciones decorativas y de construcción, especialmente en espacios de lujo.
-
-Características Técnicas del ónix:
-Dureza:
-Entre 6.5 y 7 en la escala de Mohs, lo que lo hace resistente pero menos que otras piedras como el diamante. 
-Composición: principalmente por dióxido de silicio (SiO2), lo que le confiere su dureza y resistencia. 
-Color:
-Puede variar en una amplia gama de colores, incluyendo negro, blanco, rojo, verde, gris, amarillo y azul, así como patrones jaspeados o veteados. 
-Densidad: es de aprox.2.6 a 2.7 g/cm³. 
-Uso:
-Se utiliza en decoración, joyeros, arquitectura, entre otros`,
+    nombre: "Ónix Calcáreo",
+    desc: "Variedad de caliza bandeada y translúcida, muy apreciada como piedra ornamental para decoración y arquitectura de lujo.",
+    clase: "Roca Sedimentaria Química (no es un mineral)",
+    composicion: "Carbonato de calcio (CaCO3), principalmente aragonito.",
+    propiedadDiagnostica: "Bandas de colores concéntricas, translucidez, reacciona con ácido.",
+    importanciaEconomica: "Piedra ornamental, revestimientos, esculturas, joyería.",
+    genesis: "Precipitación química en aguas termales o cuevas (travertino).",
   },
   {
     id: "yeso",
     img: "/yeso.jfif",
     nombre: "Yeso",
-    desc: `El yeso es un mineral común, un sulfato cálcico hidratado (CaSO4·2H2O), 
-
-Características principales del yeso:
-Composición química: Sulfato cálcico dihidratado (CaSO4·2H2O). 
-Color: Incoloro, blanco, pero puede ser gris, marrón, rojizo o amarillento debido a impurezas. 
-Brillo: Vítreo o sedoso en los cristales, nacarado en las superficies de exfoliación. 
-Dureza: Muy blanda, 1.5-2 en la escala de Mohs. 
-Exfoliación: Perfecta en una dirección (a menudo perpendicular a la orientación de las fibras). 
-Densidad: 2.31-2.33 g/cm³. 
-Solubilidad: Soluble en agua. 
-Formación: Se forma por precipitación directa en ambientes evaporíticos o por hidratación de la anhidrita. 
-Hábito cristalino: Monoclínico. 
-Usos: En la construcción, en la medicina (moldes de yeso), en la producción de escayola, entre otros. El yeso es un mineral común, un sulfato cálcico hidratado (CaSO4·2H2O), caracterizado por su suavidad, exfoliación perfecta y solubilidad en agua. Su color suele ser incoloro o blanco, pero puede presentar variaciones debido a impurezas, como arcilla, óxido de hierro o sílice. 
-Características principales del yeso:
-Composición química: Sulfato cálcico dihidratado (CaSO4·2H2O). 
-Color: Incoloro, blanco, pero puede ser gris, marrón, rojizo o amarillento debido a impurezas. 
-Brillo: Vítreo o sedoso en los cristales, nacarado en las superficies de exfoliación. 
-Dureza: Muy blanda, 1.5-2 en la escala de Mohs. 
-Exfoliación: Perfecta en una dirección (a menudo perpendicular a la orientación de las fibras). 
-Densidad: 2.31-2.33 g/cm³. 
-Solubilidad: Soluble en agua. 
-Formación: Se forma por precipitación directa en ambientes evaporíticos o por hidratación de la anhidrita. 
-Hábito cristalino: Monoclínico. 
-Usos: En la construcción, en la medicina (moldes de yeso), en la producción de escayola, entre otros.`,
-    reverse: true,
+    desc: "Mineral muy blando que se forma en ambientes evaporíticos. Es la materia prima para la fabricación de escayola y paneles de yeso (Durlock).",
+    clase: "Sulfatos",
+    composicion: "Sulfato cálcico dihidratado (CaSO₄·2H₂O)",
+    sistemaCristalografico: "Monoclínico",
+    propiedadDiagnostica: "Muy blando (se raya con la uña), exfoliación perfecta.",
+    importanciaEconomica: "Construcción (placas de yeso, revoques), agricultura (acondicionador de suelos), moldes.",
+    genesis: "Evaporítico, precipitado de aguas ricas en sulfato de calcio.",
   },
   {
     id: "litio",
     img: "/litio.jfif",
-    nombre: "Litio",
-    desc: `El litio es un mineral metálico alcalino de color blanco-plateado, conocido por ser el más ligero de todos los metales y por su alta capacidad de almacenar energía. Es un elemento químico muy reactivo, blando y maleable, utilizado principalmente en baterías recargables y en la producción de ciertos tipos de cerámica y vidrio. 
-Características generales del litio:
-Metal blando y plateado:
-El litio es un metal fácilmente cortable con un cuchillo y de color blanco plateado. 
-Densidad baja:
-Es el metal más ligero que existe, con una densidad menor que la del agua, lo que significa que flota en ella. 
-Alta reactividad química:
-Reacciona con el agua, liberando hidrógeno y formando hidróxido de litio. 
-Bajo punto de fusión:
-El litio se funde a una temperatura relativamente baja (180.5 °C). 
-Conductividad eléctrica:
-Es un buen conductor de electricidad, lo que lo convierte en un elemento importante en la fabricación de baterías. 
-Propiedades únicas para almacenamiento de energía:
-El litio tiene una alta capacidad de almacenar energía, lo que lo convierte en un componente esencial en baterías recargables, especialmente para vehículos eléctricos. 
-Uso en aleaciones:
-Se utiliza en aleaciones para mejorar la conductividad térmica y la resistencia.
-    `,
+    nombre: "Litio (en Salmuera)",
+    desc: "El metal más ligero, no se encuentra como mineral nativo sino disuelto en salmueras dentro de los salares. Es un recurso estratégico para la transición energética.",
+    clase: "Elemento (contenido en salmuera)",
+    composicion: "Iones de Litio (Li+) en solución acuosa salina.",
+    propiedadDiagnostica: "Se identifica por análisis químico de la salmuera.",
+    importanciaEconomica: "Baterías recargables (vehículos eléctricos, electrónica), cerámica, vidrio, grasas lubricantes.",
+    genesis: "Lixiviación de rocas volcánicas y concentración por evaporación en cuencas endorreicas (salares).",
+  },
+    {
+    id: "ulexita",
+    img: "/ulexite.jfif",
+    nombre: "Ulexita",
+    desc: "Conocida como la 'piedra televisión' por su capacidad de transmitir imágenes a través de sus fibras ópticas naturales. Es una fuente importante de boro.",
+    clase: "Boratos",
+    composicion: "Borato de sodio y calcio hidratado.",
+    sistemaCristalografico: "Triclínico",
+    propiedadDiagnostica: "Hábito fibroso, efecto de fibra óptica, baja dureza.",
+    importanciaEconomica: "Fuente de boro para fertilizantes de liberación lenta, industria cerámica y de vidrio.",
+    genesis: "Evaporítico, formado en salares y playas de lagos boratados.",
   },
 ];
 
@@ -444,6 +365,10 @@ export const SalaMinerologiaMineria = () => {
         aria-hidden="true"
       />
 
+      <h3 className="ramal-timeline-titulo">
+        {/* Título estilizado por CSS */}
+        Minerología y Minería
+      </h3>
       <p className="sala-minerologia-intro">
         Desde las profundidades del planeta hasta la superficie de las montañas,
         los minerales forman parte esencial del mundo que habitamos. Cada uno
@@ -477,7 +402,7 @@ export const SalaMinerologiaMineria = () => {
           {mineralesCorteza.map((mineral, index) => (
             // *** INICIO: MODIFICAR EL CONTENIDO DE SalaContenidoItem o su estructura ***
             // Si SalaContenidoItem es muy rígido, puedes reemplazarlo por esta estructura:
-            <article key={mineral.id} className="mineral-card-modern">
+            <article key={mineral.id} className="mineral-card"> {/* <-- Usa la nueva clase .mineral-card */}
               <div className="mineral-card-image-wrapper">
                 <img
                   src={`${import.meta.env.BASE_URL}${mineral.img}`}
@@ -548,6 +473,28 @@ export const SalaMinerologiaMineria = () => {
                         <p className="mineral-detail-item">
                           <strong>Yacimientos (Puna):</strong>{" "}
                           {mineral.yacimientosPuna.join(", ")}
+                        </p>
+                      )}
+                      {mineral.composicion && (
+                        <p className="mineral-detail-item">
+                          <strong>Composición:</strong> {mineral.composicion}
+                        </p>
+                      )}
+                      {mineral.sistemaCristalografico && (
+                        <p className="mineral-detail-item">
+                          <strong>Sistema Cristal.:</strong>{" "}
+                          {mineral.sistemaCristalografico}
+                        </p>
+                      )}
+                      {mineral.etimologia && (
+                        <p className="mineral-detail-item">
+                          <strong>Etimología:</strong> {mineral.etimologia}
+                        </p>
+                      )}
+                      {mineral.propiedadDiagnostica && (
+                        <p className="mineral-detail-item">
+                          <strong>Prop. Diagnóstica:</strong>{" "}
+                          {mineral.propiedadDiagnostica}
                         </p>
                       )}
                     {mineral.otros && (

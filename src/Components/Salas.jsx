@@ -7,7 +7,8 @@ const data = [
   // ... (tus datos de salas sin cambios)
   {
     title: "GOBERNACIÓN DE LOS ANDES",
-    image: "litio.jfif",
+    //image: "gobernacion_de_los_andes.jfif",
+    image: "historia_museo.png",
     path: "gobernacion_de_los_andes",
     icon: "🏛️",
   },

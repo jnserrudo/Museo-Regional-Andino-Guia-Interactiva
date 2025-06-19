@@ -29,7 +29,9 @@ export const Home = () => {
             >
               Visita Virtual (Próximamente)
             </Button> */}
-            <Link to="/salas/geologia">
+            
+            
+           {/*  <Link to="/guia">
               <Button
                 className="btn-custom btn-filled"
                 icon={<PlayCircleOutlined />}
@@ -38,7 +40,8 @@ export const Home = () => {
               >
                 Iniciar Visita
               </Button>
-            </Link>
+            </Link> */}
+
             <Link to="/salas">
               <Button
                 className="btn-custom btn-filled"

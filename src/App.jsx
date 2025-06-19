@@ -1,5 +1,5 @@
 // App.js (CORREGIDO - Asegúrate que esté así)
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Layout } from "antd";
 import { Navbar } from "./Components/Navbar";
 import { Sidebar } from "./Components/Sidebar";
@@ -17,11 +17,11 @@ import { FontProvider } from "./Contexts/FontContext";
 import { useState } from "react";
 import { AccessibilityWidget } from "./Components/AccessibilityWidget";
 
-
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 
 const { Content } = Layout;
 import { ScrollToTop } from "./Components/ScrollToTop";
+import { GuiaSalas } from "./Components/GuiaSalas";
 
 const App = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -37,29 +37,44 @@ const App = () => {
               visible={sidebarVisible}
               onClose={() => setSidebarVisible(false)}
             />
-            <Content style={{ padding: "0" }}> {/* Padding 0 si hijos lo manejan */}
+            <Content style={{ padding: "0" }}>
+              {" "}
+              {/* Padding 0 si hijos lo manejan */}
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/salas" element={<Salas />} />
-
                 {/* --- RUTA PADRE PARA LAS SALAS --- */}
                 {/* Renderiza SIEMPRE el componente Sala, que actúa como layout */}
-                <Route path="/salas/:salaId" element={<Sala />}> {/* Layout */}
-                    {/* --- RUTAS HIJAS (Anidadas) --- */}
-                    {/* Se renderizarán DENTRO del <Outlet/> de Sala.jsx */}
+                <Route path="/salas/:salaId" element={<Sala />}>
+                  {" "}
+                  {/* Layout */}
+                  {/* --- RUTAS HIJAS (Anidadas) --- */}
+                  {/* Se renderizarán DENTRO del <Outlet/> de Sala.jsx */}
+                  {/* Ruta "índice" (ej: /salas/biodiversidad o /salas/geologia) */}
+                  <Route index element={<SalaPrincipal />} />
+                  {/* Ruta de detalle (ej: /salas/geologia/volcanes) */}
+                  <Route path=":id" element={<SalaDetalleWrapper />} />
+                </Route>{" "}
+                {/* --- Fin Ruta Padre Salas --- */}
+                {/* ====================================================== */}
+                {/* ====== AÑADE ESTO PARA LA NUEVA FUNCIONALIDAD ======== */}
+                {/* ====================================================== */}
+                <Route path="/guia" element={<GuiaSalas />}>
+                  {/* Redirige a la primera sala del recorrido al entrar a /guia */}
+                  <Route
+                    index
+                    element={<Navigate to="/guia/geologia" replace />}
+                  />
 
-                    {/* Ruta "índice" (ej: /salas/biodiversidad o /salas/geologia) */}
-                    <Route index element={<SalaPrincipal />} />
-
-                    {/* Ruta de detalle (ej: /salas/geologia/volcanes) */}
-                    <Route path=":id" element={<SalaDetalleWrapper />} />
-
-                </Route> {/* --- Fin Ruta Padre Salas --- */}
-
+                  {/* Renderiza la sala correspondiente dentro del layout de la guía */}
+                  <Route path=":salaId/*" element={<Sala />} />
+                </Route>
+                {/* ====================================================== */}
+                {/* =================== FIN DE LA ADICIÓN ================ */}
+                {/* ====================================================== */}
                 <Route path="/puzzle" element={<PuzzleGame />} />
                 {/* <Route path="/mapa" element={<MapaMuseo />} /> */}
                 <Route path="/mapa" element={<MapaGeograficoMuseo />} />
-
                 {/* <Route path="*" element={<div>404</div>} /> */}
               </Routes>
             </Content>

@@ -1,0 +1,52 @@
+/* src/components/salas/GuiaSalas.css */
+
+.guia-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: #f0f2f5; /* Un fondo base neutro */
+  }
+  
+  .guia-navegacion {
+    position: sticky; /* Se queda fija arriba */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9d9d9;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  }
+  
+  .guia-info-sala {
+    font-weight: 500;
+    color: #595959;
+  }
+  
+  .guia-contenido-sala {
+    flex-grow: 1; /* Ocupa el resto del espacio */
+    overflow-y: auto; /* Permite scroll vertical en el contenido de la sala */
+    /* Importante: Quitamos el padding del contenedor de la sala para que no se duplique */
+  }
+  
+  /* Sobrescribimos el padding del contenedor de la sala cuando está dentro de la guía */
+  .guia-contenido-sala .sala-page-container {
+    padding-top: 0; /* O ajusta según necesites */
+  }
+  
+  @media (max-width: 600px) {
+    .guia-navegacion {
+      padding: 0.5rem 0.75rem;
+    }
+    .guia-info-sala {
+      font-size: 0.85rem;
+    }
+    .guia-navegacion .ant-btn {
+      font-size: 0.8rem;
+      padding: 0 10px;
+    }
+  }

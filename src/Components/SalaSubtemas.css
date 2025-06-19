@@ -238,10 +238,15 @@
 }
 .sala-contenido-titulo-principal { /* Reutilizando de SalaDetalle si existe */
 /*   font-family: var(--font-heading-subtema);
- */  text-align: center;
+ */  /* text-align: center;
   font-size: clamp(2rem, 6vw, 3rem);
   color: var(--color-primary-sala, #1a1a1a);
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; */
+  text-align: center;
+    color: var(--primary-color, #8B4513);
+    margin: 1rem 0 2rem 0; /* Espaciado ajustado */
+    font-size: clamp(1.6rem, 4vw, 2.2rem); /* Tamaño REM adaptable */
+    font-weight: 700;
 }
 .sala-subtemas-descripcion {
   font-family: var(--font-body-subtema);

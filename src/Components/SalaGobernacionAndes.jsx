@@ -56,7 +56,7 @@ export const SalaGobernacionAndes = () => {
 
   return (
     <article className="sala-contenido-articulo" id="main-sala-content">
-      <h2 className="sala-contenido-titulo-principal">{sala.title}</h2>
+      <h3 className="sala-contenido-titulo-principal">{sala.title}</h3>
       <figure className="sala-contenido-imagen-destacada">
         <img
           src={`${import.meta.env.BASE_URL}${sala.image}`}

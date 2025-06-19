@@ -144,7 +144,7 @@ export const SalaRamalTrenDetalle = () => {
       
 
  {/* --- Modal Renderizado con Portal --- */}
- {selectedImage && ReactDOM.createPortal( // <--- USA PORTAL
+ {/* {selectedImage && ReactDOM.createPortal( // <--- USA PORTAL
           <div className="ramalc14-modal-overlay" onClick={closeModal}>
               <div className="ramalc14-modal-content" onClick={(e) => e.stopPropagation()}>
                   <button className="ramalc14-modal-close" onClick={closeModal} aria-label="Cerrar imagen">×</button>
@@ -161,8 +161,7 @@ export const SalaRamalTrenDetalle = () => {
               </div>
           </div>,
           document.body // <--- Lo renderiza como hijo directo del body
-      )}
-      {/* --- Fin Modal --- */}
+      )} */}
 
     </div> // Fin ramal-tren-vista
   );

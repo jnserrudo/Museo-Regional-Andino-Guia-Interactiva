@@ -359,3 +359,93 @@
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+
+
+/* ================================================== */
+/*          ESTILOS PARA EL REPRODUCTOR DE VIDEO      */
+/*      (Añadir al final de SalaRamalC14.css)       */
+/* ================================================== */
+
+.video-hero-section {
+    max-width: 900px;
+    /* Margen ajustado para encajar antes de la línea de tiempo */
+    margin: 1rem auto 4rem auto; 
+  }
+  
+  .video-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .video-wrapper:hover {
+    transform: scale(1.02);
+  }
+  
+  .sala-video { /* Clase genérica para cualquier video */
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: inherit;
+  }
+  
+  /* Capa del botón de Play */
+  .play-button-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+  
+  /* Ocultar el overlay cuando el video está en reproducción */
+  .video-wrapper.is-playing .play-button-overlay {
+    opacity: 0;
+    cursor: default;
+  }
+  
+  .play-icon-container {
+    width: clamp(60px, 12vw, 90px);
+    height: clamp(60px, 12vw, 90px);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: clamp(30px, 6vw, 45px); /* Tamaño del SVG */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Leyenda del Video */
+  .video-caption {
+    text-align: center;
+    padding: 1.5rem 1rem 0 1rem;
+  }
+  .video-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color, #8B4513); /* Usa la variable de color principal */
+    margin: 0 0 0.25rem 0;
+  }
+  .video-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted, #6c757d); /* Usa la variable de color de texto atenuado */
+    margin: 0;
+    line-height: 1.5;
+  }

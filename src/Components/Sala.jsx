@@ -43,7 +43,7 @@ const salasData = {
   gobernacion_de_los_andes: {
     title: "GOBERNACIÓN DE LOS ANDES",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de la Gobernación de Los Andes, un espacio donde la historia cobra vida para contarnos cómo se organizó y gobernó esta región única del país. La Gobernación de Los Andes fue una división territorial creada en 1900 por el gobierno nacional con el objetivo de administrar una zona estratégica en el noroeste argentino, que abarcaba sectores de las actuales provincias de Salta, Jujuy y Catamarca. San Antonio de los Cobres fue su cabecera y principal centro administrativo. Aquí vas a poder conocer:
+    description: `Bienvenidos a la Sala de la Gobernación de Los Andes, un espacio donde la historia cobra vida para contarnos cómo se organizó y gobernó esta región única del país. La Gobernación de Los Andes fue una división territorial creada en 1900 por el gobierno nacional con el objetivo de administrar una zona estratégica en el noroeste argentino, que abarcaba sectores de las actuales provincias de Salta, Jujuy y Catamarca. San Antonio de los Cobres fue su cabecera y principal centro administrativo.
 * Documentos originales, fotografías y objetos que muestran cómo era la vida política, social y económica de la época.
 
 * Las funciones del gobernador y cómo se ejercía el poder en esta región aislada y diversa.
@@ -56,7 +56,7 @@ const salasData = {
     title: "SALA DE GEOLOGÍA",
     image: "imagen_to_salas.webp",
     description: `
-    Bienvenido a la sala de geología. Fuerzas de la Tierra en lo más alto de los Andes. Esta sala te invita a conocer los paisajes extremos y sorprendentes que forman parte de la Puna salteña: un territorio donde la Tierra todavía está viva. En esta región de gran altura, los volcanes dormidos, los géiseres humeantes, los salares brillantes y las extrañas formaciones rocosas son el resultado de procesos geológicos que siguen en marcha, moldeando el paisaje día a día. A lo largo del recorrido vas a descubrir:
+    Bienvenido a la sala de geología. Fuerzas de la Tierra en lo más alto de los Andes. Esta sala te invita a conocer los paisajes extremos y sorprendentes que forman parte de la Puna salteña: un territorio donde la Tierra todavía está viva. En esta región de gran altura, los volcanes dormidos, los géiseres humeantes, los salares brillantes y las extrañas formaciones rocosas son el resultado de procesos geológicos que siguen en marcha, moldeando el paisaje día a día.
 
 * Cómo se forman los volcanes.
 
@@ -95,7 +95,7 @@ const salasData = {
   arqueologia: {
     title: "ARQUEOLOGÍA",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Arqueología. Este espacio te invita a viajar en el tiempo y descubrir cómo vivieron las comunidades que habitaron la Puna andina miles de años antes de la llegada de los europeos. A través de excavaciones, hallazgos y estudios, la arqueología nos permite conocer cómo eran sus viviendas, qué herramientas usaban, cómo se alimentaban, qué creencias tenían y cómo se relacionaban con su entorno. En esta sala vas a poder:
+    description: `Bienvenidos a la Sala de Arqueología. Este espacio te invita a viajar en el tiempo y descubrir cómo vivieron las comunidades que habitaron la Puna andina miles de años antes de la llegada de los europeos. A través de excavaciones, hallazgos y estudios, la arqueología nos permite conocer cómo eran sus viviendas, qué herramientas usaban, cómo se alimentaban, qué creencias tenían y cómo se relacionaban con su entorno.
 
 * Ver piezas auténticas como cerámicas, puntas de flecha, tejidos y objetos rituales.
 
@@ -237,9 +237,14 @@ export const Sala = () => {
 
   // Determina si estamos en la ruta base de la sala actual
   const location = useLocation();
-  const estamosEnRutaBaseSala =
+  /* const estamosEnRutaBaseSala =
     location.pathname === `/salas/${salaId}` ||
-    location.pathname.endsWith(`/salas/${salaId}/`);
+    location.pathname.endsWith(`/salas/${salaId}/`); */
+
+// En Sala.jsx, REEMPLAZA la línea que define estamosEnRutaBaseSala por esta:
+
+const estamosEnRutaBaseSala = !detailId;
+
 
   const estamosEnDetalle = !!detailId;
 
