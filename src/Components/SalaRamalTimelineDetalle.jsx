@@ -34,37 +34,47 @@ export const SalaRamalTimelineDetalle = () => {
         {/* ====================================================== */}
         {/*          NUEVO REPRODUCTOR DE VIDEO AÑADIDO            */}
         {/* ====================================================== */}
-        <section className="video-hero-section">
-            <div 
-                className={`video-wrapper ${isPlaying ? 'is-playing' : ''}`}
-                onClick={togglePlay}
-            >
-                <video
-                    ref={videoRef}
-                    className="sala-video" // Usamos una clase genérica
-                    controls={isPlaying} 
-                    preload="metadata"
-                    poster={`${import.meta.env.BASE_URL}nombre-de-tu-poster.jpg`} // <-- REEMPLAZA
-                    src={`${import.meta.env.BASE_URL}trasandino_del_norte.mp4`}     // <-- REEMPLAZA
-                    onPlay={() => setIsPlaying(true)}
-                    onPause={() => setIsPlaying(false)}
-                    onEnded={() => setIsPlaying(false)}
-                >
-                    Tu navegador no soporta la etiqueta de video.
-                </video>
-                <div className="play-button-overlay" aria-hidden="true">
-                    <div className="play-icon-container">
-                    <PlayIcon />
-                    </div>
-                </div>
+        {/* ====================================================== */}
+{/*          NUEVO REPRODUCTOR DE VIDEO CORREGIDO          */}
+{/* ====================================================== */}
+<section className="video-hero-section">
+    {/* El `onClick` se ha quitado de este contenedor */}
+    <div className={`video-wrapper ${isPlaying ? 'is-playing' : ''}`}>
+        <video
+            ref={videoRef}
+            className="sala-video"
+            // CAMBIO 1: `controls` ahora está siempre activo.
+            // El navegador decidirá cuándo mostrar los controles (ej. al pasar el mouse).
+            controls 
+            preload="metadata"
+            poster={`${import.meta.env.BASE_URL}nombre-de-tu-poster.jpg`} // <-- REEMPLAZA
+            src={`${import.meta.env.BASE_URL}trasandino_del_norte.mp4`}     // <-- REEMPLAZA
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
+        >
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+
+        {/* CAMBIO 2: El `onClick` ahora solo está en la capa del botón de play. */}
+        {/* Esto evita que intercepte los clics sobre los controles del video. */}
+        <div 
+            className="play-button-overlay" 
+            aria-hidden="true"
+            onClick={togglePlay} // <-- El onClick se movió aquí
+        >
+            <div className="play-icon-container">
+                <PlayIcon />
             </div>
-            <div className="video-caption">
-                <h3 className="video-title">El Trasandino del Norte</h3>
-                <p className="video-subtitle">
-                    Imágenes históricas de la construcción y operación del tren.
-                </p>
-            </div>
-        </section>
+        </div>
+    </div>
+    <div className="video-caption">
+        <h3 className="video-title">El Trasandino del Norte</h3>
+        <p className="video-subtitle">
+            Imágenes históricas de la construcción y operación del tren.
+        </p>
+    </div>
+</section>
 
         <LineaTiempo />
     </div>

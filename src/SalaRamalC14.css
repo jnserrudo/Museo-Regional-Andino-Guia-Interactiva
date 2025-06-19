@@ -449,3 +449,42 @@
     margin: 0;
     line-height: 1.5;
   }
+
+  /* SalaRamalC14.css */
+
+.video-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Cuando el video se está reproduciendo, oculta la capa del botón de play */
+.video-wrapper.is-playing .play-button-overlay {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Importante para que no intercepte clics aunque sea invisible */
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.play-icon-container {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px; /* Ajusta el tamaño del ícono */
+}
