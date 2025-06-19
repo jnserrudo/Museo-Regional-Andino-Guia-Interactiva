@@ -48,7 +48,7 @@ export const SalaRamalTimelineDetalle = () => {
             controls 
             preload="metadata"
             poster={`${import.meta.env.BASE_URL}nombre-de-tu-poster.jpg`} // <-- REEMPLAZA
-            src={`${import.meta.env.BASE_URL}trasandino_del_norte.mp4`}     // <-- REEMPLAZA
+            src={`${import.meta.env.BASE_URL}trasandino_del_norte_comp.mp4`}     // <-- REEMPLAZA
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
             onEnded={() => setIsPlaying(false)}
