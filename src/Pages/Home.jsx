@@ -13,7 +13,7 @@ export const Home = () => {
           {/* Eliminados los atributos data-aos */}
           <h2 className="welcome-text">Bienvenidos al</h2>
           <h1 className="museum-title">
-            Museo Regional Andino
+            Museo Regional Andinooo
           </h1>
           <p className="museum-subtitle">
             Descubre la riqueza cultural de San Antonio de los Cobres
