@@ -45,15 +45,15 @@ export const Navbar = ({ onMenuClick }) => { // onMenuClick podría usarse para 
  */}
           {/* Tus selectores de idioma, estilizados */}
           <div className="theart-language-selector">
-            <button className="theart-lang-btn">
+            {/* <button className="theart-lang-btn">
               <img className="theart-lang-flag" src={`${import.meta.env.BASE_URL}bandera_ingles.png`} alt="EN"/> EN
-            </button>
+            </button> */}
             <button className="theart-lang-btn active"> {/* 'active' para el idioma actual */}
               <img className="theart-lang-flag" src={`${import.meta.env.BASE_URL}bandera_español.png`} alt="ES"/> ES
             </button>
-            <button className="theart-lang-btn">
+            {/* <button className="theart-lang-btn">
               <img className="theart-lang-flag" src={`${import.meta.env.BASE_URL}bandera_quechua.png`} alt="QU"/> QU
-            </button>
+            </button> */}
           </div>
           {/* Botón de menú para mobile (opcional, si lo manejas con CSS o JS) */}
           {/* <button type="button" className="theart-mobile-menu-toggle" onClick={onMenuClick}>

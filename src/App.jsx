@@ -57,20 +57,34 @@ const App = () => {
                 </Route>{" "}
                 {/* --- Fin Ruta Padre Salas --- */}
                 {/* ====================================================== */}
-                {/* ====== AÑADE ESTO PARA LA NUEVA FUNCIONALIDAD ======== */}
+                {/* ======        AQUÍ ESTÁ LA CORRECCIÓN         ======== */}
                 {/* ====================================================== */}
+                
+                {/* --- RUTA PARA LA VISITA GUIADA --- */}
+                {/* 1. La ruta padre /guia renderiza el layout de la guía (<GuiaSalas />) */}
                 <Route path="/guia" element={<GuiaSalas />}>
-                  {/* Redirige a la primera sala del recorrido al entrar a /guia */}
+
+                  {/* 2. Al entrar a /guia, redirige a la primera sala del recorrido. */}
                   <Route
                     index
                     element={<Navigate to="/guia/geologia" replace />}
                   />
 
-                  {/* Renderiza la sala correspondiente dentro del layout de la guía */}
-                  <Route path=":salaId/*" element={<Sala />} />
+                  {/* 3. ¡LA CLAVE! Anidamos la misma estructura de rutas de /salas DENTRO de /guia.
+                         Ahora, cuando la URL sea /guia/geologia, se renderizará <Sala />
+                         dentro del <Outlet /> de <GuiaSalas />, y a su vez, <SalaPrincipal />
+                         se renderizará dentro del <Outlet /> de <Sala />.
+                         Esto funciona para las sub-rutas también (ej: /guia/geologia/volcanes).
+                  */}
+                  <Route path=":salaId" element={<Sala />}>
+                     {/* Estas son las rutas hijas de <Sala />, igual que en el modo normal */}
+                     <Route index element={<SalaPrincipal />} />
+                     <Route path=":id" element={<SalaDetalleWrapper />} />
+                  </Route>
+
                 </Route>
                 {/* ====================================================== */}
-                {/* =================== FIN DE LA ADICIÓN ================ */}
+                {/* =================== FIN DE LA CORRECCIÓN ============= */}
                 {/* ====================================================== */}
                 <Route path="/puzzle" element={<PuzzleGame />} />
                 {/* <Route path="/mapa" element={<MapaMuseo />} /> */}

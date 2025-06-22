@@ -8,7 +8,10 @@ import {
   useNavigate,
 } from "react-router-dom"; // Añadimos Outlet
 import { Button } from "antd";
-import { ArrowLeftOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, // --- AÑADE ESTOS TRES ---
+  FireOutlined,
+  RiseOutlined,
+  AppstoreOutlined, } from "@ant-design/icons";
 
 // --- Importa tus componentes de sala principales ---
 import { SalaGeologia } from "./SalaGeologia";
@@ -166,11 +169,27 @@ const salaDetailComponentMap = {
   // Añade aquí los mapeos para otras salas con detalle
 };
 
-// --- DATOS DE LOS SUBTEMAS DE GEOLOGÍA (Movidos aquí) ---
+
+// --- Reemplaza tu constante temasGeologia con esta ---
 const temasGeologia = [
-  { id: "volcanes", title: "Volcanes", image: "/volcan_museo.png" },
-  { id: "geiser", title: "Géiser", image: "/geiser_museo.png" },
-  { id: "salares", title: "Salares", image: "/salares_museo.jpeg" },
+  {
+    id: "volcanes",
+    title: "Volcanes",
+    description: "Conoce las gigantescas fuerzas que moldean los Andes.",
+    icon: <FireOutlined style={{ fontSize: "2.5em", marginBottom: "0.5em" }} />,
+  },
+  {
+    id: "geiser",
+    title: "Géiseres",
+    description: "Descubre el vapor de la Tierra emergiendo a la superficie.",
+    icon: <RiseOutlined style={{ fontSize: "2.5em", marginBottom: "0.5em" }} />,
+  },
+  {
+    id: "salares",
+    title: "Salares",
+    description: "Explora los desiertos de sal y su riqueza mineral.",
+    icon: <AppstoreOutlined style={{ fontSize: "2.5em", marginBottom: "0.5em" }} />,
+  },
 ];
 import { CloudServerOutlined, ClockCircleOutlined } from "@ant-design/icons"; // Ejemplos
 // --- NUEVO: Datos subtemas Ramal C-14 ---
@@ -412,44 +431,53 @@ const estamosEnRutaBaseSala = !detailId;
 
               {/* --- FIN: Bloque Modificado --- */}
             </p>
-            {esSalaGeologia && (
-              <div className="geologia-subtemas-en-intro">
-                <h2 className="geologia-subtemas-titulo">Explora los temas:</h2>
-                <div className="sala-subtemas-grid">
-                  {temasGeologia.map((tema, index) => (
-                    // *** AÑADE: La nueva tarjeta inmersiva ***
-                    <article
-                      key={tema.id}
-                      className="sala-subtema-card-immersive" // <<<--- USAR LA NUEVA CLASE
-                      onClick={(e) => {
-                        e.stopPropagation(); // Evita que el click active handleIntroClick
-                        handleGeologiaCardClick(tema.id);
-                      }}
-                      style={{
-                        backgroundImage: `url(${import.meta.env.BASE_URL}${
-                          tema.image
-                        })`,
+{esSalaGeologia && (
+    <div className="ramal-subtemas-en-intro"> {/* Usamos la misma clase base */}
+        <h2 className="ramal-subtemas-titulo"> {/* Usamos la misma clase base */}
+            Explora los temas:
+        </h2>
+        <div className="sala-subtemas-grid ramal-choices-container">
+            {temasGeologia.map((tema, index) => (
+                <article
+                    key={tema.id}
+                    className="sala-subtema-card-immersive ramal-card-no-image"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        handleGeologiaCardClick(tema.id); // <- Asegúrate que use la función de Geología
+                    }}
+                    style={{
                         animationDelay: `${index * 0.12}s`,
-                      }}
-                      tabIndex="0"
-                      role="link"
-                      aria-label={`Explorar ${tema.title}`}
-                    >
-                      <div className="sala-subtema-content-overlay">
-                        <h3 className="sala-subtema-title">{tema.title}</h3>
+                    }}
+                    tabIndex="0"
+                    role="link"
+                    aria-label={`Explorar ${tema.title}`}
+                >
+                    <div className="sala-subtema-content-overlay ramal-overlay-layout">
+                        <div className="ramal-card-main-content">
+                            {/* ¡Ahora esto funcionará porque 'tema' tiene 'icon'! */}
+                            {tema.icon && (
+                                <div className="ramal-card-icon-wrapper">
+                                    {tema.icon}
+                                </div>
+                            )}
+                            <h3 className="sala-subtema-title">{tema.title}</h3>
+                            {/* ¡Y esto también funcionará! */}
+                            <p className="ramal-card-description">
+                                {tema.description}
+                            </p>
+                        </div>
                         <span
-                          className="sala-subtema-indicator"
-                          aria-hidden="true"
+                            className="sala-subtema-indicator ramal-indicator"
+                            aria-hidden="true"
                         >
-                          Explorar →
+                            Explorar →
                         </span>
-                      </div>
-                    </article>
-                    // *** FIN: Nueva tarjeta inmersiva ***
-                  ))}
-                </div>
-              </div>
-            )}
+                    </div>
+                </article>
+            ))}
+        </div>
+    </div>
+)}
 
             {/* --- Tarjetas Ramal C14 --- */}
             {esSalaRamal && (

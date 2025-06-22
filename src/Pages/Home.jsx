@@ -31,7 +31,7 @@ export const Home = () => {
             </Button> */}
             
             
-           {/*  <Link to="/guia">
+             <Link to="/guia">
               <Button
                 className="btn-custom btn-filled"
                 icon={<PlayCircleOutlined />}
@@ -40,7 +40,7 @@ export const Home = () => {
               >
                 Iniciar Visita
               </Button>
-            </Link> */}
+            </Link> 
 
             <Link to="/salas">
               <Button
