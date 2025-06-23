@@ -13,10 +13,10 @@ export const Home = () => {
           {/* Eliminados los atributos data-aos */}
           <h2 className="welcome-text">Bienvenidos al</h2>
           <h1 className="museum-title">
-            Museo Regional Andinooo
+            Museo Regional Andino
           </h1>
           <p className="museum-subtitle">
-            Descubre la riqueza cultural de San Antonio de los Cobres
+          El museo Regional Andino conserva y difunde la historia y las costumbres de la gente de la Puna. Sus creencias, artes y saberes son compartidos y resguardados de este modo. Así lo entendieron muchos lugareños que donaron parte de los objetos que hoy se exhiben aquí.
           </p>
           <div className="button-group">
             {/* <Button

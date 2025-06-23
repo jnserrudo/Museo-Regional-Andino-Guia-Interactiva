@@ -1,62 +1,434 @@
-import { useNavigate } from "react-router-dom";
-import '../SalaSubtemas.css'; // <<< --- IMPORTA EL NUEVO CSS
+// src/components/Salas/SalaGeologia.jsx
 
-// Asegúrate que las imágenes existan en tu carpeta public o sean importadas correctamente
-const temasGeologia = [
-  /* {
-    id: "origen",
-    title: "Origen y Formación Geológica", // Título ligeramente acortado para ejemplo
-    image: "/fondo1.JPG", // Asumiendo que está en /public/fondo1.JPG
-  }, */
-  { id: "volcanes", title: "Volcanes", image: "/volcan_museo.png" }, // Cambia a imágenes reales
-  { id: "geiser", title: "Géiser", image: "/geiser_museo.png" },
-  { id: "salares", title: "Salares", image: "/salares_museo.jpeg" },
+import React from "react";
+// Importa el CSS que ya teníamos
+import "./SalaGeologia.css";
+
+// --- NUEVO: Importaciones necesarias de Swiper ---
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { VolcanoExplorer3D } from "./VolcanoExplorer3D"; // <<<--- IMPORTA EL NUEVO COMPONENTE 3D
+
+// --- NUEVO: Importa los estilos base de Swiper ---
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+
+
+// --- NUEVO: Datos para la Galería de Volcanes ---
+const imagenesVolcanes = [
+  // (Tu array completo de imágenes aquí)
+  {
+    nombre: "Cero archibarca",
+    fecha: "23/4/2025 10:49",
+    tipo: "Archivo JPG",
+    tamaño: "52 KB",
+    nombreArchivo: "Cerro_archibarca.jpg",
+  },
+  {
+    nombre: "mapa_puna_argentina",
+    fecha: "23/4/2025 09:13",
+    tipo: "Archivo PNG",
+    tamaño: "322 KB",
+    nombreArchivo: "mapa_puna_argentina.png",
+  },
+  {
+    nombre: "Nevado de acay",
+    fecha: "23/4/2025 10:12",
+    tipo: "Archivo JPG",
+    tamaño: "32 KB",
+    nombreArchivo: "Nevado_acay.jpg",
+  },
+  {
+    nombre: "Volcan Aracar",
+    fecha: "22/4/2025 18:49",
+    tipo: "Archivo JPG",
+    tamaño: "60 KB",
+    nombreArchivo: "Volcan_Aracar.jpg",
+  },
+  {
+    nombre: "Volcan de Pocitos",
+    fecha: "23/4/2025 10:16",
+    tipo: "Archivo JPG",
+    tamaño: "255 KB",
+    nombreArchivo: "Volcan_Pocitos.jpg",
+  },
+  {
+    nombre: "Volcan Lastarria",
+    fecha: "22/4/2025 19:14",
+    tipo: "Archivo JPG",
+    tamaño: "1,523 KB",
+    nombreArchivo: "Volcan_Lastarria.jpg",
+  },
+  {
+    nombre: "Volcan Quehuar",
+    fecha: "23/4/2025 10:06",
+    tipo: "Archivo JPG",
+    tamaño: "365 KB",
+    nombreArchivo: "Volcan_Quehuar.jpg",
+  },
+  {
+    nombre: "Volcan Tuzgle - Puna",
+    fecha: "22/4/2025 18:19",
+    tipo: "Archivo JPG",
+    tamaño: "137 KB",
+    nombreArchivo: "Volcan_Tuzgle_Puna.jpg",
+  },
+  {
+    nombre: "Volcan_llullaillaco_cara_oeste_christian_vitry_3",
+    fecha: "22/4/2025 17:46",
+    tipo: "Archivo JPG",
+    tamaño: "189 KB",
+    nombreArchivo: "Volcan_llullaillaco_cara_oeste_christian_vitry_3.jpg",
+  },
+  {
+    nombre: "Volcan_llullaillaco_christian_vitry_23-vista sur",
+    fecha: "22/4/2025 17:47",
+    tipo: "Archivo JPG",
+    tamaño: "231 KB",
+    nombreArchivo: "Volcan_llullaillaco_christian_vitry_23-vista_sur.jpg",
+  },
+  {
+    nombre: "Volcan_Ratones_panoramio",
+    fecha: "23/4/2025 10:02",
+    tipo: "Archivo JPG",
+    tamaño: "24 KB",
+    nombreArchivo: "Volcan_Ratones_panoramio.jpg",
+  },
+  {
+    nombre: "Volcan_Socompa",
+    fecha: "22/4/2025 14:23",
+    tipo: "Archivo JPG",
+    tamaño: "126 KB",
+    nombreArchivo: "Volcan_Socompa.jpg",
+  },
 ];
 
+
+// --- MODIFICADO: El componente de galería ahora es un carrusel ---
+const CarouselGallery = ({ images, title }) => (
+  <div className="carousel-wrapper">
+    {/* El título ahora va fuera del componente Swiper */}
+    {title && <h4 className="gallery-title">{title}</h4>}
+
+    <Swiper
+      // Módulos que vamos a usar
+      modules={[Navigation, Pagination, Autoplay]}
+      // Activa la navegación con flechas
+      navigation={true}
+      // Activa la paginación con "puntitos" y los hace clickables
+      pagination={{ clickable: true }}
+      // Activa el autoplay
+      autoplay={{
+        delay: 4000, // 4 segundos entre cada slide
+        disableOnInteraction: false, // El autoplay no se detiene si el usuario interactúa
+      }}
+      // Para que el carrusel sea infinito
+      loop={true}
+      // Clases personalizadas para poder darles estilo fácilmente en el CSS
+      className="sala-carousel"
+    >
+      {images.map((imgSrc, index) => (
+        <SwiperSlide key={index}>
+          {/*
+            IMPORTANTE: La ruta sigue viniendo de la carpeta /public
+            Ejemplo: '/img/geologia/cuenca-01.jpg'
+          */}
+          <img
+            src={imgSrc}
+            alt={`${title || "Galería de Geología"} - Imagen ${index + 1}`}
+            className="carousel-image"
+            loading="lazy"
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+);
+
+// --- COMPONENTE PRINCIPAL DE LA SALA (sin cambios en su lógica) ---
 export const SalaGeologia = () => {
-  const navigate = useNavigate();
+  // Las rutas a tus imágenes no cambian
+  const galeriaCuencas = [
+    import.meta.env.BASE_URL + "cuenca_1.jpg",
+    import.meta.env.BASE_URL + "cuenca_2.jpg",
+    import.meta.env.BASE_URL + "cuenca_3.jpg",
+    import.meta.env.BASE_URL + "cuenca_4.jpg",
+    import.meta.env.BASE_URL + "cuenca_5.JPG",
+    import.meta.env.BASE_URL + "cuenca_6.JPG",
+  ];
+
+  const galeriaSalares = [
+    import.meta.env.BASE_URL + "salar_1.jpg",
+    import.meta.env.BASE_URL + "salar_2.jpg",
+    import.meta.env.BASE_URL + "salar_3.jpg",
+    import.meta.env.BASE_URL + "salar_4.jpg",
+    import.meta.env.BASE_URL + "salar_5.jpg",
+  ];
 
   return (
-    // Contenedor principal para esta vista de subtemas
-    <article className="sala-subtemas-container">
+    <article className="sala-contenido-container">
+      <h2 className="sala-contenido-titulo-principal">GEOLOGÍA DE LA PUNA</h2>
 
-      {/* Puedes reutilizar el estilo del título principal si quieres */}
-      <h2 className="sala-contenido-titulo-principal">GEOLOGÍA</h2>
-      <p className="sala-subtemas-descripcion">
-        Explora los fascinantes procesos que dieron forma a la Puna y sus paisajes únicos.
+      <p className="sala-contenido-parrafo">
+        La Puna es una región única en el planeta. Nos encontramos a más de
+        4.000 metros sobre el nivel del mar, en un paisaje que parece de otro
+        mundo: volcanes, salares, lagunas de colores intensos y un clima tan
+        extremo como fascinante.
+      </p>
+      <p className="sala-contenido-parrafo">
+        Esta región forma parte de una <strong>cuenca endorreica</strong>, un
+        tipo especial de cuenca donde el agua no tiene salida al mar. Aquí, el
+        agua se evapora o se filtra en el suelo, dejando atrás sales y minerales
+        que se acumulan en el paisaje y dan origen a los salares.
       </p>
 
-      {/* La grilla de tarjetas */}
-      <div className="sala-subtemas-grid">
-        {temasGeologia.map((tema, index) => (
-          // Cada tema es una "tarjeta" clickable
-          <article
-            key={tema.id}
-            className="sala-subtema-card"
-            onClick={() => navigate(`/salas/geologia/${tema.id}`)}
-            style={{ animationDelay: `${index * 0.1}s` }} // Animación escalonada
-            tabIndex="0" // Hace que sea enfocable con teclado
-            role="link" // ARIA role para accesibilidad
-            aria-label={`Explorar ${tema.title}`} // Más info para lectores de pantalla
-          >
-            {/* Contenedor de la imagen */}
-            <div
-              className="sala-subtema-image"
-              style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${tema.image})` }}
-            >
-              <div className="sala-subtema-image-overlay"></div> {/* Overlay sutil */}
-            </div>
+      {/* --- MODIFICADO: Usamos el nuevo componente de carrusel --- */}
+      <CarouselGallery
+        images={galeriaCuencas}
+        title="Cuencas Endorreicas en la Puna"
+      />
 
-            {/* Contenedor de la información */}
-            <div className="sala-subtema-info">
-              {/* Título del subtema (mejor semántica con H3) */}
-              <h3 className="sala-subtema-title">{tema.title}</h3>
-              {/* Icono de flecha que aparece en hover/focus */}
-              <span className="sala-subtema-arrow" aria-hidden="true">→</span>
-            </div>
-          </article>
-        ))}
+      {/* El resto del contenido sigue igual... */}
+      <p className="sala-contenido-parrafo">
+        La Puna está encerrada entre dos grandes cordilleras:
+      </p>
+      <ul className="sala-contenido-lista">
+        <li>
+          <strong>Al oeste</strong>, la Cordillera Volcánica Occidental, rica en
+          volcanes activos e inactivos.
+        </li>
+        <li>
+          <strong>Al este</strong>, la Cordillera Oriental, formada por antiguas
+          rocas sedimentarias.
+        </li>
+      </ul>
+
+      <h3 className="sala-contenido-subtitulo">
+        Fuerzas de fuego y vapor: volcanes y géiseres
+      </h3>
+      {/* ... más contenido ... */}
+      <p className="sala-contenido-parrafo">
+        Bajo nuestros pies, la Tierra sigue viva. La actividad volcánica y
+        geotérmica de la Puna no solo moldea montañas, sino que también crea
+        fuentes termales, géiseres, campos fumarólicos y depósitos minerales.
+      </p>
+      <p className="sala-contenido-parrafo">
+        La energía interna del planeta se manifiesta aquí de forma directa:
+      </p>
+      <ul className="sala-contenido-lista">
+        <li>
+          <strong>Volcanes:</strong> expulsan lava, gases y cenizas, formando
+          montañas nuevas.
+        </li>
+        <li>
+          <strong>Géiseres y fumarolas:</strong> nos muestran el calor
+          subterráneo emergiendo en forma de vapor.
+        </li>
+        <li>
+          <strong>Suelos mineralizados:</strong> el agua caliente que circula
+          bajo tierra disuelve minerales que, al enfriarse, se depositan en la
+          superficie.
+        </li>
+      </ul>
+
+      <h4 className="sala-contenido-subtitulo-menor">
+        ¿Cómo se forma un volcán?
+      </h4>
+      <p className="sala-contenido-parrafo">
+        Bajo la superficie terrestre, a varios kilómetros de profundidad,
+        ocurren procesos silenciosos pero poderosos. Cuando la presión disminuye
+        bruscamente en las capas internas de la Tierra, las temperaturas suben
+        tanto que las rocas comienzan a fundirse. Así se forma el magma, una
+        mezcla incandescente de minerales derretidos.
+      </p>
+      <p className="sala-contenido-parrafo">
+        Este magma busca salir. A medida que asciende, se abre paso entre las
+        fracturas de la corteza terrestre y se enriquece con minerales de las
+        rocas que atraviesa. Cuando finalmente encuentra una salida, erupciona
+        violentamente o se derrama suavemente, dependiendo de su composición.
+      </p>
+      <p className="sala-contenido-parrafo">
+        Con cada erupción, el volcán crece: se acumulan capas de lava, cenizas,
+        escoria y gases solidificados. Esas capas forman poco a poco lo que
+        llamamos el "edificio volcánico", cuya forma varía según el tipo de
+        magma y la intensidad de la actividad.
+      </p>
+
+      {/* Espacio para la imagen grande del volcán */}
+      <div className="imagen-destacada-container">
+        {/*
+          IMPORTANTE: Cambia esta ruta por la real de tu imagen del volcán.
+          Debe estar en la carpeta /public de tu proyecto.
+          Ejemplo: '/img/geologia/esquema-volcan.png'
+        */}
+        <img
+          src={import.meta.env.BASE_URL + "funcionamiento_volcan.jpg"}
+          alt="Esquema del funcionamiento de un volcán"
+          className="imagen-destacada"
+        />
       </div>
+
+      <p className="sala-contenido-parrafo">
+        En la región de la Puna, los volcanes no solo moldean el paisaje:
+        también son el origen de muchos de los minerales valiosos que
+        encontramos en esta zona, como el azufre, el litio y el oro. La energía
+        del interior de la Tierra se transforma, aquí, en una fuente de riqueza
+        natural.
+      </p>
+
+      <div className="sabias-que-box">
+        <h5 className="sabias-que-titulo">¿Sabías qué...?</h5>
+        <p className="sabias-que-texto">
+          Algunos volcanes de la Puna estuvieron activos hace miles o millones
+          de años, pero sus huellas aún se conservan en cráteres, conos y flujos
+          de lava fosilizados. Hoy, muchos de esos antiguos volcanes son claves
+          para entender la formación de los salares y depósitos minerales de la
+          región.
+        </p>
+      </div>
+
+<section className="volcanes-3d-gallery-section">
+          {" "}
+          {/* Contenedor general */}
+          <h3 className="volcanes-3d-gallery-title">
+            Explorador Geológico Interactivo
+          </h3>
+          <div className="volcano-explorer-container">
+            {" "}
+            {/* Contenedor para el canvas 3D */}
+            <VolcanoExplorer3D images={imagenesVolcanes} />
+          </div>
+          <p className="volcano-explorer-instructions">
+            Haz clic y arrastra para rotar. Usa la rueda del ratón para hacer
+            zoom. Pasa el cursor sobre una imagen para ver detalles.
+          </p>
+        </section>
+
+      <h4 className="sala-contenido-subtitulo-menor">¿Qué es un géiser?</h4>
+      <p className="sala-contenido-parrafo">
+        Imaginá un volcán, pero en lugar de arrojar lava, lanza al cielo chorros
+        de agua hirviendo y vapor. Eso es un géiser: una manifestación
+        espectacular del calor oculto bajo la Tierra.
+      </p>
+      <p className="sala-contenido-parrafo">
+        En las profundidades del suelo, el agua se filtra hasta entrar en
+        contacto con rocas muy calientes, calentadas por magma cercano. Esa agua
+        se convierte en vapor a presión, que busca salir a la superficie. Cuando
+        la presión es demasiado alta, el géiser entra en erupción, expulsando
+        con fuerza una mezcla de agua caliente y vapor.
+      </p>
+      <p className="sala-contenido-parrafo">
+        Aunque duran solo unos segundos o minutos, estas erupciones pueden
+        alcanzar varios metros de altura, ¡y se repiten una y otra vez durante
+        años o incluso siglos!
+      </p>
+
+      {/* Contenedor para el video responsivo */}
+      <div className="video-responsive-container">
+        <iframe
+          className="video-iframe"
+          src="https://www.youtube.com/embed/7jSFEkezaxw"
+          title="Video de un Géiser"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+      {/* <p className="video-caption">
+        También puedes ver el video en{" "}
+        <a
+          href="https://drive.google.com/file/d/1zHREdABSef0N18SU6AUvViC2b0B_0QHa/view"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google Drive
+        </a>
+        .
+      </p> */}
+
+      <div className="sabias-que-box">
+        <h5 className="sabias-que-titulo">¿Sabías qué…?</h5>
+        <p className="sabias-que-texto">
+          Los géiseres son muy raros en el planeta. Se necesitan condiciones muy
+          precisas de calor, agua subterránea y una geología especial. En la
+          Puna argentina, podés ver fenómenos similares en los campos
+          geotermales, donde el vapor sale por grietas en la tierra… ¡como si la
+          Tierra respirara!
+        </p>
+      </div>
+
+      <h4 className="sala-contenido-subtitulo-menor">¿Cómo nace un Salar?</h4>
+      <p className="sala-contenido-parrafo">
+        En las vastas alturas de la Puna, donde el cielo es inmenso y la lluvia
+        escasa, la Tierra ha creado paisajes deslumbrantes: planicies blancas y
+        resplandecientes que parecen hechas de hielo, pero están compuestas por
+        sal.
+      </p>
+      <p className="sala-contenido-parrafo">
+        Estos salares no siempre estuvieron allí. Se formaron a lo largo de
+        miles —incluso millones— de años, cuando una serie de factores muy
+        particulares coincidieron en un mismo lugar: una depresión natural,
+        volcanes activos, aguas termales, erosión y, sobre todo, un clima
+        extremadamente árido.
+      </p>
+      <p className="sala-contenido-parrafo">
+        Con el tiempo, las depresiones se llenaron de agua que, en lugar de
+        formar ríos, se evaporó, dejando atrás todos los minerales disueltos.
+        Así comenzaron a formarse las grandes planicies de sal. Bajo esa costra
+        blanca y brillante, todavía queda agua muy salada, conocida como
+        <strong>salmuera</strong>, donde flotan elementos como el litio, potasio
+        y magnesio.
+      </p>
+
+      <div className="sabias-que-box">
+        <h5 className="sabias-que-titulo">¿Sabías qué...?</h5>
+        <p className="sabias-que-texto">
+          El litio que permite que funcionen los celulares, notebooks y autos
+          eléctricos se extrae, en gran parte, de las salmueras escondidas bajo
+          los salares del noroeste argentino. La Puna forma parte del{" "}
+          <strong>Triángulo del Litio</strong>, una de las regiones más
+          estratégicas del planeta.
+        </p>
+      </div>
+
+      {/* --- MODIFICADO: Usamos el nuevo componente de carrusel --- */}
+{/*       <CarouselGallery images={galeriaSalares} title="Salares de la Puna" />
+ */}
+      <h3 className="sala-contenido-subtitulo">
+        El lenguaje secreto de la Puna
+      </h3>
+      <p className="sala-contenido-parrafo">
+        Aunque parezca un paisaje detenido en el tiempo, la Puna está en
+        constante transformación. La falta de lluvias, el viento seco y el sol
+        abrasador del día, seguidos por noches heladas, son verdaderos
+        escultores del paisaje. La roca se quiebra, se convierte en grava, y
+        lentamente, el desierto se expande. Pero los habitantes de la región han
+        aprendido a leer esas señales. Los “cerros brujos” les hablan del cielo,
+        del agua y del viento.
+      </p>
+
+      <h4 className="sala-contenido-subtitulo-menor">
+        Los cerros brujos: sabiduría ancestral del clima
+      </h4>
+      <p className="sala-contenido-parrafo">
+        Los pueblos originarios del altiplano no usan apps meteorológicas.
+        Durante generaciones han observado cómo se comportan las nubes alrededor
+        de los cerros:
+      </p>
+      <ul className="sala-contenido-lista">
+        <li>
+          <strong>¿Una corona blanca sobre la cima?</strong> Puede nevar.
+        </li>
+        <li>
+          <strong>¿Nubes que se aferran a la ladera?</strong> Se aproxima
+          humedad.
+        </li>
+      </ul>
+      <p className="sala-contenido-parrafo">
+        Estos cerros “avisadores” son parte del paisaje… y del conocimiento
+        local.
+      </p>
     </article>
   );
 };

@@ -1,91 +1,166 @@
+// src/components/Salas/SalaBiodiversidad.jsx
+
 import React from "react";
-import "../SalaBiodiversidad.css"; // <<< --- IMPORTA EL NUEVO CSS
+// Importamos el CSS de Geología porque usaremos los mismos estilos base
+import "./SalaGeologia.css";
+// Y un CSS específico para Biodiversidad si necesitamos ajustes
+import '../SalaBiodiversidad.css';
 
-// --- Organizar datos en un array para facilitar el renderizado ---
-// --- Reemplaza '/ruta/a/tu/imagenX.jpg' con las rutas correctas, ej: '/img/biodiversidad/paisaje_puna.jpg' ---
-const biodiversidadData = [
-  {
-    // No necesita título, es la introducción
-    image: "punaBiodiversidad.jfif",
-    alt: "Paisaje característico de la Puna andina",
-    text: "<strong>La Puna es una de las ecorregiones más exigentes para la vida.</strong> Las plantas y animales que habitan aquí han desarrollado adaptaciones sorprendentes para sobrevivir al clima extremo, la escasez de agua y alimentos, y los efectos de la gran altitud.",
-    isIntro: true, // Flag para posible estilo diferente
-  },
-  {
-    title: "La Vicuña: Símbolo de Adaptación",
-    image: "vicuñaBiodiversidad.jfif",
-    alt: "Vicuña pastando en la Puna",
-    text: "El animal más representativo de la Puna es pequeño y no demanda mucho alimento. Tiene dientes insólitos, finos y de crecimiento continuo para cortar y no arrancar la vegetación. No erosiona el suelo porque posee unas almohadillas en sus patas. Puede cerrar a voluntad su nariz para evitar que los fuertes vientos introduzcan cuerpos extraños. Tiene una forma de glóbulos rojos y una hemoglobina que son muy eficientes para la captación del escaso oxígeno.",
-  },
-  {
-    title: "Roedores y Carnívoros: Habitantes Discretos",
-    image: "zorroAndinoBiodiversidad.jfif",
-    alt: "Chinchilla, un roedor de la Puna",
-    text: "En los roquedales de los cerros viven el chinchillón, la chinchilla real, la chinchilla chica y la rata chinchilla. Buscando roedores y otras presas, aparecen el zorro colorado, el gato de los pajonales, el hurón y el zorrino rey.",
-  },
-  {
-    title: "Aves Acuáticas: Vida en las Lagunas Altoandinas",
-    image: "flamencosBiodiversidad.jfif",
-    alt: "Flamencos andinos en una laguna de la Puna",
-    text: "En las grandes lagunas vive una enorme cantidad de aves acuáticas. Algunas son migratorias como los chorlos y playeros, y otras son residentes como el chorlito puneño, el chorlito de vincha, el pato serrano, la avoceta andina, la gaviota andina y la guallata andina. Entre las más notorias por su colorido y apariencia encontramos a la parina grande o flamenco andino, la parina chica o flamenco de James y el flamenco austral.",
-  },
-  {
-    title: "Flora Resiliente: Estrategias de Supervivencia",
-    image: "yaretaBiodiversidad.jfif",
-    alt: "Planta de Yareta creciendo en forma compacta",
-    text: "Para sobrevivir a la escasez de agua, las plantas crecen dispersas para aprovecharla al máximo, reducen todo lo posible la evaporación desarrollando hojas pequeñas y suaves, crecen en forma rastrera como la yareta, así evitan la desecación que provocan los fuertes vientos de la Puna. Los cardones almacenan agua en sus tejidos aéreos, otras lo hacen en estructuras subterráneas (bulbos, rizomas, tubérculos, etc.) como la papa silvestre.",
-  },
-  {
-    title: "Arbustos y el Árbol de las Alturas",
-    image: "bosquesilloBiodiversidad.jfif",
-    alt: "Bosquecillo de Queñoa en la Puna",
-    text: "La vegetación predominante en la Puna son los arbustos bajos como la tola y la tolilla. La queñoa es el único árbol que crece entre los 3000 y 4300 metros de altura sobre el nivel del mar.",
-  },
-  {
-    title: "Las Vegas: Oasis de Biodiversidad",
-    image: "vegasBiodiversidad.jfif",
-    alt: "Una vega o bofedal con pasto verde en la Puna",
-    text: "Todo desierto tiene sus oasis; las vegas son los humedales de la Puna. En ellas se acumula agua de vertiente y se genera un micro ecosistema que permite la supervivencia de las especies nativas y domesticadas, así como también la del hombre.",
-  },
-];
+// --- Importaciones de Swiper (necesarias para el carrusel) ---
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-export const SalaBiodiversidad = () => {
-  return (
-    <article className="sala-biodiversidad-container">
-      <h2 className="sala-contenido-titulo-principal">
-        BIODIVERSIDAD DE LA PUNA
-      </h2>
-
-      {biodiversidadData.map((item, index) => (
-        <section
-          key={index}
-          // Alternar layout, excepto quizás para la intro si se quiere diferente
-          className={`bio-content-block ${
-            !item.isIntro && index % 2 !== 0 ? "reverse" : ""
-          } ${item.isIntro ? "intro-block" : ""}`}
-        >
-          <figure className="bio-image-container">
-            <img
-              src={`${import.meta.env.BASE_URL}${item.image}`}
-              alt={item.alt}
-              className="bio-image"
-              loading="lazy" // Carga diferida para imágenes no iniciales
-            />
-          </figure>
-          <div className="bio-text-container">
-            {/* Mostrar subtítulo si existe */}
-            {item.title && (
-              <h3 className="bio-section-subtitle">{item.title}</h3>
-            )}
-            {/* Usar dangerouslySetInnerHTML solo si confías plenamente en el origen del texto (o sanitizarlo)
-                Alternativa más segura: procesar el <strong> en CSS o usar un componente específico */}
-            <p
-              className="bio-text"
-              dangerouslySetInnerHTML={{ __html: item.text }}
-            ></p>
-          </div>
-        </section>
+// --- Componente de Carrusel reutilizable ---
+const CarouselGallery = ({ images, title }) => (
+  <div className="carousel-wrapper">
+    {title && <h4 className="gallery-title">{title}</h4>}
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      navigation={true}
+      pagination={{ clickable: true }}
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      className="sala-carousel"
+    >
+      {images.map((imgSrc, index) => (
+        <SwiperSlide key={index}>
+          <img
+            src={imgSrc}
+            alt={`${title || "Galería de Biodiversidad"} - Imagen ${index + 1}`}
+            className="carousel-image"
+            loading="lazy"
+          />
+        </SwiperSlide>
       ))}
+    </Swiper>
+  </div>
+);
+
+// --- COMPONENTE PRINCIPAL DE LA SALA ---
+export const SalaBiodiversidad = () => {
+  // --- Define aquí las rutas a tus imágenes (deben estar en la carpeta /public) ---
+  const galeriaIntroduccion = [
+    import.meta.env.BASE_URL + "bio_1.JPG",
+    import.meta.env.BASE_URL + "bio_2.JPG",
+    import.meta.env.BASE_URL + "bio_3.JPG",
+    import.meta.env.BASE_URL + "bio_4.JPG",
+    import.meta.env.BASE_URL + "bio_5.JPG",
+  ];
+
+  const galeriaAves = [
+    import.meta.env.BASE_URL + "ave_1.JPG",
+    import.meta.env.BASE_URL + "ave_2.JPG",
+    import.meta.env.BASE_URL + "ave_3.JPG",
+    import.meta.env.BASE_URL + "ave_4.JPG",
+    import.meta.env.BASE_URL + "ave_5.JPG",
+    import.meta.env.BASE_URL + "ave_6.JPG",
+  ];
+
+  return (
+    <article className="sala-contenido-container">
+      <h2 className="sala-contenido-titulo-principal">BIODIVERSIDAD: LA VIDA EN LA PUNA</h2>
+
+      <h3 className="sala-contenido-subtitulo">¿Cómo sobrevive la vida en la Puna?</h3>
+      <p className="sala-contenido-parrafo">
+        En este ambiente tan extremo, todo está diseñado para resistir:
+      </p>
+      <ul className="sala-contenido-lista">
+        <li>Algunas plantas almacenan agua como una esponja.</li>
+        <li>Otras tienen hojas pequeñas, duras o cubiertas de pelusa para evitar la pérdida de humedad.</li>
+        <li>Los animales tienen patas acolchadas para caminar en suelos áridos o pelajes densos para soportar el frío.</li>
+        <li>Las aves vuelan más bajo para conservar energía en un aire con menos oxígeno.</li>
+      </ul>
+      <p className="sala-contenido-parrafo">
+        Muchas especies son <strong>endémicas</strong>: sólo viven en la Puna. Eso significa que este ecosistema es frágil, único y digno de ser protegido.
+      </p>
+
+      <CarouselGallery images={galeriaIntroduccion} title="Especies adaptadas al entorno" />
+
+      <h3 className="sala-contenido-subtitulo">Las plantas: especialistas del desierto alto</h3>
+      <p className="sala-contenido-parrafo">
+        La vegetación en la Puna parece poca, pero cada planta está perfectamente adaptada:
+      </p>
+      <ul className="sala-contenido-lista">
+        <li>Crecen separadas unas de otras para no competir por el agua.</li>
+        <li>Reducen sus hojas a espinas o formas pequeñas para evitar la evaporación.</li>
+        <li>Muchas se arrastran pegadas al suelo, como la yareta, para protegerse del viento.</li>
+        <li>Otras, como los cardones, almacenan agua en sus tallos; y algunas, como la papa silvestre, lo hacen bajo tierra en estructuras como rizomas o tubérculos.</li>
+      </ul>
+      <p className="sala-contenido-parrafo">
+        Por estas razones la vegetación predominante en la Puna son los arbustos bajos como la <strong>Tola</strong> y la <strong>Tolilla</strong>, que parecen humildes… pero son verdaderas maestras de la supervivencia.
+      </p>
+
+      <div className="imagen-destacada-container">
+        <img src={import.meta.env.BASE_URL + "Tola.jpg"} alt="Planta de Tola en la Puna" className="imagen-destacada" />
+      </div>
+
+      <div className="sabias-que-box">
+        <h5 className="sabias-que-titulo">El Árbol de las Alturas</h5>
+        <p className="sabias-que-texto">
+          La <strong>queñoa</strong> es el único árbol que crece entre los 3500 y 4300 metros de altura sobre el nivel del mar.
+        </p>
+        <img src={import.meta.env.BASE_URL + "Quenoa.jpg"} alt="Bosquecillo de Queñoa" className="imagen-en-box" />
+      </div>
+      
+      <h3 className="sala-contenido-subtitulo">La vicuña: hecha a medida para la altura</h3>
+      <p className="sala-contenido-parrafo">
+        Pequeña, ligera y eficiente, la vicuña es el animal más emblemático de la Puna.
+      </p>
+      <ul className="sala-contenido-lista">
+        <li>Tiene almohadillas en las patas que no erosionan el suelo.</li>
+        <li>Sus incisivos afilados cortan los brotes sin arrancarlos.</li>
+        <li>Puede cerrar sus fosas nasales para protegerse del viento.</li>
+        <li>Y su sangre contiene glóbulos rojos especiales que aprovechan al máximo el poco oxígeno del aire.</li>
+      </ul>
+      <p className="sala-contenido-parrafo">
+        Vivir en altura es difícil. Pero la vicuña lo hace con elegancia.
+      </p>
+      
+      <div className="imagen-destacada-container">
+        <img src={import.meta.env.BASE_URL + "vicuna_montana.JPG"} alt="Vicuña en un paisaje montañoso de la Puna" className="imagen-destacada" />
+      </div>
+
+      <h3 className="sala-contenido-subtitulo">Pequeños mamíferos, grandes especialistas</h3>
+      <p className="sala-contenido-parrafo">
+        En los cerros y roquedales, muchas especies se ocultan de la vista. Los roedores como el <strong>chinchillón</strong>, la <strong>chinchilla real</strong> o la <strong>rata chinchilla</strong> son los más comunes, y dan alimento a pequeños carnívoros como:
+      </p>
+      <ul className="sala-contenido-lista">
+          <li>El zorro colorado,</li>
+          <li>El gato de los pajonales,</li>
+          <li>El hurón,</li>
+          <li>Y el zorrino real.</li>
+      </ul>
+      <p className="sala-contenido-parrafo">
+        Aunque discretos, todos juegan un rol clave en el equilibrio del ecosistema.
+      </p>
+       <div className="imagen-destacada-container">
+        <img src={import.meta.env.BASE_URL + "Chinchilla.jpg"} alt="Zorro colorado andino" className="imagen-destacada" />
+      </div>
+
+      <h3 className="sala-contenido-subtitulo">Aves que llenan de vida las lagunas de altura</h3>
+      <p className="sala-contenido-parrafo">
+        Donde hay agua, hay vida. En las grandes lagunas de la Puna se concentran cientos de aves, tanto residentes como migratorias. Vas a poder reconocer a:
+      </p>
+      <ul className="sala-contenido-lista">
+        <li>El chorlito puneño,</li>
+        <li>El chorlito de vincha,</li>
+        <li>El tero serrano,</li>
+        <li>La avoceta andina,</li>
+        <li>La becasina andina y</li>
+        <li>La gaviota andina, entre muchas otras.</li>
+      </ul>
+      <p className="sala-contenido-parrafo">
+        Algunas viajan miles de kilómetros cada año. Otras viven aquí todo el tiempo. Juntas, llenan de movimiento el cielo del altiplano.
+      </p>
+
+      <CarouselGallery images={galeriaAves} title="Aves de las Lagunas Altoandinas" />
+
     </article>
   );
 };

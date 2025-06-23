@@ -75,9 +75,9 @@
     /* Hereda MuseoSans */
     font-size: clamp(1.1rem, 3vw, 1.3rem);
     font-weight: 500; /* MuseoSans 500 */
-    line-height: 1.7;
+    /* line-height: 1.7; */
     color: rgba(255, 255, 255, 0.9); /* Blanco semi-opaco */
-    margin-bottom: 2.5rem; /* Espacio antes del hint */
+    /* margin-bottom: 2.5rem; */ /* Espacio antes del hint */
   }
   
   .sala-intro-click-hint {

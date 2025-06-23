@@ -25,7 +25,7 @@ import { SalaSanAntonioHoy } from "./SalaSanAntonioHoy";
 // Añade imports para Arqueología, San Antonio Hoy si los tienes
 
 // --- Importa tus componentes de DETALLE (Incluso si aún no existen) ---
-import { SalaGeologiaDetalle } from "./SalaGeologiaDetalle";
+
 // import { SalaBiodiversidadDetalle } from "./SalaBiodiversidadDetalle"; // <- Cuando la crees
 // import { SalaArqueologiaDetalle } from "./SalaArqueologiaDetalle"; // <- Cuando la crees
 // etc.
@@ -59,13 +59,11 @@ const salasData = {
     title: "SALA DE GEOLOGÍA",
     image: "imagen_to_salas.webp",
     description: `
-    Bienvenido a la sala de geología. Fuerzas de la Tierra en lo más alto de los Andes. Esta sala te invita a conocer los paisajes extremos y sorprendentes que forman parte de la Puna salteña: un territorio donde la Tierra todavía está viva. En esta región de gran altura, los volcanes dormidos, los géiseres humeantes, los salares brillantes y las extrañas formaciones rocosas son el resultado de procesos geológicos que siguen en marcha, moldeando el paisaje día a día.
+    Bienvenidos a la sala donde la Tierra cuenta su historia más profunda.
+En este espacio, te invitamos a viajar al corazón geológico de la Puna, una región moldeada por la fuerza de los volcanes, el calor oculto de los géiseres y la calma brillante de los salares.
+Aquí vas a descubrir cómo, a lo largo de millones de años, la actividad del planeta dio forma a paisajes extremos y únicos. Cada montaña, cada cristal de sal y cada vapor que emerge del suelo nos habla de un mundo en constante transformación.
+Tocá, explorá y observá: la geología no es solo ciencia, es el relato vivo del origen de todo lo que pisamos.
 
-* Cómo se forman los volcanes.
-
-* Qué son los géiseres.
-
-* Por qué se forman los salares y qué minerales se esconden en ellos.
     `,
   },
   minerologia_y_mineria: {
@@ -85,15 +83,17 @@ const salasData = {
   biodiversidad: {
     title: "BIODIVERSIDAD",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Biodiversidad. En esta sala vas a conocer las formas de vida que habitan uno de los ambientes más extremos del planeta: la Puna andina. A más de 3.500 metros de altura, con frío intenso, poca lluvia y mucho viento, la naturaleza se adapta de manera sorprendente. Animales, plantas y microorganismos desarrollaron estrategias únicas para sobrevivir y convivir con el paisaje.
+    description: `
+    En esta sala vas a descubrir cómo la vida logra adaptarse y prosperar en uno de los ambientes más extremos del planeta: la Puna andina.
+A más de 3.500 metros sobre el nivel del mar, con aire seco, lluvias escasas, temperaturas bajo cero por la noche y un sol intenso durante el día, la vida enfrenta desafíos constantes.
+Sin embargo, la naturaleza responde con estrategias sorprendentes:
+•	Algunas plantas crecen muy cerca del suelo para protegerse del viento.
+•	Muchos animales cambian de color, migran o modifican sus hábitos para sobrevivir.
+•	Incluso los organismos más pequeños desarrollan defensas especiales frente a la fuerza del sol en altura: algunos producen pigmentos oscuros, otros se refugian bajo piedras o en grietas del suelo.
+La biodiversidad en la Puna no es abundante, pero sí muy especializada. Cada especie que vive aquí forma parte de una red delicada, moldeada por millones de años de adaptación.
+Mientras recorrés esta sala, te invitamos a mirar con atención: la vida en altura no es solo resistencia, es inteligencia natural en acción.
 
-* Descubrir especies emblemáticas como la vicuña, el suri o el cardón.
-
-* Conocer cómo los pueblos originarios aprendieron a vivir en equilibrio con este entorno.
-
-* Entender la importancia de conservar esta biodiversidad única y frágil.
-
-* Sorprenderte con pequeños ecosistemas ocultos entre salares, lagunas y montañas.`,
+    `,
   },
   arqueologia: {
     title: "ARQUEOLOGÍA",
@@ -151,7 +151,7 @@ const salasData = {
 
 // --- Mapeo de IDs a componentes PRINCIPALES ---
 const salaComponentMap = {
-  /* geologia: SalaGeologia, */
+  geologia: SalaGeologia,
   biodiversidad: SalaBiodiversidad,
   /* ramal_c14: SalaRamalC14, */
   gobernacion_de_los_andes: SalaGobernacionAndes,
@@ -163,34 +163,15 @@ const salaComponentMap = {
 
 // --- NUEVO: Mapeo de IDs a componentes de DETALLE ---
 const salaDetailComponentMap = {
-  geologia: SalaGeologiaDetalle,
+  /* geologia: SalaGeologiaDetalle, */
   // biodiversidad: SalaBiodiversidadDetalle, // <- Descomenta cuando exista
   // arqueologia: SalaArqueologiaDetalle,     // <- Descomenta cuando exista
   // Añade aquí los mapeos para otras salas con detalle
 };
 
 
-// --- Reemplaza tu constante temasGeologia con esta ---
-const temasGeologia = [
-  {
-    id: "volcanes",
-    title: "Volcanes",
-    description: "Conoce las gigantescas fuerzas que moldean los Andes.",
-    icon: <FireOutlined style={{ fontSize: "2.5em", marginBottom: "0.5em" }} />,
-  },
-  {
-    id: "geiser",
-    title: "Géiseres",
-    description: "Descubre el vapor de la Tierra emergiendo a la superficie.",
-    icon: <RiseOutlined style={{ fontSize: "2.5em", marginBottom: "0.5em" }} />,
-  },
-  {
-    id: "salares",
-    title: "Salares",
-    description: "Explora los desiertos de sal y su riqueza mineral.",
-    icon: <AppstoreOutlined style={{ fontSize: "2.5em", marginBottom: "0.5em" }} />,
-  },
-];
+
+
 import { CloudServerOutlined, ClockCircleOutlined } from "@ant-design/icons"; // Ejemplos
 // --- NUEVO: Datos subtemas Ramal C-14 ---
 const temasRamal = [
@@ -249,8 +230,8 @@ export const Sala = () => {
   // --- LÓGICA PARA DETERMINAR EL COMPONENTE DE DETALLE ---
   const DetailComponent = salaDetailComponentMap[salaId] || null; // Busca en el nuevo mapa
 
-  // --- NUEVO: Determina si esta sala es la de geología ---
-  const esSalaGeologia = salaId === "geologia";
+
+
 
   const esSalaRamal = salaId === "ramal_c14"; // <-- NUEVO check
 
@@ -286,9 +267,8 @@ const estamosEnRutaBaseSala = !detailId;
   // 1. Es Geología O Ramal Y estamos EXACTAMENTE en su ruta base
   // 2. NO es Geología NI Ramal Y el estado dice que NO la ocultemos todavía
   const mostrarSeccionIntro =
-    (esSalaGeologia && estamosEnRutaBaseSala) ||
     (esSalaRamal && estamosEnRutaBaseSala) ||
-    (!esSalaGeologia && !esSalaRamal && !ocultarIntroNormal);
+    (!esSalaRamal && !ocultarIntroNormal);
 
   // Si la entrada en salasData no existe en absoluto
   if (!sala) {
@@ -301,7 +281,7 @@ const estamosEnRutaBaseSala = !detailId;
 
   // Función para manejar el click en la intro (SOLO si NO es geología)
   const handleIntroClick = () => {
-    if (!esSalaGeologia && !esSalaRamal) {
+    if (!esSalaRamal) {
       // <-- Solo navega si NO es geología
       //setBandImg(false); // Oculta la intro y muestra el contenido
       setOcultarIntroNormal(true);
@@ -309,13 +289,7 @@ const estamosEnRutaBaseSala = !detailId;
     // Si es geología, no hace nada al hacer click en el fondo/texto
   };
 
-  // Función para manejar el click en las tarjetas de geología
-  const handleGeologiaCardClick = (subtemaId) => {
-    /*     navigate(`/salas/geologia/${subtemaId}`); // Navega al detalle
-     */
-    // Navega a la ruta hija relativa: ':id' se reemplazará por subtemaId
-    navigate(subtemaId);
-  };
+  
 
   const handleSubtemaCardClick = (subtemaId) => {
     navigate(subtemaId);
@@ -341,7 +315,6 @@ const estamosEnRutaBaseSala = !detailId;
         <div
           className="sala-intro-hero"
           onClick={handleIntroClick}
-          style={{ cursor: esSalaGeologia ? "default" : "pointer" }}
         >
           {/* --- BOTÓN VOLVER (AHORA FUERA DEL CONDICIONAL) --- */}
           <Button
@@ -431,53 +404,6 @@ const estamosEnRutaBaseSala = !detailId;
 
               {/* --- FIN: Bloque Modificado --- */}
             </p>
-{esSalaGeologia && (
-    <div className="ramal-subtemas-en-intro"> {/* Usamos la misma clase base */}
-        <h2 className="ramal-subtemas-titulo"> {/* Usamos la misma clase base */}
-            Explora los temas:
-        </h2>
-        <div className="sala-subtemas-grid ramal-choices-container">
-            {temasGeologia.map((tema, index) => (
-                <article
-                    key={tema.id}
-                    className="sala-subtema-card-immersive ramal-card-no-image"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        handleGeologiaCardClick(tema.id); // <- Asegúrate que use la función de Geología
-                    }}
-                    style={{
-                        animationDelay: `${index * 0.12}s`,
-                    }}
-                    tabIndex="0"
-                    role="link"
-                    aria-label={`Explorar ${tema.title}`}
-                >
-                    <div className="sala-subtema-content-overlay ramal-overlay-layout">
-                        <div className="ramal-card-main-content">
-                            {/* ¡Ahora esto funcionará porque 'tema' tiene 'icon'! */}
-                            {tema.icon && (
-                                <div className="ramal-card-icon-wrapper">
-                                    {tema.icon}
-                                </div>
-                            )}
-                            <h3 className="sala-subtema-title">{tema.title}</h3>
-                            {/* ¡Y esto también funcionará! */}
-                            <p className="ramal-card-description">
-                                {tema.description}
-                            </p>
-                        </div>
-                        <span
-                            className="sala-subtema-indicator ramal-indicator"
-                            aria-hidden="true"
-                        >
-                            Explorar →
-                        </span>
-                    </div>
-                </article>
-            ))}
-        </div>
-    </div>
-)}
 
             {/* --- Tarjetas Ramal C14 --- */}
             {esSalaRamal && (
@@ -536,7 +462,7 @@ const estamosEnRutaBaseSala = !detailId;
             )}
 
             {/* Pista de click (Asegúrate que esta condición también incluya !esSalaRamal) */}
-            {!esSalaGeologia && !esSalaRamal && (
+            {!esSalaRamal && (
               <div className="sala-intro-click-hint">
                 <span>Toca o haz click para explorar</span>
               </div>
@@ -572,7 +498,7 @@ export const SalaPrincipal = () => {
   const ContentComponent = salaComponentMap[salaId] || null;
 
   // Si es Geología O Ramal -> null
-  if (salaId === "geologia" || salaId === "ramal_c14") {
+  if (salaId === "ramal_c14") {
     // <-- AÑADIDO RAMAL
     return null;
   }

@@ -1,0 +1,381 @@
+/* src/components/Salas/SalaGeologia.css */
+
+/* --- Contenedor Principal y Estilos de Texto --- */
+
+/* Asume que tienes estas variables definidas globalmente en tu :root */
+:root {
+    --primary-color: #8b4513;
+    --text-dark: #333;
+    --text-muted: #6c757d;
+    --bg-light-accent: #f8f5f2;
+    --border-radius-md: 8px;
+  }
+  
+  .sala-contenido-container {
+    max-width: 800px; /* Ancho máximo para legibilidad */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 1rem 1.5rem;
+    font-family: "MuseoSans", sans-serif; /* Asegura la fuente global */
+    color: var(--text-dark);
+  }
+  
+  .sala-contenido-titulo-principal {
+    text-align: center;
+    color: var(--primary-color);
+    margin: 1rem 0 2.5rem 0;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  .sala-contenido-subtitulo {
+    color: var(--primary-color);
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(139, 69, 19, 0.2);
+    padding-bottom: 0.5rem;
+  }
+  
+  .sala-contenido-subtitulo-menor {
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+    font-weight: 700;
+    color: #5a3a22; /* Un tono más oscuro del primario */
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .sala-contenido-parrafo {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+  
+  .sala-contenido-lista {
+    list-style-type: '→ '; /* Usar un emoji o un string como marcador */
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sala-contenido-lista li {
+    padding-left: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  
+  
+  /* --- NUEVO: Estilos para el Carrusel Swiper --- */
+
+.carousel-wrapper {
+    margin: 2.5rem 0;
+  }
+  
+  /* Título que va sobre el carrusel */
+  .gallery-title {
+    text-align: center;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Contenedor principal del carrusel */
+  .sala-carousel {
+    width: 100%;
+    height: 500px; /* Altura del carrusel, ajústala a tu gusto */
+    border-radius: var(--border-radius-md);
+    overflow: hidden; /* Muy importante para que las flechas no se salgan */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .carousel-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre todo el slide sin deformarse */
+  }
+  
+  /* --- Estilos para las flechas de navegación --- */
+  .sala-carousel .swiper-button-next,
+  .sala-carousel .swiper-button-prev {
+    /* Usa el color primario de tu tema */
+    color: var(--primary-color);
+    /* Fondo semitransparente para que se vean bien sobre cualquier imagen */
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%; /* Círculos perfectos */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Ajuste del tamaño del icono de la flecha */
+  .sala-carousel .swiper-button-next::after,
+  .sala-carousel .swiper-button-prev::after {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .sala-carousel .swiper-button-next:hover,
+  .sala-carousel .swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+  }
+  
+  
+  /* --- Estilos para los puntos de paginación --- */
+  .sala-carousel .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.8); /* Puntos blancos */
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .sala-carousel .swiper-pagination-bullet-active {
+    background-color: var(--primary-color); /* Punto activo con el color primario */
+    transform: scale(1.2);
+  }
+  
+  /* --- Ajustes Responsivos para el carrusel --- */
+  @media (max-width: 768px) {
+    .sala-carousel {
+      height: 400px; /* Menor altura en tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sala-carousel {
+      height: 300px; /* Menor altura en móviles */
+    }
+  
+    .sala-carousel .swiper-button-next,
+    .sala-carousel .swiper-button-prev {
+      width: 38px;
+      height: 38px;
+    }
+  
+    .sala-carousel .swiper-button-next::after,
+    .sala-carousel .swiper-button-prev::after {
+      font-size: 1rem;
+    }
+  }
+  
+  /* --- Imagen Destacada (Esquema Volcán) --- */
+  .imagen-destacada-container {
+    margin: 2.5rem 0;
+  }
+  .imagen-destacada {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* --- Video Responsivo --- */
+  .video-responsive-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    margin: 2rem 0 0.5rem 0;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .video-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+  
+  
+  /* --- Caja de "Sabías qué..." --- */
+  .sabias-que-box {
+    background-color: var(--bg-light-accent);
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+  .sabias-que-titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  .sabias-que-texto {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+    color: var(--text-dark);
+  }
+
+
+
+
+
+
+
+  /* SalaGeologiaDetalleVolcanes3D.css */
+
+/* Contenedor general de la sección 3D */
+.volcanes-3d-gallery-section {
+    margin-top: 4rem;
+    padding: 3rem 0; /* Padding vertical, sin padding horizontal */
+    background-color: var(--color-dark-theart, #1a1a1a);
+    color: var(--color-text-light-theart, #f0f0f0);
+    border-radius: var(--border-radius-sala, 6px); /* O sin radius si ocupa todo el ancho */
+}
+
+.volcanes-3d-gallery-title {
+/*     font-family: var(--font-heading-sala, 'Playfair Display', serif);
+ */    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: inherit; /* Hereda color del contenedor */
+    text-align: center;
+    margin-bottom: 1rem; /* Menos margen si las instrucciones van debajo */
+    padding-bottom: 0.8rem;
+    border-bottom: 3px solid var(--color-accent-sala, #c8a07d);
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.volcano-explorer-container {
+    width: 100%;
+    height: 70vh; /* ALTURA DEFINIDA PARA EL CANVAS 3D - ¡MUY IMPORTANTE! */
+    max-height: 600px; /* Limitar altura máxima si es necesario */
+    cursor: grab; /* Indicar que se puede interactuar */
+    margin-bottom: 1rem;
+}
+.volcano-explorer-container:active {
+    cursor: grabbing;
+}
+
+.volcano-explorer-instructions {
+    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-grey-light-theart, #aaa);
+    padding: 0 1rem;
+}
+
+/* --- Estilos para el Panel de Información HTML Flotante --- */
+.volcano-info-panel {
+    background-color: rgba(40, 40, 40, 0.9); /* Fondo oscuro para el panel */
+    color: var(--color-text-light-theart, #f0f0f0);
+    padding: 15px 20px;
+    border-radius: var(--border-radius-sala, 6px);
+    width: 220px; /* Ancho fijo para el panel */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* pointer-events: none; Ya aplicado inline, pero por si acaso */
+}
+
+.volcano-info-panel h4 {
+/*     font-family: var(--font-heading-sala, 'Playfair Display', serif);
+ */    font-size: 1.1rem;
+    color: #fff; /* Blanco puro para el título del panel */
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-accent-sala, #c8a07d);
+    padding-bottom: 5px;
+}
+
+.volcano-info-panel p {
+    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    font-size: 0.8rem;
+    color: var(--color-grey-light-theart, #aaa);
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.volcano-info-panel .anticon {
+    color: var(--color-accent-sala, #c8a07d);
+    font-size: 0.9em;
+}
+
+
+/* -------------------------------- */
+
+/* SalaGeologiaDetalleVolcanes3D.css - Actualizaciones */
+
+/* ... (Estilos generales de la sección y título como antes) ... */
+
+.volcano-explorer-container {
+    /* ... (Mantener altura y cursor) ... */
+    background-color: #0a0a0a; /* Fondo del canvas un poco más oscuro si se desea */
+}
+
+/* --- Estilos para el Panel de Información HTML EN VISTA DETALLADA --- */
+.volcano-info-panel.detailed-view { /* Estilos específicos para cuando está enfocado */
+    background-color: rgba(30, 30, 30, 0.95); /* Fondo más opaco */
+    color: var(--color-text-light-theart, #f0f0f0);
+    padding: 20px 25px;
+    border-radius: var(--border-radius-sala, 6px);
+    width: 260px; /* Un poco más ancho */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px); /* Más blur */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.volcano-info-panel.detailed-view h4 {
+    font-size: 1.3rem; /* Título más grande en detalle */
+    color: var(--color-accent-sala, #c8a07d); /* Usar color acento para el título */
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-accent-sala, #c8a07d);
+}
+
+.volcano-info-panel.detailed-view p {
+    font-size: 0.9rem; /* Texto de metadata un poco más grande */
+    color: var(--color-grey-light-theart, #ccc); /* Ligeramente más claro */
+    margin: 8px 0;
+}
+.volcano-info-panel.detailed-view .anticon {
+    color: var(--color-accent-sala, #c8a07d);
+    font-size: 1em; /* Ajustar tamaño si es necesario */
+}
+
+/* --- Botón para cerrar la vista enfocada --- */
+.close-focus-button {
+    position: fixed; /* O absolute si el canvas no es full viewport */
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100; /* Encima de otros elementos */
+    padding: 10px 25px;
+    background-color: var(--color-accent-sala, #c8a07d);
+    color: var(--color-dark-theart, #1a1a1a);
+    border: none;
+    border-radius: 25px;
+    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.close-focus-button:hover {
+    background-color: var(--color-text-light-theart, #f0f0f0);
+    transform: translateY(-2px) scale(1.02);
+}
