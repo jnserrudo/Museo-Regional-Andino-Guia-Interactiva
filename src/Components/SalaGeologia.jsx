@@ -1,6 +1,6 @@
 // src/components/Salas/SalaGeologia.jsx
 
-import React from "react";
+import React, { useRef , useState} from "react";
 // Importa el CSS que ya teníamos
 import "./SalaGeologia.css";
 
