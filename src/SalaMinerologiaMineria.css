@@ -42,7 +42,7 @@
 .sala-minerologia-subtitulo {
   font-size: clamp(1.5rem, 4vw, 2rem); /* Tamaño adaptable REM */
   font-weight: 600; /* Semi-bold */
-  color: var(--secondary-color, #A0522D); /* Color secundario */
+  color: var(--primary-color); /* Color secundario */
   text-align: center;
   margin-bottom: 2rem; /* Espacio antes del contenido */
   position: relative;
@@ -748,4 +748,124 @@ gap: 2rem; /* Mantener o ajustar gap */
     .mineral-card-image-wrapper {
         height: 200px;
     }
+}
+
+
+
+
+/* --- NUEVO: Estilos para la Sección de Testigos --- */
+
+/* Contenedor general de la sección para darle un margen superior */
+.seccion-testigos {
+  margin-top: 3rem;
+  border-top: 1px solid #e0e0e0; /* Línea separadora opcional */
+  padding-top: 1.5rem;
+}
+
+/* Contenedor para cada item de testigo (título, texto, imagen) */
+.testigo-item {
+  margin-bottom: 3.5rem; /* Espacio vertical entre cada testigo */
+}
+
+/* Hereda el estilo de .sala-contenido-subtitulo, pero lo re-declaramos para claridad */
+.seccion-testigos .sala-contenido-subtitulo {
+  color: var(--primary-color);
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin-bottom: 1rem;
+}
+
+/* Hereda .sala-contenido-subtitulo-menor, re-declarado para claridad */
+.testigo-item .sala-contenido-subtitulo-menor {
+  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  color: var(--primary-color);
+  margin-top: 0; /* Reseteamos el margen superior porque .testigo-item ya lo controla */
+}
+
+/* Hereda .sala-contenido-parrafo */
+.testigo-item .sala-contenido-parrafo {
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* --- NUEVO: Estilos para las imágenes de los testigos --- */
+
+.imagen-testigo {
+  display: block; /* Para poder centrarla con márgenes */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  
+  /* --- CLAVE: Control de Tamaño --- */
+  max-width: 100%;    /* La imagen nunca será más ancha que su contenedor */
+  width: auto;        /* La imagen usará su ancho natural, sin estirarse */
+  max-height: 250px;  /* Altura máxima para evitar que sea demasiado grande */
+  
+  /* --- Estilos visuales consistentes --- */
+  border-radius: var(--border-radius-md, 8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- NUEVO: Estilos para la Colección de Boratos --- */
+
+.boratos-section {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.boratos-collection-intro {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-muted, #6c757d);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.boratos-grid {
+  display: grid;
+  /* Dos columnas en pantallas medianas y grandes */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem; /* Espacio entre las tarjetas */
+}
+
+.borato-item {
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius-md, 8px);
+  padding: 1rem;
+  text-align: center;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.borato-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.borato-caption {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark, #333);
+  margin-bottom: 0.75rem;
+  min-height: 2.5em; /* Asegura altura mínima para alinear si los textos tienen 1 o 2 líneas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.borato-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3; /* Proporción para que todas las imágenes se vean iguales */
+  object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+  border-radius: 4px;
+}
+
+
+/* --- Ajuste para pantallas pequeñas (móviles) --- */
+@media (max-width: 600px) {
+  .boratos-grid {
+    /* Una sola columna en móviles */
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

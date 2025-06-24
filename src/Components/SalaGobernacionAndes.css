@@ -1,13 +1,13 @@
-/* src/components/Salas/SalaHistoria.css */
+/* src/components/Salas/SalaGobernacionAndes.css */
 
-/* Este archivo complementa a SalaGeologia.css, que define los estilos de los títulos y párrafos. */
+/* Este archivo complementa a SalaGeologia.css, que define los estilos base. */
 
 /* Añadimos un margen inferior a cada bloque de texto para separarlos visualmente. */
-.historia-bloque {
+.gobernacion-bloque {
     margin-bottom: 2rem;
   }
   
   /* Opcional: Si quieres que el último bloque no tenga margen inferior */
-  .historia-bloque:last-child {
+  .gobernacion-bloque:last-child {
     margin-bottom: 0;
   }

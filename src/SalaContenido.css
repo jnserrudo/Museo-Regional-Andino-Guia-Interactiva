@@ -68,15 +68,14 @@
 /* Subtítulos dentro del contenido */
 .sala-contenido-subtitulo {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-dark);
+  font-weight: 600;
   margin-bottom: 1rem;
   position: relative;
   padding-left: 1.5rem;
   /* Los subtítulos generalmente se ven mejor alineados a la izquierda */
   text-align: left;
 }
-.sala-contenido-subtitulo::before {
+/* .sala-contenido-subtitulo::before {
   content: '';
   position: absolute;
   left: 0;
@@ -86,19 +85,20 @@
   height: 8px;
   background-color: var(--primary-color);
   border-radius: 50%;
-}
+} */
 
 /* Párrafos de texto */
 .sala-contenido-parrafo {
-  font-weight: 500;
-  font-size: 1.1em;
+  
   color: #495057;
   margin-bottom: 1.5rem;
   /* --- Justificación aplicada siempre --- */
   text-align: justify;
   hyphens: auto; /* Ayuda a la justificación evitando ríos blancos */
 }
-
+strong {
+  color: #495057 !important;
+}
 /* Ajustes responsivos para el contenido */
 @media (max-width: 768px) {
   .sala-contenido-titulo-principal { font-size: clamp(1.6rem, 5vw, 2rem); }

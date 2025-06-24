@@ -5,8 +5,10 @@ import "../SalaMinerologiaMineria.css"; // Importa el CSS
 import { QrcodeOutlined } from "@ant-design/icons"; // Importa el icono QR
 
 // --- Datos Organizados en Arrays ---
-const mineralesCorteza = [
-  // Minerales originales del array (conservados)
+
+// REEMPLAZA TUS DOS ARRAYS ANTERIORES POR ESTE ÚNICO ARRAY
+const minerales = [
+  // Todos los minerales juntos en una sola lista
   {
     id: "calcita",
     img: "/calcita.png",
@@ -16,27 +18,28 @@ const mineralesCorteza = [
     composicion: "Principalmente carbonato de calcio (CaCO3)",
     sistemaCristalografico: "Trigonal",
     etimologia: 'Del latín "calx", que significa cal viva.',
-    propiedadDiagnostica: "Efervescencia con HCl, dureza 3 en escala Mohs, birrefringencia.",
-    importanciaEconomica: "Construcción (cemento, cal), Industria papelera (relleno), plásticos, vidrio, tratamiento de agua, fertilizantes.",
-    genesis: "Sedimentaria, Biológica (conchas, esqueletos), Metamórfica (mármoles).",
+    propiedadDiagnostica:
+      "Efervescencia con HCl, dureza 3 en escala Mohs, birrefringencia.",
+    importanciaEconomica:
+      "Construcción (cemento, cal), Industria papelera (relleno), plásticos, vidrio, tratamiento de agua, fertilizantes.",
+    genesis:
+      "Sedimentaria, Biológica (conchas, esqueletos), Metamórfica (mármoles).",
     yacimientosPuna: ["Yacimientos sedimentarios y metamórficos en la región."],
-    otros: 'Conocida localmente como "cal viva" o "piedra de cal".'
+    otros: 'Conocida localmente como "cal viva" o "piedra de cal".',
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+
   },
+  // REEMPLAZA el objeto 'fluorita' existente con este
   {
-    id: "fluorita",
-    img: "/fluorita.png",
-    nombre: "Fluorita",
-    desc: "Conocida por su amplia gama de colores y su fluorescencia bajo luz UV, es la principal fuente de flúor para la industria.",
+    id: "fluorita_verde",
+    img: "/fluorita.png", // O la nueva ruta que le asignes
+    nombre: "Fluorita Verde",
+    formulaQuimica: "CaF₂",
     clase: "Haluros",
-    composicion: "Fluoruro de calcio (CaF₂)",
-    sistemaCristalografico: "Isométrico (cúbico u octaédrico).",
-    propiedadDiagnostica: "Dureza 4, exfoliación octaédrica perfecta, brillo vítreo, fluorescencia.",
-    importanciaEconomica: "Fuente de flúor (ácido fluorhídrico), fundente en acero y vidrio, fabricación de lentes ópticas, joyería.",
-    genesis: "Rocas sedimentarias, ígneas, filones hidrotermales.",
-    yacimientosPuna: ["Presente en varios yacimientos de la región."],
-    otros: 'Su nombre viene del latín "fluere" (fluir) por su facilidad para fundirse.'
+    caracteristicas:
+      "Su color puede variar; el verde es una de sus variedades más apreciadas.",
+    usos: "Se emplea como fundente en la fundición de metales (como hierro y acero), en la fabricación de ácido fluorhídrico, y en óptica para lentes de alta precisión.",
   },
-  // Minerales del Word (actualizados y añadidos)
   {
     id: "pirita",
     img: "/minerales/pirita.png",
@@ -84,20 +87,18 @@ const mineralesCorteza = [
     yacimientosPuna: ["Mina La Concordia (Salta)", "El Quévar (Salta)"],
     otros: "",
   },
+  // REEMPLAZA el objeto 'galena' existente con este
   {
     id: "galena",
     img: "/minerales/galena.png",
     nombre: "Galena",
-    desc: "Principal mena de plomo, con frecuente contenido de plata.",
-    clase: "Clase II (Sulfuros y Sulfosales)",
-    sistemaCristalografico: "Cúbico",
-    etimologia: "Del latín 'galena' (mena de plomo).",
-    propiedadDiagnostica: "Clivaje cúbico perfecto, peso específico elevado.",
-    importanciaEconomica:
-      "Usos en baterías, soldaduras, y protección radiológica.",
-    genesis: "Yacimientos hidrotermales, tipo VMS y SEDEX.",
-    yacimientosPuna: ["Mina Pirquitas (Jujuy)", "Mina La Concordia (Salta)"],
-    otros: "",
+    formulaQuimica: "PbS con Blenda – ZnS",
+    clase: "Sulfuros",
+    caracteristicas:
+      "Algunas galenas contienen plata como subproducto valioso.",
+    usos: "Es la principal fuente del metal plomo. Utilizado en la fabricación de baterías, aleaciones y antiguamente en la industria del vidrio y en municiones.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+
   },
   {
     id: "estibinita",
@@ -126,20 +127,6 @@ const mineralesCorteza = [
     importanciaEconomica: "Galvanizado de hierro, baterías, farmacéuticos.",
     genesis: "Vetas hidrotermales, yacimientos VMS y SEDEX.",
     yacimientosPuna: ["Mina Pirquitas (Jujuy)", "Mina La Concordia (Salta)"],
-    otros: "",
-  },
-  {
-    id: "malaquita",
-    img: "/minerales/malaquita.png",
-    nombre: "Malaquita",
-    desc: "Carbonato de cobre verde, usado como ornamental y gema.",
-    clase: "Clase V (Carbonatos y Nitratos)",
-    sistemaCristalografico: "Monoclínico",
-    etimologia: "Del griego 'malache' (malva, por su color).",
-    propiedadDiagnostica: "Color verde brillante, efervescencia con HCl.",
-    importanciaEconomica: "Piedra ornamental y gema.",
-    genesis: "Zonas de oxidación de sulfuros de cobre.",
-    yacimientosPuna: ["Aguas Amargas (Salta)", "Los Colorados (Salta)"],
     otros: "",
   },
   {
@@ -229,25 +216,6 @@ const mineralesCorteza = [
     yacimientosPuna: ["Taca Taca (Salta)", "Río Grande (Salta)"],
     otros: "Popular en coleccionismo.",
   },
-  // Mineral original del array no presente en el Word
-  // REEMPLAZA EL OBJETO 'ulexita' ANTIGUO POR ESTE NUEVO
-
-{
-  id: "ulexita",
-  img: "/ulexite.jfif",
-  nombre: "Ulexita",
-  desc: "Conocida como la 'piedra televisión' por su capacidad de transmitir imágenes a través de sus fibras ópticas naturales. Es una fuente importante de boro para la agricultura y la industria.",
-  clase: "Boratos",
-  composicion: "Borato de sodio y calcio hidratado (NaCaB₅O₉·8H₂O).",
-  sistemaCristalografico: "Triclínico",
-  propiedadDiagnostica: "Hábito fibroso, efecto de fibra óptica ('televisión'), baja dureza, color blanco a grisáceo.",
-  importanciaEconomica: "Fuente de boro para fertilizantes de liberación lenta, industria cerámica (esmaltes), aislamientos térmicos y acústicos.",
-  genesis: "Evaporítico, formado en salares y playas de lagos boratados en climas áridos.",
-  otros: "Su estructura fibrosa es la que permite el curioso fenómeno óptico que le da su apodo."
-},
-];
-
-const mineralesPuna = [
   {
     id: "sal",
     img: "/sal.jfif",
@@ -256,43 +224,43 @@ const mineralesPuna = [
     clase: "Haluros",
     composicion: "Cloruro de sodio (NaCl)",
     sistemaCristalografico: "Cúbico",
-    propiedadDiagnostica: "Sabor salado, alta solubilidad en agua, clivaje cúbico perfecto.",
-    importanciaEconomica: "Alimentación, conservación de alimentos, industria química.",
+    propiedadDiagnostica:
+      "Sabor salado, alta solubilidad en agua, clivaje cúbico perfecto.",
+    importanciaEconomica:
+      "Alimentación, conservación de alimentos, industria química.",
     genesis: "Evaporítico, formado en salares y cuencas marinas cerradas.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+
   },
   {
     id: "pomez",
     img: "/pomez.jfif",
     nombre: "Piedra Pómez",
-    desc: "Roca volcánica extremadamente porosa y ligera, formada por el enfriamiento rápido de lava rica en gases. A menudo, puede flotar en el agua.",
-    clase: "Roca Ígnea Volcánica (no es un mineral)",
-    composicion: "Vidrio volcánico de composición ácida (riolítica).",
-    propiedadDiagnostica: "Muy ligera, alta porosidad (vesicular), textura abrasiva.",
-    importanciaEconomica: "Abrasivo industrial, cosmética (exfoliante), horticultura (mejora de sustratos), construcción ligera.",
-    genesis: "Erupciones volcánicas explosivas.",
+    tipo: "Roca ígnea volcánica (no es un mineral, sino una roca).",
+    composicionQuimica:
+      "Varía, pero suele contener SiO₂ (sílice) en altos porcentajes (hasta 70–75%) junto con óxidos de aluminio, potasio y sodio.",
+    caracteristicas:
+      "Textura vítrea y extremadamente porosa. Muy liviana; puede flotar en el agua. Se forma por el enfriamiento rápido de lava con alto contenido de gases, que quedan atrapados como burbujas.",
+    usos: "Exfoliantes para la piel (cosmética). Abrasivos suaves (limpieza de metales, callos). Fabricación de bloques livianos de construcción. Agricultura: mejora la aireación de suelos.",
   },
   {
     id: "onix",
     img: "/onix.jfif",
-    nombre: "Ónix Calcáreo",
-    desc: "Variedad de caliza bandeada y translúcida, muy apreciada como piedra ornamental para decoración y arquitectura de lujo.",
-    clase: "Roca Sedimentaria Química (no es un mineral)",
-    composicion: "Carbonato de calcio (CaCO3), principalmente aragonito.",
-    propiedadDiagnostica: "Bandas de colores concéntricas, translucidez, reacciona con ácido.",
-    importanciaEconomica: "Piedra ornamental, revestimientos, esculturas, joyería.",
-    genesis: "Precipitación química en aguas termales o cuevas (travertino).",
+    nombre: "Ónix (mármol ónix)",
+    nombreTecnico: "Ónix calcáreo o ónyx de travertino.",
+    composicion:
+      "Principalmente carbonato de calcio (CaCO₃), con formas cristalinas de calcita y aragonita.",
+    caracteristicas:
+      "Apariencia translúcida con vetas suaves de distintos colores (verde, blanco, miel). Se forma por deposición de carbonatos a partir de aguas termales o cuevas. Es más frágil que otros mármoles.",
+    usos: "Artesanías decorativas: figuras, ceniceros, lámparas. Revestimientos de interiores (paredes, mesas, lavabos). Joyería de baja escala (collares, pulseras).",
   },
   {
     id: "yeso",
     img: "/yeso.jfif",
     nombre: "Yeso",
-    desc: "Mineral muy blando que se forma en ambientes evaporíticos. Es la materia prima para la fabricación de escayola y paneles de yeso (Durlock).",
+    formulaQuimica: "CaSO₄·2H₂O",
     clase: "Sulfatos",
-    composicion: "Sulfato cálcico dihidratado (CaSO₄·2H₂O)",
-    sistemaCristalografico: "Monoclínico",
-    propiedadDiagnostica: "Muy blando (se raya con la uña), exfoliación perfecta.",
-    importanciaEconomica: "Construcción (placas de yeso, revoques), agricultura (acondicionador de suelos), moldes.",
-    genesis: "Evaporítico, precipitado de aguas ricas en sulfato de calcio.",
+    usos: "Muy utilizado en la construcción: para revoques, juntas, paneles de yeso (Durlock®) y estucos artísticos. También se usa como enmienda de suelos agrícolas y en moldes para cerámica y odontología.",
   },
   {
     id: "litio",
@@ -302,23 +270,165 @@ const mineralesPuna = [
     clase: "Elemento (contenido en salmuera)",
     composicion: "Iones de Litio (Li+) en solución acuosa salina.",
     propiedadDiagnostica: "Se identifica por análisis químico de la salmuera.",
-    importanciaEconomica: "Baterías recargables (vehículos eléctricos, electrónica), cerámica, vidrio, grasas lubricantes.",
-    genesis: "Lixiviación de rocas volcánicas y concentración por evaporación en cuencas endorreicas (salares).",
+    importanciaEconomica:
+      "Baterías recargables (vehículos eléctricos, electrónica), cerámica, vidrio, grasas lubricantes.",
+    genesis:
+      "Lixiviación de rocas volcánicas y concentración por evaporación en cuencas endorreicas (salares).",
   },
-    {
+  {
     id: "ulexita",
     img: "/ulexite.jfif",
     nombre: "Ulexita",
-    desc: "Conocida como la 'piedra televisión' por su capacidad de transmitir imágenes a través de sus fibras ópticas naturales. Es una fuente importante de boro.",
+    formulaQuimica: "NaCaB₅O₆(OH)₆·5H₂O (borato de sodio y calcio hidratado).",
     clase: "Boratos",
-    composicion: "Borato de sodio y calcio hidratado.",
-    sistemaCristalografico: "Triclínico",
-    propiedadDiagnostica: "Hábito fibroso, efecto de fibra óptica, baja dureza.",
-    importanciaEconomica: "Fuente de boro para fertilizantes de liberación lenta, industria cerámica y de vidrio.",
-    genesis: "Evaporítico, formado en salares y playas de lagos boratados.",
-  },
-];
+    caracteristicas:
+      "Conocida como “piedra televisión” por su estructura de fibras paralelas que transmiten imágenes o luz de un lado al otro. Cristal blanco o transparente, con brillo sedoso. Se forma en ambientes evaporíticos (salares secos).",
+    usos: "Fuente de boro, esencial en: Vidrios resistentes al calor (tipo Pyrex). Detergentes y blanqueadores. Fertilizantes y cerámica. Productos ópticos y de telecomunicaciones. Educación y coleccionismo por su efecto visual inusual.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
 
+  },
+  {
+    id: "malaquita",
+    img: "/minerales/malaquita.png",
+    nombre: "Malaquita",
+    formulaQuimica: "Cu₂CO₃(OH)₂",
+    clase: "Carbonatos",
+    caracteristicas:
+      "Mineral de color verde intenso, asociado a zonas de oxidación de yacimientos de cobre.",
+    usos: "Importante mena de cobre (fuente de extracción del metal). También se utiliza como piedra ornamental y, en algunos casos, como pigmento natural en arte tradicional.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+
+  },
+  {
+    id: "baritina",
+    img: "/minerales/baritina.png",
+    nombre: "Baritina",
+    formulaQuimica: "BaSO₄",
+    clase: "Sulfatos",
+    caracteristicas: "Mineral muy denso, de color blanco a grisáceo.",
+    usos: "Se emplea principalmente como barro de perforación en pozos petroleros, por su peso. También se usa en la industria del vidrio, pinturas, plásticos y papeles especiales por su alto contenido en bario.",
+  },
+  {
+    id: "ortosa",
+    img: "/minerales/ortosa.png",
+    nombre: "Ortosa (Feldspato potásico)",
+    formulaQuimica: "KAlSi₃O₈",
+    clase: "Silicatos, grupo de los feldespatos",
+    caracteristicas:
+      "Es uno de los minerales más comunes de la corteza terrestre.",
+    usos: "Materia prima para la fabricación de porcelana, esmaltes cerámicos, vidrios y aislantes eléctricos. También se emplea en pastas dentales como abrasivo suave.",
+  },
+  {
+    id: "turmalina",
+    img: "/minerales/turmalina.png",
+    nombre: "Turmalina",
+    formulaQuimica: "(Na,Ca)(Mg,Fe,Al,Li)₃Al₆(BO₃)₃Si₆O₁₈(OH,F)₄",
+    clase: "Silicatos, grupo ciclosilicatos",
+    caracteristicas: "Mineral muy duro, con gran variedad de colores.",
+    usos: "Utilizada en la fabricación de instrumentos de medición de presión (por su respuesta piezoeléctrica), en tecnología submarina, y en algunos equipos electrónicos y ópticos especializados. También es popular como gema ornamental.",
+  },
+  {
+    id: "cuarzo_blanco",
+    img: "/minerales/cuarzo_blanco.png",
+    nombre: "Cuarzo Blanco",
+    formulaQuimica: "SiO₂",
+    clase: "Óxidos / tectosilicatos",
+    caracteristicas: "Mineral muy abundante, resistente y versátil.",
+    usos: "Se utiliza en la fabricación de vidrio, cerámicas, instrumentos ópticos y electrónicos, y como carga mineral en plásticos, pinturas y productos de madera prensada.",
+  },
+
+  {
+    id: "muscovita",
+    img: "/minerales/muscovita.png", // Añade la imagen cuando la tengas
+    nombre: "Muscovita (Mica Blanca)",
+    formulaQuimica: "KAl₂(AlSi₃O₁₀)(OH)₂",
+    clase: "Silicatos, grupo de las micas",
+    caracteristicas:
+      "Tiene tantas propiedades que es uno de los minerales más usados en la industria.",
+    usos: "Muy utilizada por sus propiedades aislantes, térmicas y ópticas. Se aplica en la fabricación de pinturas, plásticos, yeso para construcción, aislantes eléctricos, cosméticos y componentes electrónicos.",
+  },
+  {
+    id: "azufre_nativo",
+    img: "/minerales/azufre_nativo.png", // Añade la imagen cuando la tengas
+    nombre: "Azufre (nativo)",
+    formulaQuimica: "S",
+    clase: "Elementos nativos",
+    usos: "Se emplea principalmente para producir ácido sulfúrico, base de muchos procesos industriales. También se usa en la fabricación de fósforos, fertilizantes, fungicidas, tintes, pólvora, productos fotográficos y medicamentos tópicos como pomadas con acción antibacteriana.",
+  },
+  {
+    id: "calcita_rosada",
+    img: "/minerales/calcita_rosada.png", // Añade la imagen cuando la tengas
+    nombre: "Calcita Rosada",
+    formulaQuimica: "CaCO₃",
+    clase: "Carbonatos",
+    usos: "Industrialmente se usa como relleno en pinturas, plásticos y papel. Aunque popularmente se le atribuyen usos medicinales ancestrales, no tiene aplicaciones médicas reconocidas formalmente hoy.",
+  },
+  {
+    id: "epidoto_en_cuarzo",
+    img: "/minerales/epidoto_en_cuarzo.png", // Añade la imagen cuando la tengas
+    nombre: "Epidoto en Cuarzo",
+    formulaQuimica: "Ca₂(Al,Fe)₃(SiO₄)₃(OH)",
+    clase: "Silicatos",
+    usos: "No tiene aplicaciones industriales masivas. Se valora como mineral de colección o piedra semipreciosa.",
+  },
+
+  // AÑADE ESTOS NUEVOS OBJETOS AL FINAL DE TU ARRAY 'minerales'
+  {
+    id: "estaurolita",
+    img: "/minerales/estaurolita.png", // Asigna la imagen cuando la tengas
+    nombre: "Estaurolita",
+    formulaQuimica: "Fe²⁺Al₄Si₂O₁₀(OH)₂",
+    clase: "Silicatos",
+    caracteristicas:
+      "Mineral metamórfico. Es un mineral indicador para geólogos porque señala condiciones específicas de formación de rocas metamórficas.",
+    usos: "Utilizado como adorno o amuleto debido a sus cristales en forma de cruz. También se ha usado como material abrasivo, aunque en menor escala.",
+  },
+  {
+    id: "casiterita",
+    img: "/minerales/casiterita.png", // Asigna la imagen cuando la tengas
+    nombre: "Casiterita",
+    formulaQuimica: "SnO₂",
+    clase: "Óxidos",
+    caracteristicas:
+      "Mineral muy denso, duro y resistente a la mayoría de los ácidos.",
+    usos: "Es la principal mena de estaño, usado en soldaduras, aleaciones (como el bronce) y en recubrimientos metálicos para evitar la corrosión.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+
+  },
+  {
+    id: "jadeita",
+    img: "/minerales/jadeita.png", // Asigna la imagen cuando la tengas
+    nombre: "Jadeíta",
+    formulaQuimica: "NaAlSi₂O₆",
+    clase: "Silicatos, grupo de los piroxenos",
+    usos: "Desde hace más de 5000 años, se utiliza para fabricar adornos, herramientas y objetos rituales, por ser muy dura y resistente. Es muy valorada culturalmente en Asia y América prehispánica.",
+  },
+  // AÑADE ESTOS TRES NUEVOS OBJETOS AL FINAL DE TU ARRAY 'minerales'
+{
+  id: "basalto_llullaillaco", // id único
+  img: "/minerales/basalto.png", // Asigna la imagen cuando la tengas
+  nombre: "Basalto",
+  tipo: "Roca ígnea volcánica básica.",
+  origen: "(Salar Llullaillaco)",
+  caracteristicas: "Se forma por el enfriamiento rápido de la lava en la superficie. Es una roca muy común en regiones volcánicas como la Puna, y su presencia está relacionada con antiguos eventos eruptivos.",
+},
+{
+  id: "halita_sal_gema", // id único
+  img: "/minerales/halita_sal_gema.png", // Asigna la imagen cuando la tengas
+  nombre: "Halita – NaCl (Sal gema)",
+  origen: "(Salar Llullaillaco)",
+  caracteristicas: "Cristales cúbicos, transparentes o blanquecinos. Es la forma mineral de la sal de mesa. La halita es una de las riquezas económicas de los salares andinos y forma parte de nuestra vida diaria.",
+  usos: "Alimentación humana. Procesos industriales y químicos. Conservación de alimentos.",
+},
+{
+  id: "yeso_con_halita", // id único
+  img: "/minerales/yeso_con_halita.png", // Asigna la imagen cuando la tengas
+  nombre: "Yeso – CaSO₄·2H₂O con Halita",
+  origen: "(Salar de Llullaillaco)",
+  caracteristicasCombinadas: "El yeso puede aparecer como masas terrosas o cristales, y en este caso se observa con incrustaciones o asociaciones de halita cúbica. Esta coexistencia mineral es típica de ambientes de evaporación extrema, como los salares.",
+  usos: "Construcción (paneles, estucos, revoques). Agricultura (mejorador de suelos). Arte y escultura.",
+},
+];
 export const SalaMinerologiaMineria = () => {
   const fileInputRef = useRef(null);
 
@@ -364,185 +474,36 @@ export const SalaMinerologiaMineria = () => {
         onChange={handleFileChange}
         aria-hidden="true"
       />
-
       <h3 className="ramal-timeline-titulo">
         {/* Título estilizado por CSS */}
         Minerología y Minería
       </h3>
-      <p className="sala-minerologia-intro">
-        Desde las profundidades del planeta hasta la superficie de las montañas,
-        los minerales forman parte esencial del mundo que habitamos. Cada uno
-        encierra una historia sobre su origen, su composición y su relación con
-        nuestras vidas. Te invitamos a explorar la colección de minerales del
-        museo, compuesta por ejemplares representativos de nuestra región y de
-        otras partes del mundo. Para facilitar su comprensión, los agrupamos en
-        dos grandes categorías: <br />
-        <span className="viñeta">•</span> Minerales metalíferos, como el cobre,
-        el oro, la plata o el hierro, que contienen metales y son fundamentales
-        para la industria, la tecnología y la energía. <br />
-        <span className="viñeta">•</span> Minerales no metalíferos, como el
-        cuarzo, la sal o el yeso, valorados por sus propiedades físicas o
-        químicas, con usos diversos en la vida cotidiana. También destacan
-        minerales como el litio y los boratos, extraídos en ambientes salinos de
-        la Puna. Estos recursos estratégicos son clave en la transición
-        energética y en la fabricación de nuevas tecnologías. A lo largo del
-        recorrido, encontrarás piezas señalizadas con códigos QR. Escaneándolos
-        con tu dispositivo móvil, podrás acceder a contenidos en realidad
-        aumentada para observar detalles de su estructura o características.
-      </p>
-      <h1 className="sala-minerologia-titulo">Explora la colección</h1>
-      <p className="sala-minerologia-intro">
-        Tipos de Minerales Comunes en la Región Andina de Argentina
-      </p>
-
-      {/* Sección 1: Minerales Corteza */}
+      
       <section className="seccion-minerales">
-        <h2 className="sala-minerologia-subtitulo">Minerales</h2>
-        <div className="minerales-grid">
-          {mineralesCorteza.map((mineral, index) => (
-            // *** INICIO: MODIFICAR EL CONTENIDO DE SalaContenidoItem o su estructura ***
-            // Si SalaContenidoItem es muy rígido, puedes reemplazarlo por esta estructura:
-            <article key={mineral.id} className="mineral-card"> {/* <-- Usa la nueva clase .mineral-card */}
-              <div className="mineral-card-image-wrapper">
-                <img
-                  src={`${import.meta.env.BASE_URL}${mineral.img}`}
-                  alt={mineral.nombre}
-                  className="mineral-card-image"
-                />
-                {/* Botón QR sobre la imagen si se desea o en el contenido */}
-                {index % 2 !== 0 && (
-                  <button
-                    className="qr-code-button mineral-qr-on-image" // Nueva clase para posicionamiento
-                    onClick={(e) => handleQrClick(e)}
-                    aria-label={`Escanear QR para ${mineral.nombre}`}
-                    title={`Escanear QR para ${mineral.nombre}`}
-                    type="button"
-                  >
-                    <QrcodeOutlined />
-                  </button>
-                )}
-              </div>
-              <div className="mineral-card-content">
-                <h4 className="mineral-card-name">{mineral.nombre}</h4>
-                <p className="mineral-card-description-main">{mineral.desc}</p>
-
-                {(mineral.clase ||
-                  mineral.sistemaCristalografico ||
-                  mineral.etimologia ||
-                  mineral.propiedadDiagnostica ||
-                  mineral.importanciaEconomica ||
-                  mineral.genesis ||
-                  mineral.yacimientosPuna ||
-                  mineral.otros) && (
-                  <div className="mineral-card-extra-details">
-                    {mineral.clase && (
-                      <p className="mineral-detail-item">
-                        <strong>Clase:</strong> {mineral.clase}
-                      </p>
-                    )}
-                    {mineral.sistemaCristalografico && (
-                      <p className="mineral-detail-item">
-                        <strong>Sistema Cristal.:</strong>{" "}
-                        {mineral.sistemaCristalografico}
-                      </p>
-                    )}
-                    {mineral.etimologia && (
-                      <p className="mineral-detail-item">
-                        <strong>Etimología:</strong> {mineral.etimologia}
-                      </p>
-                    )}
-                    {mineral.propiedadDiagnostica && (
-                      <p className="mineral-detail-item">
-                        <strong>Prop. Diagnóstica:</strong>{" "}
-                        {mineral.propiedadDiagnostica}
-                      </p>
-                    )}
-                    {mineral.importanciaEconomica && (
-                      <p className="mineral-detail-item">
-                        <strong>Importancia Econ.:</strong>{" "}
-                        {mineral.importanciaEconomica}
-                      </p>
-                    )}
-                    {mineral.genesis && (
-                      <p className="mineral-detail-item">
-                        <strong>Génesis:</strong> {mineral.genesis}
-                      </p>
-                    )}
-                    {mineral.yacimientosPuna &&
-                      mineral.yacimientosPuna.length > 0 && (
-                        <p className="mineral-detail-item">
-                          <strong>Yacimientos (Puna):</strong>{" "}
-                          {mineral.yacimientosPuna.join(", ")}
-                        </p>
-                      )}
-                      {mineral.composicion && (
-                        <p className="mineral-detail-item">
-                          <strong>Composición:</strong> {mineral.composicion}
-                        </p>
-                      )}
-                      {mineral.sistemaCristalografico && (
-                        <p className="mineral-detail-item">
-                          <strong>Sistema Cristal.:</strong>{" "}
-                          {mineral.sistemaCristalografico}
-                        </p>
-                      )}
-                      {mineral.etimologia && (
-                        <p className="mineral-detail-item">
-                          <strong>Etimología:</strong> {mineral.etimologia}
-                        </p>
-                      )}
-                      {mineral.propiedadDiagnostica && (
-                        <p className="mineral-detail-item">
-                          <strong>Prop. Diagnóstica:</strong>{" "}
-                          {mineral.propiedadDiagnostica}
-                        </p>
-                      )}
-                    {mineral.otros && (
-                      <p className="mineral-detail-item">
-                        <strong>Otros:</strong> {mineral.otros}
-                      </p>
-                    )}
-                  </div>
-                )}
-              </div>
-            </article>
-            // *** FIN: MODIFICACIÓN ***
-          ))}
-        </div>
-      </section>
-
-      {/* Sección 2: Riqueza Puna */}
-      <section className="seccion-minerales">
-        <h2 className="sala-minerologia-subtitulo">
-          La riqueza minera de la Puna
+        <h2 className="sala-contenido-subtitulo">
+          Colección de Minerales y Rocas
         </h2>
-        <p className="sala-minerologia-intro">
-          Dependemos en buena parte de la Puna para sostener nuestra
-          cotidianeidad.
+        <p className="sala-contenido-parrafo">
+          Acompáñanos a descubrir nuestra colección de minerales y rocas,
+          testigos silenciosos de la riqueza natural de la Puna. Algunos de las
+          rocas y minerales de la colección tienen un código QR:{" "}
+          <strong>
+            Apuntá con la cámara de tu celular y míralos en realidad aumentada,
+            para poder observarlos en 3D
+          </strong>{" "}
+          e interactuar para ver sus características más destacadas.
         </p>
-        {/* <img
-          src={`${import.meta.env.BASE_URL}/salar.jfif`}
-          alt="Paisaje de Salar en la Puna"
-          className="salar-imagen-destacada"
-        /> */}
+
         <div className="minerales-grid">
-          {mineralesPuna.map((mineral, index) => (
-            // *** INICIO: REEMPLAZAR SalaContenidoItem CON NUEVA ESTRUCTURA ***
-            <article
-              key={mineral.id}
-              className={`mineral-card-modern ${
-                mineral.reverse ? "item-reverse-visual-effect" : ""
-              }`} // Aplicar nueva clase base
-              // 'item-reverse-visual-effect' es opcional si quieres diferenciar visualmente
-            >
+          {minerales.map((mineral, index) => (
+            <article key={mineral.id} className="mineral-card">
               <div className="mineral-card-image-wrapper">
                 <img
                   src={`${import.meta.env.BASE_URL}${mineral.img}`}
                   alt={mineral.nombre}
                   className="mineral-card-image"
                 />
-                {/* Botón QR (misma lógica de posicionamiento o ajuste) */}
-                {index % 2 !== 0 && (
+                {mineral.tieneQr && (
                   <button
                     className="qr-code-button mineral-qr-on-image"
                     onClick={(e) => handleQrClick(e)}
@@ -556,19 +517,109 @@ export const SalaMinerologiaMineria = () => {
               </div>
               <div className="mineral-card-content">
                 <h4 className="mineral-card-name">{mineral.nombre}</h4>
-                {/* La descripción para mineralesPuna usa dangerouslySetInnerHTML, lo mantenemos */}
-                <div
-                  className="mineral-card-description-main puna-description" // Clase adicional para posible estilo específico
-                  dangerouslySetInnerHTML={{ __html: mineral.desc }}
-                ></div>
-                {/* No hay 'mineral-card-extra-details' aquí porque mineralesPuna no los tiene */}
+
+                {/* Muestra la descripción principal si existe */}
+                {mineral.desc && (
+                  <p className="mineral-card-description-main">
+                    {mineral.desc}
+                  </p>
+                )}
+
+                {/* Muestra todos los demás detalles solo si existen */}
+                <div className="mineral-card-extra-details">
+                  {mineral.tipo && (
+                    <p className="mineral-detail-item">
+                      <strong>Tipo:</strong> {mineral.tipo}
+                    </p>
+                  )}
+                  {mineral.nombreTecnico && (
+                    <p className="mineral-detail-item">
+                      <strong>Nombre técnico:</strong> {mineral.nombreTecnico}
+                    </p>
+                  )}
+                  {mineral.origen && <p className="mineral-detail-item"><strong>Origen:</strong> {mineral.origen}</p>} {/* <-- Esta línea */}
+
+                  {mineral.formulaQuimica && (
+                    <p className="mineral-detail-item">
+                      <strong>Fórmula Química:</strong> {mineral.formulaQuimica}
+                    </p>
+                  )}
+                  {mineral.clase && (
+                    <p className="mineral-detail-item">
+                      <strong>Clase:</strong> {mineral.clase}
+                    </p>
+                  )}
+                  {mineral.composicion && (
+                    <p className="mineral-detail-item">
+                      <strong>Composición:</strong> {mineral.composicion}
+                    </p>
+                  )}
+                  {mineral.composicionQuimica && (
+                    <p className="mineral-detail-item">
+                      <strong>Composición química:</strong>{" "}
+                      {mineral.composicionQuimica}
+                    </p>
+                  )}
+                  {mineral.sistemaCristalografico && (
+                    <p className="mineral-detail-item">
+                      <strong>Sistema Cristal.:</strong>{" "}
+                      {mineral.sistemaCristalografico}
+                    </p>
+                  )}
+                  {mineral.caracteristicas && (
+                    <p className="mineral-detail-item">
+                      <strong>Características:</strong>{" "}
+                      {mineral.caracteristicas}
+                    </p>
+                  )}
+                  {mineral.caracteristicasCombinadas && <p className="mineral-detail-item"><strong>Características combinadas:</strong> {mineral.caracteristicasCombinadas}</p>} {/* <-- Y esta línea */}
+
+                  
+                  {mineral.propiedadDiagnostica && (
+                    <p className="mineral-detail-item">
+                      <strong>Prop. Diagnóstica:</strong>{" "}
+                      {mineral.propiedadDiagnostica}
+                    </p>
+                  )}
+                  {mineral.usos && (
+                    <p className="mineral-detail-item">
+                      <strong>Usos:</strong> {mineral.usos}
+                    </p>
+                  )}
+                  {mineral.importanciaEconomica && (
+                    <p className="mineral-detail-item">
+                      <strong>Importancia Econ.:</strong>{" "}
+                      {mineral.importanciaEconomica}
+                    </p>
+                  )}
+                  {mineral.genesis && (
+                    <p className="mineral-detail-item">
+                      <strong>Génesis:</strong> {mineral.genesis}
+                    </p>
+                  )}
+                  {mineral.etimologia && (
+                    <p className="mineral-detail-item">
+                      <strong>Etimología:</strong> {mineral.etimologia}
+                    </p>
+                  )}
+                  {mineral.yacimientosPuna &&
+                    mineral.yacimientosPuna.length > 0 && (
+                      <p className="mineral-detail-item">
+                        <strong>Yacimientos (Puna):</strong>{" "}
+                        {mineral.yacimientosPuna.join(", ")}
+                      </p>
+                    )}
+                  {mineral.otros && (
+                    <p className="mineral-detail-item">
+                      <strong>Otros:</strong> {mineral.otros}
+                    </p>
+                  )}
+                </div>
               </div>
             </article>
-            // *** FIN: REEMPLAZO ***
           ))}
         </div>
       </section>
-
       {/* ============================================ */}
       {/* =      NUEVA SECCIÓN: PROCESO DEL LITIO    = */}
       {/* ============================================ */}
@@ -629,6 +680,245 @@ export const SalaMinerologiaMineria = () => {
       {/* ============================================ */}
       {/* =       FIN NUEVA SECCIÓN LITIO            = */}
       {/* ============================================ */}
+      <h2 className="sala-minerologia-subtitulo">
+        Minería: de la tierra a nuestra vida cotidiana
+      </h2>
+      <p className="sala-minerologia-intro">
+        Tal vez ya sabés que muchos objetos que usás cada día vienen de
+        minerales. Pero… ¿cómo pasan de estar en una roca a formar parte de tu
+        celular, tus paredes o tu comida? Esta sección de la guía te invita a
+        descubrir <strong> cómo se extraen y transforman los minerales:</strong>
+        Desde las técnicas más antiguas usadas por las comunidades andinas,
+        hasta los métodos modernos que buscan ser más cuidadosos con el ambiente
+        y las personas.
+      </p>
+      <h2 className="sala-minerologia-subtitulo">
+        Los primeros pasos de la minería
+      </h2>
+      <p className="sala-minerologia-intro">
+        La minería nació con el ser humano. En los Andes, las culturas
+        originarias ya extraían minerales como la obsidiana, el cobre o la sal,
+        que usaban para fabricar herramientas, como objetos ceremoniales, para
+        pintar cuevas con pigmentos naturales o como elementos de intercambio.
+        Hoy, la Puna sigue siendo clave: el litio que se encuentra bajo los
+        salares permite fabricar baterías para celulares, computadoras y autos
+        eléctricos en todo el mundo. Uno de los objetos que utilizaban
+        antiguamente es la lámpara a carburo, que podés ver en esta sala.
+      </p>
+      <img
+        src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
+        alt="Paisaje de Salar en la Puna"
+        className="imagen-testigo"
+      />
+      <p className="sala-minerologia-intro">
+        <strong> ¿Cómo funcionaba? </strong>
+        Tenía un compartimento superior con agua y uno inferior con carburo de
+        calcio. Al mezclarse, generaban gas acetileno, que se encendía y ofrecía
+        una llama estable y duradera. Era indispensable para los mineros que
+        trabajaban en galerías profundas sin electricidad. Esta lámpara no solo
+        iluminaba el camino: también mostraba cuán ingenioso debía ser el
+        trabajo minero antes de la tecnología moderna.
+      </p>
+      <h2 className="sala-minerologia-subtitulo">
+        Explorá los testigos de perforación – la memoria del subsuelo
+      </h2>
+      <p className="sala-minerologia-intro">
+        En esta sala también puedes se exhiben cortes cilíndricos—o
+        “testigos”—que representan muestras directas del subsuelo de la Puna.
+        Cada uno refleja procesos geológicos específicos, útiles tanto para la
+        minería como para la investigación científica.
+      </p>
+      {/* TESTIGOOOS */}
+      {/* ========================================================= */}
+      {/* =      INICIO: SECCIÓN DE TESTIGOS DESTACADOS           = */}
+      {/* ========================================================= */}
+      <section className="seccion-testigos">
+        <h3 className="sala-contenido-subtitulo">Testigos destacados</h3>
+        <p className="sala-contenido-parrafo">
+          A continuación, puedes observar en detalle algunos de los testigos
+          geológicos más representativos de la colección.
+        </p>
+
+        {/* --- Testigo 1: Brecha Hidrotermal --- */}
+        <div className="testigo-item">
+          <h4 className="sala-contenido-subtitulo-menor">
+            Brecha hidrotermal (testigo 3-4)
+          </h4>
+          <p className="sala-contenido-parrafo">
+            Puedes observar fragmentos angulares de roca unidos por cuarzo
+            relleno, con vetas de alunita y jarosita. Esto indica zonas donde
+            circuló agua caliente (150–350 °C), creando depósitos minerales. Una
+            brecha hidrotermal se forma cuando fluidos calientes y ricos en
+            minerales, llamados fluidos hidrotermales, ascienden a través de
+            fracturas en la corteza terrestre y entran en contacto con rocas más
+            frías. Este cambio brusco de temperatura y presión provoca la
+            precipitación de minerales, que luego cementan los fragmentos de
+            roca circundantes, formando una brecha hidrotermal.
+          </p>
+          <div className="imagen-destacada-container">
+            {/* REEMPLAZA esta ruta con la tuya en /public */}
+            <img
+              src={`${import.meta.env.BASE_URL}/brecha_hidrotermal.png`}
+              alt="Testigo de Brecha Hidrotermal"
+              className="imagen-testigo"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* --- Testigo 2: Andesita Alterada (Argílica) --- */}
+        <div className="testigo-item">
+          <h4 className="sala-contenido-subtitulo-menor">
+            Andesita alterada (testigo 5)
+          </h4>
+          <p className="sala-contenido-parrafo">
+            La alteración argílica: contiene arcillas como alunita y goethita,
+            lo que es señal de fluidos subterráneos ácidos.
+          </p>
+          <div className="imagen-destacada-container">
+            {/* REEMPLAZA esta ruta con la tuya en /public */}
+            <img
+              src={`${import.meta.env.BASE_URL}/andesita_alterada_5.png`}
+              alt="Testigo de Andesita Alterada con alteración argílica"
+              className="imagen-testigo"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* --- Testigo 3: Andesita Alterada (Silícica) --- */}
+        <div className="testigo-item">
+          <h4 className="sala-contenido-subtitulo-menor">
+            Andesita alterada (testigo 6)
+          </h4>
+          <p className="sala-contenido-parrafo">
+            La alteración silícica con óxidos de hierro y vetillas de alunita
+            tipifica entornos de alta sulfuración, cercanos a vapores
+            volcánicos.
+          </p>
+          <div className="imagen-destacada-container">
+            {/* REEMPLAZA esta ruta con la tuya en /public */}
+            <img
+              src={`${import.meta.env.BASE_URL}/andesita_alterada_6.png`}
+              alt="Testigo de Andesita Alterada con alteración silícica"
+              className="imagen-testigo"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* --- Testigo 4: Diamantina / Halita --- */}
+        <div className="testigo-item">
+          <h4 className="sala-contenido-subtitulo-menor">
+            Diamantina / halita
+          </h4>
+          <p className="sala-contenido-parrafo">
+            Contiene cristales cúbicos de sal (halita) en roca árida del salar.
+            Revela episodios de agua salina antigua y evaporación intensiva.
+          </p>
+          <div className="imagen-destacada-container">
+            {/* REEMPLAZA esta ruta con la tuya en /public */}
+            <img
+              src={`${import.meta.env.BASE_URL}/diamantina_halita.png`}
+              alt="Testigo de Diamantina con Halita"
+              className="imagen-testigo"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        {/* --- Testigo 5: Granitoide --- */}
+        <div className="testigo-item">
+          <h4 className="sala-contenido-subtitulo-menor">Granitoide</h4>
+          <p className="sala-contenido-parrafo">
+            Granitoide (testigo 1) con alteración vuggy silica: presencia de
+            cavidades rellenas de sílice vítrea, común en zonas de
+            mineralización hidrotermal
+          </p>
+          <div className="imagen-destacada-container">
+            {/* REEMPLAZA esta ruta con la tuya en /public */}
+            <img
+              src={`${import.meta.env.BASE_URL}/granitoide.png`}
+              alt="Testigo de Granitoide"
+              className="imagen-testigo"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+      {/* ========================================================= */}
+      {/* =       FIN: SECCIÓN DE TESTIGOS DESTACADOS             = */}
+      {/* ========================================================= */}
+      <h2 className="sala-minerologia-subtitulo">
+        Boratos – colección de boro y derivados
+      </h2>
+      <p className="sala-minerologia-intro">
+        Los boratos, son minerales de importancia industrial (detergentes,
+        agricultura, vidrio). La muestra que puedes observar en la sala incluye
+        ulexita natural, bórax, y ácido bórico (grado técnico).
+      </p>
+      {(() => {
+        // --- Estructura de datos para la colección de Boratos ---
+        const boratosCollection = [
+          {
+            id: "boro_10",
+            nombre: "Boro 10",
+            imgSrc: `${import.meta.env.BASE_URL}/boro_10.png`,
+          },
+          {
+            id: "boro_15",
+            nombre: "Boro 15",
+            imgSrc: `${import.meta.env.BASE_URL}/boro_15.png`,
+          },
+          {
+            id: "ulexita_natural",
+            nombre: "Ulexita Natural",
+            imgSrc: `${import.meta.env.BASE_URL}/ulexita_natural.png`,
+          },
+          {
+            id: "aquabor",
+            nombre: "Aquabor",
+            imgSrc: `${import.meta.env.BASE_URL}/aquabor.png`,
+          },
+          {
+            id: "ulexita_molida",
+            nombre: "Ulexita Molida",
+            imgSrc: `${import.meta.env.BASE_URL}/ulexita_molida.png`,
+          },
+          {
+            id: "borax_10",
+            nombre: "Bórax 10",
+            imgSrc: `${import.meta.env.BASE_URL}/borax_10.png`,
+          },
+          {
+            id: "acido_borico_tecnico",
+            nombre: "Ácido Bórico grado técnico",
+            imgSrc: `${import.meta.env.BASE_URL}/acido_borico_tecnico.png`,
+          },
+          {
+            id: "acido_borico_powder",
+            nombre: "Ácido Bórico Powder",
+            imgSrc: `${import.meta.env.BASE_URL}/acido_borico_powder.png`,
+          },
+        ];
+
+        return (
+          <section className="boratos-section">
+            <div className="boratos-grid">
+              {boratosCollection.map((borato) => (
+                <div key={borato.id} className="borato-item">
+                  <h4 className="borato-caption">{borato.nombre}</h4>
+                  <img
+                    src={borato.imgSrc} // <- Aquí va la ruta que luego reemplazarás
+                    alt={borato.nombre}
+                    className="borato-image"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+      })()}
     </div>
   );
 };

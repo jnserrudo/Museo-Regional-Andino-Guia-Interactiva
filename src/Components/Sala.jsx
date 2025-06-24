@@ -46,14 +46,9 @@ const salasData = {
   gobernacion_de_los_andes: {
     title: "GOBERNACIÓN DE LOS ANDES",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de la Gobernación de Los Andes, un espacio donde la historia cobra vida para contarnos cómo se organizó y gobernó esta región única del país. La Gobernación de Los Andes fue una división territorial creada en 1900 por el gobierno nacional con el objetivo de administrar una zona estratégica en el noroeste argentino, que abarcaba sectores de las actuales provincias de Salta, Jujuy y Catamarca. San Antonio de los Cobres fue su cabecera y principal centro administrativo.
-* Documentos originales, fotografías y objetos que muestran cómo era la vida política, social y económica de la época.
-
-* Las funciones del gobernador y cómo se ejercía el poder en esta región aislada y diversa.
-
-* El papel de la Gobernación en el desarrollo del ferrocarril, la minería y la integración con los pueblos originarios.
-
-* La historia de cómo este territorio fue reorganizado e integrado a las provincias actuales en 1943.`,
+    description: `Una historia de exploración, conocimiento y transformación del territorio.
+Bienvenidos a esta sala que recorre el proceso de organización y conocimiento del Territorio Nacional de Los Andes, a partir de su administración estatal. Aquí vas a conocer a sus protagonistas, las primeras investigaciones científicas y cómo esta región tan particular fue integrada al país.
+`,
   },
   geologia: {
     title: "SALA DE GEOLOGÍA",
@@ -70,15 +65,11 @@ Tocá, explorá y observá: la geología no es solo ciencia, es el relato vivo d
     title: "MINEROLOGÍA Y MINERÍA",
     image: "imagen_to_salas.webp",
     description: `
-    Bienvenidos a la Sala de Mineralogía y Minería. En esta sala vas a descubrir el asombroso mundo de los minerales: cómo se forman, qué formas y colores tienen, y por qué son tan importantes para la vida cotidiana. La Puna salteña es una de las regiones más ricas en minerales de toda la Argentina. Desde tiempos antiguos, sus recursos fueron aprovechados por los pueblos originarios, y más tarde, por la minería moderna. Oro, plata, cobre, hierro, litio y muchos otros elementos forman parte del suelo de San Antonio de los Cobres y sus alrededores.
-
-* Observar una colección de minerales de la región andina.
-
-* Conocer cómo se extraen y procesan los minerales.
-
-* Aprender para qué se usan en la vida diaria: desde un anillo hasta un celular.
-
-* Descubrir el papel de la minería en la economía, el ambiente y la cultura local.`,
+    La riqueza de la Puna: lo que está en la tierra… y en tu vida.
+En esta sala vas a conocer dos caras de una misma historia.
+Los minerales: verdaderas joyas naturales formadas a lo largo de millones de años. Vas a ver cómo algunos de ellos están presentes en tu vida diaria —en el celular, en las paredes de tu casa, en la sal del almuerzo, en medicamentos, en el brillo de algún cosmético y hasta en algunos adornos —  aquí vas a descubrir las fórmulas químicas y usos de los minerales más destacados de la Puna. 
+Por otro lado, la minería: las técnicas que usamos para extraer esos minerales del suelo. Desde métodos ancestrales hasta tecnologías actuales, conocerás cómo se obtienen, quiénes los trabajan, y cómo se busca hoy equilibrar su explotación con el cuidado del ambiente y de las comunidades locales.
+`,
   },
   biodiversidad: {
     title: "BIODIVERSIDAD",
@@ -98,15 +89,9 @@ Mientras recorrés esta sala, te invitamos a mirar con atención: la vida en alt
   arqueologia: {
     title: "ARQUEOLOGÍA",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Arqueología. Este espacio te invita a viajar en el tiempo y descubrir cómo vivieron las comunidades que habitaron la Puna andina miles de años antes de la llegada de los europeos. A través de excavaciones, hallazgos y estudios, la arqueología nos permite conocer cómo eran sus viviendas, qué herramientas usaban, cómo se alimentaban, qué creencias tenían y cómo se relacionaban con su entorno.
-
-* Ver piezas auténticas como cerámicas, puntas de flecha, tejidos y objetos rituales.
-
-* Conocer cómo los pueblos originarios aprovechaban los recursos del desierto de altura.
-
-* Descubrir las rutas de intercambio que conectaban la Puna con otros pueblos andinos.
-
-* Reflexionar sobre la continuidad cultural y la presencia viva de estas raíces en la actualidad.`,
+    description: `Bienvenidos a la Sala de Historia de la Puna Andina
+En esta sala vas a conocer quiénes habitaron la Puna, un territorio habitado desde hace miles de años. Conocerás cómo las personas se adaptaron a un entorno desafiante, desarrollaron formas de vida basadas en la caza, el pastoreo, la agricultura y el intercambio, y cómo fueron construyendo conocimientos, creencias y tecnologías que aún hoy nos sorprenden.
+`,
   },
   ramal_c14: {
     title: "RAMAL C14",
@@ -124,28 +109,17 @@ Mientras recorrés esta sala, te invitamos a mirar con atención: la vida en alt
   "san-antonio-hoy": {
     title: "SAN ANTONIO HOY",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la sala “San Antonio de los Cobres hoy”, un espacio dedicado a mostrar cómo las costumbres, creencias y modos de vida de la Puna siguen presentes y en constante evolución. San Antonio de los Cobres no es solo un lugar geográfico: es una comunidad que mantiene viva su identidad cultural en cada gesto cotidiano. Aquí, la tradición y la modernidad conviven entre rituales ancestrales, celebraciones populares, oficios heredados y nuevas formas de habitar el territorio. En esta sala vas a conocer:
-
-* Las principales fiestas y ceremonias del calendario local, como la Pachamama, la Señalada o las Fiestas Patronales.
-
-* Las prácticas cotidianas que reflejan una relación respetuosa con la naturaleza, los animales y la tierra.
-
-* El valor del tejido, la cerámica y otros oficios tradicionales que aún se transmiten entre generaciones.
-
-* Cómo los habitantes de San Antonio construyen comunidad, conservan la memoria y se adaptan a los desafíos del presente sin perder sus raíces.`,
+    description: `Una comunidad viva en el corazón de la Puna
+Bienvenidos a San Antonio de los Cobres, capital del departamento Los Andes y una de las localidades más emblemáticas de la Puna argentina. Esta sala te invita a conocer no solo su historia, sino su presente: un territorio que se sostiene entre la memoria ancestral, la vida comunitaria, el trabajo de pastores y mineros, y una cultura viva que sigue latiendo a 3.776 metros de altura.
+`,
   },
   historia: {
     title: "HISTORIA",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Historia. Esta sala te invita a conocer un capítulo clave pero poco conocido de la historia argentina: la conformación del Territorio Nacional de Los Andes, en el corazón de la Puna. Un espacio donde confluyen geografía, geopolítica, diplomacia y vida cotidiana en altura. En esta sala vas a poder:
-
-* Conocer cómo vivían y se organizaban las comunidades prehispánicas.
-
-* Descubrir objetos de la vida cotidiana, ceremonias y prácticas ancestrales.
-
-* Ver cómo cambió la región con la llegada de los colonizadores, la minería y el Estado nacional.
-
-* Entender cómo la historia de la Puna forma parte del gran relato del noroeste argentino.`,
+    description: `Bienvenidos a la Sala de Historia
+Un recorrido por los grandes cambios políticos y sociales que marcaron la región andina y el país.
+Desde los primeros contactos con los conquistadores hasta la consolidación de la Argentina como Estado nacional, esta sala nos invita a descubrir cómo se fueron transformando los territorios, las poblaciones y las formas de gobierno.
+`,
   },
 };
 

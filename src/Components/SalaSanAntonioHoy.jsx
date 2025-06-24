@@ -1,122 +1,115 @@
-// SalaSanAntonioHoy.jsx (Estructura Limpia para v2)
+// src/components/Salas/SalaSanAntonioHoy.jsx
+
 import React from 'react';
-import '../SalaSanAntonioHoy.css'; // <<< --- IMPORTA EL NUEVO CSS
+// Importamos el CSS de Geología para reutilizar los estilos base
+import "./SalaGeologia.css";
+// Y un CSS específico para San Antonio Hoy
+import "../SalaSanAntonioHoy.css";
+
+// --- Importaciones de Swiper (necesarias para el carrusel) ---
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+// --- Componente de Carrusel reutilizable ---
+const CarouselGallery = ({ images, title }) => (
+  <div className="carousel-wrapper">
+    {title && <h4 className="gallery-title">{title}</h4>}
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      navigation={true}
+      pagination={{ clickable: true }}
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      className="sala-carousel"
+    >
+      {images.map((imgSrc, index) => (
+        <SwiperSlide key={index}>
+          <img
+            src={imgSrc}
+            alt={`${title || "Galería San Antonio Hoy"} - Imagen ${index + 1}`}
+            className="carousel-image"
+            loading="lazy"
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+);
 
 export const SalaSanAntonioHoy = () => {
+  // --- Define aquí las rutas a tus imágenes (deben estar en la carpeta /public) ---
+  const galeriaTejidos = [
+    import.meta.env.BASE_URL + "tejido_1.JPG", // REEMPLAZA ESTAS RUTAS
+    import.meta.env.BASE_URL + "tejido_2.JPG",
+    import.meta.env.BASE_URL + "tejido_3.JPG",
+    import.meta.env.BASE_URL + "tejido_4.JPG",
+    import.meta.env.BASE_URL + "tejido_5.JPG",
+    import.meta.env.BASE_URL + "tejido_6.JPG",
+  ];
+
   return (
-    // Nueva clase contenedora específica
-    <article className="sala-san-antonio-container-v2">
-      {/* Título Principal - Puedes usar uno global o este local */}
-      <h1 className="sa-main-title">San Antonio de los Cobres Hoy</h1>
-      <h2 className="sa-subtitulo">Creencias y Costumbres</h2>
+    <article className="sala-contenido-container">
+      
+      <h2 className="sala-contenido-titulo-principal">San Antonio de los Cobres Hoy</h2>
 
-      {/* Sección 1: Introducción */}
-      {/* Alternancia manejada por orden en JSX y CSS si es necesario */}
-      <section className="sa-content-block">
-        <figure className="sa-image-container">
-          <img
-            src={`${import.meta.env.BASE_URL}puebloSanAntonio.jpeg`}
-            alt="Vista de San Antonio de los Cobres"
-            className="sa-image"
-            loading="eager" // Carga la primera imagen rápido
-          />
-        </figure>
-        <div className="sa-text-container">
-          {/* Usamos h3 para subtítulos de sección */}
-          <h3 className="sa-section-subtitle">San Antonio Hoy</h3>
-          <p className="sa-text">
-            El pueblo de San Antonio de los Cobres se encuentra rodeado de cerros y en una zona árida de La Puna.
-          </p>
-          <p className="sa-text">
-            San Antonio de los Cobres se ubica a una altura de 3776 metros. Posee una superficie cercana a los 11.420 km2 con una población estimada de 7000 habitantes. El pueblo es ideal para descubrir las tradiciones y costumbres de los habitantes de La Puna, además de disfrutar de hermosos paisajes de cerros y salares. La zona donde se levanta San Antonio de los Cobres es árida y por la altura se recomienda caminar lentamente y evitar agitarse para no sufrir el apunamiento, también conocido como soroche o mal de altura.
-          </p>
-          {/* Sin título explícito aquí, solo párrafos */}
-        <p className="sa-text">
-          Esta emplazada a 3776 metros sobre el nivel del mar. Posee una superficie cercana a los 11.420 km2, con una población estimada de 7000 habitantes.
-        </p>
-        <p className="sa-text">
-          El 13 de junio se celebra la fiesta de su Patrono que es San Antonio de Padua. Llegó hasta este lugar el año 1775 desde la Mina de Cobres ubicada en la localidad homónima distante a 70 km de San Antonio.
-        </p>
-        </div>
-      </section>
-{/* 
-      <section className="sa-text-block">
-        <p className="sa-text">
-          Esta emplazada a 3776 metros sobre el nivel del mar. Posee una superficie cercana a los 11.420 km2, con una población estimada de 7000 habitantes.
-        </p>
-        <p className="sa-text">
-          El 13 de junio se celebra la fiesta de su Patrono que es San Antonio de Padua. Llegó hasta este lugar el año 1775 desde la Mina de Cobres ubicada en la localidad homónima distante a 70 km de San Antonio.
-        </p>
-      </section>
- */}
-      {/* Sección 3: Mina de Cobres */}
-      <section className="sa-content-block reverse"> {/* Añadimos clase 'reverse' para alternar */}
-        <figure className="sa-image-container">
-          <img
-            src={`${import.meta.env.BASE_URL}minaCobre.jfif`}
-            alt="Mina de Cobres"
-            className="sa-image"
-            loading="lazy"
-          />
-        </figure>
-        <div className="sa-text-container">
-          <h3 className="sa-section-subtitle">Mina de Cobres</h3>
-          <p className="sa-text">
-            Fue construida y explotada por los Jesuitas junto a los aborígenes Kolla. Cuando los jesuitas fueron expulsados por Carlos III de todos los territorios que la Corona Española había conquistado, los Kollas tuvieron que abandonar también esas tierras y la mina. Huyeron con su santo a cuestas y llegaron hasta un lugar ya habitado por aborígenes bajo el cerro Terciopelo. Ahí se quedaron y el poblado pasó a llamarse San Antonio de los Cobres mientras que en Cobres se venera desde entonces y hasta hoy a la Virgen del Perpetuo Socorro.
-          </p>
-        </div>
-      </section>
-
-      {/* Sección 4: Testimonio Brackebusch */}
-      <section className="sa-quote-block">
-        {/* Título opcional para la cita */}
-        <h4 className="sa-quote-title">Testimonio de Luis Braquebusch (1870)</h4>
-        <blockquote>
-          <p className="sa-quote-text"> {/* Clase específica para el texto */}
-            "En este camino me acompañó Ciriaco Colqui, un cacique indio (todas estas regiones están habitadas por indios quichuas que son cristianos pero viven todavía en un estado completamente primitivo) y hombre inteligente que me facilitó detalles topográficos de incalculable valor; pasamos por el pueblo de San Antonio de los Cobres, que consistía en por lo menos trescientas casas bien construidas y bien conservadas, pero que no estaba habitado por una sola alma..." {/* Texto completo */}
-          </p>
-        </blockquote>
-        {/* Podríamos mover la atribución aquí si se prefiere */}
-        {/* <p className="sa-quote-attribution">- Luis Braquebusch, 1870</p> */}
-      </section>
-
-      {/* Sección 5: Escuela (Texto solo) */}
-      <section className="sa-text-block">
-        <h3 className="sa-section-subtitle centered">Educación en la Puna</h3> {/* Título centrado */}
-        <p className="sa-text narrow-text"> {/* Texto centrado y estrecho */}
-          En San Antonio de Los Cobres se encuentra la escuela más antigua de la Puna. La Escuela "Domingo Faustino Sarmiento", nació como Escuela Nacional Nro. 1 en el año 1903, hoy se la conoce como Escuela Nro. 5464 y depende de la provincia.
+      {/* --- Primer Bloque: Raíces --- */}
+      <section className="san-antonio-bloque">
+        <h3 className="sala-contenido-subtitulo">Un pueblo con raíces profundas</h3>
+        <p className="sala-contenido-parrafo">
+          San Antonio de los Cobres se extiende sobre una superficie de más de 11.000 km², y cuenta con una población cercana a los 7.000 habitantes. Su nombre rinde homenaje a San Antonio de Padua, cuya imagen llegó desde la antigua Mina de Cobres en 1775, portada por comunidades Kolla tras la expulsión de los jesuitas. Aquella imagen sagrada aún hoy es venerada durante la tradicional fiesta patronal del 13 de junio, que reúne a toda la comunidad en un encuentro de fe, música, danza y reencuentro familiar.
         </p>
       </section>
 
-      {/* Sección 6: Pachamama */}
-      <section className="sa-content-block"> {/* Layout normal */}
-        <figure className="sa-image-container">
-          <img
-            src={`${import.meta.env.BASE_URL}ofrendaPachamamaSanAntonioHoy.jfif`}
-            alt="Celebración de la Pachamama"
-            className="sa-image"
-            loading="lazy"
-          />
-        </figure>
-        <div className="sa-text-container">
-          <h3 className="sa-section-subtitle">La Pachamama</h3>
-          <p className="sa-text">
-            La Pachamama es la celebración más conocida y difundida de todo nuestro noroeste. Pacha significa Tierra en lengua quechua y mama significa madre. La Pachamama es una deidad, es la Madre Tierra.
-          </p>
-          <p className="sa-text">
-            Es la madre de los cerros y de los hombres, la que hace posible que las cosechas prosperen, los frutos maduren y el ganado se reproduzca. Agosto es el mes de la Pachamama y el primer día de este mes comienza su celebración.
-          </p>
-        </div>
+      {/* --- Segundo Bloque: Tejidos y Carrusel --- */}
+      <section className="san-antonio-bloque">
+        <h3 className="sala-contenido-subtitulo">Tejido, herencia y territorio</h3>
+        <p className="sala-contenido-parrafo">
+          Los telares y vestimentas que ves en esta sala son parte fundamental de la identidad cultural local. El tejido andino —realizado en telares rústicos o de cintura— conserva técnicas milenarias que se transmiten de generación en generación. Cada prenda no solo abriga: también narra historias, representa linajes, festividades, ciclos productivos y creencias.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Los colores, los motivos y los materiales (como la lana de llama o de oveja) hablan del entorno natural, del calendario agrícola y del mundo simbólico de las comunidades.
+        </p>
+        
+        {/* Aquí insertamos el carrusel */}
+        <CarouselGallery images={galeriaTejidos} title="Técnicas y motivos del tejido andino" />
       </section>
 
-      {/* Sección 7: Sincretismo (Highlight) */}
-      {/* Usamos clase modificadora para el estilo */}
-      <section className="sa-highlight-block highlight-primary">
-        <h4 className="sa-highlight-title">Sincretismo Cultural</h4>
-        <p className="sa-highlight-text">
-          En esta tierra de pastores y mineros, se guardan y practican ancestrales tradiciones que lograron sobrevivir ante las imposiciones extrañas de los conquistadores gracias a la fuerte identidad de un pueblo y que hoy forman parte de un singular y equilibrado sincretismo.
+      {/* --- Tercer Bloque: Escuela --- */}
+      <section className="san-antonio-bloque">
+        <h3 className="sala-contenido-subtitulo">Escuela y saberes</h3>
+        <p className="sala-contenido-parrafo">
+          En San Antonio se encuentra la escuela más antigua de toda la región puneña: la Escuela Domingo Faustino Sarmiento, fundada en 1903 como Escuela Nacional Nº 1. Hoy sigue funcionando con el número 4.564, bajo jurisdicción provincial. Esta institución representa el esfuerzo por garantizar la educación en contextos geográficos extremos, y es también un espacio de transmisión de valores culturales locales, tanto ancestrales como contemporáneos.
         </p>
       </section>
+
+      {/* --- Cuarto Bloque: Pachamama --- */}
+      <section className="san-antonio-bloque">
+        <h3 className="sala-contenido-subtitulo">La Pachamama: Madre Tierra, madre vida</h3>
+        <p className="sala-contenido-parrafo">
+          Una de las celebraciones más sentidas y difundidas en todo el Noroeste argentino es la Fiesta de la Pachamama, que se realiza cada 1º de agosto. “Pacha” significa tierra, universo en lengua quechua, y “mama” es madre. En esta fecha, las familias agradecen a la tierra todo lo que brinda: alimento, salud, abrigo. Se realiza la tradicional corpachada, donde se entierran ofrendas como hojas de coca, alimentos y bebidas.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Esta celebración, presente también en otras culturas andinas, es testimonio del fuerte vínculo espiritual entre el ser humano y la naturaleza. Un ejemplo claro de cómo las creencias indígenas perviven, incluso en contextos de transformación histórica, como la colonización y la evangelización.
+        </p>
+      </section>
+      
+      {/* --- Quinto Bloque: Testimonio --- */}
+      <section className="san-antonio-bloque">
+        <h3 className="sala-contenido-subtitulo">Un testimonio del siglo XIX</h3>
+        <p className="sala-contenido-parrafo">
+          En 1870, el geólogo alemán Luis Brackebusch recorrió la región de San Antonio y escribió una crónica que hoy nos permite imaginar cómo era este paisaje humano y natural en el pasado. En su relato menciona a Ciriaco Colqui, un cacique Kolla que lo guió por la zona y le proporcionó información clave para sus estudios.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Brackebusch quedó impresionado por las casas de piedra, abandonadas durante el año, que se llenaban de vida en las grandes festividades religiosas. Su descripción del silencio nocturno, la vida dispersa en los parajes, y la comunión festiva anual nos conecta con una forma de habitar el territorio que —en muchos aspectos— todavía perdura.
+        </p>
+      </section>
+
     </article>
   );
 };

@@ -147,8 +147,27 @@ const CarouselGallery = ({ images, title }) => (
   </div>
 );
 
+const PlayIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em">
+    <path d="M8 5v14l11-7z" />
+  </svg>
+);
 // --- COMPONENTE PRINCIPAL DE LA SALA (sin cambios en su lógica) ---
 export const SalaGeologia = () => {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef(null); // <--- 2. CREAMOS UNA REFERENCIA AL VIDEO
+
+    // --- 3. FUNCIÓN PARA CONTROLAR PLAY/PAUSE ---
+    const togglePlay = () => {
+      if (videoRef.current) {
+        if (isPlaying) {
+          videoRef.current.pause();
+        } else {
+          videoRef.current.play();
+        }
+      }
+    };
+  
   // Las rutas a tus imágenes no cambian
   const galeriaCuencas = [
     import.meta.env.BASE_URL + "cuenca_1.jpg",
@@ -232,7 +251,46 @@ export const SalaGeologia = () => {
           superficie.
         </li>
       </ul>
-
+      <h4 className="sala-contenido-subtitulo-menor">
+      ¿Sabías que hay un lugar en Argentina donde el agua nunca llega al mar?
+      </h4>
+      <section className="video-hero-section">
+        {/* --- 4. AÑADIMOS EL MANEJADOR DE CLIC AL CONTENEDOR --- */}
+        <div
+          className={`video-wrapper ${isPlaying ? "is-playing" : ""}`}
+          onClick={togglePlay}
+        >
+          <video
+            ref={videoRef} // <-- Asignamos la referencia
+            className="arqueologia-video"
+            // --- 5. ¡IMPORTANTE! LOS CONTROLES AHORA SON DINÁMICOS ---
+            controls={isPlaying}
+            preload="metadata"
+            poster={`${import.meta.env.BASE_URL}arqueologia.jfif`}
+            src={`${import.meta.env.BASE_URL}Arqueologia_video.mp4`}
+            // --- 6. ESTOS EVENTOS ACTUALIZAN NUESTRO ESTADO ---
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
+          >
+            Tu navegador no soporta la etiqueta de video.
+          </video>
+          {/* El overlay ahora es solo visual, el clic lo maneja el div padre */}
+          <div className="play-button-overlay" aria-hidden="true">
+            <div className="play-icon-container">
+              <PlayIcon />
+            </div>
+          </div>
+        </div>
+        {/* ... (El caption del video no cambia) ... */}
+        <div className="video-caption">
+          <h3 className="video-title">La Voz de la Experiencia</h3>
+          <p className="video-subtitle">
+            Entrevista con el Dr. Federico Restifo, Arqueólogo-Investigador del
+            CONICET.
+          </p>
+        </div>
+      </section>
       <h4 className="sala-contenido-subtitulo-menor">
         ¿Cómo se forma un volcán?
       </h4>

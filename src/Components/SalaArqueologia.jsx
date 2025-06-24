@@ -1,37 +1,27 @@
-// SalaArqueologia.jsx (Solución final con control total del reproductor)
-import React, { useState, useRef } from "react"; // <--- 1. IMPORTAMOS useRef
-import "../SalaArqueologia.css";
+// src/components/Salas/SalaArqueologia.jsx
 
-// ... (arqueologiaData y PlayIcon no cambian)
-const arqueologiaData = [
-  {
-    image: "arqueologia1.jfif",
-    alt: "Primeros Pobladores de la Puna",
-    text: "Los primeros pobladores habrían comenzado a llegar a la Puna hace alrededor de 10.000 años. Vivían en pequeños grupos y se desplazaban en grandes distancias a través del territorio. Su supervivencia dependía de la caza de camélidos silvestres como la vicuña y el guanaco, animales esenciales para su alimentación, vestimenta y herramientas.",
-  },
-  {
-    image: "arqueologia2.jfif",
-    alt: "Desarrollo de la Agricultura y Ganadería",
-    text: "Hace unos 3.000 años, se produjo una transformación significativa en la forma de vida de estos pueblos. Comenzaron a practicar la agricultura y la cría de ganado, lo que permitió una mayor estabilidad y asentamiento en la región. La domesticación de camélidos como las llamas y alpacas se consolidó en este período, marcando el inicio de una economía pastoril organizada.",
-  },
-  {
-    image: "arqueologia3.jfif",
-    alt: "Desarrollo de Aldeas en la Puna",
-    text: "Entre 3.000 y 2.500 años antes del presente, la vida pastoril se consolidó como el modo de vida predominante en la Puna. La presencia de pastores y pastoras se convirtió en un rasgo característico de la región. Este período también estuvo marcado por el crecimiento de la población y el establecimiento de aldeas y pequeños centros urbanos, donde la vida comunitaria y el trabajo colectivo eran fundamentales.",
-  },
-];
+import React, { useState, useRef } from "react";
+import "../SalaArqueologia.css"; // Asegúrate de que este CSS exista y se adapte
 
+// Icono de Play para el video
 const PlayIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em">
     <path d="M8 5v14l11-7z" />
   </svg>
 );
 
+// Componente para mostrar una imagen alineada
+// 'align' puede ser "left" o "right"
+const ImageBlock = ({ src, alt, align = "left" }) => (
+  <figure className={`arqueologia-image-block align-${align}`}>
+    <img src={src} alt={alt} className="arqueologia-inline-image" loading="lazy" />
+  </figure>
+);
+
 export const SalaArqueologia = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef(null); // <--- 2. CREAMOS UNA REFERENCIA AL VIDEO
+  const videoRef = useRef(null);
 
-  // --- 3. FUNCIÓN PARA CONTROLAR PLAY/PAUSE ---
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
@@ -43,62 +33,106 @@ export const SalaArqueologia = () => {
   };
 
   return (
-    <article className="sala-arqueologia-container">
-      {/* ... (El header no cambia) ... */}
+    <article className="sala-arqueologia-container sala-contenido-container"> {/* Usamos clases consistentes */}
+      
       <header className="sala-header">
-        <h1 className="sala-main-title">Arqueología</h1>
-        <p className="sala-subtitle">
-          Un viaje a los orígenes de la vida en la Puna.
-        </p>
+        <h1 className="sala-main-title sala-contenido-titulo-principal">Arqueología</h1>
+        
       </header>
 
-      <section className="video-hero-section">
-        {/* --- 4. AÑADIMOS EL MANEJADOR DE CLIC AL CONTENEDOR --- */}
+      <section className="arqueologia-narrative">
+        
+
+        <ImageBlock 
+          src= {import.meta.env.BASE_URL + "/cazadores.png"} // REEMPLAZA ESTA RUTA
+          alt="Herramientas de cazadores y recolectores" 
+          align="right" 
+        />
+        <p className="sala-contenido-parrafo">
+          Hace más de 10.000 años, los primeros grupos humanos comenzaron a habitar los altos paisajes de la Puna. Eran cazadores y recolectores nómadas que se desplazaban por grandes extensiones del territorio andino. Su vida dependía de animales como la vicuña y el guanaco, que les proveían carne, cuero y hueso para herramientas.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Con el paso del tiempo, entre los 3.000 y 2.500 años antes del presente, estas comunidades comenzaron a domesticar camélidos —especialmente la llama— y a practicar la agricultura. Esta transformación marcó un cambio fundamental: el inicio de una forma de vida pastoril, con asentamientos más estables, intercambio de productos y una organización social más compleja.
+        </p>
+        <p className="sala-contenido-parrafo">
+          La llama fue un verdadero motor del desarrollo andino: no sólo brindaba lana y carne, sino que permitía el transporte de bienes a largas distancias, siendo clave en las redes de intercambio entre la Puna y los valles.
+        </p>
+
+        <ImageBlock 
+          src={import.meta.env.BASE_URL + "/geoglifo_matancillas.png"} // REEMPLAZA ESTA RUTA
+          alt="Geoglifo de camélido en Matancillas"
+          align="left"
+        />
+        <p className="sala-contenido-parrafo">
+          En sitios como Matancillas y Urcuro (en el actual Valle de San Antonio de los Cobres), se han hallado evidencias arqueológicas que dan cuenta de la vida cotidiana de estas poblaciones hace 1.500 años. En Matancillas, un geoglifo grabado sobre roca de cuarzo —único en el país— representa un camélido, símbolo de su valor económico y espiritual.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Herramientas como puntas de proyectil y cuchillos fueron elaboradas principalmente en obsidiana, un vidrio volcánico muy apreciado por su filo, así como en cuarcita. Estos objetos muestran el conocimiento profundo que los antiguos puneños tenían sobre los minerales y su uso.
+        </p>
+
+        <ImageBlock 
+          src={import.meta.env.BASE_URL + "/ofrenda_incaica.png"} // REEMPLAZA ESTA RUTA
+          alt="Ofrenda humana incaica"
+          align="right"
+        />
+        <p className="sala-contenido-parrafo">
+          Con la expansión del Imperio Incaico en el siglo XV, muchas comunidades de la Puna fueron integradas a esta compleja red política, social y económica. Montañas como el Acay, Tuzgle, el Llullaillaco, Chañi y el Quevar fueron consideradas sagradas, y en ellas se realizaron importantes ceremonias, incluso con ofrendas humanas, como parte de la cosmovisión andina.
+        </p>
+        <p className="sala-contenido-parrafo">
+          La Puna salteña forma parte de una de las regiones con mayor densidad de adoratorios de altura del mundo andino, con más de 100 cerros sagrados identificados, muchos de ellos vinculados a rituales incaicos.
+        </p>
+
+        <ImageBlock 
+          src={import.meta.env.BASE_URL + "/ceramica.png"} // REEMPLAZA ESTA RUTA
+          alt="Cerámica arqueológica"
+          align="left"
+        />
+        <p className="sala-contenido-parrafo">
+          Las cerámicas, máscaras y puntas de flecha que ves en esta sala son testimonio de ese pasado: objetos que acompañaron la vida diaria, los ritos, los intercambios y las creencias de quienes habitaron estas tierras antes y después de la llegada del Inca.
+        </p>
+        <p className="sala-contenido-parrafo">
+          A partir de la llegada de los españoles en el siglo XVI, las formas de vida indígenas comenzaron a transformarse. La organización colonial introdujo nuevas instituciones —como la encomienda y los pueblos de indios— que fueron modificando el modo de habitar, trabajar y relacionarse con el territorio.
+        </p>
+        <p className="sala-contenido-parrafo">
+          La historia de los primeros habitantes de la Puna no está escrita con letras, sino con piedras, cerámicas, senderos y rituales. Hoy, esos rastros nos permiten conocer cómo fueron sus vidas, su entorno, y su legado. Su sabiduría sigue presente en las formas de habitar, de criar llamas, de rendir culto a la Pachamama.
+        </p>
+      </section>
+
+      {/* --- SECCIÓN DE VIDEO (AHORA AL FINAL) --- */}
+      <section className="video-hero-section video-at-end">
+        <div className="video-caption">
+          {/* Aquí podrías usar un ícono si quieres */}
+          <h3 className="video-title">Entrevista con el Dr. Federico Restifo</h3>
+          <p className="video-subtitle">
+            Arqueólogo-Investigador del CONICET.
+          </p>
+{/*           <a href="https://drive.google.com/drive/folders/1gAMjRQQcTeP2sTX0besnO7kSkzYQBCSY" target="_blank" rel="noopener noreferrer" className="video-link">Ver entrevista completa</a>
+ */}        </div>
         <div
           className={`video-wrapper ${isPlaying ? "is-playing" : ""}`}
           onClick={togglePlay}
         >
           <video
-            ref={videoRef} // <-- Asignamos la referencia
+            ref={videoRef}
             className="arqueologia-video"
-            // --- 5. ¡IMPORTANTE! LOS CONTROLES AHORA SON DINÁMICOS ---
             controls={isPlaying}
             preload="metadata"
-            poster={`${import.meta.env.BASE_URL}arqueologia.jfif`}
-            src={`${import.meta.env.BASE_URL}Arqueologia_video.mp4`}
-            // --- 6. ESTOS EVENTOS ACTUALIZAN NUESTRO ESTADO ---
+            poster={`${import.meta.env.BASE_URL}/img/arqueologia/poster_video.jpg`} // REEMPLAZA ESTA RUTA
+            src={`${import.meta.env.BASE_URL}/Arqueologia_video.mp4`} // REEMPLAZA ESTA RUTA
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
             onEnded={() => setIsPlaying(false)}
           >
             Tu navegador no soporta la etiqueta de video.
           </video>
-          {/* El overlay ahora es solo visual, el clic lo maneja el div padre */}
           <div className="play-button-overlay" aria-hidden="true">
             <div className="play-icon-container">
               <PlayIcon />
             </div>
           </div>
         </div>
-        {/* ... (El caption del video no cambia) ... */}
-        <div className="video-caption">
-          <h3 className="video-title">La Voz de la Experiencia</h3>
-          <p className="video-subtitle">
-            Entrevista con el Dr. Federico Restifo, Arqueólogo-Investigador del
-            CONICET.
-          </p>
-        </div>
       </section>
 
-      {/* ... (La sección narrativa no cambia) ... */}
-      <section className="arqueologia-narrative">
-        {arqueologiaData.map((item, index) => (
-          <div key={index} className="narrative-block">
-            <h2 className="narrative-title">{item.alt}</h2>
-            <p className="narrative-text">{item.text}</p>
-          </div>
-        ))}
-      </section>
     </article>
   );
 };

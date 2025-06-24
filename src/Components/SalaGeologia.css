@@ -40,7 +40,7 @@
   
   .sala-contenido-subtitulo-menor {
     font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-    font-weight: 700;
+    font-weight: 600;
     color: #5a3a22; /* Un tono más oscuro del primario */
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -57,13 +57,18 @@
     list-style-type: '→ '; /* Usar un emoji o un string como marcador */
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
+    font-family: 'MuseoSans', sans-serif;
   }
   
   .sala-contenido-lista li {
+    font-family: 'MuseoSans', sans-serif !important;
     padding-left: 0.5rem;
     margin-bottom: 0.8rem;
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.7;
+    color: #495057 !important;
+    font-weight: normal; /* Asegura que no sea negrita por herencia */
+
   }
   
   
@@ -268,7 +273,7 @@
 }
 
 .volcano-explorer-instructions {
-    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    font-family: 'MuseoSans', sans-serif;
     text-align: center;
     font-size: 0.9rem;
     color: var(--color-grey-light-theart, #aaa);
@@ -298,7 +303,7 @@
 }
 
 .volcano-info-panel p {
-    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    font-family: 'MuseoSans', sans-serif;
     font-size: 0.8rem;
     color: var(--color-grey-light-theart, #aaa);
     margin: 5px 0;
@@ -366,7 +371,7 @@
     color: var(--color-dark-theart, #1a1a1a);
     border: none;
     border-radius: 25px;
-    font-family: var(--font-body-sala, 'Lato', sans-serif);
+    font-family: 'MuseoSans' , sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;

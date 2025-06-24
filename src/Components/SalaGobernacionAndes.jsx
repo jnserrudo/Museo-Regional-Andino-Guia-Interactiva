@@ -1,79 +1,86 @@
-import React, { useEffect, useMemo } from "react"; // Asegura importar useMemo
-import { useSpeech } from "../Contexts/SpeechContext"; // Ajusta la ruta si es necesario
-import "../SalaContenido.css";
+// src/components/Salas/SalaGobernacionAndes.jsx
 
-// Datos de la sala (sin cambios)
-const sala = {
-  title: "GOBERNACIÓN DE LOS ANDES",
-  image: "/historia_museo.png",
-  video: "",
-  sections: [
-    {
-      /* subtitle: "Contexto Histórico", */
-      text: `El primer gobernador fue el Gral. De Brigada D. Daniel Cerri, en su gobernación se realizan el reconocimiento y exploración del territorio  y surge así la primera  memoria de la Gobernación  donde se identifican las propiedades y borateras. Y se suman exploraciones de científicos y naturalistas como Juan Ambrosetti (1904-1905), Eric  Boman (1910),entre otros.
-      Los informes de la época reflejaban la importancia y potencial  de los recursos mineros y las características especiales del clima y la altura. 
-      En el año 1943 el territorio de la Gobernación de Los Andes se divide en tres departamentos anexados a las actuales provincias de Salta (Los Andes)  Jujuy (Susques)  y Catamarca (Antofagasta de la Sierra).
-`
-    },
-    /* {
-      subtitle: "Desafíos y Logros",
-      text: "La administración enfrentó enormes desafíos logísticos y climáticos. Las comunicaciones eran precarias y la adaptación a la altura, un obstáculo constante. A pesar de ello, se establecieron escuelas, se mejoraron caminos y se intentó impulsar la minería y la ganadería como motores económicos. La interacción con las comunidades originarias fue un aspecto crucial y complejo de la gestión.",
-    },
-    {
-      subtitle: "Legado",
-      text: "Aunque la Gobernación de Los Andes tuvo una existencia relativamente corta, su legado perdura en la memoria histórica de la región. Marcó un intento significativo de soberanía y administración en una de las zonas más inhóspitas de Argentina, sentando bases para la organización territorial posterior.",
-    }, */
-  ],
-};
+import React from 'react';
+// Importamos el CSS de Geología para reutilizar los estilos base de títulos y párrafos
+import "./SalaGeologia.css"; 
+// Y un CSS específico si necesitamos algún ajuste
+import "./SalaGobernacionAndes.css";
 
 export const SalaGobernacionAndes = () => {
-  const { registerText } = useSpeech();
-
-  // <<<--- Usa useMemo para estabilizar textoCompleto --- >>>
-  const textoCompleto = useMemo(() => {
-    console.log(
-      "SalaGobernacionAndes: Calculando textoCompleto (debería ser 1 vez)."
-    );
-    return `${sala.title}. ${sala.sections
-      .map((s) => `${s.subtitle || ""}. ${s.text}`)
-      .join(". ")}`;
-  }, []); // Dependencia vacía, asume que 'sala' no cambia
-
-  // <<<--- useEffect con dependencias estables --- >>>
-  useEffect(() => {
-    console.log(
-      "SalaGobernacionAndes: useEffect ejecutado. Registrando texto."
-    );
-    registerText(textoCompleto);
-    // Limpia el texto cuando el componente se desmonta
-    return () => {
-      console.log("SalaGobernacionAndes: useEffect cleanup. Limpiando texto.");
-      registerText("");
-    };
-    // Dependencias: registerText (estable por useCallback[]) y textoCompleto (estable por useMemo[])
-    // Este efecto ahora SÓLO se ejecuta al montar y limpia al desmontar.
-  }, [registerText, textoCompleto]);
-
   return (
-    <article className="sala-contenido-articulo" id="main-sala-content">
-      <h3 className="sala-contenido-titulo-principal">{sala.title}</h3>
-      <figure className="sala-contenido-imagen-destacada">
-        <img
-          src={`${import.meta.env.BASE_URL}${sala.image}`}
-          alt={`Imagen representativa de ${sala.title}`}
-        />
-        <figcaption>
-          El edificio histórico que alberga parte de nuestra colección.
-        </figcaption>
-      </figure>
-      {sala.sections.map((section, index) => (
-        <section key={index} className="sala-contenido-seccion">
-          {section.subtitle && (
-            <h3 className="sala-contenido-subtitulo">{section.subtitle}</h3>
-          )}
-          <p className="sala-contenido-parrafo">{section.text}</p>
-        </section>
-      ))}
+    <article className="sala-contenido-container"> {/* Usamos la clase base para consistencia */}
+      
+      <h2 className="sala-contenido-titulo-principal">Gobernación de los Andes</h2>
+
+      {/* --- Primer Bloque: Daniel Cerri --- */}
+      <section className="gobernacion-bloque">
+        <h3 className="sala-contenido-subtitulo">El primer gobernador: Daniel Cerri</h3>
+        <p className="sala-contenido-parrafo">
+          El General de Brigada Daniel Cerri fue designado como primer gobernador del Territorio Nacional de Los Andes a principios del siglo XX. Su gestión, además de sentar las bases institucionales, estuvo marcada por expediciones de reconocimiento y exploración del territorio, fundamentales para conocer su geografía, sus recursos y su potencial.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Durante su administración se elaboró la primera Memoria oficial de la Gobernación, un documento clave que detallaba:
+        </p>
+        <ul className="sala-contenido-lista">
+            <li>Propiedades y límites territoriales.</li>
+            <li>La ubicación de yacimientos de boratos y otros minerales estratégicos.</li>
+            <li>Condiciones climáticas y ambientales de la Puna andina.</li>
+        </ul>
+        <p className="sala-contenido-parrafo">
+          Este informe no solo permitió avanzar en políticas de ocupación y administración, sino que llamó la atención sobre el valor económico de los recursos naturales, en especial los boratos, el litio y el cobre.
+        </p>
+      </section>
+
+      {/* --- Segundo Bloque: Ciencia y Exploradores --- */}
+      <section className="gobernacion-bloque">
+        <h3 className="sala-contenido-subtitulo">Ciencia y territorio: Ambrosetti, Boman y otros exploradores</h3>
+        <p className="sala-contenido-parrafo">
+          En paralelo con la labor política y administrativa, la Gobernación impulsó o facilitó expediciones científicas pioneras, que fueron fundamentales para la historia de la arqueología, la geología y la etnografía argentina.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Entre ellas se destacan:
+        </p>
+        <ul className="sala-contenido-lista">
+            <li><strong>Juan Ambrosetti (1904–1905):</strong> considerado el “padre de la arqueología argentina”, recorrió la región registrando sitios arqueológicos, cerámicas, tumbas y geoglifos, muchos de ellos hoy considerados patrimonio.</li>
+            <li><strong>Eric Boman (1910):</strong> etnógrafo y arqueólogo sueco-argentino, realizó estudios sistemáticos sobre pueblos originarios, asentamientos y rutas prehispánicas.</li>
+        </ul>
+        <p className="sala-contenido-parrafo">
+          Sus investigaciones fueron pioneras en mostrar que esta región no era “vacía” ni marginal, sino que tenía una larga historia cultural y estaba profundamente integrada al mundo andino.
+        </p>
+      </section>
+
+      {/* --- Tercer Bloque: Futuro e Historia --- */}
+      <section className="gobernacion-bloque">
+        <h3 className="sala-contenido-subtitulo">Un territorio con futuro… y con historia</h3>
+        <p className="sala-contenido-parrafo">
+          Los informes técnicos y científicos de principios del siglo XX destacaron que la región tenía:
+        </p>
+        <ul className="sala-contenido-lista">
+            <li>Un clima singular, extremadamente seco, con gran amplitud térmica.</li>
+            <li>Una altitud desafiante, pero con posibilidades para la minería, la ganadería y ciertos cultivos.</li>
+            <li>Riquezas geológicas: boratos, salares, piedra pómez, litio, cobre y otros minerales.</li>
+        </ul>
+        <p className="sala-contenido-parrafo">
+          Este conocimiento fue clave para promover exploraciones mineras, organizar servicios básicos y fomentar pequeñas poblaciones.
+        </p>
+      </section>
+
+      {/* --- Cuarto Bloque: El Final del Territorio --- */}
+      <section className="gobernacion-bloque">
+        <h3 className="sala-contenido-subtitulo">El final del Territorio Nacional de Los Andes</h3>
+        <p className="sala-contenido-parrafo">
+          En 1943, por decreto nacional, el Territorio fue disuelto y sus partes integradas definitivamente a las provincias vecinas:
+        </p>
+        <ul className="sala-contenido-lista">
+            <li>El Departamento de Los Andes pasó a formar parte de Salta.</li>
+            <li>Susques, a la provincia de Jujuy.</li>
+            <li>Antofagasta de la Sierra, a Catamarca.</li>
+        </ul>
+        <p className="sala-contenido-parrafo">
+          Así culminó una etapa de administración nacional directa y se consolidó el mapa provincial actual del noroeste argentino.
+        </p>
+      </section>
+
     </article>
   );
 };
