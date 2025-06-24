@@ -74,6 +74,7 @@
   padding-left: 1.5rem;
   /* Los subtítulos generalmente se ven mejor alineados a la izquierda */
   text-align: left;
+  color: #8B4513 !important;
 }
 /* .sala-contenido-subtitulo::before {
   content: '';

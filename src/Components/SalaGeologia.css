@@ -41,7 +41,7 @@
   .sala-contenido-subtitulo-menor {
     font-size: clamp(1.2rem, 3.5vw, 1.5rem);
     font-weight: 600;
-    color: #5a3a22; /* Un tono más oscuro del primario */
+    color: var(--primary-color); /* Un tono más oscuro del primario */
     margin-top: 2.5rem;
     margin-bottom: 1rem;
   }

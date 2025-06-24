@@ -14,6 +14,7 @@ import { ArrowLeftOutlined, // --- AÑADE ESTOS TRES ---
   AppstoreOutlined, } from "@ant-design/icons";
 
 // --- Importa tus componentes de sala principales ---
+import { SalaTerritorioAndes } from "./SalaTerritorioAndes";
 import { SalaGeologia } from "./SalaGeologia";
 import { SalaBiodiversidad } from "./SalaBiodiversidad";
 import { SalaRamalC14 } from "./SalaRamalC14";
@@ -30,8 +31,6 @@ import { SalaSanAntonioHoy } from "./SalaSanAntonioHoy";
 // import { SalaArqueologiaDetalle } from "./SalaArqueologiaDetalle"; // <- Cuando la crees
 // etc.
 
-import { SalaRamalTrenDetalle } from "./SalaRamalTrenDetalle"; // <-- NUEVO
-import { SalaRamalTimelineDetalle } from "./SalaRamalTimelineDetalle"; // <-- NUEVO
 import { useLocation } from "react-router-dom"; // Asegura importar useLocation
 
 import "./Sala.css";
@@ -48,6 +47,13 @@ const salasData = {
     image: "imagen_to_salas.webp",
     description: `Una historia de exploración, conocimiento y transformación del territorio.
 Bienvenidos a esta sala que recorre el proceso de organización y conocimiento del Territorio Nacional de Los Andes, a partir de su administración estatal. Aquí vas a conocer a sus protagonistas, las primeras investigaciones científicas y cómo esta región tan particular fue integrada al país.
+`,
+  },
+  territorio_de_los_andes: {
+    title: "TERRITORIO DE LOS ANDES",
+    image: "imagen_to_salas.webp",
+    description: `Un territorio en disputa, una historia de integración nacional.
+Bienvenidos a este espacio que narra el origen, los conflictos y la consolidación del Territorio Nacional de Los Andes, una región estratégica y cargada de historia en el corazón de la Puna argentina.
 `,
   },
   geologia: {
@@ -96,15 +102,9 @@ En esta sala vas a conocer quiénes habitaron la Puna, un territorio habitado de
   ramal_c14: {
     title: "RAMAL C14",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la sala dedicada al Ramal C14, una de las obras ferroviarias más imponentes y desafiantes de la Argentina. Este ramal fue parte esencial del Ferrocarril General Belgrano y unió el norte del país con la frontera chilena, atravesando los paisajes extremos de la Puna salteña. Construido entre las décadas de 1920 y 1940, el Ramal C14 es famoso por su ingeniería audaz, sus puentes y viaductos, sus curvas imposibles y su recorrido a más de 4.000 metros sobre el nivel del mar. Su tramo más conocido es el que atraviesa San Antonio de los Cobres y culmina en el icónico Viaducto La Polvorilla. En esta sala vas a poder:
-
-* Conocer cómo fue el trabajo de los obreros, ingenieros y comunidades que hicieron posible este proyecto.
-
-* Ver planos, herramientas, uniformes y fotografías históricas del ramal.
-
-* Entender el impacto que tuvo el tren en la vida económica y social de la región.
-
-* Descubrir cómo esta línea sigue viva hoy a través del famoso Tren a las Nubes.`,
+    description: `Bienvenidos a la Sala del Ramal C14, 
+una de las obras más asombrosas de la ingeniería ferroviaria en América del Sur. Aquí vas a descubrir la historia del tren que desafió la geografía extrema de la Cordillera de los Andes, uniendo Salta con la frontera chilena en Socompa, a más de 3.500 metros sobre el nivel del mar.
+`,
   },
   "san-antonio-hoy": {
     title: "SAN ANTONIO HOY",
@@ -127,12 +127,13 @@ Desde los primeros contactos con los conquistadores hasta la consolidación de l
 const salaComponentMap = {
   geologia: SalaGeologia,
   biodiversidad: SalaBiodiversidad,
-  /* ramal_c14: SalaRamalC14, */
+   ramal_c14: SalaRamalC14, 
   gobernacion_de_los_andes: SalaGobernacionAndes,
   historia: SalaHistoria,
   minerologia_y_mineria: SalaMinerologiaMineria,
   arqueologia: SalaArqueologia,
   "san-antonio-hoy": SalaSanAntonioHoy,
+  territorio_de_los_andes: SalaTerritorioAndes,
 };
 
 // --- NUEVO: Mapeo de IDs a componentes de DETALLE ---
@@ -146,31 +147,6 @@ const salaDetailComponentMap = {
 
 
 
-import { CloudServerOutlined, ClockCircleOutlined } from "@ant-design/icons"; // Ejemplos
-// --- NUEVO: Datos subtemas Ramal C-14 ---
-const temasRamal = [
-  
-  {
-    id: "linea-tiempo",
-    title: "Historia Ramal C-14",
-    description: "Sigue los hitos clave de su construcción.",
-    icon: (
-      <ClockCircleOutlined
-        style={{ fontSize: "2.5em", marginBottom: "0.5em" }}
-      />
-    ),
-  },
-  {
-    id: "tren",
-    title: "Tren a las Nubes",
-    description: "El Magnífico Tren a las Nubes.",
-    icon: (
-      <CloudServerOutlined
-        style={{ fontSize: "2.5em", marginBottom: "0.5em" }}
-      />
-    ),
-  },
-];
 
 // --- Componente para contenido inválido/no encontrado ---
 const SalaInvalida = (
@@ -207,7 +183,7 @@ export const Sala = () => {
 
 
 
-  const esSalaRamal = salaId === "ramal_c14"; // <-- NUEVO check
+  
 
   // Determina si estamos en la ruta base de la sala actual
   const location = useLocation();
@@ -237,12 +213,8 @@ const estamosEnRutaBaseSala = !detailId;
   }, [salaId]);
   // *** FIN DE LÍNEAS A AÑADIR ***
 
-  // Decisión final: Mostrar la sección Intro SI:
-  // 1. Es Geología O Ramal Y estamos EXACTAMENTE en su ruta base
-  // 2. NO es Geología NI Ramal Y el estado dice que NO la ocultemos todavía
-  const mostrarSeccionIntro =
-    (esSalaRamal && estamosEnRutaBaseSala) ||
-    (!esSalaRamal && !ocultarIntroNormal);
+  const mostrarSeccionIntro = !ocultarIntroNormal;
+
 
   // Si la entrada en salasData no existe en absoluto
   if (!sala) {
@@ -255,19 +227,14 @@ const estamosEnRutaBaseSala = !detailId;
 
   // Función para manejar el click en la intro (SOLO si NO es geología)
   const handleIntroClick = () => {
-    if (!esSalaRamal) {
-      // <-- Solo navega si NO es geología
-      //setBandImg(false); // Oculta la intro y muestra el contenido
-      setOcultarIntroNormal(true);
-    }
-    // Si es geología, no hace nada al hacer click en el fondo/texto
+    setOcultarIntroNormal(true);
   };
 
   
-
+/* 
   const handleSubtemaCardClick = (subtemaId) => {
     navigate(subtemaId);
-  };
+  }; */
 
   // --- Función para manejar el click de "Volver" ---
   const handleGoBack = () => {
@@ -380,63 +347,10 @@ const estamosEnRutaBaseSala = !detailId;
             </p>
 
             {/* --- Tarjetas Ramal C14 --- */}
-            {esSalaRamal && (
-              <div className="ramal-subtemas-en-intro">
-                <h2 className="ramal-subtemas-titulo">
-                  Explora las secciones:
-                </h2>
-                {/* Reutilizamos el grid y card */}
-                <div className="sala-subtemas-grid ramal-choices-container">
-                  {temasRamal.map((tema, index) => (
-                    // *** AÑADE: La nueva tarjeta inmersiva (adaptada) ***
-                    <article
-                      key={tema.id}
-                      // Usamos la misma clase base, pero añadimos una específica
-                      className="sala-subtema-card-immersive ramal-card-no-image"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleSubtemaCardClick(tema.id);
-                      }}
-                      style={{
-                        // Sin backgroundImage, el fondo lo dará el CSS
-                        animationDelay: `${index * 0.12}s`,
-                      }}
-                      tabIndex="0"
-                      role="link"
-                      aria-label={`Explorar ${tema.title}`}
-                    >
-                      {/* Usamos el overlay para controlar el fondo y contenido */}
-                      <div className="sala-subtema-content-overlay ramal-overlay-layout">
-                        {/* Contenedor para el contenido principal (icono, título, desc) */}
-                        <div className="ramal-card-main-content">
-                          {/* Renderizar el icono */}
-                          {tema.icon && (
-                            <div className="ramal-card-icon-wrapper">
-                              {tema.icon}
-                            </div>
-                          )}
-                          <h3 className="sala-subtema-title">{tema.title}</h3>
-                          <p className="ramal-card-description">
-                            {tema.description}
-                          </p>
-                        </div>
-                        {/* Indicador que aparece en hover (abajo) */}
-                        <span
-                          className="sala-subtema-indicator ramal-indicator"
-                          aria-hidden="true"
-                        >
-                          Explorar →
-                        </span>
-                      </div>
-                    </article>
-                    // *** FIN: Nueva tarjeta inmersiva (adaptada) ***
-                  ))}
-                </div>
-              </div>
-            )}
+           
 
             {/* Pista de click (Asegúrate que esta condición también incluya !esSalaRamal) */}
-            {!esSalaRamal && (
+            {(
               <div className="sala-intro-click-hint">
                 <span>Toca o haz click para explorar</span>
               </div>
@@ -471,12 +385,8 @@ export const SalaPrincipal = () => {
   const { salaId } = useParams();
   const ContentComponent = salaComponentMap[salaId] || null;
 
-  // Si es Geología O Ramal -> null
-  if (salaId === "ramal_c14") {
-    // <-- AÑADIDO RAMAL
-    return null;
-  }
 
+  
   if (!ContentComponent) {
     return <SalaInvalida />;
   }
@@ -486,18 +396,8 @@ export const SalaDetalleWrapper = () => {
   const { salaId, id: detailId } = useParams(); // Obtiene ambos params
   let DetailComponent = null;
 
-  // Lógica específica para Ramal C14
-  if (salaId === "ramal_c14") {
-    if (detailId === "tren") {
-      DetailComponent = SalaRamalTrenDetalle;
-    } else if (detailId === "linea-tiempo") {
-      // Usa el id del temaRamal
-      DetailComponent = SalaRamalTimelineDetalle;
-    }
-  } else {
-    // Lógica para otras salas (como Geología)
-    DetailComponent = salaDetailComponentMap[salaId] || null;
-  }
+  
+
 
   // Si no encontramos un componente de detalle válido
   if (!DetailComponent) {

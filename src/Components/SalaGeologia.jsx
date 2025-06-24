@@ -106,6 +106,43 @@ const imagenesVolcanes = [
 ];
 
 
+const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle }) => {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef(null);
+
+    const togglePlay = () => {
+        if (videoRef.current) {
+            isPlaying ? videoRef.current.pause() : videoRef.current.play();
+        }
+    };
+
+    return (
+        <section className="video-hero-section">
+            <div className={`video-wrapper ${isPlaying ? 'is-playing' : ''}`}>
+                <video
+                    ref={videoRef}
+                    className="sala-video"
+                    controls
+                    preload="metadata"
+                    poster={posterSrc}
+                    src={videoSrc}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                    onEnded={() => setIsPlaying(false)}
+                >
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <div className="play-button-overlay" aria-hidden="true" onClick={togglePlay}>
+                    <div className="play-icon-container"><PlayIcon /></div>
+                </div>
+            </div>
+            <div className="video-caption">
+                <h3 className="video-title">{title}</h3>
+                <p className="video-subtitle">{subtitle}</p>
+            </div>
+        </section>
+    );
+};
 // --- MODIFICADO: El componente de galería ahora es un carrusel ---
 const CarouselGallery = ({ images, title }) => (
   <div className="carousel-wrapper">
@@ -188,7 +225,16 @@ export const SalaGeologia = () => {
 
   return (
     <article className="sala-contenido-container">
-      <h2 className="sala-contenido-titulo-principal">GEOLOGÍA DE LA PUNA</h2>
+      <h2 className="sala-contenido-titulo-principal">GEOLOGÍA</h2>
+      <h3 className="sala-contenido-subtitulo">
+      ¿Sabías que hay un lugar en Argentina donde el agua nunca llega al mar?
+      </h3>
+      <VideoPlayer 
+          videoSrc={import.meta.env.BASE_URL + "animacion_mundo.mp4"} // REEMPLAZA ESTA RUTA
+          posterSrc={import.meta.env.BASE_URL + "/img/ramal/posters/poster_1926.jpg"} // REEMPLAZA ESTA RUTA
+/*           title="Viaje por el Ramal C14 en 1926"
+ *//*           subtitle="Video cortesía de Archivo General de la Nación."
+ */        />
 
       <p className="sala-contenido-parrafo">
         La Puna es una región única en el planeta. Nos encontramos a más de
@@ -251,49 +297,10 @@ export const SalaGeologia = () => {
           superficie.
         </li>
       </ul>
-      <h4 className="sala-contenido-subtitulo-menor">
-      ¿Sabías que hay un lugar en Argentina donde el agua nunca llega al mar?
-      </h4>
-      <section className="video-hero-section">
-        {/* --- 4. AÑADIMOS EL MANEJADOR DE CLIC AL CONTENEDOR --- */}
-        <div
-          className={`video-wrapper ${isPlaying ? "is-playing" : ""}`}
-          onClick={togglePlay}
-        >
-          <video
-            ref={videoRef} // <-- Asignamos la referencia
-            className="arqueologia-video"
-            // --- 5. ¡IMPORTANTE! LOS CONTROLES AHORA SON DINÁMICOS ---
-            controls={isPlaying}
-            preload="metadata"
-            poster={`${import.meta.env.BASE_URL}arqueologia.jfif`}
-            src={`${import.meta.env.BASE_URL}Arqueologia_video.mp4`}
-            // --- 6. ESTOS EVENTOS ACTUALIZAN NUESTRO ESTADO ---
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-            onEnded={() => setIsPlaying(false)}
-          >
-            Tu navegador no soporta la etiqueta de video.
-          </video>
-          {/* El overlay ahora es solo visual, el clic lo maneja el div padre */}
-          <div className="play-button-overlay" aria-hidden="true">
-            <div className="play-icon-container">
-              <PlayIcon />
-            </div>
-          </div>
-        </div>
-        {/* ... (El caption del video no cambia) ... */}
-        <div className="video-caption">
-          <h3 className="video-title">La Voz de la Experiencia</h3>
-          <p className="video-subtitle">
-            Entrevista con el Dr. Federico Restifo, Arqueólogo-Investigador del
-            CONICET.
-          </p>
-        </div>
-      </section>
-      <h4 className="sala-contenido-subtitulo-menor">
+      
+      <h3 className="sala-contenido-subtitulo">
         ¿Cómo se forma un volcán?
-      </h4>
+      </h3>
       <p className="sala-contenido-parrafo">
         Bajo la superficie terrestre, a varios kilómetros de profundidad,
         ocurren procesos silenciosos pero poderosos. Cuando la presión disminuye

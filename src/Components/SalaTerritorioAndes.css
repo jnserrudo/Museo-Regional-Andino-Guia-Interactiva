@@ -1,0 +1,89 @@
+/* src/components/Salas/SalaTerritorioAndes.css */
+
+/* Este archivo complementa a SalaGeologia.css, que define los estilos base. */
+
+/* Añadimos un margen inferior a cada bloque de texto para separarlos visualmente. */
+.territorio-bloque {
+    margin-bottom: 2rem;
+    overflow: auto; /* Contiene los elementos flotantes */
+  }
+  
+  .territorio-bloque:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* --- Estilos para las imágenes flotantes --- */
+  .territorio-image-block {
+    max-width: 350px; /* Ancho máximo de la imagen */
+    width: 40%; /* Ocupa un % del ancho del contenedor */
+    margin-bottom: 1rem;
+    background-color: #fff;
+  }
+  
+  .territorio-image-block.align-left {
+    float: left;
+    margin-right: 1.5rem; /* Espacio a la derecha de la imagen */
+  }
+  
+  .territorio-image-block.align-right {
+    float: right;
+    margin-left: 1.5rem; /* Espacio a la izquierda de la imagen */
+  }
+  
+  .territorio-inline-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-md, 8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* --- Estilos para los enlaces a los mapas --- */
+  .mapas-historicos-links {
+    clear: both; /* Asegura que aparezca debajo del contenido flotante */
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .mapas-historicos-links a {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color, #8B4513);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+  .mapas-historicos-links a:hover {
+    color: #5a3a22; /* Un tono más oscuro */
+  }
+  
+  
+  /* --- Ajustes Responsivos --- */
+  @media (max-width: 768px) {
+    .territorio-image-block {
+      float: none; /* Desactivar float en móvil */
+      width: 90%; /* Hacerlas más grandes y centradas */
+      max-width: 400px;
+      margin: 1.5rem auto; /* Centrar y dar espacio vertical */
+    }
+  }
+
+
+  /* --- DESPUÉS (con control de tamaño) --- */
+.mapa-imagen {
+    /* --- CLAVE: Control de Tamaño --- */
+    max-width: 450px; /* Un tamaño máximo fijo para que no se hagan gigantes */
+    width: 100%;      /* Hará que la imagen sea responsiva DENTRO de su contenedor */
+    height: auto;     /* Mantiene la proporción */
+  
+    /* --- Estilos visuales consistentes --- */
+    display: block;   /* Necesario para centrar con márgenes */
+    margin-left: auto;  /* Centra la imagen */
+    margin-right: auto; /* Centra la imagen */
+    border: 1px solid #ddd;
+    padding: 4px;
+    background-color: #fff;
+    border-radius: var(--border-radius-md, 8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }

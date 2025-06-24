@@ -1,175 +1,183 @@
-// SalaRamalC14.jsx (Quitando estilo inline y usando clases)
-import { useState } from "react";
-import { LineaTiempo } from "./LineaTiempo";
-// import { Button } from "antd"; // Descomenta si usas Ant Design
-import { ArrowLeftOutlined } from "@ant-design/icons";
-import '../SalaRamalC14.css'; // <<<--- Importa el CSS principal de la sala
+// src/components/Salas/SalaRamalC14.jsx
 
+import React, { useState, useRef } from 'react';
+// Importamos los CSS necesarios
+import "./SalaGeologia.css";
+import "../SalaRamalC14.css";
+import "./SalaRamalGaleria.css"; // CSS para la galería (si tiene estilos específicos)
 
+// --- Importaciones de Swiper para el carrusel ---
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { GaleriaRamal } from './GaleriaRamal';
 
-import "./SalaRamalGaleria.css"; // <<<--- NUEVO CSS para la galería específica
+// --- Componente de Carrusel (lo necesitamos aquí) ---
+const CarouselGallery = ({ images, title }) => (
+  <div className="carousel-wrapper">
+    {title && <h4 className="gallery-title">{title}</h4>}
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      navigation={true}
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 4500, disableOnInteraction: false }}
+      loop={true}
+      className="sala-carousel"
+    >
+      {images.map((imgSrc, index) => (
+        <SwiperSlide key={index}>
+          <img src={imgSrc} alt={`${title} - Imagen ${index + 1}`} className="carousel-image" loading="lazy" />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+);
 
+// --- Componente de Video (lo necesitamos aquí) ---
+const PlayIcon = () => (
+    <svg viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em"><path d="M8 5v14l11-7z" /></svg>
+);
 
+const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle }) => {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef(null);
 
+    const togglePlay = () => {
+        if (videoRef.current) {
+            isPlaying ? videoRef.current.pause() : videoRef.current.play();
+        }
+    };
 
+    return (
+        <section className="video-hero-section">
+            <div className={`video-wrapper ${isPlaying ? 'is-playing' : ''}`}>
+                <video
+                    ref={videoRef}
+                    className="sala-video"
+                    controls
+                    preload="metadata"
+                    poster={posterSrc}
+                    src={videoSrc}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                    onEnded={() => setIsPlaying(false)}
+                >
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <div className="play-button-overlay" aria-hidden="true" onClick={togglePlay}>
+                    <div className="play-icon-container"><PlayIcon /></div>
+                </div>
+            </div>
+            <div className="video-caption">
+                <h3 className="video-title">{title}</h3>
+                <p className="video-subtitle">{subtitle}</p>
+            </div>
+        </section>
+    );
+};
+
+// --- COMPONENTE PRINCIPAL DE LA SALA ---
 export const SalaRamalC14 = () => {
-  const [view, setView] = useState('initial');
 
-  const handleGoBack = () => { setView('initial'); };
-
-
-
-
-  const renderContent = () => {
-    switch (view) {
-      case 'tren':
-        return (
-          // Añadimos clase específica para esta vista
-          <div className="ramal-tren-vista">
-            {/* Mantenemos el contenedor del botón volver */}
-            <div className="ramal-back-button-container">
-              <button className="ramal-back-button" onClick={handleGoBack}>
-                <ArrowLeftOutlined style={{ marginRight: '8px' }} /> Volver a opciones
-              </button>
-            </div>
-
-            {/* Título ahora estilizado por CSS */}
-            <h3 className="ramal-tren-titulo">
-              El Ramal C-14: Historia y Proeza Ingenieril
-            </h3>
-
-            <figure className="ramal-tren-image-container">
-              <img
-                src={`${import.meta.env.BASE_URL}tren-a-las-nubes.jfif`} // Asegúrate que esta ruta es correcta
-                alt="Construcción del Ramal C-14"
-                className="ramal-tren-image"
-                loading="lazy"
-              />
-              {/* Podríamos añadir un figcaption con datos clave */}
-              <figcaption className="ramal-tren-image-caption">
-                Una obra monumental atravesando la geografía andina.
-              </figcaption>
-            </figure>
-
-            {/* Contenedor principal para la descripción */}
-            <div className="ramal-tren-description-wrapper">
-              {/* Sección 1: Descripción monumental */}
-              <section className="ramal-section">
-                <h4 className="ramal-section-title">La Gran Obra</h4>
-                {/* Usamos clases para párrafos */}
-                <p className="ramal-paragraph">
-                  <strong>Una monumental empresa a más de 3500 metros de altura y a pura pala, picó, barreta, carretilla, dinamita y camiones pequeños.</strong>
-                </p>
-                {/* Datos clave en lista o div */}
-                <div className="ramal-datos-clave">
-                  <p className="ramal-paragraph">El Ramal que demandó el sacrificado trabajo a pala y picó de 1000 hombres para cubrir con rieles 171 km de recorrido sobre territorio argentino hasta Socompa, con:</p>
-                  <ul>
-                    <li>1400 curvas</li>
-                    <li>31 puentes</li>
-                    <li>21 túneles</li>
-                    <li>13 viaductos</li>
-                    <li>2 rulos</li>
-                    <li>2 zig-zag</li>
-                    <li>9 cobertizos</li>
-                  </ul>
-                </div>
-                <p className="ramal-paragraph">
-                  Se convirtió en una oferta turística importante que durante las últimas décadas del S. XX se orientó crecientemente al mercado internacional con el recorrido turístico del Tren a las Nubes.
-                </p>
-                <div className="ramal-signature">
-                  <p>Roma César, Máxima Marítima Cuentas</p>
-                </div>
-              </section>
-
-              {/* Sección 2: Cronología histórica */}
-              <section className="ramal-section">
-                <h4 className="ramal-section-title">Línea de Tiempo del Proyecto</h4>
-                 {/* Contenedor para la línea de tiempo simplificada */}
-                <div className="ramal-timeline-simplified">
-                    <div className="ramal-timeline-item">
-                        <h5 className="ramal-timeline-year">1889</h5>
-                        <p className="ramal-timeline-text">Se incluyen proyectos comunes por un segundo ferrocarril entre Salta y Antofagasta.</p>
-                    </div>
-                    <div className="ramal-timeline-item">
-                        <h5 className="ramal-timeline-year">1905</h5>
-                        <p className="ramal-timeline-text">Reconocimiento de la oportunidad ferroviaria y su conexión fronteriza.</p>
-                    </div>
-                    <div className="ramal-timeline-item">
-                        <h5 className="ramal-timeline-year">1921</h5>
-                        <p className="ramal-timeline-text">Impulso a la obra de San Antonio de los Cobres y propuestas de actualización.</p>
-                    </div>
-                    <div className="ramal-timeline-item">
-                        <h5 className="ramal-timeline-year">1928</h5>
-                        <p className="ramal-timeline-text">Conexión de San Antonio con los Cabros de San José.</p>
-                    </div>
-                    <div className="ramal-timeline-item">
-                        <h5 className="ramal-timeline-year">1930-1932</h5>
-                        <p className="ramal-timeline-text">Planes nacionales de seguridad y desarrollo para la zona.</p>
-                    </div>
-                    <div className="ramal-timeline-item">
-                        <h5 className="ramal-timeline-year">1948</h5>
-                        <p className="ramal-timeline-text">Revisión del estudio y enfoque gubernamental en el desarrollo industrial y seguridad.</p>
-                    </div>
-                </div>
-                <div className="ramal-signature">
-                  <p>Roma César, Máxima Marítima Cuentas</p>
-                </div>
-              </section>
-            </div> {/* Fin description-wrapper */}
-          </div> // Fin ramal-tren-vista
-        );
-      case 'timeline':
-        return (
-          <div className="ramal-timeline-vista"> {/* Clase específica */}
-             <div className="ramal-back-button-container">
-                 <button className="ramal-back-button" onClick={handleGoBack}>
-                     <ArrowLeftOutlined style={{marginRight: '8px'}} /> Volver a opciones
-                 </button>
-             </div>
-             <h3 className="ramal-timeline-titulo"> {/* Título estilizado por CSS */}
-                Hitos del Ramal C-14
-             </h3>
-            <LineaTiempo /> {/* Asume que LineaTiempo tiene sus propios estilos */}
-
-
-
-          </div>
-        );
-      case 'initial':
-      default:
-        return (
-          <div className="ramal-initial-view">
-            <p className="ramal-intro-text">
-                El Ramal C-14 no es solo una vía férrea, es una historia de visión, esfuerzo y conexión a través de los Andes. Explora sus dos facetas principales:
-            </p>
-            <div className="ramal-choices-container">
-              <div className="ramal-choice-card" onClick={() => setView("tren")} tabIndex="0" role="button">
-                <span className="ramal-choice-icon" aria-hidden="true">🚂</span>
-                <div className="ramal-choice-info">
-                  <h3>Tren a las Nubes</h3>
-                  <p>Descubre la historia y la proeza ingenieril.</p>
-                </div>
-              </div>
-              <div className="ramal-choice-card" onClick={() => setView("timeline")} tabIndex="0" role="button">
-                <span className="ramal-choice-icon" aria-hidden="true">📜</span>
-                <div className="ramal-choice-info">
-                  <h3>Línea de Tiempo</h3>
-                  <p>Sigue los hitos clave de su construcción.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-    }
-  };
-
+  const galeriaFotosAntiguas = [
+      "/img/ramal/antiguas/foto_1.jpg", // REEMPLAZA ESTAS RUTAS
+      "/img/ramal/antiguas/foto_2.jpg",
+      "/img/ramal/antiguas/foto_3.jpg",
+  ];
+  
   return (
-    <article className="sala-ramal-container">
-      {/* Título estilizado por CSS */}
-      <h2 className="ramal-main-title">RAMAL C-14 Y TREN A LAS NUBES</h2>
-      <div className="ramal-content-area"> {/* Wrapper para contenido */}
-        {renderContent()}
-      </div>
+    <article className="sala-contenido-container sala-contenido-container-ramal">
+      
+      <h2 className="sala-contenido-titulo-principal">Ramal C-14</h2>
+
+      {/* --- Primer Bloque: La hazaña de la construcción --- */}
+      <section className="ramal-bloque">
+        <p className="sala-contenido-parrafo">
+          Construido a fuerza de pico, pala, dinamita y carretillas, el Ramal C14 requirió el esfuerzo de más de 1.000 trabajadores que enfrentaron condiciones climáticas severas, altura extrema y terrenos abruptos. Su recorrido de 571 kilómetros es un verdadero monumento al ingenio humano, con:
+        </p>
+        <ul className="sala-contenido-lista">
+          <li>1.400 curvas</li>
+          <li>31 puentes</li>
+          <li>21 túneles</li>
+          <li>13 viaductos</li>
+          <li>2 rulos (tramos en espiral)</li>
+          <li>2 zigzag</li>
+          <li>9 cobertizos</li>
+        </ul>
+        <p className="sala-contenido-parrafo">
+          Entre todas estas estructuras, el Viaducto La Polvorilla, construido entre 1930 y 1932, se destaca como un símbolo de esta hazaña: tiene 224 metros de largo, forma curva y se eleva 63 metros sobre el suelo, desafiando las alturas.
+        </p>
+        {/* Aquí va la galería de las fotos viejas */}
+
+        <GaleriaRamal />
+      </section>
+
+      {/* --- Segundo Bloque: Hitos históricos --- */}
+      <section className="ramal-bloque">
+        <h3 className="sala-contenido-subtitulo">Una Historia de Decisiones, Cambios y Visión de Futuro</h3>
+        <ul className="sala-contenido-lista">
+          <li><strong>1889:</strong> Se inician los primeros estudios para unir Salta con Antofagasta mediante un ferrocarril trasandino.</li>
+          <li><strong>1905:</strong> La Ley 2693 autoriza oficialmente el proyecto.</li>
+          <li><strong>1921:</strong> El presidente Hipólito Yrigoyen da el impulso decisivo y nombra al Ing. Richard Fontaine Maury como jefe de obra.</li>
+          <li><strong>1929:</strong> El tendido de rieles llega a San Antonio de los Cobres, uno de los puntos más emblemáticos del trazado.</li>
+          <li><strong>1948:</strong> El 20 de febrero se inaugura la conexión internacional con Chile por el paso de Socompa, en plena presidencia de Juan Domingo Perón. Ese mismo año, el ramal pasa a formar parte del Ferrocarril General Belgrano.</li>
+        </ul>
+        {/* Video de Facebook */}
+        <VideoPlayer 
+          videoSrc={import.meta.env.BASE_URL + "viaje_ramal_video.mp4"} // REEMPLAZA ESTA RUTA
+          posterSrc={import.meta.env.BASE_URL + "/img/ramal/posters/poster_1926.jpg"} // REEMPLAZA ESTA RUTA
+          title="Viaje por el Ramal C14 en 1926"
+          subtitle="Video cortesía de Archivo General de la Nación."
+        />
+      </section>
+
+      {/* --- Tercer Bloque: Estrategia y desarrollo --- */}
+      <section className="ramal-bloque">
+        <h3 className="sala-contenido-subtitulo">Mucho Más que Rieles</h3>
+        <p className="sala-contenido-parrafo">
+          El Ramal C14 no fue solo una vía de comunicación: fue una estrategia para integrar los territorios más aislados del país. El proyecto buscaba conectar zonas ricas en recursos minerales, como boratos y litio, con los puertos del Pacífico, facilitando el desarrollo económico y reduciendo la dependencia de rutas marítimas largas.
+        </p>
+        <blockquote className="ramal-quote">
+            <p>"Hay que enviar geólogos que descifren los secretos de la montaña, en cuyo seno hay escondidos filones preciosos; y hay que llevar una vía férrea hasta las mismas salidas de las punas, para que la exportación de la materia prima sea posible."</p>
+            <footer>- Eduardo Holmberg (hijo), comienzos del siglo XX</footer>
+        </blockquote>
+        {/* Video de YouTube que ya tenías */}
+        <VideoPlayer 
+          videoSrc={import.meta.env.BASE_URL + "trasandino_del_norte_comp.mp4"} // REEMPLAZA ESTA RUTA (es el que ya tenías)
+          posterSrc={import.meta.env.BASE_URL + "poster_trasandino.jpg"} // REEMPLAZA ESTA RUTA
+          title="El Trasandino del Norte"
+          subtitle="Imágenes históricas de la construcción y operación del tren."
+        />
+        {/* Botones a los documentales */}
+        <div className="ramal-documentales-links">
+            <h4 className="sala-contenido-subtitulo-menor">Ver Documentales</h4>
+            <a href="https://youtu.be/g_dC66VQdR0?si=vT0GJxWgrnZzqmSx" target="_blank" rel="noopener noreferrer" className="ramal-boton-link">Documental 1</a>
+            <a href="https://youtu.be/ZBsOFQeSYcI?si=HcSqtSy9BAAhLpI6" target="_blank" rel="noopener noreferrer" className="ramal-boton-link">Documental 2</a>
+            <a href="https://youtu.be/GraN8x2TSWU?si=RtAXFy5LSPHdQw_4" target="_blank" rel="noopener noreferrer" className="ramal-boton-link">Documental 3</a>
+        </div>
+      </section>
+
+      {/* --- Cuarto Bloque: El Tren a las Nubes --- */}
+      <section className="ramal-bloque">
+        <h3 className="sala-contenido-subtitulo">Del Progreso al Turismo: El Tren a las Nubes</h3>
+        <p className="sala-contenido-parrafo">
+          A fines del siglo XX, parte del trazado original del Ramal C14 se convirtió en uno de los viajes turísticos más famosos del país: el Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de la Puna salteña, es una experiencia única que combina historia, ingeniería y naturaleza.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Este tren se ha consolidado como una oferta turística internacional, manteniendo viva la memoria de una obra que transformó el paisaje y la vida en los Andes.
+        </p>
+        {/* Imagen del Tren a las Nubes */}
+        <figure className="ramal-tren-image-container">
+            <img 
+                src={import.meta.env.BASE_URL + "tren-salta-chile.jpg"} // REEMPLAZA ESTA RUTA
+                alt="El Tren a las Nubes en la actualidad" 
+                className="ramal-tren-image" 
+            />
+        </figure>
+      </section>
+
     </article>
   );
 };
