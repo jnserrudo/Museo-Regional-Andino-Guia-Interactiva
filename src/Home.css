@@ -195,7 +195,7 @@
   .info-section {
     padding: 6rem 2rem;
     max-width: 1100px;
-    margin: -80px auto 4rem auto;
+    margin: -30px auto 4rem auto;
     background-color: var(--bg-light);
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-medium);

@@ -10,7 +10,7 @@ export const SalaHistoria = () => {
   return (
     <article className="sala-contenido-container"> {/* Usamos la clase base para consistencia */}
       
-      <h2 className="sala-contenido-titulo-principal">Historia: La Configuración de un Territorio</h2>
+      <h2 className="sala-contenido-titulo-principal">HISTORIA</h2>
 
       {/* --- Primer Bloque: La Colonia --- */}
       <section className="historia-bloque">

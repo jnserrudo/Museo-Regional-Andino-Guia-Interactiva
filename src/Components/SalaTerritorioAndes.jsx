@@ -9,7 +9,7 @@ export const SalaTerritorioAndes = () => {
   return (
     <article className="sala-contenido-container">
       <h2 className="sala-contenido-titulo-principal">
-        Territorio Nacional de Los Andes
+        TERRITORIO NACIONAL DE LOS ANDES
       </h2>
 
       {/* --- Primer Bloque: Qué fue el Territorio --- */}

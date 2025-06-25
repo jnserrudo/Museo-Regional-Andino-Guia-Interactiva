@@ -1,0 +1,59 @@
+// src/components/salas/DespedidaGuia.jsx
+
+import React from 'react';
+import { Button } from 'antd';
+import { Link } from 'react-router-dom';
+import { HomeOutlined, ExperimentOutlined, FormOutlined } from '@ant-design/icons';
+import './DespedidaGuia.css'; // Crearemos este archivo de estilos
+
+export const DespedidaGuia = () => {
+  return (
+    <div className="despedida-container sala-contenido-container">
+      <h2 className="sala-contenido-titulo-principal">¡Gracias por recorrer el museo con nosotros!</h2>
+      
+      <p className="sala-contenido-parrafo">
+        Esperamos que esta guía te haya acompañado en un viaje por la historia, el territorio, las culturas y la identidad viva de San Antonio de los Cobres y la Puna andina. Cada sala guarda fragmentos de una memoria colectiva que sigue presente en quienes habitan hoy este lugar.
+      </p>
+
+      <div className="despedida-cta-section">
+        <h3 className="sala-contenido-subtitulo">¿Querés seguir explorando?</h3>
+        <p className="sala-contenido-parrafo">
+          Te invitamos a:
+        </p>
+        
+        <div className="despedida-botones-cta">
+            <Button type="primary" size="large" icon={<ExperimentOutlined />}>
+              ¿Cuánto sabés sobre la Puna? (Trivia)
+            </Button>
+            <Button type="primary" size="large" icon={<ExperimentOutlined />}>
+              ¿Podés armar una llama? (Rompecabezas)
+            </Button>
+        </div>
+
+        <h4 className="sala-contenido-subtitulo-menor">Dejanos tus comentarios</h4>
+        <p className="sala-contenido-parrafo">
+          Tu opinión nos ayuda a mejorar. Por favor, completá esta breve encuesta.
+        </p>
+
+        {/* --- Formulario de Google Forms --- */}
+        <div className="google-form-container">
+          <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLScO8ncvTOVKXTxxz0Hz_17SXOCIp3wiRMF9OTGb4vDGm6vGTQ/viewform?embedded=true" 
+            className="google-form-iframe"
+            title="Encuesta de Satisfacción del Museo"
+            frameBorder="0" 
+            marginHeight="0" 
+            marginWidth="0"
+          >
+            Cargando…
+          </iframe>
+        </div>
+        
+        <p className="despedida-redes">
+          ¡Compartí tu experiencia en redes con el hashtag <strong>#MuseoRegionalAndino</strong> y <strong>#MuseoenlaPuna</strong>!
+        </p>
+      </div>
+
+    </div>
+  );
+};

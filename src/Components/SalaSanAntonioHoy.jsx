@@ -56,7 +56,7 @@ export const SalaSanAntonioHoy = () => {
   return (
     <article className="sala-contenido-container">
       
-      <h2 className="sala-contenido-titulo-principal">San Antonio de los Cobres Hoy</h2>
+      <h2 className="sala-contenido-titulo-principal">SAN ANTONIO DE LOS COBRES HOY</h2>
 
       {/* --- Primer Bloque: Raíces --- */}
       <section className="san-antonio-bloque">

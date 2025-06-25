@@ -36,7 +36,7 @@ export const SalaArqueologia = () => {
     <article className="sala-arqueologia-container sala-contenido-container"> {/* Usamos clases consistentes */}
       
       <header className="sala-header">
-        <h1 className="sala-main-title sala-contenido-titulo-principal">Arqueología</h1>
+        <h1 className="sala-main-title sala-contenido-titulo-principal">ARQUEOLOGIA</h1>
         
       </header>
 

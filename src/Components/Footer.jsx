@@ -124,7 +124,8 @@ export const Footer = () => {
 
             <h4 style={{ marginTop: '20px' }}>Síguenos</h4> {/* Separación para las redes */}
             <div className="theart-social-icons">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramIcon /></a>
+              <a href="https://www.instagram.com/museo.regionalandino?igsh=ZnFkZ3NhMW5nazMw" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramIcon /></a>
+              <a href="https://www.facebook.com/share/1A4YsfwNZS/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FacebookIcon /></a>
               {/* ... otros iconos sociales ... */}
             </div>
           </div>

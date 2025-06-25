@@ -869,3 +869,56 @@ gap: 2rem; /* Mantener o ajustar gap */
     gap: 1rem;
   }
 }
+
+
+
+/* carrusel de imagenes */
+
+
+
+/* --- NUEVO: Estilos para el Carrusel dentro de la Tarjeta de Mineral --- */
+
+.mineral-card-carousel {
+  width: 100%;
+  height: 100%; /* Ocupa toda la altura del contenedor de imagen */
+}
+
+/* Ajustes para las flechas de navegación del carrusel */
+.mineral-card-carousel .swiper-button-next,
+.mineral-card-carousel .swiper-button-prev {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  --swiper-navigation-size: 14px; /* Hace la flecha más pequeña */
+}
+.mineral-card-carousel .swiper-button-next:hover,
+.mineral-card-carousel .swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Ajustes para la paginación (los puntos) */
+.mineral-card-carousel .swiper-pagination-bullet {
+  background-color: white;
+  opacity: 0.6;
+}
+.mineral-card-carousel .swiper-pagination-bullet-active {
+  background-color: var(--primary-color, #8B4513);
+  opacity: 1;
+}
+
+/* --- NUEVO: Estilos para recortar la imagen de la lámpara --- */
+
+.lampara-recortada {
+  /* 1. Definimos un contenedor con una proporción específica */
+  height: 380px; /* Ajusta esta altura a tu gusto */
+  width: 40%;   /* Ocupará el ancho de su contenedor, hasta el max-width de .imagen-testigo */
+
+  /* 2. Hacemos que la imagen cubra este espacio */
+  object-fit: cover; 
+
+  /* 3. ¡LA CLAVE! Le decimos qué parte de la imagen mostrar */
+  /* 'center 80%' significa: centrado horizontalmente y muestra la parte que está al 80% hacia abajo */
+  object-position: center 95%; 
+}

@@ -3,6 +3,14 @@ import React, { useRef } from "react"; // Importa useRef
 import { SalaContenidoItem } from "./SalaContenidoItem"; // Asegúrate que la ruta sea correcta
 import "../SalaMinerologiaMineria.css"; // Importa el CSS
 import { QrcodeOutlined } from "@ant-design/icons"; // Importa el icono QR
+import { border } from "@chakra-ui/react";
+
+// AÑADE ESTAS IMPORTACIONES AL PRINCIPIO DEL ARCHIVO
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // --- Datos Organizados en Arrays ---
 
@@ -10,6 +18,199 @@ import { QrcodeOutlined } from "@ant-design/icons"; // Importa el icono QR
 const minerales = [
   // Todos los minerales juntos en una sola lista
   {
+    id: "pomez",
+    img: ["/minerales_museo/0.1. piedra pomez 1.jpg", "/minerales_museo/0.1. piedra pomez 2.JPG", "/minerales_museo/0.1. piedra pomez.jpg"],
+    nombre: "Piedra Pómez",
+    tipo: "Roca ígnea volcánica (no es un mineral, sino una roca).",
+    composicionQuimica:
+      "Varía, pero suele contener SiO₂ (sílice) en altos porcentajes (hasta 70–75%) junto con óxidos de aluminio, potasio y sodio.",
+    caracteristicas:
+      "Textura vítrea y extremadamente porosa. Muy liviana; puede flotar en el agua. Se forma por el enfriamiento rápido de lava con alto contenido de gases, que quedan atrapados como burbujas.",
+    usos: "Exfoliantes para la piel (cosmética). Abrasivos suaves (limpieza de metales, callos). Fabricación de bloques livianos de construcción. Agricultura: mejora la aireación de suelos.",
+  },
+  {
+    id: "onix",
+    img: ["/minerales_museo/0.2. Marmol_onix_verde-removebg-preview.png"],
+    nombre: "Ónix (mármol ónix)",
+    nombreTecnico: "Ónix calcáreo o ónyx de travertino.",
+    composicion:
+      "Principalmente carbonato de calcio (CaCO₃), con formas cristalinas de calcita y aragonita.",
+    caracteristicas:
+      "Apariencia translúcida con vetas suaves de distintos colores (verde, blanco, miel). Se forma por deposición de carbonatos a partir de aguas termales o cuevas. Es más frágil que otros mármoles.",
+    usos: "Artesanías decorativas: figuras, ceniceros, lámparas. Revestimientos de interiores (paredes, mesas, lavabos). Joyería de baja escala (collares, pulseras).",
+  },
+  {
+    id: "ulexita",
+    img: ["/minerales_museo/0.3._Ulexita-removebg-preview.png", "/minerales_museo/0.3._Ulexite-Calcite-40061-removebg-preview.png"],
+    nombre: "Ulexita",
+    formulaQuimica: "NaCaB₅O₆(OH)₆·5H₂O (borato de sodio y calcio hidratado).",
+    clase: "Boratos",
+    caracteristicas:
+      "Conocida como “piedra televisión” por su estructura de fibras paralelas que transmiten imágenes o luz de un lado al otro. Cristal blanco o transparente, con brillo sedoso. Se forma en ambientes evaporíticos (salares secos).",
+    usos: "Fuente de boro, esencial en: Vidrios resistentes al calor (tipo Pyrex). Detergentes y blanqueadores. Fertilizantes y cerámica. Productos ópticos y de telecomunicaciones. Educación y coleccionismo por su efecto visual inusual.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+  },
+
+  {
+    id: "baritina",
+    img: ["/minerales_museo/1._Baritina-removebg-preview.png"],    nombre: "Baritina",
+    formulaQuimica: "BaSO₄",
+    clase: "Sulfatos",
+    caracteristicas: "Mineral muy denso, de color blanco a grisáceo.",
+    usos: "Se emplea principalmente como barro de perforación en pozos petroleros, por su peso. También se usa en la industria del vidrio, pinturas, plásticos y papeles especiales por su alto contenido en bario.",
+  },
+  {
+    id: "ortosa",
+    img: ["/minerales_museo/2. Ortosa.JPG"],    nombre: "Ortosa (Feldspato potásico)",
+    formulaQuimica: "KAlSi₃O₈",
+    clase: "Silicatos, grupo de los feldespatos",
+    caracteristicas:
+      "Es uno de los minerales más comunes de la corteza terrestre.",
+    usos: "Materia prima para la fabricación de porcelana, esmaltes cerámicos, vidrios y aislantes eléctricos. También se emplea en pastas dentales como abrasivo suave.",
+  },
+  {
+    id: "turmalina",
+    img: ["/minerales_museo/3. Turmalina Negra.png"],    nombre: "Turmalina",
+    formulaQuimica: "(Na,Ca)(Mg,Fe,Al,Li)₃Al₆(BO₃)₃Si₆O₁₈(OH,F)₄",
+    clase: "Silicatos, grupo ciclosilicatos",
+    caracteristicas: "Mineral muy duro, con gran variedad de colores.",
+    usos: "Utilizada en la fabricación de instrumentos de medición de presión (por su respuesta piezoeléctrica), en tecnología submarina, y en algunos equipos electrónicos y ópticos especializados. También es popular como gema ornamental.",
+  },
+  {
+    id: "cuarzo_blanco",
+    img: ["/minerales_museo/4. Cuarzo Blanco.png"],    nombre: "Cuarzo Blanco",
+    formulaQuimica: "SiO₂",
+    clase: "Óxidos / tectosilicatos",
+    caracteristicas: "Mineral muy abundante, resistente y versátil.",
+    usos: "Se utiliza en la fabricación de vidrio, cerámicas, instrumentos ópticos y electrónicos, y como carga mineral en plásticos, pinturas y productos de madera prensada.",
+  },
+  {
+    id: "malaquita",
+    img: ["/minerales_museo/5. Malaquita.jpg"],    nombre: "Malaquita",
+    formulaQuimica: "Cu₂CO₃(OH)₂",
+    clase: "Carbonatos",
+    caracteristicas:
+      "Mineral de color verde intenso, asociado a zonas de oxidación de yacimientos de cobre.",
+    usos: "Importante mena de cobre (fuente de extracción del metal). También se utiliza como piedra ornamental y, en algunos casos, como pigmento natural en arte tradicional.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+  },
+
+  {
+    id: "muscovita",
+    img: ["/minerales_museo/6. Muscovita - Mica Blanca.JPG", "/minerales_museo/6. Muscovita - otra.jpg", "/minerales_museo/6. Muscovita.JPG"],    nombre: "Muscovita (Mica Blanca)",
+    formulaQuimica: "KAl₂(AlSi₃O₁₀)(OH)₂",
+    clase: "Silicatos, grupo de las micas",
+    caracteristicas:
+      "Tiene tantas propiedades que es uno de los minerales más usados en la industria.",
+    usos: "Muy utilizada por sus propiedades aislantes, térmicas y ópticas. Se aplica en la fabricación de pinturas, plásticos, yeso para construcción, aislantes eléctricos, cosméticos y componentes electrónicos.",
+  },
+  {
+    id: "azufre_nativo",
+    img: ["/minerales_museo/7. Azufre.JPG"],    nombre: "Azufre (nativo)",
+    formulaQuimica: "S",
+    clase: "Elementos nativos",
+    usos: "Se emplea principalmente para producir ácido sulfúrico, base de muchos procesos industriales. También se usa en la fabricación de fósforos, fertilizantes, fungicidas, tintes, pólvora, productos fotográficos y medicamentos tópicos como pomadas con acción antibacteriana.",
+  },
+
+  {
+    id: "yeso",
+    img: ["/minerales_museo/8. Yeso.jpg"],
+    formulaQuimica: "CaSO₄·2H₂O",
+    clase: "Sulfatos",
+    usos: "Muy utilizado en la construcción: para revoques, juntas, paneles de yeso (Durlock®) y estucos artísticos. También se usa como enmienda de suelos agrícolas y en moldes para cerámica y odontología.",
+  },
+  {
+    id: "calcita_rosada",
+    img: ["/minerales_museo/9._Calcita_Rosada_1-removebg-preview.png", "/minerales_museo/9._Calcita_rosada-removebg-preview.png"],    nombre: "Calcita Rosada",
+    formulaQuimica: "CaCO₃",
+    clase: "Carbonatos",
+    usos: "Industrialmente se usa como relleno en pinturas, plásticos y papel. Aunque popularmente se le atribuyen usos medicinales ancestrales, no tiene aplicaciones médicas reconocidas formalmente hoy.",
+  },
+  {
+    id: "epidoto_en_cuarzo",
+    img: ["/minerales_museo/10. Epidota en cuarzo 0.JPG", "/minerales_museo/10._Epidota_en_cuarzo_1-removebg-preview.png", "/minerales_museo/10._Epidota_en_cuarzo-removebg-preview.png"],    nombre: "Epidoto en Cuarzo",
+    formulaQuimica: "Ca₂(Al,Fe)₃(SiO₄)₃(OH)",
+    clase: "Silicatos",
+    usos: "No tiene aplicaciones industriales masivas. Se valora como mineral de colección o piedra semipreciosa.",
+  },
+
+  {
+    id: "estaurolita",
+    img: ["/minerales_museo/11._Estaurolita_lab_1-removebg-preview.png", "/minerales_museo/11._Estaurolita_lab_2-removebg-preview.png", "/minerales_museo/11._Estaurolita-2_1wb-removebg-preview.png", "/minerales_museo/11._Estaurolita-removebg-preview.png"],    nombre: "Estaurolita",
+    formulaQuimica: "Fe²⁺Al₄Si₂O₁₀(OH)₂",
+    clase: "Silicatos",
+    caracteristicas:
+      "Mineral metamórfico. Es un mineral indicador para geólogos porque señala condiciones específicas de formación de rocas metamórficas.",
+    usos: "Utilizado como adorno o amuleto debido a sus cristales en forma de cruz. También se ha usado como material abrasivo, aunque en menor escala.",
+  },
+  {
+    id: "casiterita",
+    img: ["/minerales_museo/12. cassiterite-tin-ore-stone-isolated-on-white-photo.jpg", "/minerales_museo/12.Casiterita-removebg-preview.png"],    nombre: "Casiterita",
+    formulaQuimica: "SnO₂",
+    clase: "Óxidos",
+    caracteristicas:
+      "Mineral muy denso, duro y resistente a la mayoría de los ácidos.",
+    usos: "Es la principal mena de estaño, usado en soldaduras, aleaciones (como el bronce) y en recubrimientos metálicos para evitar la corrosión.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+  },
+  // REEMPLAZA el objeto 'galena' existente con este
+  {
+    id: "galena",
+    img: ["/minerales_museo/13. galena.jpg", "/minerales_museo/13._Galena_con_Blenda-removebg-preview.png"],    nombre: "Galena",
+    formulaQuimica: "PbS con Blenda – ZnS",
+    clase: "Sulfuros",
+    caracteristicas:
+      "Algunas galenas contienen plata como subproducto valioso.",
+    usos: "Es la principal fuente del metal plomo. Utilizado en la fabricación de baterías, aleaciones y antiguamente en la industria del vidrio y en municiones.",
+    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
+  },
+  // REEMPLAZA el objeto 'fluorita' existente con este
+  {
+    id: "fluorita_verde",
+    img: ["/minerales_museo/14. Fluorita verde 1.jpg", "/minerales_museo/14. Fluorita verde.JPG", "/minerales_museo/14._Fluorita_verde_2-removebg-preview.png"],    nombre: "Fluorita Verde",
+    formulaQuimica: "CaF₂",
+    clase: "Haluros",
+    caracteristicas:
+      "Su color puede variar; el verde es una de sus variedades más apreciadas.",
+    usos: "Se emplea como fundente en la fundición de metales (como hierro y acero), en la fabricación de ácido fluorhídrico, y en óptica para lentes de alta precisión.",
+  },
+
+  {
+    id: "jadeita",
+    img: ["/minerales_museo/15._Jadeita_1-removebg-preview.png", "/minerales_museo/15._Jadeita_2-removebg-preview.png", "/minerales_museo/15._Jadeite_Sodium_aluminum_silicate_Burma_3025-removebg-preview.png"],    nombre: "Jadeíta",
+    formulaQuimica: "NaAlSi₂O₆",
+    clase: "Silicatos, grupo de los piroxenos",
+    usos: "Desde hace más de 5000 años, se utiliza para fabricar adornos, herramientas y objetos rituales, por ser muy dura y resistente. Es muy valorada culturalmente en Asia y América prehispánica.",
+  },
+
+  // AÑADE ESTOS TRES NUEVOS OBJETOS AL FINAL DE TU ARRAY 'minerales'
+  {
+    id: "basalto_llullaillaco", // id único
+    img: ["/minerales_museo/16. Basalto.JPG"],    nombre: "Basalto",
+    tipo: "Roca ígnea volcánica básica.",
+    origen: "(Salar Llullaillaco)",
+    caracteristicas:
+      "Se forma por el enfriamiento rápido de la lava en la superficie. Es una roca muy común en regiones volcánicas como la Puna, y su presencia está relacionada con antiguos eventos eruptivos.",
+  },
+  {
+    id: "halita_sal_gema", // id único
+    img: ["/minerales_museo/17. Halita - Sal.jpg"], // Asigna la imagen cuando la tengas
+    nombre: "Halita – NaCl (Sal gema)",
+    origen: "(Salar Llullaillaco)",
+    caracteristicas:
+      "Cristales cúbicos, transparentes o blanquecinos. Es la forma mineral de la sal de mesa. La halita es una de las riquezas económicas de los salares andinos y forma parte de nuestra vida diaria.",
+    usos: "Alimentación humana. Procesos industriales y químicos. Conservación de alimentos.",
+  },
+  /* {
+    id: "yeso_con_halita", // id único
+    img: ["/minerales_museo/17. Halita - Sal.jpg"], // Asigna la imagen cuando la tengas
+    nombre: "Yeso – CaSO₄·2H₂O con Halita",
+    origen: "(Salar de Llullaillaco)",
+    caracteristicasCombinadas:
+      "El yeso puede aparecer como masas terrosas o cristales, y en este caso se observa con incrustaciones o asociaciones de halita cúbica. Esta coexistencia mineral es típica de ambientes de evaporación extrema, como los salares.",
+    usos: "Construcción (paneles, estucos, revoques). Agricultura (mejorador de suelos). Arte y escultura.",
+  }, */
+  /* {
     id: "calcita",
     img: "/calcita.png",
     nombre: "Calcita",
@@ -87,19 +288,7 @@ const minerales = [
     yacimientosPuna: ["Mina La Concordia (Salta)", "El Quévar (Salta)"],
     otros: "",
   },
-  // REEMPLAZA el objeto 'galena' existente con este
-  {
-    id: "galena",
-    img: "/minerales/galena.png",
-    nombre: "Galena",
-    formulaQuimica: "PbS con Blenda – ZnS",
-    clase: "Sulfuros",
-    caracteristicas:
-      "Algunas galenas contienen plata como subproducto valioso.",
-    usos: "Es la principal fuente del metal plomo. Utilizado en la fabricación de baterías, aleaciones y antiguamente en la industria del vidrio y en municiones.",
-    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
-
-  },
+  
   {
     id: "estibinita",
     img: "/minerales/estibinita.png",
@@ -232,36 +421,7 @@ const minerales = [
     tieneQr: true, // <-- AÑADIR ESTA LÍNEA
 
   },
-  {
-    id: "pomez",
-    img: "/pomez.jfif",
-    nombre: "Piedra Pómez",
-    tipo: "Roca ígnea volcánica (no es un mineral, sino una roca).",
-    composicionQuimica:
-      "Varía, pero suele contener SiO₂ (sílice) en altos porcentajes (hasta 70–75%) junto con óxidos de aluminio, potasio y sodio.",
-    caracteristicas:
-      "Textura vítrea y extremadamente porosa. Muy liviana; puede flotar en el agua. Se forma por el enfriamiento rápido de lava con alto contenido de gases, que quedan atrapados como burbujas.",
-    usos: "Exfoliantes para la piel (cosmética). Abrasivos suaves (limpieza de metales, callos). Fabricación de bloques livianos de construcción. Agricultura: mejora la aireación de suelos.",
-  },
-  {
-    id: "onix",
-    img: "/onix.jfif",
-    nombre: "Ónix (mármol ónix)",
-    nombreTecnico: "Ónix calcáreo o ónyx de travertino.",
-    composicion:
-      "Principalmente carbonato de calcio (CaCO₃), con formas cristalinas de calcita y aragonita.",
-    caracteristicas:
-      "Apariencia translúcida con vetas suaves de distintos colores (verde, blanco, miel). Se forma por deposición de carbonatos a partir de aguas termales o cuevas. Es más frágil que otros mármoles.",
-    usos: "Artesanías decorativas: figuras, ceniceros, lámparas. Revestimientos de interiores (paredes, mesas, lavabos). Joyería de baja escala (collares, pulseras).",
-  },
-  {
-    id: "yeso",
-    img: "/yeso.jfif",
-    nombre: "Yeso",
-    formulaQuimica: "CaSO₄·2H₂O",
-    clase: "Sulfatos",
-    usos: "Muy utilizado en la construcción: para revoques, juntas, paneles de yeso (Durlock®) y estucos artísticos. También se usa como enmienda de suelos agrícolas y en moldes para cerámica y odontología.",
-  },
+  
   {
     id: "litio",
     img: "/litio.jfif",
@@ -275,86 +435,8 @@ const minerales = [
     genesis:
       "Lixiviación de rocas volcánicas y concentración por evaporación en cuencas endorreicas (salares).",
   },
-  {
-    id: "ulexita",
-    img: "/ulexite.jfif",
-    nombre: "Ulexita",
-    formulaQuimica: "NaCaB₅O₆(OH)₆·5H₂O (borato de sodio y calcio hidratado).",
-    clase: "Boratos",
-    caracteristicas:
-      "Conocida como “piedra televisión” por su estructura de fibras paralelas que transmiten imágenes o luz de un lado al otro. Cristal blanco o transparente, con brillo sedoso. Se forma en ambientes evaporíticos (salares secos).",
-    usos: "Fuente de boro, esencial en: Vidrios resistentes al calor (tipo Pyrex). Detergentes y blanqueadores. Fertilizantes y cerámica. Productos ópticos y de telecomunicaciones. Educación y coleccionismo por su efecto visual inusual.",
-    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
-
-  },
-  {
-    id: "malaquita",
-    img: "/minerales/malaquita.png",
-    nombre: "Malaquita",
-    formulaQuimica: "Cu₂CO₃(OH)₂",
-    clase: "Carbonatos",
-    caracteristicas:
-      "Mineral de color verde intenso, asociado a zonas de oxidación de yacimientos de cobre.",
-    usos: "Importante mena de cobre (fuente de extracción del metal). También se utiliza como piedra ornamental y, en algunos casos, como pigmento natural en arte tradicional.",
-    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
-
-  },
-  {
-    id: "baritina",
-    img: "/minerales/baritina.png",
-    nombre: "Baritina",
-    formulaQuimica: "BaSO₄",
-    clase: "Sulfatos",
-    caracteristicas: "Mineral muy denso, de color blanco a grisáceo.",
-    usos: "Se emplea principalmente como barro de perforación en pozos petroleros, por su peso. También se usa en la industria del vidrio, pinturas, plásticos y papeles especiales por su alto contenido en bario.",
-  },
-  {
-    id: "ortosa",
-    img: "/minerales/ortosa.png",
-    nombre: "Ortosa (Feldspato potásico)",
-    formulaQuimica: "KAlSi₃O₈",
-    clase: "Silicatos, grupo de los feldespatos",
-    caracteristicas:
-      "Es uno de los minerales más comunes de la corteza terrestre.",
-    usos: "Materia prima para la fabricación de porcelana, esmaltes cerámicos, vidrios y aislantes eléctricos. También se emplea en pastas dentales como abrasivo suave.",
-  },
-  {
-    id: "turmalina",
-    img: "/minerales/turmalina.png",
-    nombre: "Turmalina",
-    formulaQuimica: "(Na,Ca)(Mg,Fe,Al,Li)₃Al₆(BO₃)₃Si₆O₁₈(OH,F)₄",
-    clase: "Silicatos, grupo ciclosilicatos",
-    caracteristicas: "Mineral muy duro, con gran variedad de colores.",
-    usos: "Utilizada en la fabricación de instrumentos de medición de presión (por su respuesta piezoeléctrica), en tecnología submarina, y en algunos equipos electrónicos y ópticos especializados. También es popular como gema ornamental.",
-  },
-  {
-    id: "cuarzo_blanco",
-    img: "/minerales/cuarzo_blanco.png",
-    nombre: "Cuarzo Blanco",
-    formulaQuimica: "SiO₂",
-    clase: "Óxidos / tectosilicatos",
-    caracteristicas: "Mineral muy abundante, resistente y versátil.",
-    usos: "Se utiliza en la fabricación de vidrio, cerámicas, instrumentos ópticos y electrónicos, y como carga mineral en plásticos, pinturas y productos de madera prensada.",
-  },
-
-  {
-    id: "muscovita",
-    img: "/minerales/muscovita.png", // Añade la imagen cuando la tengas
-    nombre: "Muscovita (Mica Blanca)",
-    formulaQuimica: "KAl₂(AlSi₃O₁₀)(OH)₂",
-    clase: "Silicatos, grupo de las micas",
-    caracteristicas:
-      "Tiene tantas propiedades que es uno de los minerales más usados en la industria.",
-    usos: "Muy utilizada por sus propiedades aislantes, térmicas y ópticas. Se aplica en la fabricación de pinturas, plásticos, yeso para construcción, aislantes eléctricos, cosméticos y componentes electrónicos.",
-  },
-  {
-    id: "azufre_nativo",
-    img: "/minerales/azufre_nativo.png", // Añade la imagen cuando la tengas
-    nombre: "Azufre (nativo)",
-    formulaQuimica: "S",
-    clase: "Elementos nativos",
-    usos: "Se emplea principalmente para producir ácido sulfúrico, base de muchos procesos industriales. También se usa en la fabricación de fósforos, fertilizantes, fungicidas, tintes, pólvora, productos fotográficos y medicamentos tópicos como pomadas con acción antibacteriana.",
-  },
+  
+  
   {
     id: "calcita_rosada",
     img: "/minerales/calcita_rosada.png", // Añade la imagen cuando la tengas
@@ -371,64 +453,34 @@ const minerales = [
     clase: "Silicatos",
     usos: "No tiene aplicaciones industriales masivas. Se valora como mineral de colección o piedra semipreciosa.",
   },
-
+ */
   // AÑADE ESTOS NUEVOS OBJETOS AL FINAL DE TU ARRAY 'minerales'
-  {
-    id: "estaurolita",
-    img: "/minerales/estaurolita.png", // Asigna la imagen cuando la tengas
-    nombre: "Estaurolita",
-    formulaQuimica: "Fe²⁺Al₄Si₂O₁₀(OH)₂",
-    clase: "Silicatos",
-    caracteristicas:
-      "Mineral metamórfico. Es un mineral indicador para geólogos porque señala condiciones específicas de formación de rocas metamórficas.",
-    usos: "Utilizado como adorno o amuleto debido a sus cristales en forma de cruz. También se ha usado como material abrasivo, aunque en menor escala.",
-  },
-  {
-    id: "casiterita",
-    img: "/minerales/casiterita.png", // Asigna la imagen cuando la tengas
-    nombre: "Casiterita",
-    formulaQuimica: "SnO₂",
-    clase: "Óxidos",
-    caracteristicas:
-      "Mineral muy denso, duro y resistente a la mayoría de los ácidos.",
-    usos: "Es la principal mena de estaño, usado en soldaduras, aleaciones (como el bronce) y en recubrimientos metálicos para evitar la corrosión.",
-    tieneQr: true, // <-- AÑADIR ESTA LÍNEA
-
-  },
-  {
-    id: "jadeita",
-    img: "/minerales/jadeita.png", // Asigna la imagen cuando la tengas
-    nombre: "Jadeíta",
-    formulaQuimica: "NaAlSi₂O₆",
-    clase: "Silicatos, grupo de los piroxenos",
-    usos: "Desde hace más de 5000 años, se utiliza para fabricar adornos, herramientas y objetos rituales, por ser muy dura y resistente. Es muy valorada culturalmente en Asia y América prehispánica.",
-  },
-  // AÑADE ESTOS TRES NUEVOS OBJETOS AL FINAL DE TU ARRAY 'minerales'
-{
-  id: "basalto_llullaillaco", // id único
-  img: "/minerales/basalto.png", // Asigna la imagen cuando la tengas
-  nombre: "Basalto",
-  tipo: "Roca ígnea volcánica básica.",
-  origen: "(Salar Llullaillaco)",
-  caracteristicas: "Se forma por el enfriamiento rápido de la lava en la superficie. Es una roca muy común en regiones volcánicas como la Puna, y su presencia está relacionada con antiguos eventos eruptivos.",
-},
-{
-  id: "halita_sal_gema", // id único
-  img: "/minerales/halita_sal_gema.png", // Asigna la imagen cuando la tengas
-  nombre: "Halita – NaCl (Sal gema)",
-  origen: "(Salar Llullaillaco)",
-  caracteristicas: "Cristales cúbicos, transparentes o blanquecinos. Es la forma mineral de la sal de mesa. La halita es una de las riquezas económicas de los salares andinos y forma parte de nuestra vida diaria.",
-  usos: "Alimentación humana. Procesos industriales y químicos. Conservación de alimentos.",
-},
-{
-  id: "yeso_con_halita", // id único
-  img: "/minerales/yeso_con_halita.png", // Asigna la imagen cuando la tengas
-  nombre: "Yeso – CaSO₄·2H₂O con Halita",
-  origen: "(Salar de Llullaillaco)",
-  caracteristicasCombinadas: "El yeso puede aparecer como masas terrosas o cristales, y en este caso se observa con incrustaciones o asociaciones de halita cúbica. Esta coexistencia mineral es típica de ambientes de evaporación extrema, como los salares.",
-  usos: "Construcción (paneles, estucos, revoques). Agricultura (mejorador de suelos). Arte y escultura.",
-},
 ];
+
+// AÑADE ESTE COMPONENTE DE CARRUSEL
+const MineralCarousel = ({ images, mineralNombre }) => {
+  return (
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      navigation={true}
+      pagination={{ clickable: true, dynamicBullets: true }}
+      autoplay={{ delay: 5000, disableOnInteraction: false }}
+      loop={true}
+      className="mineral-card-carousel" // Clase específica para darle estilo
+    >
+      {images.map((imgSrc, index) => (
+        <SwiperSlide key={index}>
+          <img
+            src={`${import.meta.env.BASE_URL}${imgSrc}`}
+            alt={`${mineralNombre} - Imagen ${index + 1}`}
+            className="mineral-card-image" // Reutilizamos la clase de la imagen
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+};
+
 export const SalaMinerologiaMineria = () => {
   const fileInputRef = useRef(null);
 
@@ -478,7 +530,7 @@ export const SalaMinerologiaMineria = () => {
         {/* Título estilizado por CSS */}
         Minerología y Minería
       </h3>
-      
+
       <section className="seccion-minerales">
         <h2 className="sala-contenido-subtitulo">
           Colección de Minerales y Rocas
@@ -498,11 +550,23 @@ export const SalaMinerologiaMineria = () => {
           {minerales.map((mineral, index) => (
             <article key={mineral.id} className="mineral-card">
               <div className="mineral-card-image-wrapper">
-                <img
-                  src={`${import.meta.env.BASE_URL}${mineral.img}`}
-                  alt={mineral.nombre}
-                  className="mineral-card-image"
-                />
+                {/* Comprueba si img es un array y si tiene más de una imagen */}
+                {Array.isArray(mineral.img) && mineral.img.length > 1 ? (
+                  // Si hay MÁS de una imagen, renderiza el carrusel
+                  <MineralCarousel
+                    images={mineral.img}
+                    mineralNombre={mineral.nombre}
+                  />
+                ) : (
+                  // Si hay UNA SOLA imagen (o si img no es un array por error), renderiza la imagen
+                  <img
+                    src={`${import.meta.env.BASE_URL}${
+                      Array.isArray(mineral.img) ? mineral.img[0] : mineral.img
+                    }`}
+                    alt={mineral.nombre}
+                    className="mineral-card-image"
+                  />
+                )}
                 {mineral.tieneQr && (
                   <button
                     className="qr-code-button mineral-qr-on-image"
@@ -537,8 +601,12 @@ export const SalaMinerologiaMineria = () => {
                       <strong>Nombre técnico:</strong> {mineral.nombreTecnico}
                     </p>
                   )}
-                  {mineral.origen && <p className="mineral-detail-item"><strong>Origen:</strong> {mineral.origen}</p>} {/* <-- Esta línea */}
-
+                  {mineral.origen && (
+                    <p className="mineral-detail-item">
+                      <strong>Origen:</strong> {mineral.origen}
+                    </p>
+                  )}{" "}
+                  {/* <-- Esta línea */}
                   {mineral.formulaQuimica && (
                     <p className="mineral-detail-item">
                       <strong>Fórmula Química:</strong> {mineral.formulaQuimica}
@@ -572,9 +640,13 @@ export const SalaMinerologiaMineria = () => {
                       {mineral.caracteristicas}
                     </p>
                   )}
-                  {mineral.caracteristicasCombinadas && <p className="mineral-detail-item"><strong>Características combinadas:</strong> {mineral.caracteristicasCombinadas}</p>} {/* <-- Y esta línea */}
-
-                  
+                  {mineral.caracteristicasCombinadas && (
+                    <p className="mineral-detail-item">
+                      <strong>Características combinadas:</strong>{" "}
+                      {mineral.caracteristicasCombinadas}
+                    </p>
+                  )}{" "}
+                  {/* <-- Y esta línea */}
                   {mineral.propiedadDiagnostica && (
                     <p className="mineral-detail-item">
                       <strong>Prop. Diagnóstica:</strong>{" "}
@@ -708,7 +780,7 @@ export const SalaMinerologiaMineria = () => {
       <img
         src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
         alt="Paisaje de Salar en la Puna"
-        className="imagen-testigo"
+        className="imagen-testigo lampara-recortada"
       />
       <p className="sala-minerologia-intro">
         <strong> ¿Cómo funcionaba? </strong>
@@ -732,7 +804,7 @@ export const SalaMinerologiaMineria = () => {
       {/* ========================================================= */}
       {/* =      INICIO: SECCIÓN DE TESTIGOS DESTACADOS           = */}
       {/* ========================================================= */}
-      <section className="seccion-testigos">
+      <section className="seccion-testigos" style={{ border: "0px" }}>
         <h3 className="sala-contenido-subtitulo">Testigos destacados</h3>
         <p className="sala-contenido-parrafo">
           A continuación, puedes observar en detalle algunos de los testigos

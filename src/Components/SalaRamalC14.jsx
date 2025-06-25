@@ -90,7 +90,7 @@ export const SalaRamalC14 = () => {
   return (
     <article className="sala-contenido-container sala-contenido-container-ramal">
       
-      <h2 className="sala-contenido-titulo-principal">Ramal C-14</h2>
+      <h2 className="sala-contenido-titulo-principal">RAMAL C-14</h2>
 
       {/* --- Primer Bloque: La hazaña de la construcción --- */}
       <section className="ramal-bloque">
@@ -128,14 +128,14 @@ export const SalaRamalC14 = () => {
         <VideoPlayer 
           videoSrc={import.meta.env.BASE_URL + "viaje_ramal_video.mp4"} // REEMPLAZA ESTA RUTA
           posterSrc={import.meta.env.BASE_URL + "/img/ramal/posters/poster_1926.jpg"} // REEMPLAZA ESTA RUTA
-          title="Viaje por el Ramal C14 en 1926"
-          subtitle="Video cortesía de Archivo General de la Nación."
+          /* title="Viaje por el Ramal C14 en 1926" */
+          subtitle="Viaje por el Ramal C14 en 1926. Video cortesía de Archivo General de la Nación."
         />
       </section>
 
       {/* --- Tercer Bloque: Estrategia y desarrollo --- */}
       <section className="ramal-bloque">
-        <h3 className="sala-contenido-subtitulo">Mucho Más que Rieles</h3>
+        <h3 className="sala-contenido-subtitulo">Mucho más que rieles</h3>
         <p className="sala-contenido-parrafo">
           El Ramal C14 no fue solo una vía de comunicación: fue una estrategia para integrar los territorios más aislados del país. El proyecto buscaba conectar zonas ricas en recursos minerales, como boratos y litio, con los puertos del Pacífico, facilitando el desarrollo económico y reduciendo la dependencia de rutas marítimas largas.
         </p>
@@ -147,8 +147,8 @@ export const SalaRamalC14 = () => {
         <VideoPlayer 
           videoSrc={import.meta.env.BASE_URL + "trasandino_del_norte_comp.mp4"} // REEMPLAZA ESTA RUTA (es el que ya tenías)
           posterSrc={import.meta.env.BASE_URL + "poster_trasandino.jpg"} // REEMPLAZA ESTA RUTA
-          title="El Trasandino del Norte"
-          subtitle="Imágenes históricas de la construcción y operación del tren."
+          /* title="El Trasandino del Norte" */
+          subtitle="El Trasandino del Norte. Imágenes históricas de la construcción y operación del tren."
         />
         {/* Botones a los documentales */}
         <div className="ramal-documentales-links">
@@ -161,7 +161,7 @@ export const SalaRamalC14 = () => {
 
       {/* --- Cuarto Bloque: El Tren a las Nubes --- */}
       <section className="ramal-bloque">
-        <h3 className="sala-contenido-subtitulo">Del Progreso al Turismo: El Tren a las Nubes</h3>
+        <h3 className="sala-contenido-subtitulo">Del progreso al turismo: El Tren a las Nubes</h3>
         <p className="sala-contenido-parrafo">
           A fines del siglo XX, parte del trazado original del Ramal C14 se convirtió en uno de los viajes turísticos más famosos del país: el Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de la Puna salteña, es una experiencia única que combina historia, ingeniería y naturaleza.
         </p>

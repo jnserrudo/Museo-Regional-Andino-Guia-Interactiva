@@ -180,6 +180,10 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
   
+  .imagen-volcan{
+    clip-path: inset(5px 0 0 0);
+  }
+
   /* --- Video Responsivo --- */
   .video-responsive-container {
     position: relative;

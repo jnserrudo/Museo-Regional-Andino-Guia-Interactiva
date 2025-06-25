@@ -331,7 +331,7 @@ export const SalaGeologia = () => {
         <img
           src={import.meta.env.BASE_URL + "funcionamiento_volcan.jpg"}
           alt="Esquema del funcionamiento de un volcán"
-          className="imagen-destacada"
+          className="imagen-destacada imagen-volcan"
         />
       </div>
 
@@ -441,8 +441,8 @@ export const SalaGeologia = () => {
         Con el tiempo, las depresiones se llenaron de agua que, en lugar de
         formar ríos, se evaporó, dejando atrás todos los minerales disueltos.
         Así comenzaron a formarse las grandes planicies de sal. Bajo esa costra
-        blanca y brillante, todavía queda agua muy salada, conocida como
-        <strong>salmuera</strong>, donde flotan elementos como el litio, potasio
+        blanca y brillante, todavía queda agua muy salada, conocida como 
+        <strong> salmuera</strong>, donde flotan elementos como el litio, potasio
         y magnesio.
       </p>
 

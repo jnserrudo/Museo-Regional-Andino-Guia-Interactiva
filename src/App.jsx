@@ -22,6 +22,7 @@ import "leaflet/dist/leaflet.css";
 const { Content } = Layout;
 import { ScrollToTop } from "./Components/ScrollToTop";
 import { GuiaSalas } from "./Components/GuiaSalas";
+import { DespedidaGuia } from "./Components/DespedidaGuia";
 
 const App = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -59,11 +60,9 @@ const App = () => {
                 {/* ====================================================== */}
                 {/* ======        AQUÍ ESTÁ LA CORRECCIÓN         ======== */}
                 {/* ====================================================== */}
-                
                 {/* --- RUTA PARA LA VISITA GUIADA --- */}
                 {/* 1. La ruta padre /guia renderiza el layout de la guía (<GuiaSalas />) */}
                 <Route path="/guia" element={<GuiaSalas />}>
-
                   {/* 2. Al entrar a /guia, redirige a la primera sala del recorrido. */}
                   <Route
                     index
@@ -77,11 +76,13 @@ const App = () => {
                          Esto funciona para las sub-rutas también (ej: /guia/geologia/volcanes).
                   */}
                   <Route path=":salaId" element={<Sala />}>
-                     {/* Estas son las rutas hijas de <Sala />, igual que en el modo normal */}
-                     <Route index element={<SalaPrincipal />} />
-                     <Route path=":id" element={<SalaDetalleWrapper />} />
+                    {/* Estas son las rutas hijas de <Sala />, igual que en el modo normal */}
+                    <Route index element={<SalaPrincipal />} />
+                    <Route path=":id" element={<SalaDetalleWrapper />} />
                   </Route>
 
+                  {/* --- AÑADE ESTA NUEVA RUTA AQUÍ --- */}
+                  <Route path="despedida" element={<DespedidaGuia />} /> 
                 </Route>
                 {/* ====================================================== */}
                 {/* =================== FIN DE LA CORRECCIÓN ============= */}

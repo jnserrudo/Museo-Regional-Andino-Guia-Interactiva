@@ -64,7 +64,7 @@ export const SalaBiodiversidad = () => {
 
   return (
     <article className="sala-contenido-container">
-      <h2 className="sala-contenido-titulo-principal">BIODIVERSIDAD: LA VIDA EN LA PUNA</h2>
+      <h2 className="sala-contenido-titulo-principal">BIODIVERSIDAD</h2>
 
       <h3 className="sala-contenido-subtitulo">¿Cómo sobrevive la vida en la Puna?</h3>
       <p className="sala-contenido-parrafo">

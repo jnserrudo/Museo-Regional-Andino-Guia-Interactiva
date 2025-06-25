@@ -10,7 +10,7 @@ export const SalaGobernacionAndes = () => {
   return (
     <article className="sala-contenido-container"> {/* Usamos la clase base para consistencia */}
       
-      <h2 className="sala-contenido-titulo-principal">Gobernación de los Andes</h2>
+      <h2 className="sala-contenido-titulo-principal">GOBERNACIÓN DE LOS ANDES</h2>
 
       {/* --- Primer Bloque: Daniel Cerri --- */}
       <section className="gobernacion-bloque">

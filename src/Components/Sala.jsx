@@ -43,14 +43,14 @@ import "../SalaRamalC14.css"; // Para estilos específicos del ramal si son nece
 // --- Datos de las salas (igual que antes) ---
 const salasData = {
   gobernacion_de_los_andes: {
-    title: "GOBERNACIÓN DE LOS ANDES",
+    title: "SALA DE GOBERNACIÓN DE LOS ANDES",
     image: "imagen_to_salas.webp",
     description: `Una historia de exploración, conocimiento y transformación del territorio.
 Bienvenidos a esta sala que recorre el proceso de organización y conocimiento del Territorio Nacional de Los Andes, a partir de su administración estatal. Aquí vas a conocer a sus protagonistas, las primeras investigaciones científicas y cómo esta región tan particular fue integrada al país.
 `,
   },
   territorio_de_los_andes: {
-    title: "TERRITORIO DE LOS ANDES",
+    title: "SALA DE TERRITORIO DE LOS ANDES",
     image: "imagen_to_salas.webp",
     description: `Un territorio en disputa, una historia de integración nacional.
 Bienvenidos a este espacio que narra el origen, los conflictos y la consolidación del Territorio Nacional de Los Andes, una región estratégica y cargada de historia en el corazón de la Puna argentina.
@@ -68,7 +68,7 @@ Tocá, explorá y observá: la geología no es solo ciencia, es el relato vivo d
     `,
   },
   minerologia_y_mineria: {
-    title: "MINEROLOGÍA Y MINERÍA",
+    title: "SALA DE MINERÍA",
     image: "imagen_to_salas.webp",
     description: `
     La riqueza de la Puna: lo que está en la tierra… y en tu vida.
@@ -78,7 +78,7 @@ Por otro lado, la minería: las técnicas que usamos para extraer esos minerales
 `,
   },
   biodiversidad: {
-    title: "BIODIVERSIDAD",
+    title: "SALA DE BIODIVERSIDAD",
     image: "imagen_to_salas.webp",
     description: `
     En esta sala vas a descubrir cómo la vida logra adaptarse y prosperar en uno de los ambientes más extremos del planeta: la Puna andina.
@@ -93,28 +93,28 @@ Mientras recorrés esta sala, te invitamos a mirar con atención: la vida en alt
     `,
   },
   arqueologia: {
-    title: "ARQUEOLOGÍA",
+    title: "SALA DE ARQUEOLOGÍA",
     image: "imagen_to_salas.webp",
     description: `Bienvenidos a la Sala de Historia de la Puna Andina
 En esta sala vas a conocer quiénes habitaron la Puna, un territorio habitado desde hace miles de años. Conocerás cómo las personas se adaptaron a un entorno desafiante, desarrollaron formas de vida basadas en la caza, el pastoreo, la agricultura y el intercambio, y cómo fueron construyendo conocimientos, creencias y tecnologías que aún hoy nos sorprenden.
 `,
   },
   ramal_c14: {
-    title: "RAMAL C14",
+    title: "SALA DE RAMAL C14",
     image: "imagen_to_salas.webp",
     description: `Bienvenidos a la Sala del Ramal C14, 
 una de las obras más asombrosas de la ingeniería ferroviaria en América del Sur. Aquí vas a descubrir la historia del tren que desafió la geografía extrema de la Cordillera de los Andes, uniendo Salta con la frontera chilena en Socompa, a más de 3.500 metros sobre el nivel del mar.
 `,
   },
   "san-antonio-hoy": {
-    title: "SAN ANTONIO HOY",
+    title: "SALA DE SAN ANTONIO HOY",
     image: "imagen_to_salas.webp",
     description: `Una comunidad viva en el corazón de la Puna
 Bienvenidos a San Antonio de los Cobres, capital del departamento Los Andes y una de las localidades más emblemáticas de la Puna argentina. Esta sala te invita a conocer no solo su historia, sino su presente: un territorio que se sostiene entre la memoria ancestral, la vida comunitaria, el trabajo de pastores y mineros, y una cultura viva que sigue latiendo a 3.776 metros de altura.
 `,
   },
   historia: {
-    title: "HISTORIA",
+    title: "SALA DE HISTORIA",
     image: "imagen_to_salas.webp",
     description: `Bienvenidos a la Sala de Historia
 Un recorrido por los grandes cambios políticos y sociales que marcaron la región andina y el país.
