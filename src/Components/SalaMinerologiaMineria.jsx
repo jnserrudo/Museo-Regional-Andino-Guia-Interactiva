@@ -115,6 +115,7 @@ const minerales = [
   {
     id: "yeso",
     img: ["/minerales_museo/8. Yeso.jpg"],
+    nombre: "Yeso",
     formulaQuimica: "CaSO₄·2H₂O",
     clase: "Sulfatos",
     usos: "Muy utilizado en la construcción: para revoques, juntas, paneles de yeso (Durlock®) y estucos artísticos. También se usa como enmienda de suelos agrícolas y en moldes para cerámica y odontología.",
@@ -526,10 +527,10 @@ export const SalaMinerologiaMineria = () => {
         onChange={handleFileChange}
         aria-hidden="true"
       />
-      <h3 className="ramal-timeline-titulo">
+      <h1 className="sala-main-title sala-contenido-titulo-principal">
         {/* Título estilizado por CSS */}
-        Minerología y Minería
-      </h3>
+        MINERÍA
+      </h1>
 
       <section className="seccion-minerales">
         <h2 className="sala-contenido-subtitulo">

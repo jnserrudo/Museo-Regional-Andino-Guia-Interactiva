@@ -7,7 +7,8 @@
     --accent-color: #D2B48C; /* Tan (arena claro) */
     --text-dark: #212529; /* Un negro un poco más suave */
     --text-light: #f8f9fa;
-    --text-muted: #6c757d;
+    /* --text-muted: #6c757d; */
+    --text-muted: #000000;
     --bg-light: #ffffff;
     --bg-medium: #f9f9f9; /* Fondo casi blanco, muy sutil */
     --border-color-light: #dee2e6; /* Borde un poco más visible */

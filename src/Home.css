@@ -5,7 +5,8 @@
     --accent-color: #e7a84c;
     --text-light: #f8f9fa;
     --text-dark: #343a40;
-    --text-muted: #6c757d;
+    /* --text-muted: #6c757d; */
+    --text-muted: #000000;
     --bg-light: #ffffff;
     --bg-dark-overlay: rgba(15, 23, 42, 0.7);
     --border-radius-sm: 8px;
@@ -247,7 +248,7 @@
   .info-section p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--text-muted);
+    /* color: var(--text-muted); */
     margin-bottom: 1.5rem;
     /* Hereda el peso 500 del body o contenedor */
     /* font-weight: 500; */ /* <- Redundante si el body ya lo tiene */

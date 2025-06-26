@@ -22,10 +22,10 @@ export const DespedidaGuia = () => {
         </p>
         
         <div className="despedida-botones-cta">
-            <Button type="primary" size="large" icon={<ExperimentOutlined />}>
+            <Button type="primary" className="sala-contenido-boton" size="large" icon={<ExperimentOutlined />}>
               ¿Cuánto sabés sobre la Puna? (Trivia)
             </Button>
-            <Button type="primary" size="large" icon={<ExperimentOutlined />}>
+            <Button type="primary" className="sala-contenido-boton" size="large" icon={<ExperimentOutlined />}>
               ¿Podés armar una llama? (Rompecabezas)
             </Button>
         </div>

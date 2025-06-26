@@ -6,7 +6,8 @@
 :root {
     --primary-color: #8b4513;
     --text-dark: #333;
-    --text-muted: #6c757d;
+    /* --text-muted: #6c757d; */
+    --text-muted: #000000;
     --bg-light-accent: #f8f5f2;
     --border-radius-md: 8px;
   }

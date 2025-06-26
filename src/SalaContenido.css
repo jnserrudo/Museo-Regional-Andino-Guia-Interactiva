@@ -3,7 +3,8 @@
 /* Variables (Asegúrate de tenerlas definidas globalmente, por ejemplo en :root) */
 :root {
   --text-dark: #343a40; /* Ejemplo */
-  --text-muted: #6c757d; /* Ejemplo */
+  /* --text-muted: #6c757d; */ /* Ejemplo */
+  --text-muted: #000000;
   --primary-color: #8B4513; /* Ejemplo - Un marrón andino */
   --accent-color: #D2B48C; /* Ejemplo - Un beige/tan */
   --border-radius-md: 8px; /* Ejemplo */
