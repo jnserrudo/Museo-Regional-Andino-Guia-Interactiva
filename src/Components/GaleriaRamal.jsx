@@ -383,8 +383,8 @@ const [selectedImage, setSelectedImage] = useState(null);
       {/* =      NUEVA GALERÍA DE IMÁGENES DEL RAMAL C-14            = */}
       {/* ============================================================ */}
       <aside className="ramalc14-image-gallery"> {/* Clase específica */}
-        <h3 className="ramalc14-gallery-title">Galería Histórica del Ramal C-14</h3>
-        <div className="ramalc14-gallery-grid"> {/* Clase específica */}
+{/*         <h3 className="ramalc14-gallery-title">Galería Histórica del Ramal C-14</h3>
+ */}        <div className="ramalc14-gallery-grid"> {/* Clase específica */}
           {imagenesParaGaleria.map((imgData, index) => (
             <figure
                 key={imgData.nombreArchivo + index}

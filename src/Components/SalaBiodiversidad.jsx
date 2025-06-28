@@ -33,7 +33,7 @@ const CarouselGallery = ({ images, title }) => (
           <img
             src={imgSrc}
             alt={`${title || "Galería de Biodiversidad"} - Imagen ${index + 1}`}
-            className="carousel-image"
+            className="carousel-image-chinchilla"
             loading="lazy"
           />
         </SwiperSlide>
@@ -152,7 +152,7 @@ export const SalaBiodiversidad = () => {
       
       </div> */}
 
-      <CarouselGallery images={chinchilla} title="Chinchilla" />
+      <CarouselGallery images={chinchilla} title="" />
       <h3 className="sala-contenido-subtitulo">Aves que llenan de vida las lagunas de altura</h3>
       <p className="sala-contenido-parrafo">
         Donde hay agua, hay vida. En las grandes lagunas de la Puna se concentran cientos de aves, tanto residentes como migratorias. Vas a poder reconocer a:
