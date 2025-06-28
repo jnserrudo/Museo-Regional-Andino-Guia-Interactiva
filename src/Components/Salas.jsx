@@ -18,20 +18,20 @@ const data = [
 
   {
     title: "ARQUEOLOGÍA",
-    image: "arqueologia.jfif",
+    image: "arqueologia.JPG",
     path: "arqueologia",
     icon: "🏺",
   },
   {
     title: "HISTORIA",
-    image: "historia_museo.jfif",
+    image: "historia_museo.JPG",
     path: "historia",
     icon: "📜",
   },
   {
     title: "TERRITORIO DE LOS ANDES",
     //image: "gobernacion_de_los_andes.jfif",
-    image: "territorio_andes.jpg",
+    image: "san_antonio_cobres.jfif",
     path: "territorio_de_los_andes",
     icon: "🏛️",
   },
@@ -58,7 +58,7 @@ const data = [
   },
   {
     title: "SAN ANTONIO HOY",
-    image: "san_antonio_cobres.jfif",
+    image: "territorio_andes.jpg",//se intercambio la foto con la de territorio de los andes
     path: "san-antonio-hoy",
     icon: "📰",
   },

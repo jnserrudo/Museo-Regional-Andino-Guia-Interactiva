@@ -1,6 +1,6 @@
 // src/components/Salas/SalaGeologia.jsx
 
-import React, { useRef , useState} from "react";
+import React, { useRef, useState, useEffect } from "react";
 // Importa el CSS que ya teníamos
 import "./SalaGeologia.css";
 
@@ -13,8 +13,6 @@ import { VolcanoExplorer3D } from "./VolcanoExplorer3D"; // <<<--- IMPORTA EL NU
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-
 
 // --- NUEVO: Datos para la Galería de Volcanes ---
 const imagenesVolcanes = [
@@ -106,42 +104,89 @@ const imagenesVolcanes = [
 ];
 
 
-const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle }) => {
-    const [isPlaying, setIsPlaying] = useState(false);
-    const videoRef = useRef(null);
+const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle, autoplay = false }) => {
+  const [isPlaying, setIsPlaying] = useState(false); // Empezamos en 'false' para que el estado refleje la realidad
+  const videoRef = useRef(null);
 
-    const togglePlay = () => {
-        if (videoRef.current) {
-            isPlaying ? videoRef.current.pause() : videoRef.current.play();
+  // useEffect para controlar la reproducción automática
+  useEffect(() => {
+    // Solo si se pide autoplay y tenemos la referencia al video
+    if (autoplay && videoRef.current) {
+      const videoElement = videoRef.current;
+      
+      // Aseguramos que el video esté silenciado para el autoplay
+      videoElement.muted = true;
+
+      // Intentamos reproducir el video
+      const playPromise = videoElement.play();
+
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // El autoplay comenzó correctamente
+          setIsPlaying(true);
+        }).catch(error => {
+          // El autoplay fue bloqueado. No hacemos nada, el usuario tendrá que darle play manualmente.
+          console.warn("Autoplay bloqueado por el navegador:", error);
+          setIsPlaying(false);
+        });
+      }
+    }
+  }, [autoplay, videoSrc]); // Se ejecuta si cambia la prop 'autoplay' o la fuente del video
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+        // Al interactuar, quitamos el silencio si estaba puesto por el autoplay
+        videoRef.current.muted = false; 
+        if (videoRef.current.paused) {
+            videoRef.current.play();
+        } else {
+            videoRef.current.pause();
         }
-    };
+    }
+  };
 
-    return (
-        <section className="video-hero-section">
-            <div className={`video-wrapper ${isPlaying ? 'is-playing' : ''}`}>
-                <video
-                    ref={videoRef}
-                    className="sala-video"
-                    controls
-                    preload="metadata"
-                    poster={posterSrc}
-                    src={videoSrc}
-                    onPlay={() => setIsPlaying(true)}
-                    onPause={() => setIsPlaying(false)}
-                    onEnded={() => setIsPlaying(false)}
-                >
-                    Tu navegador no soporta la etiqueta de video.
-                </video>
-                <div className="play-button-overlay" aria-hidden="true" onClick={togglePlay}>
-                    <div className="play-icon-container"><PlayIcon /></div>
-                </div>
-            </div>
-            <div className="video-caption">
-                <h3 className="video-title">{title}</h3>
-                <p className="video-subtitle">{subtitle}</p>
-            </div>
-        </section>
-    );
+  return (
+    <section className="video-hero-section">
+      <div className={`video-wrapper ${isPlaying ? "is-playing" : ""}`}>
+        <video
+          ref={videoRef}
+          className="sala-video"
+          controls
+          // --- ATRIBUTOS CLAVE PARA EL AUTOPLAY ---
+          playsInline  // <-- 1. CRUCIAL para móviles (especialmente iOS)
+          muted        // <-- 2. NECESARIO para que la mayoría de navegadores permitan autoplay
+          loop         // <-- 3. (Opcional) Si quieres que el video se repita al terminar
+          // --- FIN ATRIBUTOS CLAVE ---
+          preload="metadata"
+          poster={posterSrc}
+          src={videoSrc}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => {
+              // Si no está en loop, se asegura de que el estado sea 'pausado'
+              if (!videoRef.current?.loop) {
+                  setIsPlaying(false);
+              }
+          }}
+        >
+          Tu navegador no soporta la etiqueta de video.
+        </video>
+        <div
+          className="play-button-overlay"
+          aria-hidden="true"
+          onClick={togglePlay}
+        >
+          <div className="play-icon-container">
+            <PlayIcon />
+          </div>
+        </div>
+      </div>
+      <div className="video-caption">
+        <h3 className="video-title">{title}</h3>
+        <p className="video-subtitle">{subtitle}</p>
+      </div>
+    </section>
+  );
 };
 // --- MODIFICADO: El componente de galería ahora es un carrusel ---
 const CarouselGallery = ({ images, title }) => (
@@ -191,20 +236,20 @@ const PlayIcon = () => (
 );
 // --- COMPONENTE PRINCIPAL DE LA SALA (sin cambios en su lógica) ---
 export const SalaGeologia = () => {
-    const [isPlaying, setIsPlaying] = useState(false);
-    const videoRef = useRef(null); // <--- 2. CREAMOS UNA REFERENCIA AL VIDEO
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null); // <--- 2. CREAMOS UNA REFERENCIA AL VIDEO
 
-    // --- 3. FUNCIÓN PARA CONTROLAR PLAY/PAUSE ---
-    const togglePlay = () => {
-      if (videoRef.current) {
-        if (isPlaying) {
-          videoRef.current.pause();
-        } else {
-          videoRef.current.play();
-        }
+  // --- 3. FUNCIÓN PARA CONTROLAR PLAY/PAUSE ---
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
       }
-    };
-  
+    }
+  };
+
   // Las rutas a tus imágenes no cambian
   const galeriaCuencas = [
     import.meta.env.BASE_URL + "cuenca_1.jpg",
@@ -227,14 +272,16 @@ export const SalaGeologia = () => {
     <article className="sala-contenido-container">
       <h2 className="sala-contenido-titulo-principal">GEOLOGÍA</h2>
       <h3 className="sala-contenido-subtitulo">
-      ¿Sabías que hay un lugar en Argentina donde el agua nunca llega al mar?
+        ¿Sabías que hay un lugar en Argentina donde el agua nunca llega al mar?
       </h3>
-      <VideoPlayer 
-          videoSrc={import.meta.env.BASE_URL + "animacion_mundo.mp4"} // REEMPLAZA ESTA RUTA
-          posterSrc={import.meta.env.BASE_URL + "/img/ramal/posters/poster_1926.jpg"} // REEMPLAZA ESTA RUTA
-/*           title="Viaje por el Ramal C14 en 1926"
- *//*           subtitle="Video cortesía de Archivo General de la Nación."
- */        />
+      {/* --- AQUÍ ESTÁ EL CAMBIO --- */}
+      <VideoPlayer
+        videoSrc={import.meta.env.BASE_URL + "animacion_mundo.mp4"}
+        // --- USAREMOS LA IMAGEN DE LA PUNA COMO POSTER ---
+        posterSrc={import.meta.env.BASE_URL + "/cuenca_1.jpg"} // <-- Pon una imagen representativa de la Puna
+        autoplay={true} // <-- AÑADE ESTA PROP
+      />
+      {/* --- FIN DEL CAMBIO --- */}
 
       <p className="sala-contenido-parrafo">
         La Puna es una región única en el planeta. Nos encontramos a más de
@@ -297,10 +344,8 @@ export const SalaGeologia = () => {
           superficie.
         </li>
       </ul>
-      
-      <h3 className="sala-contenido-subtitulo">
-        ¿Cómo se forma un volcán?
-      </h3>
+
+      <h3 className="sala-contenido-subtitulo">¿Cómo se forma un volcán?</h3>
       <p className="sala-contenido-parrafo">
         Bajo la superficie terrestre, a varios kilómetros de profundidad,
         ocurren procesos silenciosos pero poderosos. Cuando la presión disminuye
@@ -353,23 +398,21 @@ export const SalaGeologia = () => {
           región.
         </p>
       </div>
-
+      {/* 
 <section className="volcanes-3d-gallery-section">
-          {" "}
-          {/* Contenedor general */}
+
           <h3 className="volcanes-3d-gallery-title">
             Explorador Geológico Interactivo
           </h3>
           <div className="volcano-explorer-container">
-            {" "}
-            {/* Contenedor para el canvas 3D */}
+            
             <VolcanoExplorer3D images={imagenesVolcanes} />
           </div>
           <p className="volcano-explorer-instructions">
             Haz clic y arrastra para rotar. Usa la rueda del ratón para hacer
             zoom. Pasa el cursor sobre una imagen para ver detalles.
           </p>
-        </section>
+        </section> */}
 
       <h4 className="sala-contenido-subtitulo-menor">¿Qué es un géiser?</h4>
       <p className="sala-contenido-parrafo">
@@ -441,9 +484,9 @@ export const SalaGeologia = () => {
         Con el tiempo, las depresiones se llenaron de agua que, en lugar de
         formar ríos, se evaporó, dejando atrás todos los minerales disueltos.
         Así comenzaron a formarse las grandes planicies de sal. Bajo esa costra
-        blanca y brillante, todavía queda agua muy salada, conocida como 
-        <strong> salmuera</strong>, donde flotan elementos como el litio, potasio
-        y magnesio.
+        blanca y brillante, todavía queda agua muy salada, conocida como
+        <strong> salmuera</strong>, donde flotan elementos como el litio,
+        potasio y magnesio.
       </p>
 
       <div className="sabias-que-box">
@@ -458,8 +501,8 @@ export const SalaGeologia = () => {
       </div>
 
       {/* --- MODIFICADO: Usamos el nuevo componente de carrusel --- */}
-{/*       <CarouselGallery images={galeriaSalares} title="Salares de la Puna" />
- */}
+      {/*       <CarouselGallery images={galeriaSalares} title="Salares de la Puna" />
+       */}
       <h3 className="sala-contenido-subtitulo">
         El lenguaje secreto de la Puna
       </h3>

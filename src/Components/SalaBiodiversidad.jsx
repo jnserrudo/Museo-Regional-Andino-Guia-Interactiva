@@ -53,6 +53,12 @@ export const SalaBiodiversidad = () => {
     import.meta.env.BASE_URL + "bio_5.JPG",
   ];
 
+  const chinchilla = [
+    import.meta.env.BASE_URL + "Chinchilla.jpg",
+    import.meta.env.BASE_URL + "zorro-chinchilla.JPG",
+    import.meta.env.BASE_URL + "zorro-chinchilla2.JPG",
+  ];
+
   const galeriaAves = [
     import.meta.env.BASE_URL + "ave_1.JPG",
     import.meta.env.BASE_URL + "ave_2.JPG",
@@ -139,10 +145,14 @@ export const SalaBiodiversidad = () => {
       <p className="sala-contenido-parrafo">
         Aunque discretos, todos juegan un rol clave en el equilibrio del ecosistema.
       </p>
-       <div className="imagen-destacada-container">
+       {/* <div className="imagen-destacada-container">
         <img src={import.meta.env.BASE_URL + "Chinchilla.jpg"} alt="Zorro colorado andino" className="imagen-destacada" />
-      </div>
+        <img src={import.meta.env.BASE_URL + "zorro-chinchilla.JPG"} alt="Zorro colorado andino" className="imagen-destacada" />
+        <img src={import.meta.env.BASE_URL + "zorro-chinchilla2.JPG"} alt="Zorro colorado andino" className="imagen-destacada" />
+      
+      </div> */}
 
+      <CarouselGallery images={chinchilla} title="Chinchilla" />
       <h3 className="sala-contenido-subtitulo">Aves que llenan de vida las lagunas de altura</h3>
       <p className="sala-contenido-parrafo">
         Donde hay agua, hay vida. En las grandes lagunas de la Puna se concentran cientos de aves, tanto residentes como migratorias. Vas a poder reconocer a:

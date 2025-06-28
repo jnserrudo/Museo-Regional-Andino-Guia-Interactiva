@@ -19,7 +19,7 @@ const minerales = [
   // Todos los minerales juntos en una sola lista
   {
     id: "pomez",
-    img: ["/minerales_museo/0.1. piedra pomez 1.jpg", "/minerales_museo/0.1. piedra pomez 2.JPG", "/minerales_museo/0.1. piedra pomez.jpg"],
+    img: ["/minerales_museo/sin_fondo_blanco/Piedra_Pomez-removebg-preview.png", "/minerales_museo/sin_fondo_blanco/0.1._piedra_pomez-removebg-preview.png", "/minerales_museo/sin_fondo_blanco/0.1._piedra_pomez_2-removebg-preview.png", "/minerales_museo/sin_fondo_blanco/0.1._piedra_pomez_1-removebg-preview.png"],
     nombre: "Piedra Pómez",
     tipo: "Roca ígnea volcánica (no es un mineral, sino una roca).",
     composicionQuimica:
@@ -61,7 +61,7 @@ const minerales = [
   },
   {
     id: "ortosa",
-    img: ["/minerales_museo/2. Ortosa.JPG"],    nombre: "Ortosa (Feldspato potásico)",
+    img: ["/minerales_museo/sin_fondo_blanco/2._Ortosa-removebg-preview.png"],    nombre: "Ortosa (Feldspato potásico)",
     formulaQuimica: "KAlSi₃O₈",
     clase: "Silicatos, grupo de los feldespatos",
     caracteristicas:
@@ -86,7 +86,7 @@ const minerales = [
   },
   {
     id: "malaquita",
-    img: ["/minerales_museo/5. Malaquita.jpg"],    nombre: "Malaquita",
+    img: ["/minerales_museo/sin_fondo_blanco/5._Malaquita-removebg-preview.png"],    nombre: "Malaquita",
     formulaQuimica: "Cu₂CO₃(OH)₂",
     clase: "Carbonatos",
     caracteristicas:
@@ -97,7 +97,7 @@ const minerales = [
 
   {
     id: "muscovita",
-    img: ["/minerales_museo/6. Muscovita - Mica Blanca.JPG", "/minerales_museo/6. Muscovita - otra.jpg", "/minerales_museo/6. Muscovita.JPG"],    nombre: "Muscovita (Mica Blanca)",
+    img: ["/minerales_museo/sin_fondo_blanco/6._Muscovita-removebg-preview.png", "/minerales_museo/sin_fondo_blanco/6._Muscovita-removebg-preview.png", "/minerales_museo/sin_fondo_blanco/6._Muscovita-removebg-preview.png"],    nombre: "Muscovita (Mica Blanca)",
     formulaQuimica: "KAl₂(AlSi₃O₁₀)(OH)₂",
     clase: "Silicatos, grupo de las micas",
     caracteristicas:
@@ -106,7 +106,7 @@ const minerales = [
   },
   {
     id: "azufre_nativo",
-    img: ["/minerales_museo/7. Azufre.JPG"],    nombre: "Azufre (nativo)",
+    img: ["/minerales_museo/sin_fondo_blanco/7._Azufre-removebg-preview.png"],    nombre: "Azufre (nativo)",
     formulaQuimica: "S",
     clase: "Elementos nativos",
     usos: "Se emplea principalmente para producir ácido sulfúrico, base de muchos procesos industriales. También se usa en la fabricación de fósforos, fertilizantes, fungicidas, tintes, pólvora, productos fotográficos y medicamentos tópicos como pomadas con acción antibacteriana.",
@@ -114,7 +114,7 @@ const minerales = [
 
   {
     id: "yeso",
-    img: ["/minerales_museo/8. Yeso.jpg"],
+    img: ["/minerales_museo/sin_fondo_blanco/8._Yeso-removebg-preview.png"],
     nombre: "Yeso",
     formulaQuimica: "CaSO₄·2H₂O",
     clase: "Sulfatos",
@@ -129,7 +129,7 @@ const minerales = [
   },
   {
     id: "epidoto_en_cuarzo",
-    img: ["/minerales_museo/10. Epidota en cuarzo 0.JPG", "/minerales_museo/10._Epidota_en_cuarzo_1-removebg-preview.png", "/minerales_museo/10._Epidota_en_cuarzo-removebg-preview.png"],    nombre: "Epidoto en Cuarzo",
+    img: ["/minerales_museo/sin_fondo_blanco/10._Epidota_en_cuarzo_0-removebg-preview.png", "/minerales_museo/10._Epidota_en_cuarzo_1-removebg-preview.png", "/minerales_museo/10._Epidota_en_cuarzo-removebg-preview.png"],    nombre: "Epidoto en Cuarzo",
     formulaQuimica: "Ca₂(Al,Fe)₃(SiO₄)₃(OH)",
     clase: "Silicatos",
     usos: "No tiene aplicaciones industriales masivas. Se valora como mineral de colección o piedra semipreciosa.",
@@ -146,7 +146,7 @@ const minerales = [
   },
   {
     id: "casiterita",
-    img: ["/minerales_museo/12. cassiterite-tin-ore-stone-isolated-on-white-photo.jpg", "/minerales_museo/12.Casiterita-removebg-preview.png"],    nombre: "Casiterita",
+    img: ["/minerales_museo/sin_fondo_blanco/12._cassiterite-tin-ore-stone-isolated-on-white-photo-removebg-preview.png", "/minerales_museo/12.Casiterita-removebg-preview.png"],    nombre: "Casiterita",
     formulaQuimica: "SnO₂",
     clase: "Óxidos",
     caracteristicas:
@@ -157,7 +157,7 @@ const minerales = [
   // REEMPLAZA el objeto 'galena' existente con este
   {
     id: "galena",
-    img: ["/minerales_museo/13. galena.jpg", "/minerales_museo/13._Galena_con_Blenda-removebg-preview.png"],    nombre: "Galena",
+    img: ["/minerales_museo/sin_fondo_blanco/13._galena-removebg-preview.png", "/minerales_museo/13._Galena_con_Blenda-removebg-preview.png"],    nombre: "Galena",
     formulaQuimica: "PbS con Blenda – ZnS",
     clase: "Sulfuros",
     caracteristicas:
@@ -168,7 +168,7 @@ const minerales = [
   // REEMPLAZA el objeto 'fluorita' existente con este
   {
     id: "fluorita_verde",
-    img: ["/minerales_museo/14. Fluorita verde 1.jpg", "/minerales_museo/14. Fluorita verde.JPG", "/minerales_museo/14._Fluorita_verde_2-removebg-preview.png"],    nombre: "Fluorita Verde",
+    img: ["/minerales_museo/sin_fondo_blanco/14._Fluorita_verde_1-removebg-preview.png", "/minerales_museo/sin_fondo_blanco/14._Fluorita_verde-removebg-preview.png", "/minerales_museo/14._Fluorita_verde_2-removebg-preview.png"],    nombre: "Fluorita Verde",
     formulaQuimica: "CaF₂",
     clase: "Haluros",
     caracteristicas:
@@ -187,7 +187,7 @@ const minerales = [
   // AÑADE ESTOS TRES NUEVOS OBJETOS AL FINAL DE TU ARRAY 'minerales'
   {
     id: "basalto_llullaillaco", // id único
-    img: ["/minerales_museo/16. Basalto.JPG"],    nombre: "Basalto",
+    img: ["/minerales_museo/sin_fondo_blanco/16._Basalto-removebg-preview.png"],    nombre: "Basalto",
     tipo: "Roca ígnea volcánica básica.",
     origen: "(Salar Llullaillaco)",
     caracteristicas:
@@ -195,7 +195,7 @@ const minerales = [
   },
   {
     id: "halita_sal_gema", // id único
-    img: ["/minerales_museo/17. Halita - Sal.jpg"], // Asigna la imagen cuando la tengas
+    img: ["/minerales_museo/sin_fondo_blanco/17._Halita_-_Sal-removebg-preview.png"], // Asigna la imagen cuando la tengas
     nombre: "Halita – NaCl (Sal gema)",
     origen: "(Salar Llullaillaco)",
     caracteristicas:
@@ -806,8 +806,8 @@ export const SalaMinerologiaMineria = () => {
       {/* =      INICIO: SECCIÓN DE TESTIGOS DESTACADOS           = */}
       {/* ========================================================= */}
       <section className="seccion-testigos" style={{ border: "0px" }}>
-        <h3 className="sala-contenido-subtitulo">Testigos destacados</h3>
-        <p className="sala-contenido-parrafo">
+{/*         <h3 className="sala-contenido-subtitulo">Testigos destacados</h3>
+ */}        <p className="sala-contenido-parrafo">
           A continuación, puedes observar en detalle algunos de los testigos
           geológicos más representativos de la colección.
         </p>
@@ -831,7 +831,7 @@ export const SalaMinerologiaMineria = () => {
           <div className="imagen-destacada-container">
             {/* REEMPLAZA esta ruta con la tuya en /public */}
             <img
-              src={`${import.meta.env.BASE_URL}/brecha_hidrotermal.png`}
+              src={`${import.meta.env.BASE_URL}/testigos/1._Testigos__Brecha_Hidrotermal_-_testigo_3-removebg-preview.png`}
               alt="Testigo de Brecha Hidrotermal"
               className="imagen-testigo"
               loading="lazy"
@@ -851,7 +851,7 @@ export const SalaMinerologiaMineria = () => {
           <div className="imagen-destacada-container">
             {/* REEMPLAZA esta ruta con la tuya en /public */}
             <img
-              src={`${import.meta.env.BASE_URL}/andesita_alterada_5.png`}
+              src={`${import.meta.env.BASE_URL}/testigos/2._Testigos_Andesita_4-removebg-preview.png`}
               alt="Testigo de Andesita Alterada con alteración argílica"
               className="imagen-testigo"
               loading="lazy"
@@ -872,7 +872,7 @@ export const SalaMinerologiaMineria = () => {
           <div className="imagen-destacada-container">
             {/* REEMPLAZA esta ruta con la tuya en /public */}
             <img
-              src={`${import.meta.env.BASE_URL}/andesita_alterada_6.png`}
+              src={`${import.meta.env.BASE_URL}/testigos/4._Testigo_Andesita_6-removebg-preview.png`}
               alt="Testigo de Andesita Alterada con alteración silícica"
               className="imagen-testigo"
               loading="lazy"
@@ -892,7 +892,7 @@ export const SalaMinerologiaMineria = () => {
           <div className="imagen-destacada-container">
             {/* REEMPLAZA esta ruta con la tuya en /public */}
             <img
-              src={`${import.meta.env.BASE_URL}/diamantina_halita.png`}
+              src={`${import.meta.env.BASE_URL}/testigos/granitoide-removebg-preview.png`}
               alt="Testigo de Diamantina con Halita"
               className="imagen-testigo"
               loading="lazy"

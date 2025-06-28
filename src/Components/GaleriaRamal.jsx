@@ -342,9 +342,28 @@ const imagenesRamalc14 = [
   },
 ];
 
+
+// --- AÑADE ESTA LISTA DE IMÁGENES QUE YA SE USARON EN EL CARRUSEL ---
+const imagenesUsadasEnCarrusel = [
+  "polvorilla_construccion01aa.jpg",
+  "trabajadores_sobre_rieles_foto_ramal_c14_1922.jpg",
+  "hconstruyendo_tunel.jpg",
+  "paleando5.jpg",
+  "hviaducto_el_candado.jpg",
+  "inauguracion.jpg",
+  "ramal_c14_inaugurado_20_febrero_1948.jpg",
+  "maury_pantoja.jpg",
+];
 export const GaleriaRamal = () => {
 
 const [selectedImage, setSelectedImage] = useState(null);
+
+ // --- AÑADE ESTA LÍNEA DE FILTRADO ---
+ const imagenesParaGaleria = imagenesRamalc14.filter(
+  (img) => !imagenesUsadasEnCarrusel.includes(img.nombreArchivo)
+);
+// --- FIN DEL FILTRADO ---
+
 
   const handleImageClick = (imgData) => {
     setSelectedImage(imgData);
@@ -366,7 +385,7 @@ const [selectedImage, setSelectedImage] = useState(null);
       <aside className="ramalc14-image-gallery"> {/* Clase específica */}
         <h3 className="ramalc14-gallery-title">Galería Histórica del Ramal C-14</h3>
         <div className="ramalc14-gallery-grid"> {/* Clase específica */}
-          {imagenesRamalc14.map((imgData, index) => (
+          {imagenesParaGaleria.map((imgData, index) => (
             <figure
                 key={imgData.nombreArchivo + index}
                 className="ramalc14-gallery-item" // Clase específica
