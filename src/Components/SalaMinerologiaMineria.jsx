@@ -11,6 +11,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useRegisterText } from "../Contexts/SpeechContext";
 
 // --- Datos Organizados en Arrays ---
 
@@ -515,8 +516,42 @@ const minerales = [
   // AÑADE ESTOS NUEVOS OBJETOS AL FINAL DE TU ARRAY 'minerales'
 ];
 
+const salaMinerologiaMineriaText = `
+MINERÍA.
+
+Colección de Minerales y Rocas.
+Acompáñanos a descubrir nuestra colección de minerales y rocas, testigos silenciosos de la riqueza natural de la Puna. Algunos de las rocas y minerales de la colección tienen un código QR: Apuntá con la cámara de tu celular y míralos en realidad aumentada, para poder observarlos en 3D e interactuar para ver sus características más destacadas.
+
+Minería: de la tierra a nuestra vida cotidiana.
+Tal vez ya sabés que muchos objetos que usás cada día vienen de minerales. Pero… ¿cómo pasan de estar en una roca a formar parte de tu celular, tus paredes o tu comida? Esta sección de la guía te invita a descubrir cómo se extraen y transforman los minerales: Desde las técnicas más antiguas usadas por las comunidades andinas, hasta los métodos modernos que buscan ser más cuidadosos con el ambiente y las personas.
+
+Los primeros pasos de la minería.
+La minería nació con el ser humano. En los Andes, las culturas originarias ya extraían minerales como la obsidiana, el cobre o la sal, que usaban para fabricar herramientas, como objetos ceremoniales, para pintar cuevas con pigmentos naturales o como elementos de intercambio. Hoy, la Puna sigue siendo clave: el litio que se encuentra bajo los salares permite fabricar baterías para celulares, computadoras y autos eléctricos en todo el mundo. Uno de los objetos que utilizaban antiguamente es la lámpara a carburo, que podés ver en esta sala.
+¿Cómo funcionaba?
+Tenía un compartimento superior con agua y uno inferior con carburo de calcio. Al mezclarse, generaban gas acetileno, que se encendía y ofrecía una llama estable y duradera. Era indispensable para los mineros que trabajaban en galerías profundas sin electricidad. Esta lámpara no solo iluminaba el camino: también mostraba cuán ingenioso debía ser el trabajo minero antes de la tecnología moderna.
+
+Explorá los testigos de perforación – la memoria del subsuelo.
+En esta sala también puedes se exhiben cortes cilíndricos—o “testigos”—que representan muestras directas del subsuelo de la Puna. Cada uno refleja procesos geológicos específicos, útiles tanto para la minería como para la investigación científica.
+A continuación, puedes observar en detalle algunos de los testigos geológicos más representativos de la colección.
+
+Brecha hidrotermal (testigo 3-4): Puedes observar fragmentos angulares de roca unidos por cuarzo relleno, con vetas de alunita y jarosita. Esto indica zonas donde circuló agua caliente (150–350 °C), creando depósitos minerales.
+
+Andesita alterada (testigo 5): La alteración argílica: contiene arcillas como alunita y goethita, lo que es señal de fluidos subterráneos ácidos.
+
+Andesita alterada (testigo 6): La alteración silícica con óxidos de hierro y vetillas de alunita tipifica entornos de alta sulfuración, cercanos a vapores volcánicos.
+
+Diamantina / halita: Contiene cristales cúbicos de sal (halita) en roca árida del salar. Revela episodios de agua salina antigua y evaporación intensiva.
+
+Granitoide: Granitoide (testigo 1) con alteración vuggy silica: presencia de cavidades rellenas de sílice vítrea, común en zonas de mineralización hidrotermal.
+
+Boratos – colección de boro y derivados.
+Los boratos, son minerales de importancia industrial (detergentes, agricultura, vidrio). La muestra que puedes observar en la sala incluye ulexita natural, bórax, y ácido bórico (grado técnico).
+`;
 // AÑADE ESTE COMPONENTE DE CARRUSEL
 const MineralCarousel = ({ images, mineralNombre }) => {
+  
+
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -540,6 +575,9 @@ const MineralCarousel = ({ images, mineralNombre }) => {
 };
 
 export const SalaMinerologiaMineria = () => {
+
+  useRegisterText(salaMinerologiaMineriaText);
+
   const fileInputRef = useRef(null);
 
   const handleQrClick = (event) => {

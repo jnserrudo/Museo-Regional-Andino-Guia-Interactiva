@@ -96,11 +96,31 @@ export const SpeechProvider = ({ children }) => {
   }, []); // Se ejecuta solo al desmontar
 
 
+
+
+  
   return (
     <SpeechContext.Provider value={{ registerText, speakText, isSpeaking, canSpeak }}>
       {children}
     </SpeechContext.Provider>
   );
 };
+
+// --- AÑADE ESTE NUEVO HOOK PERSONALIZADO ---
+export const useRegisterText = (textSource) => {
+  const { registerText } = useSpeech();
+
+  useEffect(() => {
+    // Cuando el componente que usa este hook se monta, registra el texto.
+    registerText(textSource);
+
+    // Cuando el componente se desmonta, limpia el texto registrado.
+    // Esto es CRUCIAL para que no se lea el texto de una sala anterior.
+    return () => {
+      registerText('');
+    };
+  }, [textSource, registerText]); // Se vuelve a ejecutar si el texto o la función cambian
+};
+// --- FIN DEL HOOK ---
 
 export const useSpeech = () => useContext(SpeechContext);

@@ -1,6 +1,7 @@
 // src/components/Salas/SalaGeologia.jsx
 
 import React, { useRef, useState, useEffect } from "react";
+import { useRegisterText } from "../Contexts/SpeechContext";
 // Importa el CSS que ya teníamos
 import "./SalaGeologia.css";
 
@@ -103,8 +104,68 @@ const imagenesVolcanes = [
   },
 ];
 
+// --- 2. PREPARA TODO EL TEXTO DE LA SALA ---
 
-const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle, autoplay = false }) => {
+const salaGeologiaText = `
+GEOLOGÍA.
+¿Sabías que hay un lugar en Argentina donde el agua nunca llega al mar?
+
+La Puna es una región única en el planeta. Nos encontramos a más de 4.000 metros sobre el nivel del mar, en un paisaje que parece de otro mundo: volcanes, salares, lagunas de colores intensos y un clima tan extremo como fascinante.
+Esta región forma parte de una cuenca endorreica, un tipo especial de cuenca donde el agua no tiene salida al mar. Aquí, el agua se evapora o se filtra en el suelo, dejando atrás sales y minerales que se acumulan en el paisaje y dan origen a los salares.
+
+La Puna está encerrada entre dos grandes cordilleras:
+Al oeste, la Cordillera Volcánica Occidental, rica en volcanes activos e inactivos.
+Al este, la Cordillera Oriental, formada por antiguas rocas sedimentarias.
+
+Fuerzas de fuego y vapor: volcanes y géiseres.
+Bajo nuestros pies, la Tierra sigue viva. La actividad volcánica y geotérmica de la Puna no solo moldea montañas, sino que también crea fuentes termales, géiseres, campos fumarólicos y depósitos minerales.
+La energía interna del planeta se manifiesta aquí de forma directa:
+Volcanes: expulsan lava, gases y cenizas, formando montañas nuevas.
+Géiseres y fumarolas: nos muestran el calor subterráneo emergiendo en forma de vapor.
+Suelos mineralizados: el agua caliente que circula bajo tierra disuelve minerales que, al enfriarse, se depositan en la superficie.
+
+¿Cómo se forma un volcán?
+Bajo la superficie terrestre, a varios kilómetros de profundidad, ocurren procesos silenciosos pero poderosos. Cuando la presión disminuye bruscamente en las capas internas de la Tierra, las temperaturas suben tanto que las rocas comienzan a fundirse. Así se forma el magma, una mezcla incandescente de minerales derretidos.
+Este magma busca salir. A medida que asciende, se abre paso entre las fracturas de la corteza terrestre y se enriquece con minerales de las rocas que atraviesa. Cuando finalmente encuentra una salida, erupciona violentamente o se derrama suavemente, dependiendo de su composición.
+Con cada erupción, el volcán crece: se acumulan capas de lava, cenizas, escoria y gases solidificados. Esas capas forman poco a poco lo que llamamos el "edificio volcánico", cuya forma varía según el tipo de magma y la intensidad de la actividad.
+En la región de la Puna, los volcanes no solo moldean el paisaje: también son el origen de muchos de los minerales valiosos que encontramos en esta zona, como el azufre, el litio y el oro. La energía del interior de la Tierra se transforma, aquí, en una fuente de riqueza natural.
+
+¿Sabías qué...?
+Algunos volcanes de la Puna estuvieron activos hace miles o millones de años, pero sus huellas aún se conservan en cráteres, conos y flujos de lava fosilizados. Hoy, muchos de esos antiguos volcanes son claves para entender la formación de los salares y depósitos minerales de la región.
+
+¿Qué es un géiser?
+Imaginá un volcán, pero en lugar de arrojar lava, lanza al cielo chorros de agua hirviendo y vapor. Eso es un géiser: una manifestación espectacular del calor oculto bajo la Tierra.
+En las profundidades del suelo, el agua se filtra hasta entrar en contacto con rocas muy calientes, calentadas por magma cercano. Esa agua se convierte en vapor a presión, que busca salir a la superficie. Cuando la presión es demasiado alta, el géiser entra en erupción, expulsando con fuerza una mezcla de agua caliente y vapor.
+Aunque duran solo unos segundos o minutos, estas erupciones pueden alcanzar varios metros de altura, ¡y se repiten una y otra vez durante años o incluso siglos!
+
+¿Sabías qué…?
+Los géiseres son muy raros en el planeta. Se necesitan condiciones muy precisas de calor, agua subterránea y una geología especial. En la Puna argentina, podés ver fenómenos similares en los campos geotermales, donde el vapor sale por grietas en la tierra… ¡como si la Tierra respirara!
+
+¿Cómo nace un Salar?
+En las vastas alturas de la Puna, donde el cielo es inmenso y la lluvia escasa, la Tierra ha creado paisajes deslumbrantes: planicies blancas y resplandecientes que parecen hechas de hielo, pero están compuestas por sal.
+Estos salares no siempre estuvieron allí. Se formaron a lo largo de miles —incluso millones— de años, cuando una serie de factores muy particulares coincidieron en un mismo lugar: una depresión natural, volcanes activos, aguas termales, erosión y, sobre todo, un clima extremadamente árido.
+Con el tiempo, las depresiones se llenaron de agua que, en lugar de formar ríos, se evaporó, dejando atrás todos los minerales disueltos. Así comenzaron a formarse las grandes planicies de sal. Bajo esa costra blanca y brillante, todavía queda agua muy salada, conocida como salmuera, donde flotan elementos como el litio, potasio y magnesio.
+
+¿Sabías qué...?
+El litio que permite que funcionen los celulares, notebooks y autos eléctricos se extrae, en gran parte, de las salmueras escondidas bajo los salares del noroeste argentino. La Puna forma parte del Triángulo del Litio, una de las regiones más estratégicas del planeta.
+
+El lenguaje secreto de la Puna.
+Aunque parezca un paisaje detenido en el tiempo, la Puna está en constante transformación. La falta de lluvias, el viento seco y el sol abrasador del día, seguidos por noches heladas, son verdaderos escultores del paisaje. La roca se quiebra, se convierte en grava, y lentamente, el desierto se expande. Pero los habitantes de la región han aprendido a leer esas señales. Los “cerros brujos” les hablan del cielo, del agua y del viento.
+
+Los cerros brujos: sabiduría ancestral del clima.
+Los pueblos originarios del altiplano no usan apps meteorológicas. Durante generaciones han observado cómo se comportan las nubes alrededor de los cerros:
+¿Una corona blanca sobre la cima? Puede nevar.
+¿Nubes que se aferran a la ladera? Se aproxima humedad.
+Estos cerros “avisadores” son parte del paisaje… y del conocimiento local.
+`;
+const VideoPlayer = ({
+  videoSrc,
+  posterSrc,
+  title,
+  subtitle,
+  autoplay = false,
+  classNames = {},
+}) => {
   const [isPlaying, setIsPlaying] = useState(false); // Empezamos en 'false' para que el estado refleje la realidad
   const videoRef = useRef(null);
 
@@ -113,7 +174,7 @@ const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle, autoplay = false })
     // Solo si se pide autoplay y tenemos la referencia al video
     if (autoplay && videoRef.current) {
       const videoElement = videoRef.current;
-      
+
       // Aseguramos que el video esté silenciado para el autoplay
       videoElement.muted = true;
 
@@ -121,41 +182,49 @@ const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle, autoplay = false })
       const playPromise = videoElement.play();
 
       if (playPromise !== undefined) {
-        playPromise.then(() => {
-          // El autoplay comenzó correctamente
-          setIsPlaying(true);
-        }).catch(error => {
-          // El autoplay fue bloqueado. No hacemos nada, el usuario tendrá que darle play manualmente.
-          console.warn("Autoplay bloqueado por el navegador:", error);
-          setIsPlaying(false);
-        });
+        playPromise
+          .then(() => {
+            // El autoplay comenzó correctamente
+            setIsPlaying(true);
+          })
+          .catch((error) => {
+            // El autoplay fue bloqueado. No hacemos nada, el usuario tendrá que darle play manualmente.
+            console.warn("Autoplay bloqueado por el navegador:", error);
+            setIsPlaying(false);
+          });
       }
     }
   }, [autoplay, videoSrc]); // Se ejecuta si cambia la prop 'autoplay' o la fuente del video
 
   const togglePlay = () => {
     if (videoRef.current) {
-        // Al interactuar, quitamos el silencio si estaba puesto por el autoplay
-        videoRef.current.muted = false; 
-        if (videoRef.current.paused) {
-            videoRef.current.play();
-        } else {
-            videoRef.current.pause();
-        }
+      // Al interactuar, quitamos el silencio si estaba puesto por el autoplay
+      videoRef.current.muted = false;
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
     }
   };
 
   return (
-    <section className="video-hero-section">
-      <div className={`video-wrapper ${isPlaying ? "is-playing" : ""}`}>
+    <section className={classNames.heroSection || "video-hero-section"}>
+      {/* --- AÑADE LA CLASE CONDICIONAL AQUÍ --- */}
+      <div
+        className={`${classNames.wrapper || "video-wrapper"} ${
+          isPlaying ? "is-playing" : ""
+        } ${autoplay ? "autoplay-active" : ""}`}
+      >
+        {" "}
         <video
           ref={videoRef}
-          className="sala-video"
+          className={classNames.video || "sala-video"}
           controls
           // --- ATRIBUTOS CLAVE PARA EL AUTOPLAY ---
-          playsInline  // <-- 1. CRUCIAL para móviles (especialmente iOS)
-          muted        // <-- 2. NECESARIO para que la mayoría de navegadores permitan autoplay
-          loop         // <-- 3. (Opcional) Si quieres que el video se repita al terminar
+          playsInline // <-- 1. CRUCIAL para móviles (especialmente iOS)
+          muted // <-- 2. NECESARIO para que la mayoría de navegadores permitan autoplay
+          loop // <-- 3. (Opcional) Si quieres que el video se repita al terminar
           // --- FIN ATRIBUTOS CLAVE ---
           preload="metadata"
           poster={posterSrc}
@@ -163,27 +232,27 @@ const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle, autoplay = false })
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={() => {
-              // Si no está en loop, se asegura de que el estado sea 'pausado'
-              if (!videoRef.current?.loop) {
-                  setIsPlaying(false);
-              }
+            // Si no está en loop, se asegura de que el estado sea 'pausado'
+            if (!videoRef.current?.loop) {
+              setIsPlaying(false);
+            }
           }}
         >
           Tu navegador no soporta la etiqueta de video.
         </video>
         <div
-          className="play-button-overlay"
+          className={classNames.overlay || "play-button-overlay"}
           aria-hidden="true"
           onClick={togglePlay}
         >
-          <div className="play-icon-container">
+          <div className={classNames.iconContainer || "play-icon-container"}>
             <PlayIcon />
           </div>
         </div>
       </div>
-      <div className="video-caption">
-        <h3 className="video-title">{title}</h3>
-        <p className="video-subtitle">{subtitle}</p>
+      <div className={classNames.caption || "video-caption"}>
+        <h3 className={classNames.title || "video-title"}>{title}</h3>
+        <p className={classNames.subtitle || "video-subtitle"}>{subtitle}</p>
       </div>
     </section>
   );
@@ -237,6 +306,10 @@ const PlayIcon = () => (
 // --- COMPONENTE PRINCIPAL DE LA SALA (sin cambios en su lógica) ---
 export const SalaGeologia = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+
+  // --- 3. USA EL HOOK PARA REGISTRAR EL TEXTO ---
+  useRegisterText(salaGeologiaText);
+
   const videoRef = useRef(null); // <--- 2. CREAMOS UNA REFERENCIA AL VIDEO
 
   // --- 3. FUNCIÓN PARA CONTROLAR PLAY/PAUSE ---
@@ -280,6 +353,17 @@ export const SalaGeologia = () => {
         // --- USAREMOS LA IMAGEN DE LA PUNA COMO POSTER ---
         posterSrc={import.meta.env.BASE_URL + "/cuenca_1.jpg"} // <-- Pon una imagen representativa de la Puna
         autoplay={true} // <-- AÑADE ESTA PROP
+        // --- AÑADE ESTA PROP CON LAS CLASES PERSONALIZADAS ---
+        classNames={{
+          heroSection: "geologia-video-hero-section",
+          wrapper: "geologia-video-wrapper",
+          video: "geologia-sala-video",
+          overlay: "geologia-play-button-overlay",
+          iconContainer: "geologia-play-icon-container",
+          caption: "geologia-video-caption",
+          title: "geologia-video-title",
+          subtitle: "geologia-video-subtitle",
+        }}
       />
       {/* --- FIN DEL CAMBIO --- */}
 

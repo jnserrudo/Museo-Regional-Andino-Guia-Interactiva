@@ -58,8 +58,8 @@
 
 .arqueologia-video {
   display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+  width: 100%;/* 
+  aspect-ratio: 16 / 9; */
   border-radius: inherit;
 }
 
@@ -132,8 +132,8 @@
 
 .narrative-block {
   padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--arqueo-border-color);
-}
+/*   border-bottom: 1px solid var(--arqueo-border-color);
+ */}
 
 .narrative-block:last-child {
   border-bottom: none; /* El último no necesita línea */
@@ -172,3 +172,8 @@
     text-align: left; /* El justificado puede verse mal en pantallas angostas */
   }
 }
+
+
+
+/* ------------------------------------------  */
+

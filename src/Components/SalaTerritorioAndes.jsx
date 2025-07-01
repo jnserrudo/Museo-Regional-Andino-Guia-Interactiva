@@ -4,8 +4,31 @@ import React from "react";
 // Importamos los CSS para reutilizar estilos y mantener consistencia
 import "./SalaGeologia.css";
 import "./SalaTerritorioAndes.css";
+import { useRegisterText } from "../Contexts/SpeechContext";
 
+const salaTerritorioAndesText = `
+TERRITORIO NACIONAL DE LOS ANDES.
+
+¿Qué fue el Territorio Nacional de Los Andes?
+El Territorio Nacional de Los Andes fue una unidad político-administrativa creada oficialmente el 9 de enero de 1900, mediante la Ley N.º 3906, con el objetivo de afirmar la soberanía argentina sobre una vasta zona de la Puna de Atacama.
+En 1902, un decreto presidencial designó como capital del territorio a San Antonio de los Cobres, que aún hoy es una referencia clave en la región andina salteña.
+Los Territorios Nacionales eran regiones que, si bien formaban parte del país, no estaban aún organizadas como provincias. El Poder Ejecutivo Nacional nombraba allí gobernadores y secretarios que ejercían funciones administrativas, judiciales y de representación del Estado.
+Mapa argentino de Francisco Latzina de 1888 mostrando la Puna de Atacama como territorio chileno.
+Carta geográfica del desierto y cordilleras de Atacama realizada por Francisco J. San Román y publicada en 1892.
+
+Un territorio en el centro de los conflictos.
+El origen del Territorio de Los Andes está profundamente ligado a la Guerra del Pacífico (1879–1884), un conflicto entre Chile, Bolivia y Perú por el control del Desierto de Atacama, una zona rica en salitre. Como consecuencia, Chile ocupó territorios en disputa, incluyendo partes de la Puna que también limitaban con Argentina.
+En esa época, parajes como Antofagasta de la Sierra, Pastos Grandes y Surques eran áreas en litigio, sin delimitación precisa, y pasaron a estar bajo ocupación chilena. Mientras tanto, se usaba indistintamente el nombre Puna de Atacama o Cordillera de Atacama para referirse a esta región.
+
+Diplomacia y acuerdos internacionales.
+En 1889, Bolivia firmó un acuerdo con Argentina cediéndole derechos sobre una porción del territorio en conflicto. Esta cesión fue parte de un intercambio diplomático, como compensación por la renuncia argentina a su reclamo sobre la región de Tarija.
+El litigio entre Argentina y Chile se resolvió parcialmente en 1899 mediante un laudo arbitral internacional, conocido como el Laudo Buchanan, en referencia al ministro estadounidense William Buchanan, que ofició como mediador. El acuerdo dividió la Puna de Atacama:
+La porción occidental, de unos 11.000 kilómetros cuadrados, quedó en manos de Chile.
+La porción oriental, de alrededor de 63.000 kilómetros cuadrados, se integró a Argentina, dando lugar a la creación del Territorio Nacional de Los Andes.
+Localidades como Susques, Santa Rosa de Pastos Grandes y Antofagasta de la Sierra pasaron a formar parte del territorio argentino, mientras que San Pedro de Atacama quedó del lado chileno.
+`;
 export const SalaTerritorioAndes = () => {
+  useRegisterText(salaTerritorioAndesText);
   return (
     <article className="sala-contenido-container">
       <h2 className="sala-contenido-titulo-principal">

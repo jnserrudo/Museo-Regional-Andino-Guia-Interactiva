@@ -11,7 +11,6 @@ import {
   AppstoreOutlined,
   GlobalOutlined,
   FormOutlined, // <-- AÑADE ESTE ICONO
-
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import { useSpeech } from "../Contexts/SpeechContext";
@@ -91,6 +90,20 @@ export const Footer = () => {
                   </Link>
                 </Tooltip>
               </li>
+              <li>
+                <Tooltip title="Salas">
+                  <Link to="/salas" className="theart-footer-action-link">
+                    {" "}
+                    {/* Clase para estilizar como link */}
+                    <Button
+                      type="text"
+                      icon={<AppstoreOutlined style={{ color: "white" }} />}
+                      className="footer-btn-theart-style"
+                    />{" "}
+                    Salas
+                  </Link>
+                </Tooltip>
+              </li>
               {/* <li>
                 <Tooltip title="Eventos (Próximamente)">
                   <Link to="/eventos" className="theart-footer-action-link">
@@ -99,14 +112,15 @@ export const Footer = () => {
                 </Tooltip>
               </li> */}
               <li>
-                <Tooltip title="Rompecabezas">
-                  <Link to="/puzzle" className="theart-footer-action-link">
+                <Tooltip title="Actividades Interactivas">
+                  {/* CAMBIA la ruta y el texto */}
+                  <Link to="/juegos" className="theart-footer-action-link">
                     <Button
                       type="text"
                       icon={<AppstoreOutlined style={{ color: "white" }} />}
                       className="footer-btn-theart-style"
                     />{" "}
-                    Rompecabezas
+                    Juegos
                   </Link>
                 </Tooltip>
               </li>

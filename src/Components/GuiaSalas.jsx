@@ -1,5 +1,5 @@
 // src/components/salas/GuiaSalas.jsx
-import React from "react";
+import React, { useEffect, useRef } from "react"; 
 import { useParams, useNavigate, Outlet } from "react-router-dom";
 import { Button } from "antd";
 import { ArrowRightOutlined, HomeOutlined } from "@ant-design/icons";
@@ -21,9 +21,28 @@ export const GuiaSalas = () => {
   const { salaId } = useParams();
   const navigate = useNavigate();
 
+
+// --- 2. CREA UNA REFERENCIA PARA EL CONTENEDOR DEL CONTENIDO ---
+const contenidoRef = useRef(null);
+
   const indiceActual = ordenSalas.indexOf(salaId);
   const esLaUltimaSala = indiceActual === ordenSalas.length - 1;
 
+  
+  // --- 3. AÑADE ESTE useEffect ---
+  // Este efecto se ejecutará cada vez que el `salaId` cambie.
+  useEffect(() => {
+    // Hacemos scroll al inicio del contenedor del contenido de la sala.
+    // Usamos 'contenidoRef.current' que apunta al <main>
+    if (contenidoRef.current) {
+        // Opción A: Scroll suave (si lo prefieres)
+        // contenidoRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Opción B: Scroll instantáneo (más directo)
+        contenidoRef.current.scrollTop = 0;
+    }
+  }, [salaId]); // La dependencia es `salaId`
+  
   const handleSiguienteSala = () => {
     if (!esLaUltimaSala) {
       const siguienteSalaId = ordenSalas[indiceActual + 1];
@@ -62,8 +81,8 @@ export const GuiaSalas = () => {
         </Button>
       </header>
 
-      {/* El contenido de la sala actual se renderizará aquí */}
-      <main className="guia-contenido-sala">
+      {/* --- 4. ASIGNA LA REFERENCIA AL CONTENEDOR <main> --- */}
+      <main ref={contenidoRef} className="guia-contenido-sala">
         <Outlet />
       </main>
     </div>

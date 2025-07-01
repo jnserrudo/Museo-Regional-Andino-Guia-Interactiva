@@ -17,6 +17,9 @@ import { FontProvider } from "./Contexts/FontContext";
 import { useState } from "react";
 import { AccessibilityWidget } from "./Components/AccessibilityWidget";
 
+import { PaginaJuegos } from "./Pages/PaginaJuegos";
+import { TriviaGame } from "./Components/TriviaGame";
+
 import "leaflet/dist/leaflet.css";
 
 const { Content } = Layout;
@@ -82,12 +85,15 @@ const App = () => {
                   </Route>
 
                   {/* --- AÑADE ESTA NUEVA RUTA AQUÍ --- */}
-                  <Route path="despedida" element={<DespedidaGuia />} /> 
+                  <Route path="despedida" element={<DespedidaGuia />} />
                 </Route>
                 {/* ====================================================== */}
                 {/* =================== FIN DE LA CORRECCIÓN ============= */}
                 {/* ====================================================== */}
-                <Route path="/puzzle" element={<PuzzleGame />} />
+                // --- NUEVAS RUTAS PARA JUEGOS ---
+                <Route path="/juegos" element={<PaginaJuegos />} />
+                <Route path="/juegos/puzzle" element={<PuzzleGame />} />
+                <Route path="/juegos/trivia" element={<TriviaGame />} />{" "}
                 {/* <Route path="/mapa" element={<MapaMuseo />} /> */}
                 <Route path="/mapa" element={<MapaGeograficoMuseo />} />
                 {/* <Route path="*" element={<div>404</div>} /> */}

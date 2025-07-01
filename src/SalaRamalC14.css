@@ -76,7 +76,7 @@
   .video-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 */
+    /* padding-top: 56.25%; */ /* 16:9 */
     background-color: #000;
     border-radius: var(--border-radius-lg, 12px);
     overflow: hidden;
@@ -141,3 +141,28 @@
     font-family: "MuseoSans", sans-serif;
     color: var(--text-dark);
   }
+
+
+  /* ---------------- */
+
+
+  /* En SalaRamalC14.css, añade esto al final */
+
+/* --- ESTILOS ESPECÍFICOS PARA EL CARRUSEL DE FOTOS ANTIGUAS --- */
+
+/* 1. Limita el ancho máximo del contenedor del carrusel */
+.carousel-wrapper.carrusel-fotos-antiguas {
+  max-width: 700px; /* Ajusta este valor a tu gusto (ej. 600px, 800px) */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 2. Cambia el ajuste de la imagen para que se vea completa (contain) */
+.carrusel-fotos-antiguas .carousel-image {
+  object-fit: contain; /* <-- LA CLAVE: Evita que las imágenes se recorten y estiren */
+}
+
+/* 3. (Opcional) Añade un fondo al slide para que los espacios vacíos no sean negros */
+.carrusel-fotos-antiguas .swiper-slide {
+  background-color: #f0f0f0; /* Un gris claro sutil */
+}

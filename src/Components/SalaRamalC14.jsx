@@ -13,10 +13,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { GaleriaRamal } from "./GaleriaRamal";
+import { useRegisterText } from "../Contexts/SpeechContext";
 
 // --- Componente de Carrusel (lo necesitamos aquí) ---
-const CarouselGallery = ({ images, title }) => (
-  <div className="carousel-wrapper">
+const CarouselGallery = ({ images, title, customClassName }) => (
+  <div className={`carousel-wrapper ${customClassName}`}>
     {title && <h4 className="gallery-title">{title}</h4>}
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -40,7 +41,6 @@ const CarouselGallery = ({ images, title }) => (
   </div>
 );
 
-
 // --- AÑADE ESTE NUEVO ARRAY PARA EL CARRUSEL ---
 const imagenesCarrusel = [
   "/ramalc14/polvorilla_construccion01aa.jpg",
@@ -51,6 +51,55 @@ const imagenesCarrusel = [
   "/ramalc14/inauguracion.jpg",
   "/ramalc14/ramal_c14_inaugurado_20_febrero_1948.jpg",
   "/ramalc14/maury_pantoja.jpg",
+];
+
+const imagenesCarrusel2 = [
+  "187465-las-maquinas-carguero-2001-puna-salteña.jpg",
+  "187465-vieja-fotografia-c14-estacion-nubes.jpg",
+  "archpolvorilla1.jpg",
+  "archpolvorilla2.jpg",
+  "archpolvorilla3.jpg",
+  "archtoro1.jpg",
+  "archtoro2.jpg",
+  "chorrillosh1_en_los_años_40.jpg",
+  "ferrocarril_de_salta_a_chile_huahitiquina_1940.jpg",
+  "foto_trabajadores.jpg",
+  "grua1.jpg",
+  "hcabrestante01.jpg",
+  "hcatangos01.jpg",
+  "hcatangos03.jpg",
+  "hcatangos05.jpg",
+  "hcatangos06.jpg",
+  "hcatangos07.jpg",
+  "hcobertizo_km1294_100_1028.jpg",
+  "hconstruccion01.jpg",
+  "hconstruyendo_tunel.jpg",
+  "hdefensas1.jpg",
+  "hing_rafael_rossi.jpg",
+  "hpablo_saravia.jpg",
+  "hparada01.jpg",
+  "hpaseo01.jpg",
+  "hsan_antonio01a.jpg",
+  "hsan_antonio02a.jpg",
+  "hvaporera01_carguero_cerca_el_aisal.jpg",
+  "hviaducto_el_candado.jpg",
+  "inauguracion.jpg",
+  "loc1334.jpg",
+  "locomotora_gm_gt22cu_smixto02.jpg",
+  "locomotora_henschel_e4.jpg",
+  "locomotora_skoda_e5.jpg",
+  "locvieja_locomotora_accidentada.jpg",
+  "maury_pantoja.jpg",
+  "paleando5.jpg",
+  "pistarini.jpg",
+  "polvorilla_construccion01aa.jpg",
+  "polvorilla_construccion02aa.jpg",
+  "polvorilla1h_decada_del_40.jpg",
+  "primeras_locomotoras_baldwin_e2.jpg",
+  "qtoroh1_en_los_años_40.jpg",
+  "ramal_c14_inaugurado_20_febrero_1948.jpg",
+  "recorrido_1653050.jpeg",
+  "trabajadores_sobre_rieles_foto_ramal_c14_1922.jpg",
 ];
 
 // --- AÑADE ESTE NUEVO ARRAY ---
@@ -118,8 +167,35 @@ const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle }) => {
   );
 };
 
+const salaRamalC14Text = `
+RAMAL C-14.
+
+Construido a fuerza de pico, pala, dinamita y carretillas, el Ramal C14 requirió el esfuerzo de más de 1.000 trabajadores que enfrentaron condiciones climáticas severas, altura extrema y terrenos abruptos. Su recorrido de 571 kilómetros es un verdadero monumento al ingenio humano, con:
+1.400 curvas, 31 puentes, 21 túneles, 13 viaductos, 2 rulos (tramos en espiral), 2 zigzag, y 9 cobertizos.
+Entre todas estas estructuras, el Viaducto La Polvorilla, construido entre 1930 y 1932, se destaca como un símbolo de esta hazaña: tiene 224 metros de largo, forma curva y se eleva 63 metros sobre el suelo, desafiando las alturas.
+
+Una Historia de Decisiones, Cambios y Visión de Futuro.
+1889: Se inician los primeros estudios para unir Salta con Antofagasta mediante un ferrocarril trasandino.
+1905: La Ley 2693 autoriza oficialmente el proyecto.
+1921: El presidente Hipólito Yrigoyen da el impulso decisivo y nombra al Ing. Richard Fontaine Maury como jefe de obra.
+1929: El tendido de rieles llega a San Antonio de los Cobres, uno de los puntos más emblemáticos del trazado.
+1948: El 20 de febrero se inaugura la conexión internacional con Chile por el paso de Socompa, en plena presidencia de Juan Domingo Perón. Ese mismo año, el ramal pasa a formar parte del Ferrocarril General Belgrano.
+
+Mucho más que rieles.
+El Ramal C14 no fue solo una vía de comunicación: fue una estrategia para integrar los territorios más aislados del país. El proyecto buscaba conectar zonas ricas en recursos minerales, como boratos y litio, con los puertos del Pacífico, facilitando el desarrollo económico y reduciendo la dependencia de rutas marítimas largas.
+Así lo expresaba Eduardo Holmberg (hijo) a comienzos del siglo XX:
+"Hay que enviar geólogos que descifren los secretos de la montaña, en cuyo seno hay escondidos filones preciosos; y hay que llevar una vía férrea hasta las mismas salidas de las punas, para que la exportación de la materia prima sea posible."
+
+Del progreso al turismo: El Tren a las Nubes.
+A fines del siglo XX, parte del trazado original del Ramal C14 se convirtió en uno de los viajes turísticos más famosos del país: el Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de la Puna salteña, es una experiencia única que combina historia, ingeniería y naturaleza.
+Este tren se ha consolidado como una oferta turística internacional, manteniendo viva la memoria de una obra que transformó el paisaje y la vida en los Andes.
+`;
+
 // --- COMPONENTE PRINCIPAL DE LA SALA ---
 export const SalaRamalC14 = () => {
+
+  useRegisterText(salaRamalC14Text);
+
   const galeriaFotosAntiguas = [
     "/img/ramal/antiguas/foto_1.jpg", // REEMPLAZA ESTAS RUTAS
     "/img/ramal/antiguas/foto_2.jpg",
@@ -156,11 +232,23 @@ export const SalaRamalC14 = () => {
         </p>
         {/* Aquí va la galería de las fotos viejas */}
 
-        <CarouselGallery 
-  images={imagenesCarrusel.map(img => `${import.meta.env.BASE_URL}${img}`)} 
-  title="Imágenes históricas de la construcción" 
-/>
-        <GaleriaRamal />
+        <CarouselGallery
+          images={imagenesCarrusel.map(
+            (img) => `${import.meta.env.BASE_URL}${img}`
+          )}
+          title="Imágenes históricas de la construcción"
+          customClassName="carrusel-fotos-antiguas" // <-- AÑADE ESTA PROP
+        />
+
+        <CarouselGallery
+          images={imagenesCarrusel2.map(
+            (img) => `${import.meta.env.BASE_URL}/ramalc14/${img}`
+          )}
+          title="Mas imágenes históricas de la construcción"
+          customClassName="carrusel-fotos-antiguas" // <-- AÑADE ESTA PROP
+        />
+
+        {/* <GaleriaRamal /> */}
       </section>
 
       {/* --- Segundo Bloque: Hitos históricos --- */}

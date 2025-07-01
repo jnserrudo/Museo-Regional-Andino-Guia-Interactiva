@@ -4,10 +4,45 @@
 
 /* Añadimos un margen inferior a cada bloque de texto para separarlos visualmente. */
 .gobernacion-bloque {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   
   /* Opcional: Si quieres que el último bloque no tenga margen inferior */
   .gobernacion-bloque:last-child {
     margin-bottom: 0;
   }
+
+
+
+
+
+
+
+
+
+/* En SalaGobernacionAndes.css */
+
+/* --- NUEVO: Estilos para el bloque con lista e imagen --- */
+
+.bloque-lista-con-imagen {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 columna por defecto en móviles */
+  gap: 2rem;
+  align-items: center; /* Alinea los items al inicio */
+  margin: 2rem 0;
+}
+
+.imagen-lista-bloque img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md, 8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Media Query para Escritorio (donde se aplica el layout de 2 columnas) --- */
+@media (min-width: 768px) {
+  .bloque-lista-con-imagen {
+    /* Texto ocupa más espacio, imagen menos */
+    grid-template-columns: 2fr 1fr; 
+  }
+}

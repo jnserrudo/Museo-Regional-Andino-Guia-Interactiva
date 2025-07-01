@@ -6,10 +6,10 @@
   }
   
   .despedida-cta-section {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e0e0e0;
-  }
+    margin-top: 0.5rem;
+/*     padding-top: 2rem;
+ *//*     border-top: 1px solid #e0e0e0;
+ */  }
   
   .despedida-botones-cta {
     display: flex;

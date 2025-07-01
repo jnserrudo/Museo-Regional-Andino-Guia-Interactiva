@@ -98,7 +98,8 @@
   height: 200px; /* Altura fija para la imagen */
   object-fit: cover; /* Cubrir sin distorsionar */
   display: block; /* Eliminar espacio extra debajo */
-  border-bottom: 1px solid var(--border-color-light, #e9ecef); /* Línea sutil opcional */
+/*   border-bottom: 1px solid var(--border-color-light, #e9ecef); 
+ */  /* Línea sutil opcional */
 }
 
 /* Contenido de Texto dentro de SalaContenidoItem */

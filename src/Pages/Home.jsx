@@ -55,9 +55,9 @@ export const Home = () => {
           </div>
         </div>
         {/* Indicador de scroll opcional (no depende de AOS) */}
-        <div className="scroll-indicator">
+        {/* <div className="scroll-indicator">
           <span></span>
-        </div>
+        </div> */}
       </section>
 
       {/* Sección de Información */}

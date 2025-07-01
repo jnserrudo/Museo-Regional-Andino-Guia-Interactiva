@@ -35,8 +35,8 @@
     font-weight: 700;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid rgba(139, 69, 19, 0.2);
-    padding-bottom: 0.5rem;
+/*     border-bottom: 2px solid rgba(139, 69, 19, 0.2);
+ */    padding-bottom: 0.5rem;
   }
   
   .sala-contenido-subtitulo-menor {
@@ -196,7 +196,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    /* padding-top: 56.25%; */ /* Relación de aspecto 16:9 */
     margin: 2rem 0 0.5rem 0;
     border-radius: var(--border-radius-md);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -394,4 +394,103 @@
 .close-focus-button:hover {
     background-color: var(--color-text-light-theart, #f0f0f0);
     transform: translateY(-2px) scale(1.02);
+}
+
+
+
+/* --------------------------------- */
+/* En SalaGeologia.css, añade esto al final */
+
+/* --- ESTILOS EXCLUSIVOS PARA EL VIDEO DE LA SALA DE GEOLOGÍA --- */
+
+.geologia-video-hero-section {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.geologia-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Proporción 16:9 */
+  height: 0;
+  background-color: #000;
+  border-radius: var(--border-radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.geologia-sala-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.geologia-play-button-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.geologia-video-wrapper.is-playing .geologia-play-button-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.geologia-play-icon-container {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #111;
+  font-size: 2rem;
+}
+
+.geologia-video-caption {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.geologia-video-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.geologia-video-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+
+
+/* En SalaGeologia.css */
+
+/* Oculta el botón si se está reproduciendo */
+.geologia-video-wrapper.is-playing .geologia-play-button-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Y también ocúltalo si el video está en modo autoplay, incluso si aún no ha empezado */
+.geologia-video-wrapper.autoplay-active:not(.is-playing) .geologia-play-button-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Y lo volvemos a mostrar si el usuario lo pausa después de que haya empezado */
+.geologia-video-wrapper.autoplay-active.is-playing .geologia-play-button-overlay {
+    opacity: 0;
 }
