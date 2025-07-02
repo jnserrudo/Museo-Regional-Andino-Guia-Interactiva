@@ -196,7 +196,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    /* padding-top: 56.25%; */ /* Relación de aspecto 16:9 */
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
     margin: 2rem 0 0.5rem 0;
     border-radius: var(--border-radius-md);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);

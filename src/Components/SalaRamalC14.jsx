@@ -140,8 +140,8 @@ const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle }) => {
           ref={videoRef}
           className="sala-video"
           controls
-          preload="metadata"
-          poster={posterSrc}
+          preload="auto"
+          /* poster={posterSrc} */
           src={videoSrc}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}

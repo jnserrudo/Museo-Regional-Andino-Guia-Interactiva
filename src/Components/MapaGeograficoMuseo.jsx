@@ -186,8 +186,8 @@ export const MapaGeograficoMuseo = () => {
       {/* Condición actualizada: Mostrar solo si showPermissionsMessage es true Y AÚN NO tenemos userPosition */}
       {showPermissionsMessage && !userPosition && (
         <p className="mapa-geo-permissions-message">
-          La geolocalización no está disponible o no se concedieron permisos.
-          Mostrando ubicación del museo.
+         {/*  La geolocalización no está disponible o no se concedieron permisos.
+          Mostrando ubicación del museo. */}
         </p>
       )}
       <div className="mapa-geo-container-leaflet">

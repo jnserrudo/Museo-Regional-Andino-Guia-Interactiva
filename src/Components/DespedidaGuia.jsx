@@ -9,8 +9,21 @@ import {
   FormOutlined,
 } from "@ant-design/icons";
 import "./DespedidaGuia.css"; // Crearemos este archivo de estilos
+import { useRegisterText } from "../Contexts/SpeechContext";
 
+const despedidaGuiaText = `
+¡Gracias por recorrer el museo con nosotros!
+Esperamos que esta guía te haya acompañado en un viaje por la historia, el territorio, las culturas y la identidad viva de San Antonio de los Cobres y la Puna andina. Cada sala guarda fragmentos de una memoria colectiva que sigue presente en quienes habitan hoy este lugar.
+¡Compartí tu experiencia en redes con el hashtag #MuseoRegionalAndino y #MuseoenlaPuna!
+
+¿Querés seguir explorando?
+Te invitamos a:
+Jugar con nuestras actividades interactivas.
+Dejanos tus comentarios. Tu opinión nos ayuda a mejorar. Por favor, completá esta breve encuesta.
+`;
 export const DespedidaGuia = () => {
+  useRegisterText(despedidaGuiaText);
+
   return (
     <div className="despedida-container sala-contenido-container">
       <h2 className="sala-contenido-titulo-principal">
@@ -35,15 +48,15 @@ export const DespedidaGuia = () => {
         <div className="despedida-botones-cta">
           {/* --- Botón de Trivia --- */}
           <Link to="/juegos/trivia">
-            <Button type="primary" size="large" icon={<ExperimentOutlined />}>
-              ¿Cuánto sabés sobre la Puna?
+            <Button type="primary" size="large" className="sala-contenido-boton" icon={<ExperimentOutlined />}>
+              ¿Podés resolver una trivía?
             </Button>
           </Link>
 
           {/* --- Botón de Rompecabezas --- */}
           <Link to="/juegos/puzzle">
-            <Button type="primary" size="large" icon={<ExperimentOutlined />}>
-              ¿Podés armar una llama?
+            <Button type="primary" size="large" className="sala-contenido-boton" icon={<ExperimentOutlined />}>
+              ¿Podés armar un rompecabezas?
             </Button>
           </Link>
         </div>

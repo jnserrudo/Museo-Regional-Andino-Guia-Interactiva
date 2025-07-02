@@ -83,7 +83,7 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   }
   .sala-video {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;

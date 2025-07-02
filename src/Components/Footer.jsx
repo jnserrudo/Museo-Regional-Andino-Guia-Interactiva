@@ -232,6 +232,7 @@ export const Footer = () => {
           {/* Columna 4: Oficina/Contacto */}
           <div className="theart-footer-column">
             <h4>Contacto</h4>
+            <p>Avenida Brígido Zavaleta Nº 52 San Antonio de los Cobres, Salta</p>
             <p>4411 San Antonio de los Cobres, Salta, Argentina</p>
             <p>Email: museoregionalandino@gmail.com</p>
             <p>Tel: 0387 502-0900</p>
