@@ -3,7 +3,17 @@ import { Link } from "react-router-dom";
 import { PlayCircleOutlined, EyeOutlined } from "@ant-design/icons";
 import "../Home.css"; // Asegúrate que la ruta sea correcta
 
+import { useRegisterText } from "../Contexts/SpeechContext"; // <-- Ajusta la ruta si es necesario
+
+const homeText=`
+Bienvenidos al Museo Regional Andino de San Antonio de los Cobres.
+
+El Museo Regional Andino de San Antonio de los Cobres tiene como finalidad la conservación y promoción del invaluable patrimonio cultural y natural de la Puna. Este revaloriza la identidad local a través de exposiciones interactivas y actividades educativas, diseñadas para conectar profundamente a los visitantes con la rica historia y tradiciones de la comunidad andina.
+`;
+
 export const Home = () => {
+  useRegisterText(homeText);
+
   return (
     <div className="home-container">
       {/* Sección Hero */}

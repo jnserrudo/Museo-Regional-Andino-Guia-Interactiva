@@ -54,7 +54,7 @@ export const DespedidaGuia = () => {
               type="primary"
               size="large"
               className="sala-contenido-boton"
-              icon={<ExperimentOutlined />}
+              /* icon={<ExperimentOutlined />} */
             >
               🧠 Trivia: ¿Cuánto sabés sobre la Puna? Poné a prueba tus
               conocimientos y descubrí datos curiosos.
@@ -67,7 +67,7 @@ export const DespedidaGuia = () => {
               type="primary"
               size="large"
               className="sala-contenido-boton"
-              icon={<ExperimentOutlined />}
+              /* icon={<ExperimentOutlined />} */
             >
               🧩 Rompecabezas: ¿Podés armarlo? Observá con atención y completá
               la imagen.

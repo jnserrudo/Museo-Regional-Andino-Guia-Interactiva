@@ -223,7 +223,7 @@ export const SalaBiodiversidad = () => {
         Algunas viajan miles de kilómetros cada año. Otras viven aquí todo el tiempo. Juntas, llenan de movimiento el cielo del altiplano.
       </p>
 
-      {/* <CarouselGallery images={galeriaAves} title="Aves de las Lagunas Altoandinas" /> */}
+      <CarouselGallery images={galeriaAves} title="Aves de las Lagunas Altoandinas" />
       <CarouselGallery images={galeriaAveParinas} title="Aves de las lagunas" />
 
     </article>

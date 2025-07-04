@@ -85,9 +85,9 @@ const imagenesCarrusel2 = [
   "hviaducto_el_candado.jpg",
   "inauguracion.jpg",
   "loc1334.jpg",
-  "locomotora_gm_gt22cu_smixto02.jpg",
+  /* "locomotora_gm_gt22cu_smixto02.jpg",
   "locomotora_henschel_e4.jpg",
-  "locomotora_skoda_e5.jpg",
+  "locomotora_skoda_e5.jpg", */
   "locvieja_locomotora_accidentada.jpg",
   "maury_pantoja.jpg",
   "paleando5.jpg",
@@ -98,8 +98,8 @@ const imagenesCarrusel2 = [
   "primeras_locomotoras_baldwin_e2.jpg",
   "qtoroh1_en_los_años_40.jpg",
   "ramal_c14_inaugurado_20_febrero_1948.jpg",
-  "recorrido_1653050.jpeg",
-  "trabajadores_sobre_rieles_foto_ramal_c14_1922.jpg",
+/*   "recorrido_1653050.jpeg",
+ */  "trabajadores_sobre_rieles_foto_ramal_c14_1922.jpg",
 ];
 
 // --- AÑADE ESTE NUEVO ARRAY ---
