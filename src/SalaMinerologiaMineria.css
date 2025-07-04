@@ -943,3 +943,10 @@ gap: 2rem; /* Mantener o ajustar gap */
     word-wrap: break-word;
     white-space: pre-wrap;
 }
+
+
+.titulo-imagen{
+  margin-top: 3rem;
+    text-align: center !important;
+    font-weight: bold;
+}

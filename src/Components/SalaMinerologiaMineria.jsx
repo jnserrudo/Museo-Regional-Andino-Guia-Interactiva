@@ -906,7 +906,7 @@ export const SalaMinerologiaMineria = () => {
           </Button>
         </a>
       </div>
-
+      <p className="titulo-imagen"><strong>Lámpara Carburo</strong></p>
       <img
         src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
         alt="Paisaje de Salar en la Puna"
