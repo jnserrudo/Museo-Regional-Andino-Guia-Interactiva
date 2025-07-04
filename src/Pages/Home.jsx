@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import { Link } from "react-router-dom";
-import { PlayCircleOutlined, EyeOutlined } from '@ant-design/icons';
+import { PlayCircleOutlined, EyeOutlined } from "@ant-design/icons";
 import "../Home.css"; // Asegúrate que la ruta sea correcta
 
 export const Home = () => {
@@ -12,11 +12,14 @@ export const Home = () => {
         <div className="hero-content">
           {/* Eliminados los atributos data-aos */}
           <h2 className="welcome-text">Bienvenidos al</h2>
-          <h1 className="museum-title">
-            Museo Regional Andino
-          </h1>
+          <h1 className="museum-title">Museo Regional Andino</h1>
           <p className="museum-subtitle">
-          El museo Regional Andino conserva y difunde la historia y las costumbres de la gente de la Puna. Sus creencias, artes y saberes son compartidos y resguardados de este modo. Así lo entendieron muchos lugareños que donaron parte de los objetos que hoy se exhiben aquí.
+            El Museo Regional Andino de San Antonio de los Cobres tiene como
+            finalidad la conservación y promoción del invaluable patrimonio
+            cultural y natural de la Puna. Este revaloriza la identidad local a
+            través de exposiciones interactivas y actividades educativas,
+            diseñadas para conectar profundamente a los visitantes con la rica
+            historia y tradiciones de la comunidad andina.
           </p>
           <div className="button-group">
             {/* <Button
@@ -29,9 +32,8 @@ export const Home = () => {
             >
               Visita Virtual (Próximamente)
             </Button> */}
-            
-            
-             <Link to="/guia">
+
+            <Link to="/guia">
               <Button
                 className="btn-custom btn-filled"
                 icon={<PlayCircleOutlined />}
@@ -40,7 +42,7 @@ export const Home = () => {
               >
                 Iniciar Visita
               </Button>
-            </Link> 
+            </Link>
 
             <Link to="/salas">
               <Button
@@ -64,28 +66,31 @@ export const Home = () => {
       {/* Eliminado data-aos="fade-up" */}
       <section className="info-section">
         <div className="info-content">
-            <h3 className="info-title"></h3>
-            <p>
-            El Museo Regional Andino de San Antonio de los Cobres se dedica a la conservación
-            y promoción del invaluable patrimonio cultural y natural de la Puna Salteña.
-            Revalorizamos la identidad local a través de exposiciones interactivas y actividades
-            educativas diseñadas para conectar profundamente a nuestros visitantes con la rica
-            historia y tradiciones de nuestra comunidad andina.
-            </p>
-            <Link to="/sobre-nosotros">
-{/*
+          <h3 className="info-title"></h3>
+          <p>
+            El Museo Regional Andino de San Antonio de los Cobres se dedica a la
+            conservación y promoción del invaluable patrimonio cultural y
+            natural de la Puna Salteña. Revalorizamos la identidad local a
+            través de exposiciones interactivas y actividades educativas
+            diseñadas para conectar profundamente a nuestros visitantes con la
+            rica historia y tradiciones de nuestra comunidad andina.
+          </p>
+          <Link to="/sobre-nosotros">
+            {/*
                <Button type="link" className="info-link">Conoce más sobre el museo →</Button>
  */}
-             </Link>
+          </Link>
         </div>
         <div className="info-visual">
-             {/* Podrías poner un SVG, un icono temático o una imagen pequeña aquí */}
-             <img src={`${import.meta.env.BASE_URL}logo_museo_andino.jpg`} alt="Logo Museo Andino" />
+          {/* Podrías poner un SVG, un icono temático o una imagen pequeña aquí */}
+          <img
+            src={`${import.meta.env.BASE_URL}logo_museo_andino.jpg`}
+            alt="Logo Museo Andino"
+          />
         </div>
       </section>
 
-       {/* Puedes añadir más secciones aquí */}
-
+      {/* Puedes añadir más secciones aquí */}
     </div>
   );
 };

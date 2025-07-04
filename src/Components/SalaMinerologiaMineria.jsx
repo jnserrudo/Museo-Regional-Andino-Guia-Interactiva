@@ -12,6 +12,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useRegisterText } from "../Contexts/SpeechContext";
+import { Button } from "antd";
+import { ExperimentOutlined } from "@ant-design/icons";
 
 // --- Datos Organizados en Arrays ---
 
@@ -868,11 +870,43 @@ export const SalaMinerologiaMineria = () => {
         originarias ya extraían minerales como la obsidiana, el cobre o la sal,
         que usaban para fabricar herramientas, como objetos ceremoniales, para
         pintar cuevas con pigmentos naturales o como elementos de intercambio.
+        <br />
         Hoy, la Puna sigue siendo clave: el litio que se encuentra bajo los
         salares permite fabricar baterías para celulares, computadoras y autos
         eléctricos en todo el mundo. Uno de los objetos que utilizaban
         antiguamente es la lámpara a carburo, que podés ver en esta sala.
       </p>
+      <div className="botones-sala-minerologia">
+        <a
+          href="https://drive.google.com/file/d/17T5oswp-eh064JrfQFe3w32Z0Ijd8V7D/view?usp=drive_link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            type="primary"
+            size="large"
+            className="sala-contenido-boton"
+            icon={<ExperimentOutlined />}
+          >
+            Visitá una Mina de Oro
+          </Button>
+        </a>
+        <a
+          href="https://centenario.virtual.eramet.com/es/visit"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            type="primary"
+            size="large"
+            className="sala-contenido-boton"
+            icon={<ExperimentOutlined />}
+          >
+            Conocé una de las formas de extracción de litio
+          </Button>
+        </a>
+      </div>
+
       <img
         src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
         alt="Paisaje de Salar en la Puna"

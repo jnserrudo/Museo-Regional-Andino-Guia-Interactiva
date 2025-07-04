@@ -9,6 +9,7 @@ import "./SalaGeologia.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { VolcanoExplorer3D } from "./VolcanoExplorer3D"; // <<<--- IMPORTA EL NUEVO COMPONENTE 3D
+import MapaVolcanes from "./MapaVolcanes"; // <<<--- IMPORTA EL NUEVO COMPONENTE 3D
 
 // --- NUEVO: Importa los estilos base de Swiper ---
 import "swiper/css";
@@ -111,22 +112,22 @@ GEOLOGÍA.
 ¿Sabías que hay un lugar en Argentina donde el agua nunca llega al mar?
 
 La Puna es una región única en el planeta. Nos encontramos a más de 4.000 metros sobre el nivel del mar, en un paisaje que parece de otro mundo: volcanes, salares, lagunas de colores intensos y un clima tan extremo como fascinante.
-Esta región forma parte de una cuenca endorreica, un tipo especial de cuenca donde el agua no tiene salida al mar. Aquí, el agua se evapora o se filtra en el suelo, dejando atrás sales y minerales que se acumulan en el paisaje y dan origen a los salares.
+Esta región forma parte de una cuenca endorreica, un tipo especial de cuenca donde el agua no tiene salida al mar. Aquí, el agua se evapora o se filtra en el suelo, dejando atrás sales y minerales que se acumulan  y dan origen a los salares.
 
 La Puna está encerrada entre dos grandes cordilleras:
 Al oeste, la Cordillera Volcánica Occidental, rica en volcanes activos e inactivos.
-Al este, la Cordillera Oriental, formada por antiguas rocas sedimentarias.
+Al este, la Cordillera Oriental, formada por importantes montañas y valles.
 
 Fuerzas de fuego y vapor: volcanes y géiseres.
-Bajo nuestros pies, la Tierra sigue viva. La actividad volcánica y geotérmica de la Puna no solo moldea montañas, sino que también crea fuentes termales, géiseres, campos fumarólicos y depósitos minerales.
+Bajo nuestros pies, la Tierra está viva. La actividad volcánica y geotérmica de la Puna crea fuentes termales, géiseres, campos fumarólicos y depósitos minerales.
 La energía interna del planeta se manifiesta aquí de forma directa:
-Volcanes: expulsan lava, gases y cenizas, formando montañas nuevas.
+Volcanes: expulsan lava, gases y cenizas.
 Géiseres y fumarolas: nos muestran el calor subterráneo emergiendo en forma de vapor.
 Suelos mineralizados: el agua caliente que circula bajo tierra disuelve minerales que, al enfriarse, se depositan en la superficie.
 
 ¿Cómo se forma un volcán?
 Bajo la superficie terrestre, a varios kilómetros de profundidad, ocurren procesos silenciosos pero poderosos. Cuando la presión disminuye bruscamente en las capas internas de la Tierra, las temperaturas suben tanto que las rocas comienzan a fundirse. Así se forma el magma, una mezcla incandescente de minerales derretidos.
-Este magma busca salir. A medida que asciende, se abre paso entre las fracturas de la corteza terrestre y se enriquece con minerales de las rocas que atraviesa. Cuando finalmente encuentra una salida, erupciona violentamente o se derrama suavemente, dependiendo de su composición.
+Este magma busca salir. A medida que asciende, se abre paso entre las fracturas de la corteza terrestre y cristaliza nuevos minerales. Cuando finalmente encuentra una salida, erupciona violentamente o se derrama suavemente, dependiendo de su composición.
 Con cada erupción, el volcán crece: se acumulan capas de lava, cenizas, escoria y gases solidificados. Esas capas forman poco a poco lo que llamamos el "edificio volcánico", cuya forma varía según el tipo de magma y la intensidad de la actividad.
 En la región de la Puna, los volcanes no solo moldean el paisaje: también son el origen de muchos de los minerales valiosos que encontramos en esta zona, como el azufre, el litio y el oro. La energía del interior de la Tierra se transforma, aquí, en una fuente de riqueza natural.
 
@@ -134,23 +135,31 @@ En la región de la Puna, los volcanes no solo moldean el paisaje: también son 
 Algunos volcanes de la Puna estuvieron activos hace miles o millones de años, pero sus huellas aún se conservan en cráteres, conos y flujos de lava fosilizados. Hoy, muchos de esos antiguos volcanes son claves para entender la formación de los salares y depósitos minerales de la región.
 
 ¿Qué es un géiser?
-Imaginá un volcán, pero en lugar de arrojar lava, lanza al cielo chorros de agua hirviendo y vapor. Eso es un géiser: una manifestación espectacular del calor oculto bajo la Tierra.
-En las profundidades del suelo, el agua se filtra hasta entrar en contacto con rocas muy calientes, calentadas por magma cercano. Esa agua se convierte en vapor a presión, que busca salir a la superficie. Cuando la presión es demasiado alta, el géiser entra en erupción, expulsando con fuerza una mezcla de agua caliente y vapor.
-Aunque duran solo unos segundos o minutos, estas erupciones pueden alcanzar varios metros de altura, ¡y se repiten una y otra vez durante años o incluso siglos!
+Imaginá un volcán, pero en lugar de arrojar lava, lanza al cielo chorros de agua hirviendo y vapor.
+Eso es un géiser: una manifestación espectacular del calor oculto bajo la Tierra.
+En las profundidades del suelo, el agua se filtra hasta entrar en contacto con rocas muy calientes, calentadas por el magma. Esa agua se convierte en vapor a presión, que busca salir a la superficie y cuando la presión es demasiado alta, el géiser entra en erupción, expulsando con fuerza una mezcla de agua caliente y vapor.
+Aunque duran solo unos segundos o minutos, estas erupciones pueden alcanzar varios metros de altura, y se repiten una y otra vez durante años o incluso siglos
+
 
 ¿Sabías qué…?
 Los géiseres son muy raros en el planeta. Se necesitan condiciones muy precisas de calor, agua subterránea y una geología especial. En la Puna argentina, podés ver fenómenos similares en los campos geotermales, donde el vapor sale por grietas en la tierra… ¡como si la Tierra respirara!
 
 ¿Cómo nace un Salar?
 En las vastas alturas de la Puna, donde el cielo es inmenso y la lluvia escasa, la Tierra ha creado paisajes deslumbrantes: planicies blancas y resplandecientes que parecen hechas de hielo, pero están compuestas por sal.
-Estos salares no siempre estuvieron allí. Se formaron a lo largo de miles —incluso millones— de años, cuando una serie de factores muy particulares coincidieron en un mismo lugar: una depresión natural, volcanes activos, aguas termales, erosión y, sobre todo, un clima extremadamente árido.
-Con el tiempo, las depresiones se llenaron de agua que, en lugar de formar ríos, se evaporó, dejando atrás todos los minerales disueltos. Así comenzaron a formarse las grandes planicies de sal. Bajo esa costra blanca y brillante, todavía queda agua muy salada, conocida como salmuera, donde flotan elementos como el litio, potasio y magnesio.
+Estos salares no siempre estuvieron allí. Se formaron a lo largo de miles —incluso millones— de años, cuando una serie de factores muy particulares coincidieron en un mismo lugar: Una depresión natural en el terreno, sin salida hacia el mar
+Volcanes activos, que liberaban minerales, gases y cenizas
+Aguas termales cargadas de elementos químicos provenientes del interior de la Tierra
+Fragmentos de roca erosionada, polvo y materia volcánica transportados por el viento
+Y sobre todo, un clima extremadamente árido, con mucha evaporación y casi nada de lluvia
+Con el tiempo, esas depresiones se llenaron con agua de lluvia, deshielos y manantiales calientes pero en lugar de formar ríos o lagos permanentes, el agua simplemente se evaporó, precipitando todos los compuestos disueltos. Así comenzaron a formarse las grandes planicies de sal.
+Bajo esa costra blanca y brillante, todavía queda agua muy salada, conocida como salmuera, donde flotan elementos como el litio, potasio y magnesio. Esta salmuera es una de las mayores riquezas naturales de la Puna, y hoy es clave para tecnologías limpias y energías renovables.
 
 ¿Sabías qué...?
 El litio que permite que funcionen los celulares, notebooks y autos eléctricos se extrae, en gran parte, de las salmueras escondidas bajo los salares del noroeste argentino. La Puna forma parte del Triángulo del Litio, una de las regiones más estratégicas del planeta.
 
 El lenguaje secreto de la Puna.
-Aunque parezca un paisaje detenido en el tiempo, la Puna está en constante transformación. La falta de lluvias, el viento seco y el sol abrasador del día, seguidos por noches heladas, son verdaderos escultores del paisaje. La roca se quiebra, se convierte en grava, y lentamente, el desierto se expande. Pero los habitantes de la región han aprendido a leer esas señales. Los “cerros brujos” les hablan del cielo, del agua y del viento.
+Aunque parezca un paisaje detenido en el tiempo, la Puna está en constante transformación. La falta de lluvias, el viento seco y el sol abrasador del día, seguidos por noches heladas, son verdaderos escultores del paisaje. La roca se quiebra, se convierte en grava y lentamente, el desierto se expande.
+Los habitantes de la región han aprendido a leer  las señales de la naturaleza en los cerros, y lo llaman “los cerros brujos”.
 
 Los cerros brujos: sabiduría ancestral del clima.
 Los pueblos originarios del altiplano no usan apps meteorológicas. Durante generaciones han observado cómo se comportan las nubes alrededor de los cerros:
@@ -377,13 +386,13 @@ export const SalaGeologia = () => {
         Esta región forma parte de una <strong>cuenca endorreica</strong>, un
         tipo especial de cuenca donde el agua no tiene salida al mar. Aquí, el
         agua se evapora o se filtra en el suelo, dejando atrás sales y minerales
-        que se acumulan en el paisaje y dan origen a los salares.
+        que se acumulan y dan origen a los salares.
       </p>
 
       {/* --- MODIFICADO: Usamos el nuevo componente de carrusel --- */}
       <CarouselGallery
         images={galeriaCuencas}
-        title="Cuencas Endorreicas en la Puna"
+        title="Vistas de cuencas en la Puna"
       />
 
       {/* El resto del contenido sigue igual... */}
@@ -392,12 +401,12 @@ export const SalaGeologia = () => {
       </p>
       <ul className="sala-contenido-lista">
         <li>
-          <strong>Al oeste</strong>, la Cordillera Volcánica Occidental, rica en
+          Al oeste, <strong>la Cordillera Volcánica Occidental</strong>, rica en
           volcanes activos e inactivos.
         </li>
         <li>
-          <strong>Al este</strong>, la Cordillera Oriental, formada por antiguas
-          rocas sedimentarias.
+          Al este, <strong>la Cordillera Oriental</strong>, formada por
+          importantes montañas y valles.
         </li>
       </ul>
 
@@ -406,17 +415,16 @@ export const SalaGeologia = () => {
       </h3>
       {/* ... más contenido ... */}
       <p className="sala-contenido-parrafo">
-        Bajo nuestros pies, la Tierra sigue viva. La actividad volcánica y
-        geotérmica de la Puna no solo moldea montañas, sino que también crea
-        fuentes termales, géiseres, campos fumarólicos y depósitos minerales.
+        Bajo nuestros pies, la Tierra está viva. La actividad volcánica y
+        geotérmica de la Puna crea fuentes termales, géiseres, campos
+        fumarólicos y depósitos minerales.
       </p>
       <p className="sala-contenido-parrafo">
         La energía interna del planeta se manifiesta aquí de forma directa:
       </p>
       <ul className="sala-contenido-lista">
         <li>
-          <strong>Volcanes:</strong> expulsan lava, gases y cenizas, formando
-          montañas nuevas.
+          <strong>Volcanes:</strong> expulsan lava, gases y cenizas.
         </li>
         <li>
           <strong>Géiseres y fumarolas:</strong> nos muestran el calor
@@ -439,9 +447,9 @@ export const SalaGeologia = () => {
       </p>
       <p className="sala-contenido-parrafo">
         Este magma busca salir. A medida que asciende, se abre paso entre las
-        fracturas de la corteza terrestre y se enriquece con minerales de las
-        rocas que atraviesa. Cuando finalmente encuentra una salida, erupciona
-        violentamente o se derrama suavemente, dependiendo de su composición.
+        fracturas de la corteza terrestre y cristaliza nuevos minerales. Cuando
+        finalmente encuentra una salida, erupciona violentamente o se derrama
+        suavemente, dependiendo de su composición.
       </p>
       <p className="sala-contenido-parrafo">
         Con cada erupción, el volcán crece: se acumulan capas de lava, cenizas,
@@ -482,6 +490,8 @@ export const SalaGeologia = () => {
           región.
         </p>
       </div>
+
+      <MapaVolcanes />
       {/* 
 <section className="volcanes-3d-gallery-section">
 
@@ -502,7 +512,14 @@ export const SalaGeologia = () => {
       <p className="sala-contenido-parrafo">
         Imaginá un volcán, pero en lugar de arrojar lava, lanza al cielo chorros
         de agua hirviendo y vapor. Eso es un géiser: una manifestación
-        espectacular del calor oculto bajo la Tierra.
+        espectacular del calor oculto bajo la Tierra. En las profundidades del
+        suelo, el agua se filtra hasta entrar en contacto con rocas muy
+        calientes, calentadas por el magma. Esa agua se convierte en vapor a
+        presión, que busca salir a la superficie y cuando la presión es
+        demasiado alta, el géiser entra en erupción, expulsando con fuerza una
+        mezcla de agua caliente y vapor. Aunque duran solo unos segundos o
+        minutos, estas erupciones pueden alcanzar varios metros de altura, y se
+        repiten una y otra vez durante años o incluso siglos
       </p>
       <p className="sala-contenido-parrafo">
         En las profundidades del suelo, el agua se filtra hasta entrar en
@@ -518,7 +535,7 @@ export const SalaGeologia = () => {
       </p>
 
       {/* Contenedor para el video responsivo */}
-      <div className="video-responsive-container">
+      {/* <div className="video-responsive-container">
         <iframe
           className="video-iframe"
           src="https://www.youtube.com/embed/7jSFEkezaxw"
@@ -526,7 +543,7 @@ export const SalaGeologia = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-      </div>
+      </div> */}
       {/* <p className="video-caption">
         También puedes ver el video en{" "}
         <a
@@ -538,6 +555,16 @@ export const SalaGeologia = () => {
         </a>
         .
       </p> */}
+
+      <div className="video-geiser">
+        <video
+          controls
+          preload="auto"
+          src={`${import.meta.env.BASE_URL}video-geiser.mp4`} // <-- REEMPLAZA
+        >
+          Tu navegador no soporta la etiqueta de video.
+        </video>
+      </div>
 
       <div className="sabias-que-box">
         <h5 className="sabias-que-titulo">¿Sabías qué…?</h5>
@@ -558,25 +585,41 @@ export const SalaGeologia = () => {
         sal.
       </p>
       <p className="sala-contenido-parrafo">
-        Estos salares no siempre estuvieron allí. Se formaron a lo largo de
+        Estos salares no siempre estuvieron allí, se formaron a lo largo de
         miles —incluso millones— de años, cuando una serie de factores muy
-        particulares coincidieron en un mismo lugar: una depresión natural,
-        volcanes activos, aguas termales, erosión y, sobre todo, un clima
-        extremadamente árido.
+        particulares que coincidieron en un mismo lugar:
+        <ul>
+          <li>Una depresión natural en el terreno, sin salida hacia el mar</li>
+          <li>Volcanes activos, que liberaban minerales, gases y cenizas</li>
+          <li>
+            Aguas termales cargadas de elementos químicos provenientes del
+            interior de la Tierra
+          </li>
+          <li>
+            Fragmentos de roca erosionada, polvo y materia volcánica
+            transportados por el viento
+          </li>
+          <li>
+            Y sobre todo, un clima extremadamente árido, con mucha evaporación y
+            casi nada de lluvia
+          </li>
+        </ul>
       </p>
       <p className="sala-contenido-parrafo">
-        Con el tiempo, las depresiones se llenaron de agua que, en lugar de
-        formar ríos, se evaporó, dejando atrás todos los minerales disueltos.
-        Así comenzaron a formarse las grandes planicies de sal. Bajo esa costra
-        blanca y brillante, todavía queda agua muy salada, conocida como
-        <strong> salmuera</strong>, donde flotan elementos como el litio,
-        potasio y magnesio.
+        Con el tiempo, esas depresiones se llenaron con agua de lluvia,
+        deshielos y manantiales calientes pero en lugar de formar ríos o lagos
+        permanentes, el agua simplemente se evaporó, precipitando todos los
+        compuestos disueltos. Así comenzaron a formarse las grandes planicies de
+        sal. Bajo esa costra blanca y brillante, todavía queda agua muy salada,
+        conocida como salmuera, donde flotan elementos como el litio, potasio y
+        magnesio. Esta salmuera es una de las mayores riquezas naturales de la
+        Puna, y hoy es clave para tecnologías limpias y energías renovables.
       </p>
 
       <div className="sabias-que-box">
         <h5 className="sabias-que-titulo">¿Sabías qué...?</h5>
         <p className="sabias-que-texto">
-          El litio que permite que funcionen los celulares, notebooks y autos
+          El litio permite que funcionen los celulares, notebooks y autos
           eléctricos se extrae, en gran parte, de las salmueras escondidas bajo
           los salares del noroeste argentino. La Puna forma parte del{" "}
           <strong>Triángulo del Litio</strong>, una de las regiones más
@@ -594,10 +637,10 @@ export const SalaGeologia = () => {
         Aunque parezca un paisaje detenido en el tiempo, la Puna está en
         constante transformación. La falta de lluvias, el viento seco y el sol
         abrasador del día, seguidos por noches heladas, son verdaderos
-        escultores del paisaje. La roca se quiebra, se convierte en grava, y
-        lentamente, el desierto se expande. Pero los habitantes de la región han
-        aprendido a leer esas señales. Los “cerros brujos” les hablan del cielo,
-        del agua y del viento.
+        escultores del paisaje. La roca se quiebra, se convierte en grava y
+        lentamente, el desierto se expande. Los habitantes de la región han
+        aprendido a leer las señales de la naturaleza en los cerros, y lo llaman
+        “los cerros brujos”.
       </p>
 
       <h4 className="sala-contenido-subtitulo-menor">

@@ -42,29 +42,45 @@ export const DespedidaGuia = () => {
         <strong>#MuseoRegionalAndino</strong> y <strong>#MuseoenlaPuna</strong>!
       </p>
       <div className="despedida-cta-section">
-        <h3 className="sala-contenido-subtitulo">¿Querés seguir explorando?</h3>
-        <p className="sala-contenido-parrafo">Te invitamos a:</p>
+        <h3 className="sala-contenido-subtitulo">Seguí descubriendo</h3>
+        <p className="sala-contenido-parrafo">
+          Te invitamos a jugar y aprender con nuestras actividades interactivas:
+        </p>
 
         <div className="despedida-botones-cta">
           {/* --- Botón de Trivia --- */}
           <Link to="/juegos/trivia">
-            <Button type="primary" size="large" className="sala-contenido-boton" icon={<ExperimentOutlined />}>
-              ¿Podés resolver una trivía?
+            <Button
+              type="primary"
+              size="large"
+              className="sala-contenido-boton"
+              icon={<ExperimentOutlined />}
+            >
+              🧠 Trivia: ¿Cuánto sabés sobre la Puna? Poné a prueba tus
+              conocimientos y descubrí datos curiosos.
             </Button>
           </Link>
 
           {/* --- Botón de Rompecabezas --- */}
           <Link to="/juegos/puzzle">
-            <Button type="primary" size="large" className="sala-contenido-boton" icon={<ExperimentOutlined />}>
-              ¿Podés armar un rompecabezas?
+            <Button
+              type="primary"
+              size="large"
+              className="sala-contenido-boton"
+              icon={<ExperimentOutlined />}
+            >
+              🧩 Rompecabezas: ¿Podés armarlo? Observá con atención y completá
+              la imagen.
             </Button>
           </Link>
         </div>
 
-        <h4 className="sala-contenido-subtitulo-menor">Te Escuchamos</h4>
+        <h4 className="sala-contenido-subtitulo-menor">
+          🗣️ ¿Querés contarnos qué te pareció?
+        </h4>
         <p className="sala-contenido-parrafo">
-          Tu opinión nos ayuda a mejorar. Por favor, completá esta breve
-          encuesta.
+          Dejanos tus comentarios y respondé una mini encuesta. ¡Tu opinión nos
+          ayuda a mejorar!
         </p>
 
         {/* --- Formulario de Google Forms --- */}

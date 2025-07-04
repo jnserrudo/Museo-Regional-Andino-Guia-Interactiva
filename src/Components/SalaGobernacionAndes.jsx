@@ -7,6 +7,47 @@ import "./SalaGeologia.css";
 import "./SalaGobernacionAndes.css";
 import { useRegisterText } from "../Contexts/SpeechContext";
 
+// --- Importaciones de Swiper (necesarias para el carrusel) ---
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+// --- Componente de Carrusel reutilizable ---
+const CarouselGallery = ({ images, title }) => (
+  <div className="carousel-wrapper">
+    {title && <h4 className="gallery-title">{title}</h4>}
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      navigation={true}
+      pagination={{ clickable: true }}
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      className="sala-carousel"
+    >
+      {images.map((imgSrc, index) => (
+        <SwiperSlide key={index}>
+          <img
+            src={imgSrc}
+            alt={`${title || "Galería de Biodiversidad"} - Imagen ${index + 1}`}
+            className="carousel-image-chinchilla"
+            loading="lazy"
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+);
+
+const gobernacionAndesImages = [
+  import.meta.env.BASE_URL + "gob_andes_casa_gobierno.jpeg",
+  import.meta.env.BASE_URL + "gob_andes_casa_gobierno2.jpeg",
+];
+
 const salaGobernacionAndesText = `
 GOBERNACIÓN DE LOS ANDES.
 
@@ -168,6 +209,7 @@ export const SalaGobernacionAndes = () => {
           consolidó el mapa provincial actual del noroeste argentino.
         </p>
       </section>
+      <CarouselGallery images={gobernacionAndesImages} title="Gobernación de los Andes" />
     </article>
   );
 };

@@ -63,7 +63,7 @@ Bienvenidos a este espacio que narra el origen, los conflictos y la consolidaci�
     Bienvenidos a la sala donde la Tierra cuenta su historia más profunda.
 En este espacio, te invitamos a viajar al corazón geológico de la Puna, una región moldeada por la fuerza de los volcanes, el calor oculto de los géiseres y la calma brillante de los salares.
 Aquí vas a descubrir cómo, a lo largo de millones de años, la actividad del planeta dio forma a paisajes extremos y únicos. Cada montaña, cada cristal de sal y cada vapor que emerge del suelo nos habla de un mundo en constante transformación.
-Tocá, explorá y observá: la geología no es solo ciencia, es el relato vivo del origen de todo lo que pisamos.
+Tocá, Explora y observá: la geología no es solo ciencia, es el relato vivo del origen de la Tierra.
 
     `,
   },
@@ -86,9 +86,9 @@ A más de 3.500 metros sobre el nivel del mar, con aire seco, lluvias escasas, t
 Sin embargo, la naturaleza responde con estrategias sorprendentes:
 •	Algunas plantas crecen muy cerca del suelo para protegerse del viento.
 •	Muchos animales cambian de color, migran o modifican sus hábitos para sobrevivir.
-•	Incluso los organismos más pequeños desarrollan defensas especiales frente a la fuerza del sol en altura: algunos producen pigmentos oscuros, otros se refugian bajo piedras o en grietas del suelo.
-La biodiversidad en la Puna no es abundante, pero sí muy especializada. Cada especie que vive aquí forma parte de una red delicada, moldeada por millones de años de adaptación.
-Mientras recorrés esta sala, te invitamos a mirar con atención: la vida en altura no es solo resistencia, es inteligencia natural en acción.
+•	Los organismos más pequeños desarrollan defensas especiales frente a la fuerza del sol en altura: algunos se refugian bajo piedras o en grietas del suelo.
+La biodiversidad en la Puna no es abundante, pero cuenta con especies endémicas. Cada especie que vive aquí forma parte de una red moldeada por millones de años de adaptación.
+
 
     `,
   },

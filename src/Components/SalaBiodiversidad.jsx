@@ -55,12 +55,12 @@ Las aves vuelan más bajo para conservar energía en un aire con menos oxígeno.
 Muchas especies son endémicas: sólo viven en la Puna. Eso significa que este ecosistema es frágil, único y digno de ser protegido.
 
 Las plantas: especialistas del desierto alto.
-La vegetación en la Puna parece poca, pero cada planta está perfectamente adaptada:
+La vegetación en la Puna está perfectamente adaptada:
 Crecen separadas unas de otras para no competir por el agua.
 Reducen sus hojas a espinas o formas pequeñas para evitar la evaporación.
 Muchas se arrastran pegadas al suelo, como la yareta, para protegerse del viento.
 Otras, como los cardones, almacenan agua en sus tallos; y algunas, como la papa silvestre, lo hacen bajo tierra en estructuras como rizomas o tubérculos.
-Por estas razones la vegetación predominante en la Puna son los arbustos bajos como la Tola y la Tolilla, que parecen humildes… pero son verdaderas maestras de la supervivencia.
+Por eso predominan los arbustos bajos, como la Tola y la Tolilla.
 
 El Árbol de las Alturas.
 La queñoa es el único árbol que crece entre los 3500 y 4300 metros de altura sobre el nivel del mar.
@@ -113,6 +113,14 @@ export const SalaBiodiversidad = () => {
     import.meta.env.BASE_URL + "ave_6.JPG",
   ];
 
+  const galeriaAveParinas = [
+    import.meta.env.BASE_URL + "parina.jpg",
+    import.meta.env.BASE_URL + "parina1.JPG",
+    import.meta.env.BASE_URL + "parina2.jpg",
+    import.meta.env.BASE_URL + "parina3.jpg",
+    import.meta.env.BASE_URL + "parina4.jpg",
+  ];
+  
   return (
     <article className="sala-contenido-container">
       <h2 className="sala-contenido-titulo-principal">BIODIVERSIDAD</h2>
@@ -131,11 +139,10 @@ export const SalaBiodiversidad = () => {
         Muchas especies son <strong>endémicas</strong>: sólo viven en la Puna. Eso significa que este ecosistema es frágil, único y digno de ser protegido.
       </p>
 
-      <CarouselGallery images={galeriaIntroduccion} title="Especies adaptadas al entorno" />
 
       <h3 className="sala-contenido-subtitulo">Las plantas: especialistas del desierto alto</h3>
       <p className="sala-contenido-parrafo">
-        La vegetación en la Puna parece poca, pero cada planta está perfectamente adaptada:
+      La vegetación en la Puna está perfectamente adaptada:
       </p>
       <ul className="sala-contenido-lista">
         <li>Crecen separadas unas de otras para no competir por el agua.</li>
@@ -143,14 +150,16 @@ export const SalaBiodiversidad = () => {
         <li>Muchas se arrastran pegadas al suelo, como la yareta, para protegerse del viento.</li>
         <li>Otras, como los cardones, almacenan agua en sus tallos; y algunas, como la papa silvestre, lo hacen bajo tierra en estructuras como rizomas o tubérculos.</li>
       </ul>
+      <CarouselGallery images={galeriaIntroduccion} title="Especies en la Puna" />
+
       <p className="sala-contenido-parrafo">
-        Por estas razones la vegetación predominante en la Puna son los arbustos bajos como la <strong>Tola</strong> y la <strong>Tolilla</strong>, que parecen humildes… pero son verdaderas maestras de la supervivencia.
+      Por eso predominan los arbustos bajos, como la <strong>Tola</strong> y la <strong>Tolilla</strong>
       </p>
 
       <div className="imagen-destacada-container">
         <img src={import.meta.env.BASE_URL + "Tola.jpg"} alt="Planta de Tola en la Puna" className="imagen-destacada" />
       </div>
-
+{/* 
       <div className="sabias-que-box">
         <h5 className="sabias-que-titulo">El Árbol de las Alturas</h5>
         <p className="sabias-que-texto">
@@ -158,7 +167,7 @@ export const SalaBiodiversidad = () => {
         </p>
         <img src={import.meta.env.BASE_URL + "Quenoa.jpg"} alt="Bosquecillo de Queñoa" className="imagen-en-box" />
       </div>
-      
+       */}
       <h3 className="sala-contenido-subtitulo">La vicuña: hecha a medida para la altura</h3>
       <p className="sala-contenido-parrafo">
         Pequeña, ligera y eficiente, la vicuña es el animal más emblemático de la Puna.
@@ -214,7 +223,8 @@ export const SalaBiodiversidad = () => {
         Algunas viajan miles de kilómetros cada año. Otras viven aquí todo el tiempo. Juntas, llenan de movimiento el cielo del altiplano.
       </p>
 
-      <CarouselGallery images={galeriaAves} title="Aves de las Lagunas Altoandinas" />
+      {/* <CarouselGallery images={galeriaAves} title="Aves de las Lagunas Altoandinas" /> */}
+      <CarouselGallery images={galeriaAveParinas} title="Aves de las lagunas" />
 
     </article>
   );

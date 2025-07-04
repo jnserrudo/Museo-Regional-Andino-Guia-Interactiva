@@ -1,0 +1,124 @@
+/* src/Components/TriviaGame.css */
+
+.trivia-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    font-family: 'MuseoSans', sans-serif;
+  }
+  
+  .trivia-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .trivia-header h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--primary-color, #8B4513);
+    font-weight: 700;
+  }
+  
+  .trivia-progreso {
+    font-size: 1.1rem;
+    color: var(--text-muted, #6c757d);
+    font-weight: 500;
+  }
+  
+  .trivia-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pregunta-texto {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    color: #333;
+  }
+  
+  .opciones-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .opcion-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    text-align: left;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .opcion-btn:not(:disabled):hover {
+    border-color: var(--primary-color, #8B4513);
+    background-color: #fff;
+    transform: translateY(-2px);
+  }
+  
+  .opcion-btn.correcta {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    font-weight: bold;
+  }
+  
+  .opcion-btn.incorrecta {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+  }
+  
+  .resultado-container {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .dato-curioso {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .resultado-final {
+    text-align: center;
+  }
+  
+  .puntuacion-final {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .puntuacion-final strong {
+    font-size: 2rem;
+    color: var(--primary-color, #8B4513);
+  }
+  
+  @media (min-width: 768px) {
+    .opciones-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+
+  /* En TriviaGame.css, añade esto al final */
+
+/* --- Estilos para los botones de la pantalla de resultados --- */
+.resultado-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Espacio entre los botones */
+    margin-top: 2rem;
+    flex-wrap: wrap; /* Asegura que se apilen en pantallas pequeñas si no caben */
+  }

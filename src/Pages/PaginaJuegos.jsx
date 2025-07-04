@@ -19,9 +19,9 @@ export const PaginaJuegos = () => {
           <div className="juego-card-icon">
             <QuestionCircleOutlined />
           </div>
-          <h3 className="juego-card-titulo">Trivia sobre la Puna</h3>
+          <h3 className="juego-card-titulo">🧠 Trivia: ¿Cuánto sabés sobre la Puna?</h3>
           <p className="juego-card-descripcion">
-            ¿Cuánto sabes sobre la historia, la geografía y la cultura de la región?
+            Poné a prueba tus conocimientos y descubrí datos curiosos.
           </p>
           <span className="juego-card-link">Jugar Ahora →</span>
         </Link>
@@ -31,9 +31,9 @@ export const PaginaJuegos = () => {
           <div className="juego-card-icon">
             <AppstoreOutlined />
           </div>
-          <h3 className="juego-card-titulo">Rompecabezas Andino</h3>
+          <h3 className="juego-card-titulo">🧩 Rompecabezas: ¿Podés armarlo?</h3>
           <p className="juego-card-descripcion">
-            Arma una llama y otros símbolos de la Puna pieza por pieza.
+            Observá con atención y completá la imagen.
           </p>
           <span className="juego-card-link">Jugar Ahora →</span>
         </Link>

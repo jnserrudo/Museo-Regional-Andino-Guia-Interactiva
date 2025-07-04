@@ -925,3 +925,11 @@ gap: 2rem; /* Mantener o ajustar gap */
   /* 'center 80%' significa: centrado horizontalmente y muestra la parte que está al 80% hacia abajo */
   object-position: center 95%; 
 }
+
+
+
+.botones-sala-minerologia{
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+}

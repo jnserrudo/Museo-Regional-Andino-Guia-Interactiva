@@ -1,0 +1,331 @@
+/* Estilos para el contenedor principal del mapa */
+.mapa-volcanes-container {
+    position: relative; /* Esencial para posicionar los marcadores absolutamente */
+    width: 100%; /* El contenedor ocupa todo el ancho disponible */
+    max-width: 1000px; /* O el ancho original de tu imagen, para mantener proporción */
+    margin: auto; /* Centra el mapa horizontalmente */
+    overflow: hidden; /* Asegura que los elementos hijos no se desborden */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sutil sombra para un mejor aspecto */
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+}
+
+/* Estilos para la imagen del mapa */
+.mapa-volcanes-image {
+    width: 100%; /* La imagen se ajusta al ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    border-radius: 8px; /* Aplica los mismos bordes redondeados */
+}
+
+/* Estilos para cada marcador de volcán (el ícono + nombre) */
+.volcano-marker {
+    position: absolute; /* Posicionamiento absoluto respecto al contenedor */
+    cursor: pointer; /* Indica que es un elemento clicable */
+    display: flex;
+    flex-direction: column; /* Coloca el ícono y el nombre uno encima del otro */
+    align-items: center; /* Centra horizontalmente el ícono y el nombre */
+    transform: translate(-50%, -50%); /* Centra el marcador en las coordenadas top/left */
+    user-select: none; /* Evita que el texto se seleccione al hacer clic */
+    transition: transform 0.2s ease-in-out; /* Suave animación al pasar el mouse */
+}
+
+.volcano-marker:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Agranda ligeramente al pasar el mouse */
+    z-index: 5; /* Asegura que el marcador esté por encima de otros al hacer hover */
+}
+
+/* Estilos para el ícono individual del volcán */
+.volcano-icon {
+    width: 30px; /* Tamaño del ícono, ajusta si es necesario */
+    height: 30px; /* Mantiene la proporción */
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5)); /* Sombra para que destaque */
+}
+
+/* Estilos para el nombre del volcán */
+.volcano-name {
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo oscuro semitransparente */
+    color: white; /* Texto blanco */
+    padding: 3px 8px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados para el texto */
+    font-size: 0.75em; /* Tamaño de fuente, puedes ajustar */
+    white-space: nowrap; /* Evita que el nombre se rompa en varias líneas */
+    margin-top: 4px; /* Espacio entre el ícono y el nombre */
+    pointer-events: none; /* Asegura que el clic sea en el div del marcador, no en el texto */
+    opacity: 0.9; /* Ligera transparencia */
+}
+
+/* Estilos para la ventana emergente (pop-up) */
+.volcano-popup {
+    position: fixed; /* Fija la ventana emergente en el viewport */
+    /* top: 50%;
+    left: 50%; */
+    transform: translate(-50%, -50%); /* Centra la ventana en la pantalla */
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    padding: 25px; /* Espaciado interno */
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    max-width: 350px; /* Ancho máximo para el pop-up */
+    text-align: center; /* Centra el texto */
+    animation: fadeInScale 0.3s ease-out; /* Animación de aparición */
+    display: flex; /* Usa flexbox para organizar el contenido */
+    flex-direction: column; /* Contenido en columna */
+    gap: 10px; /* Espacio entre elementos */
+}
+
+.volcano-popup h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+    border-bottom: 2px solid #eee; /* Línea separadora */
+    padding-bottom: 10px;
+}
+
+.volcano-popup p {
+    margin: 0; /* Elimina márgenes predeterminados de párrafos */
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.4; /* Espaciado entre líneas */
+}
+
+.volcano-popup p strong {
+    color: #000; /* Hace que el texto en negrita sea más oscuro */
+}
+
+.volcano-popup button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.volcano-popup button:hover {
+    background-color: #0056b3;
+}
+
+/* Animación para la aparición del pop-up */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.sala-contenido-boton {
+    background-color: #8B4513 !important;
+  }
+
+
+
+  /* En MapaVolcanes.css */
+
+/* ... tus estilos de .mapa-volcanes-container y .volcano-marker se mantienen igual ... */
+
+/* --- ESTILOS MEJORADOS PARA EL POP-UP --- */
+.volcano-popup-overlay {
+    position: fixed; /* Ocupa toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+  
+  .volcano-popup {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto; /* Scroll si el contenido es muy largo */
+    animation: fadeInScale 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popup-content {
+    padding: 1.5rem;
+    text-align: left;
+  }
+  
+  .popup-content h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: var(--primary-color, #8B4513);
+  }
+  
+  .popup-content p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+  
+  .popup-description {
+      margin-top: 1rem;
+      font-style: italic;
+  }
+  
+  .popup-content button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-color, #8B4513);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  /* --- ESTILOS PARA LA IMAGEN Y EL CARRUSEL DEL POP-UP --- */
+  .popup-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover; /* Recorta para que se vea bien */
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      display: block;
+  }
+  
+  .volcano-image-carousel {
+      width: 100%;
+      height: 250px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+  }
+  
+  .volcano-image-carousel .swiper-slide {
+      background-color: #e0e0e0;
+  }
+  
+  .volcano-image-carousel .swiper-button-next,
+  .volcano-image-carousel .swiper-button-prev {
+      color: white;
+  }
+  .volcano-image-carousel .swiper-pagination-bullet-active {
+      background-color: white;
+  }
+  
+  
+  @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+  }
+
+
+  /* -------- */
+  /* En MapaVolcanes.css */
+
+/* --- ESTILOS PARA EL POP-UP (CON PORTAL) --- */
+
+/* El fondo oscuro que cubre toda la pantalla */
+.volcano-popup-overlay {
+    position: fixed; /* Posición fija relativa a la VENTANA */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Asegura que esté por encima de todo */
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  
+  /* El contenedor blanco del pop-up */
+  .volcano-popup {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+    max-width: 550px;
+    width: 95%;
+    max-height: 90vh; /* Altura máxima para que no ocupe toda la pantalla en vertical */
+    overflow-y: auto; /* Scroll interno si el contenido es muy largo */
+    animation: fadeInScale 0.3s ease-out forwards;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* El contenido de texto del pop-up */
+  .popup-content {
+    padding: 1.5rem 2rem;
+    text-align: left;
+  }
+  .popup-content h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: var(--primary-color, #8B4513);
+    margin-bottom: 1rem;
+  }
+  .popup-content p {
+    margin: 0.6rem 0;
+    line-height: 1.6;
+  }
+  .popup-description {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #555;
+  }
+  
+  /* El botón de cerrar */
+  .popup-close-button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-color, #8B4513);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  /* --- ESTILOS PARA LA IMAGEN / CARRUSEL DEL POP-UP --- */
+  .popup-image, .volcano-image-carousel {
+    width: 100%;
+    height: 280px; /* Altura fija para la imagen/carrusel */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: #f0f0f0; /* Fondo para los slides */
+  }
+  .popup-image {
+    object-fit: cover; /* Recorta para que se vea bien */
+  }
+  .volcano-image-carousel .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Muestra la imagen completa dentro del slide */
+  }
+  
+  /* Estilos de Swiper dentro del pop-up */
+  .volcano-image-carousel .swiper-button-next,
+  .volcano-image-carousel .swiper-button-prev {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  .volcano-image-carousel .swiper-pagination-bullet-active {
+    background-color: white;
+  }
