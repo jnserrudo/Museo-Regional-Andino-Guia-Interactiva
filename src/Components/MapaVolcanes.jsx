@@ -14,29 +14,31 @@ const volcanoesData = [
   {
     id: "aracar",
     name: "Aracar",
-    top: "25%",
-    left: "28%",
+    top: "32%",
+    left: "33%",
     info: {
       location: `24°17'17.89"S / 67°47'26.33"O`,
       elevation: "6.095 m s.n.m.",
       type: "Estratovolcán",
       description:
         "Aracar significa “lugar de huesos”. Este gran volcán domina el paisaje con sus laderas de basalto gris. En 1993 se vio una columna de vapor y ceniza. ⚠️ La ladera noroeste no ha sido explorada por posible presencia de campos minados.",
-      images: [],
+      images: [
+        "/volcanes/Volcan_Aracar.jpg",
+      ],
     },
   },
   {
     id: "socompa",
     name: "Socompa",
-    top: "30%",
-    left: "8%",
+    top: "36%",
+    left: "14%",
     info: {
       location: `24°23′46″S / 68°14′46″O`,
       elevation: "6.051 m s.n.m.",
       type: "Estratovolcán",
       description:
         "Su nombre puede significar “tierra que se estremece”. Tuvo una erupción pliniana hace 72.000 años, dejando una enorme avalancha visible hoy.",
-      images: [],
+      images: ['/volcanes/Volcan_Socompa.jpg'],
     },
   },
   {
@@ -51,9 +53,9 @@ const volcanoesData = [
       description:
         'Significa “agua engañosa”. Es el segundo volcán activo más alto del mundo. En su cima se encuentra el sitio arqueológico más alto del planeta, donde se hallaron los "Niños del Llullaillaco".',
       images: [
-        "/volcanes/llullaillaco_1.jpg",
-        "/volcanes/llullaillaco_2.jpg",
-        "/volcanes/llullaillaco_3.jpg",
+        "/volcan_llullaillaco.png",
+        "/volcanes/Volcan_llullaillaco_cara_oeste_christian_vitry_3.jpg",
+        "/volcanes/Volcan_llullaillaco_christian_vitry_23-vista_sur.jpg",
       ],
     },
   },
@@ -68,10 +70,10 @@ const volcanoesData = [
       type: "Volcán poligénico",
       description:
         "Su última gran erupción fue hace 2.400 años, pero se mantiene activo con fuerte actividad fumarólica, siendo un gran emisor de gases volcánicos en los Andes.",
-      images: ["/volcanes/lastarria_1.jpg"],
+      images: ["/volcanes/Volcan_Lastarria.jpg"],
     },
   },
-  {
+  { 
     id: "archibarca",
     name: "Archibarca",
     top: "85%",
@@ -82,7 +84,7 @@ const volcanoesData = [
       type: "Estratovolcán",
       description:
         "Volcán inactivo cuya última erupción fue hace 11 millones de años. En su cumbre se identificó un sitio ritual incaico.",
-      images: ["/volcanes/archibarca_1.jpg"],
+      images: ["/volcanes/Cerro_archibarca.jpg"],
     },
   },
   {
@@ -96,42 +98,44 @@ const volcanoesData = [
       type: "Estratovolcán",
       description:
         "Antigua estructura volcánica inactiva. No se conoce el origen de su nombre ni usos culturales específicos, pero su geología permite estudiarlo en el contexto regional.",
-      images: ["/volcanes/ratones_1.jpg"],
+      images: ["/volcanes/volcan_ratones.jpg",
+        "/volcanes/Volcan_Ratones_panoramio.jpg",
+      ],
     },
   },
   {
     id: "quevar",
     name: "Quevar",
-    top: "35%",
-    left: "60%",
+    top: "32%",
+    left: "70%",
     info: {
       location: `24°18'42.78"S / 66°43'48.20"O`,
       elevation: "6.130 m s.n.m.",
       type: "Estratovolcán",
       description:
         'Su nombre podría provenir de los "quehuare", un grupo reconocido como “Incas por privilegio”. Su deshielo abastece de agua a la región y en su cima se encontraron estructuras ceremoniales.',
-      images: ["/volcanes/quevar_1.jpg"],
+      images: ["/volcanes/volcan-quevar.jpg"],
     },
   },
   {
     id: "pocitos",
     name: "Pocitos",
-    top: "20%",
-    left: "50%",
+    top: "30%",
+    left: "60%",
     info: {
       location: `24°15'57.20"S / 66°59'05.66"O`,
       elevation: "5.383 m s.n.m.",
       type: "Estratovolcán",
       description:
         "Gran estructura andesítica cuya lava ha interactuado con los flujos del cercano volcán Del Medio.",
-      images: [],
+      images: ["/volcanes/Volcan_Pocitos.jpg"],
     },
   },
   {
     id: "del-medio",
     name: "Del Medio",
-    top: "15%",
-    left: "48%",
+    top: "24%",
+    left: "57%",
     info: {
       location: `24°13'54.35"S / 67°02'50.19"O`,
       elevation: "5.020 m s.n.m.",
@@ -144,36 +148,36 @@ const volcanoesData = [
   {
     id: "san-geronimo",
     name: "San Gerónimo",
-    top: "20%",
-    left: "75%",
+    top: "23%",
+    left: "82%",
     info: {
       location: `24°13'42.58"S / 66°29'54.64"O`,
       elevation: "4.950 m s.n.m.",
       type: "Cono de escoria",
       description:
         "Antiguo cono formado por una única erupción de tipo estromboliano. Un ejemplo valioso del volcanismo monogenético del Altiplano-Puna.",
-      images: ["/volcanes/san_geronimo_1.jpg"],
+      images: ["/volcanes/volcan-geronimo.jpg"],
     },
   },
   {
     id: "tuzgle",
     name: "Tuzgle",
-    top: "10%",
-    left: "70%",
+    top: "12%",
+    left: "78%",
     info: {
       location: `24°03′26.81″S / 66°28′53.99″O`,
       elevation: "5.486 m s.n.m.",
       type: "Estratovolcán",
       description:
         "Destaca por sus fuentes termales y una antigua mina de azufre, y ha sido estudiado por su alto potencial geotérmico.",
-      images: ["/volcanes/tuzgle_1.jpg"],
+      images: ["/volcanes/Volcan_Tuzgle_Puna.jpg"],
     },
   },
   {
     id: "chimpa",
     name: "Chimpa",
-    top: "5%",
-    left: "85%",
+    top: "10%",
+    left: "93%",
     info: {
       location: `24°01'28.30"S / 66°06'19.42"O`,
       elevation: "4.800 m s.n.m.",
@@ -186,8 +190,8 @@ const volcanoesData = [
   {
     id: "arizaro",
     name: "Arizaro",
-    top: "35%",
-    left: "20%",
+    top: "38%",
+    left: "27%",
     info: {
       location: `24°25'10.40"S / 67°59'5.59"O`,
       elevation: "5.754 m s.n.m.",
@@ -200,8 +204,8 @@ const volcanoesData = [
   {
     id: "negro-de-chorrillos",
     name: "Negro de Chorrillos",
-    top: "25%",
-    left: "80%",
+    top: "30%",
+    left: "84%",
     info: {
       elevation: "5,020 m",
       type: "Volcán",
@@ -213,8 +217,8 @@ const volcanoesData = [
   {
     id: "tultul",
     name: "Tultul",
-    top: "15%",
-    left: "45%",
+    top: "24%",
+    left: "55%",
     info: {
       elevation: "5,200 m",
       type: "Volcán",
