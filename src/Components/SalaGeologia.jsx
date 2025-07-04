@@ -377,8 +377,9 @@ export const SalaGeologia = () => {
       {/* --- FIN DEL CAMBIO --- */}
 
       <p className="sala-contenido-parrafo">
-        La Puna es una región única en el planeta. Nos encontramos a más de
-        4.000 metros sobre el nivel del mar, en un paisaje que parece de otro
+        <strong>La Puna es una región única en el planeta.</strong> 
+        <br />
+        Nos encontramos a más de 4.000 metros sobre el nivel del mar, en un paisaje que parece de otro
         mundo: volcanes, salares, lagunas de colores intensos y un clima tan
         extremo como fascinante.
       </p>

@@ -13,14 +13,14 @@ export const Home = () => {
           {/* Eliminados los atributos data-aos */}
           <h2 className="welcome-text">Bienvenidos al</h2>
           <h1 className="museum-title">Museo Regional Andino</h1>
-          <p className="museum-subtitle">
+          {/* <p className="museum-subtitle">
             El Museo Regional Andino de San Antonio de los Cobres tiene como
             finalidad la conservación y promoción del invaluable patrimonio
             cultural y natural de la Puna. Este revaloriza la identidad local a
             través de exposiciones interactivas y actividades educativas,
             diseñadas para conectar profundamente a los visitantes con la rica
             historia y tradiciones de la comunidad andina.
-          </p>
+          </p> */}
           <div className="button-group">
             {/* <Button
               className="btn-custom btn-outline"
@@ -68,12 +68,12 @@ export const Home = () => {
         <div className="info-content">
           <h3 className="info-title"></h3>
           <p>
-            El Museo Regional Andino de San Antonio de los Cobres se dedica a la
-            conservación y promoción del invaluable patrimonio cultural y
-            natural de la Puna Salteña. Revalorizamos la identidad local a
-            través de exposiciones interactivas y actividades educativas
-            diseñadas para conectar profundamente a nuestros visitantes con la
-            rica historia y tradiciones de nuestra comunidad andina.
+            El Museo Regional Andino de San Antonio de los Cobres tiene como
+            finalidad la conservación y promoción del invaluable patrimonio
+            cultural y natural de la Puna. Este revaloriza la identidad local a
+            través de exposiciones interactivas y actividades educativas,
+            diseñadas para conectar profundamente a los visitantes con la rica
+            historia y tradiciones de la comunidad andina.
           </p>
           <Link to="/sobre-nosotros">
             {/*
