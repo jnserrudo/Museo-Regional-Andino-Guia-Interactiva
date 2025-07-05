@@ -53,7 +53,7 @@ const volcanoesData = [
       description:
         'Significa “agua engañosa”. Es el segundo volcán activo más alto del mundo. En su cima se encuentra el sitio arqueológico más alto del planeta, donde se hallaron los "Niños del Llullaillaco".',
       images: [
-        "/volcan_llullaillaco.png",
+        /* "/volcan_llullaillaco.png", */
         "/volcanes/Volcan_llullaillaco_cara_oeste_christian_vitry_3.jpg",
         "/volcanes/Volcan_llullaillaco_christian_vitry_23-vista_sur.jpg",
       ],
