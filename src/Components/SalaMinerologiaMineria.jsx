@@ -518,11 +518,44 @@ const minerales = [
   // AÑADE ESTOS NUEVOS OBJETOS AL FINAL DE TU ARRAY 'minerales'
 ];
 
+// --- NUEVA FUNCIÓN PARA GENERAR TEXTO DE MINERALES ---
+const generarTextoMinerales = (listaMinerales) => {
+  return listaMinerales.map(mineral => {
+    // Construimos un array de strings con los detalles de cada mineral
+    const detalles = [
+      mineral.nombre,
+      mineral.desc,
+      mineral.tipo ? `Tipo: ${mineral.tipo}` : null,
+      mineral.nombreTecnico ? `Nombre técnico: ${mineral.nombreTecnico}` : null,
+      mineral.origen ? `Origen: ${mineral.origen}` : null,
+      mineral.formulaQuimica ? `Fórmula Química: ${mineral.formulaQuimica}` : null,
+      mineral.clase ? `Clase: ${mineral.clase}` : null,
+      mineral.composicion ? `Composición: ${mineral.composicion}` : null,
+      mineral.composicionQuimica ? `Composición química: ${mineral.composicionQuimica}` : null,
+      mineral.sistemaCristalografico ? `Sistema Cristalografico: ${mineral.sistemaCristalografico}` : null,
+      mineral.caracteristicas ? `Características: ${mineral.caracteristicas}` : null,
+      mineral.caracteristicasCombinadas ? `Características combinadas: ${mineral.caracteristicasCombinadas}` : null,
+      mineral.propiedadDiagnostica ? `Propiedad Diagnóstica: ${mineral.propiedadDiagnostica}` : null,
+      mineral.usos ? `Usos: ${mineral.usos}` : null,
+      mineral.importanciaEconomica ? `Importancia Económica: ${mineral.importanciaEconomica}` : null,
+      mineral.genesis ? `Génesis: ${mineral.genesis}` : null,
+      mineral.etimologia ? `Etimología: ${mineral.etimologia}` : null,
+      mineral.yacimientosPuna ? `Yacimientos en la Puna: ${mineral.yacimientosPuna.join(', ')}` : null,
+      mineral.otros ? `Otros datos: ${mineral.otros}` : null,
+    ];
+
+    // Filtramos los detalles nulos o vacíos y los unimos con un punto y un espacio
+    return detalles.filter(Boolean).join('. ');
+  }).join('\n\n'); // Unimos cada mineral con un doble salto de línea
+};
+
 const salaMinerologiaMineriaText = `
 MINERÍA.
 
 Colección de Minerales y Rocas.
 Acompáñanos a descubrir nuestra colección de minerales y rocas, testigos silenciosos de la riqueza natural de la Puna. Algunos de las rocas y minerales de la colección tienen un código QR: Apuntá con la cámara de tu celular y míralos en realidad aumentada, para poder observarlos en 3D e interactuar para ver sus características más destacadas.
+
+${generarTextoMinerales(minerales)}
 
 Minería: de la tierra a nuestra vida cotidiana.
 Tal vez ya sabés que muchos objetos que usás cada día vienen de minerales. Pero… ¿cómo pasan de estar en una roca a formar parte de tu celular, tus paredes o tu comida? Esta sección de la guía te invita a descubrir cómo se extraen y transforman los minerales: Desde las técnicas más antiguas usadas por las comunidades andinas, hasta los métodos modernos que buscan ser más cuidadosos con el ambiente y las personas.
