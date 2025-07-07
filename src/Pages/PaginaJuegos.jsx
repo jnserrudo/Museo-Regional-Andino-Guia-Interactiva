@@ -19,7 +19,7 @@ export const PaginaJuegos = () => {
           <div className="juego-card-icon">
             <QuestionCircleOutlined />
           </div>
-          <h3 className="juego-card-titulo">🧠 Trivia: ¿Cuánto sabés sobre la Puna?</h3>
+          <h3 className="juego-card-titulo"> Trivia: ¿Cuánto sabés sobre la Puna?</h3>
           <p className="juego-card-descripcion">
             Poné a prueba tus conocimientos y descubrí datos curiosos.
           </p>
@@ -31,7 +31,7 @@ export const PaginaJuegos = () => {
           <div className="juego-card-icon">
             <AppstoreOutlined />
           </div>
-          <h3 className="juego-card-titulo">🧩 Rompecabezas: ¿Podés armarlo?</h3>
+          <h3 className="juego-card-titulo"> Rompecabezas: ¿Podés armarlo?</h3>
           <p className="juego-card-descripcion">
             Observá con atención y completá la imagen.
           </p>

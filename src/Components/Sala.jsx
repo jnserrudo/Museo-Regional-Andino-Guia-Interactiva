@@ -63,7 +63,7 @@ Bienvenidos a este espacio que narra el origen, los conflictos y la consolidaci�
     Bienvenidos a la sala donde la Tierra cuenta su historia más profunda.
 En este espacio, te invitamos a viajar al corazón geológico de la Puna, una región moldeada por la fuerza de los volcanes, el calor oculto de los géiseres y la calma brillante de los salares.
 Aquí vas a descubrir cómo, a lo largo de millones de años, la actividad del planeta dio forma a paisajes extremos y únicos. Cada montaña, cada cristal de sal y cada vapor que emerge del suelo nos habla de un mundo en constante transformación.
-Tocá, Explora y observá: la geología no es solo ciencia, es el relato vivo del origen de la Tierra.
+Explorá y observá: la geología no es solo ciencia, es el relato vivo del origen de la Tierra.
 
     `,
   },
@@ -74,7 +74,7 @@ Tocá, Explora y observá: la geología no es solo ciencia, es el relato vivo de
     La riqueza de la Puna: lo que está en la tierra… y en tu vida.
 En esta sala vas a conocer dos caras de una misma historia.
 Los minerales: verdaderas joyas naturales formadas a lo largo de millones de años. Vas a ver cómo algunos de ellos están presentes en tu vida diaria —en el celular, en las paredes de tu casa, en la sal del almuerzo, en medicamentos, en el brillo de algún cosmético y hasta en algunos adornos —  aquí vas a descubrir las fórmulas químicas y usos de los minerales más destacados de la Puna. 
-Por otro lado, la minería: las técnicas que usamos para extraer esos minerales del suelo. Desde métodos ancestrales hasta tecnologías actuales, conocerás cómo se obtienen, quiénes los trabajan, y cómo se busca hoy equilibrar su explotación con el cuidado del ambiente y de las comunidades locales.
+Por otro lado, la minería: las técnicas que usamos para extraer esos minerales de las rocas. Desde métodos ancestrales hasta tecnologías actuales, conocerás cómo se obtienen, quiénes los trabajan, y cómo se busca hoy equilibrar su explotación con el cuidado del ambiente y de las comunidades locales.
 `,
   },
   biodiversidad: {
@@ -85,7 +85,7 @@ Por otro lado, la minería: las técnicas que usamos para extraer esos minerales
 A más de 3.500 metros sobre el nivel del mar, con aire seco, lluvias escasas, temperaturas bajo cero por la noche y un sol intenso durante el día, la vida enfrenta desafíos constantes.
 Sin embargo, la naturaleza responde con estrategias sorprendentes:
 •	Algunas plantas crecen muy cerca del suelo para protegerse del viento.
-•	Muchos animales cambian de color, migran o modifican sus hábitos para sobrevivir.
+•	Muchos animales migran o modifican sus hábitos para sobrevivir.
 •	Los organismos más pequeños desarrollan defensas especiales frente a la fuerza del sol en altura: algunos se refugian bajo piedras o en grietas del suelo.
 La biodiversidad en la Puna no es abundante, pero cuenta con especies endémicas. Cada especie que vive aquí forma parte de una red moldeada por millones de años de adaptación.
 
@@ -102,15 +102,14 @@ En esta sala vas a conocer quiénes habitaron la Puna, un territorio habitado de
   ramal_c14: {
     title: "SALA DE RAMAL C14",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala del Ramal C14, 
-una de las obras más asombrosas de la ingeniería ferroviaria en América del Sur. Aquí vas a descubrir la historia del tren que desafió la geografía extrema de la Cordillera de los Andes, uniendo Salta con la frontera chilena en Socompa, a más de 3.500 metros sobre el nivel del mar.
+    description: `Bienvenidos a la Sala del Ramal C14 una de las obras más asombrosas de la ingeniería ferroviaria en América del Sur. Aquí vas a descubrir la historia del ferrocarril que desafió la geografía extrema de la Cordillera de los Andes, uniendo Salta con la frontera chilena en Socompa, a más de 3.500 metros sobre el nivel del mar.
 `,
   },
   "san-antonio-hoy": {
     title: "SALA DE SAN ANTONIO HOY",
     image: "imagen_to_salas.webp",
     description: `Una comunidad viva en el corazón de la Puna
-Bienvenidos a San Antonio de los Cobres, capital del departamento Los Andes y una de las localidades más emblemáticas de la Puna argentina. Esta sala te invita a conocer no solo su historia, sino su presente: un territorio que se sostiene entre la memoria ancestral, la vida comunitaria, el trabajo de pastores y mineros, y una cultura viva que sigue latiendo a 3.776 metros de altura.
+Bienvenidos a San Antonio de los Cobres, capital del departamento Los Andes y una de las localidades más emblemáticas de la Puna argentina. Esta sala te invita a conocer la historia y el presente de un territorio que se sostiene entre la memoria ancestral, la vida comunitaria, el trabajo de pastores, artesanos y mineros, y una cultura viva que sigue latiendo a 3.776 metros de altura.
 `,
   },
   historia: {

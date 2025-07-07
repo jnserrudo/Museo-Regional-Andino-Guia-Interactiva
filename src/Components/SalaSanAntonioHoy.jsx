@@ -48,10 +48,10 @@ const salaSanAntonioHoyText = `
 SAN ANTONIO DE LOS COBRES HOY.
 
 Un pueblo con raíces profundas.
-San Antonio de los Cobres se extiende sobre una superficie de más de 11.000 kilómetros cuadrados, y cuenta con una población cercana a los 7.000 habitantes. Su nombre rinde homenaje a San Antonio de Padua, cuya imagen llegó desde la antigua Mina de Cobres en 1775, portada por comunidades Kolla tras la expulsión de los jesuitas. Aquella imagen sagrada aún hoy es venerada durante la tradicional fiesta patronal del 13 de junio, que reúne a toda la comunidad en un encuentro de fe, música, danza y reencuentro familiar.
+San Antonio de los Cobres se extiende sobre una superficie de más de 11.000 kilómetros cuadrados, y cuenta con una población cercana a los 7.000 habitantes. Su nombre rinde homenaje a San Antonio de Padua, cuya imagen llegó desde la antigua Mina de Cobres en 1775, portada por comunidades Kolla tras la expulsión de los jesuitas. Aquella imagen sagrada aún hoy es venerada durante la tradicional fiesta patronal del 13 de junio de cada año y reúne a toda la comunidad en un encuentro de fe, música, danza y reencuentro familiar.
 
 Tejido, herencia y territorio.
-Los telares y vestimentas que ves en esta sala son parte fundamental de la identidad cultural local. El tejido andino —realizado en telares rústicos o de cintura— conserva técnicas milenarias que se transmiten de generación en generación. Cada prenda no solo abriga: también narra historias, representa linajes, festividades, ciclos productivos y creencias.
+Los telares y vestimentas que ves en esta sala son parte fundamental de la identidad cultural local. El tejido andino —realizado en telares rústicos o de cintura— conserva técnicas milenarias que se transmiten de generación en generación. Cada prenda no solo abriga: también narra historias, representa linajes, festividades, ciclos productivos y creencias. Otra técnica muy valiosa es el tejido a mano con cinco agujas que se derivan en prenda de vestir como  guantes, medias y chalecos entre otros.
 Los colores, los motivos y los materiales (como la lana de llama o de oveja) hablan del entorno natural, del calendario agrícola y del mundo simbólico de las comunidades.
 
 Escuela y saberes.
@@ -89,7 +89,7 @@ export const SalaSanAntonioHoy = () => {
       <section className="san-antonio-bloque">
         <h3 className="sala-contenido-subtitulo">Un pueblo con raíces profundas</h3>
         <p className="sala-contenido-parrafo">
-          San Antonio de los Cobres se extiende sobre una superficie de más de 11.000 km², y cuenta con una población cercana a los 7.000 habitantes. Su nombre rinde homenaje a San Antonio de Padua, cuya imagen llegó desde la antigua Mina de Cobres en 1775, portada por comunidades Kolla tras la expulsión de los jesuitas. Aquella imagen sagrada aún hoy es venerada durante la tradicional fiesta patronal del 13 de junio, que reúne a toda la comunidad en un encuentro de fe, música, danza y reencuentro familiar.
+          San Antonio de los Cobres se extiende sobre una superficie de más de 11.000 km², y cuenta con una población cercana a los 7.000 habitantes. Su nombre rinde homenaje a San Antonio de Padua, cuya imagen llegó desde la antigua Mina de Cobres en 1775. Aquella imagen sagrada aún hoy es venerada durante la tradicional fiesta patronal del 13 de junio de cada año y reúne a toda la comunidad en un encuentro de fe, música, danza y reencuentro familiar.
         </p>
       </section>
 
@@ -97,7 +97,7 @@ export const SalaSanAntonioHoy = () => {
       <section className="san-antonio-bloque">
         <h3 className="sala-contenido-subtitulo">Tejido, herencia y territorio</h3>
         <p className="sala-contenido-parrafo">
-          Los telares y vestimentas que ves en esta sala son parte fundamental de la identidad cultural local. El tejido andino —realizado en telares rústicos o de cintura— conserva técnicas milenarias que se transmiten de generación en generación. Cada prenda no solo abriga: también narra historias, representa linajes, festividades, ciclos productivos y creencias.
+          Los telares y vestimentas que ves en esta sala son parte fundamental de la identidad cultural local. El tejido andino —realizado en telares rústicos o de cintura— conserva técnicas milenarias que se transmiten de generación en generación. Cada prenda no solo abriga: también narra historias, representa linajes, festividades, ciclos productivos y creencias. Otra técnica muy valiosa es el tejido a mano con cinco agujas que se derivan en prenda de vestir como  guantes, medias y chalecos entre otros.
         </p>
         <p className="sala-contenido-parrafo">
           Los colores, los motivos y los materiales (como la lana de llama o de oveja) hablan del entorno natural, del calendario agrícola y del mundo simbólico de las comunidades.

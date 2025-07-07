@@ -147,7 +147,7 @@ Los géiseres son muy raros en el planeta. Se necesitan condiciones muy precisas
 ¿Cómo nace un Salar?
 En las vastas alturas de la Puna, donde el cielo es inmenso y la lluvia escasa, la Tierra ha creado paisajes deslumbrantes: planicies blancas y resplandecientes que parecen hechas de hielo, pero están compuestas por sal.
 Estos salares no siempre estuvieron allí. Se formaron a lo largo de miles —incluso millones— de años, cuando una serie de factores muy particulares coincidieron en un mismo lugar: Una depresión natural en el terreno, sin salida hacia el mar
-Volcanes activos, que liberaban minerales, gases y cenizas
+Volcanes activos, que liberan minerales, gases y cenizas
 Aguas termales cargadas de elementos químicos provenientes del interior de la Tierra
 Fragmentos de roca erosionada, polvo y materia volcánica transportados por el viento
 Y sobre todo, un clima extremadamente árido, con mucha evaporación y casi nada de lluvia
@@ -591,7 +591,7 @@ export const SalaGeologia = () => {
         particulares que coincidieron en un mismo lugar:
         <ul>
           <li>Una depresión natural en el terreno, sin salida hacia el mar</li>
-          <li>Volcanes activos, que liberaban minerales, gases y cenizas</li>
+          <li>Volcanes activos, que liberán minerales, gases y cenizas</li>
           <li>
             Aguas termales cargadas de elementos químicos provenientes del
             interior de la Tierra

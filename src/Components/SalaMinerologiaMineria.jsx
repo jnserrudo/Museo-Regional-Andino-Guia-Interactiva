@@ -558,15 +558,15 @@ Acompáñanos a descubrir nuestra colección de minerales y rocas, testigos sile
 ${generarTextoMinerales(minerales)}
 
 Minería: de la tierra a nuestra vida cotidiana.
-Tal vez ya sabés que muchos objetos que usás cada día vienen de minerales. Pero… ¿cómo pasan de estar en una roca a formar parte de tu celular, tus paredes o tu comida? Esta sección de la guía te invita a descubrir cómo se extraen y transforman los minerales: Desde las técnicas más antiguas usadas por las comunidades andinas, hasta los métodos modernos que buscan ser más cuidadosos con el ambiente y las personas.
+Tal vez ya sabés que muchos objetos que usás cada día se fabrican con minerales. Pero… ¿cómo pasan de estar en una roca a formar parte de tu celular, tus paredes o tu comida? Esta sección de la guía te invita a descubrir cómo se extraen y transforman los minerales: Desde las técnicas más antiguas usadas por las comunidades andinas, hasta los métodos modernos que buscan ser más cuidadosos con el ambiente y las personas.
 
 Los primeros pasos de la minería.
-La minería nació con el ser humano. En los Andes, las culturas originarias ya extraían minerales como la obsidiana, el cobre o la sal, que usaban para fabricar herramientas, como objetos ceremoniales, para pintar cuevas con pigmentos naturales o como elementos de intercambio. Hoy, la Puna sigue siendo clave: el litio que se encuentra bajo los salares permite fabricar baterías para celulares, computadoras y autos eléctricos en todo el mundo. Uno de los objetos que utilizaban antiguamente es la lámpara a carburo, que podés ver en esta sala.
+La minería nació con el ser humano. En los Andes, las culturas originarias ya extraían minerales como la obsidiana, el cobre o la sal, que usaban para fabricar herramientas, realizar objetos ceremoniales, pintar cuevas con pigmentos naturales o como elementos de intercambio. Hoy, la Puna sigue siendo clave en el ámbito de la minería, el litio que se encuentra bajo los salares permite fabricar baterías para celulares, computadoras y autos eléctricos en todo el mundo. Uno de los objetos que utilizaban antiguamente es la lámpara a carburo, que podés ver en esta sala.
 ¿Cómo funcionaba?
 Tenía un compartimento superior con agua y uno inferior con carburo de calcio. Al mezclarse, generaban gas acetileno, que se encendía y ofrecía una llama estable y duradera. Era indispensable para los mineros que trabajaban en galerías profundas sin electricidad. Esta lámpara no solo iluminaba el camino: también mostraba cuán ingenioso debía ser el trabajo minero antes de la tecnología moderna.
 
 Explorá los testigos de perforación – la memoria del subsuelo.
-En esta sala también puedes se exhiben cortes cilíndricos—o “testigos”—que representan muestras directas del subsuelo de la Puna. Cada uno refleja procesos geológicos específicos, útiles tanto para la minería como para la investigación científica.
+En esta sala también se exhiben cortes cilíndricos—o “testigos”—que representan muestras directas del subsuelo de la Puna. Cada uno refleja procesos geológicos específicos, útiles tanto para la minería como para la investigación científica.
 A continuación, puedes observar en detalle algunos de los testigos geológicos más representativos de la colección.
 
 Brecha hidrotermal (testigo 3-4): Puedes observar fragmentos angulares de roca unidos por cuarzo relleno, con vetas de alunita y jarosita. Esto indica zonas donde circuló agua caliente (150–350 °C), creando depósitos minerales.
@@ -887,11 +887,11 @@ export const SalaMinerologiaMineria = () => {
         Minería: de la tierra a nuestra vida cotidiana
       </h2>
       <p className="sala-minerologia-intro">
-        Tal vez ya sabés que muchos objetos que usás cada día vienen de
+        Tal vez ya sabés que muchos objetos que usás cada día se fabrican con
         minerales. Pero… ¿cómo pasan de estar en una roca a formar parte de tu
         celular, tus paredes o tu comida? Esta sección de la guía te invita a
-        descubrir <strong> cómo se extraen y transforman los minerales:</strong>
-        Desde las técnicas más antiguas usadas por las comunidades andinas,
+        descubrir <strong> cómo se extraen y transforman los minerales: </strong>
+         desde las técnicas más antiguas usadas por las comunidades andinas,
         hasta los métodos modernos que buscan ser más cuidadosos con el ambiente
         y las personas.
       </p>
@@ -901,13 +901,32 @@ export const SalaMinerologiaMineria = () => {
       <p className="sala-minerologia-intro">
         La minería nació con el ser humano. En los Andes, las culturas
         originarias ya extraían minerales como la obsidiana, el cobre o la sal,
-        que usaban para fabricar herramientas, como objetos ceremoniales, para
-        pintar cuevas con pigmentos naturales o como elementos de intercambio.
+        que usaban para fabricar herramientas, realizar objetos ceremoniales,
+         pintar cuevas con pigmentos naturales o como elementos de intercambio.
         <br />
-        Hoy, la Puna sigue siendo clave: el litio que se encuentra bajo los
+        Hoy, la Puna sigue siendo clave en el ambito de la minería, el litio que se encuentra bajo los
         salares permite fabricar baterías para celulares, computadoras y autos
         eléctricos en todo el mundo. Uno de los objetos que utilizaban
         antiguamente es la lámpara a carburo, que podés ver en esta sala.
+      </p>
+      
+      <h2 className="sala-minerologia-subtitulo">
+        Uno de los objetos que podes ver en esta sala que utilizaban antiguamente es la lámpara carburo
+      </h2>
+      <p className="titulo-imagen"><strong>Lámpara Carburo</strong></p>
+      <img
+        src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
+        alt="Paisaje de Salar en la Puna"
+        className="imagen-testigo lampara-recortada"
+      />
+      <p className="sala-minerologia-intro">
+        <strong> ¿Cómo funcionaba? </strong>
+        Tenía un compartimento superior con agua y uno inferior con carburo de
+        calcio. Al mezclarse, generaban gas acetileno, que se encendía y ofrecía
+        una llama estable y duradera. Era indispensable para los mineros que
+        trabajaban en galerías profundas sin electricidad. Esta lámpara no solo
+        iluminaba el camino: también mostraba cuán ingenioso debía ser el
+        trabajo minero antes de la tecnología moderna.
       </p>
       <div className="botones-sala-minerologia">
         <a
@@ -939,26 +958,11 @@ export const SalaMinerologiaMineria = () => {
           </Button>
         </a>
       </div>
-      <p className="titulo-imagen"><strong>Lámpara Carburo</strong></p>
-      <img
-        src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
-        alt="Paisaje de Salar en la Puna"
-        className="imagen-testigo lampara-recortada"
-      />
-      <p className="sala-minerologia-intro">
-        <strong> ¿Cómo funcionaba? </strong>
-        Tenía un compartimento superior con agua y uno inferior con carburo de
-        calcio. Al mezclarse, generaban gas acetileno, que se encendía y ofrecía
-        una llama estable y duradera. Era indispensable para los mineros que
-        trabajaban en galerías profundas sin electricidad. Esta lámpara no solo
-        iluminaba el camino: también mostraba cuán ingenioso debía ser el
-        trabajo minero antes de la tecnología moderna.
-      </p>
       <h2 className="sala-minerologia-subtitulo">
         Explorá los testigos de perforación – la memoria del subsuelo
       </h2>
       <p className="sala-minerologia-intro">
-        En esta sala también puedes se exhiben cortes cilíndricos—o
+        En esta sala también se exhiben cortes cilíndricos—o
         “testigos”—que representan muestras directas del subsuelo de la Puna.
         Cada uno refleja procesos geológicos específicos, útiles tanto para la
         minería como para la investigación científica.
@@ -1098,7 +1102,7 @@ export const SalaMinerologiaMineria = () => {
         agricultura, vidrio). La muestra que puedes observar en la sala incluye
         ulexita natural, bórax, y ácido bórico (grado técnico).
       </p>
-      {(() => {
+      {/* {(() => {
         // --- Estructura de datos para la colección de Boratos ---
         const boratosCollection = [
           {
@@ -1160,7 +1164,7 @@ export const SalaMinerologiaMineria = () => {
             </div>
           </section>
         );
-      })()}
+      })()} */}
     </div>
   );
 };

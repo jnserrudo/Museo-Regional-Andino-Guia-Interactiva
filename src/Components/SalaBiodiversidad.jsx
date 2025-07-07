@@ -74,7 +74,7 @@ Y su sangre contiene glóbulos rojos especiales que aprovechan al máximo el poc
 Vivir en altura es difícil. Pero la vicuña lo hace con elegancia.
 
 Pequeños mamíferos, grandes especialistas.
-En los cerros y roquedales, muchas especies se ocultan de la vista. Los roedores como el chinchillón, la chinchilla real o la rata chinchilla son los más comunes, y dan alimento a pequeños carnívoros como:
+En los cerros y roquedales, muchas especies se ocultan de la vista. Los roedores como el chinchillón, la chinchilla real o la rata chinchilla son los más comunes
 El zorro colorado, el gato de los pajonales, el hurón, y el zorrino real.
 Aunque discretos, todos juegan un rol clave en el equilibrio del ecosistema.
 
@@ -156,7 +156,11 @@ export const SalaBiodiversidad = () => {
       Por eso predominan los arbustos bajos, como la <strong>Tola</strong> y la <strong>Tolilla</strong>
       </p>
 
+
       <div className="imagen-destacada-container">
+        <p className="sala-contenido-parrafo">
+          <strong>Tola</strong>
+        </p>
         <img src={import.meta.env.BASE_URL + "Tola.jpg"} alt="Planta de Tola en la Puna" className="imagen-destacada" />
       </div>
 {/* 
@@ -188,7 +192,7 @@ export const SalaBiodiversidad = () => {
 
       <h3 className="sala-contenido-subtitulo">Pequeños mamíferos, grandes especialistas</h3>
       <p className="sala-contenido-parrafo">
-        En los cerros y roquedales, muchas especies se ocultan de la vista. Los roedores como el <strong>chinchillón</strong>, la <strong>chinchilla real</strong> o la <strong>rata chinchilla</strong> son los más comunes, y dan alimento a pequeños carnívoros como:
+        En los cerros y roquedales, muchas especies se ocultan de la vista. Los roedores como el <strong>chinchillón</strong>, la <strong>chinchilla real</strong> o la <strong>rata chinchilla</strong> son los más comunes
       </p>
       <ul className="sala-contenido-lista">
           <li>El zorro colorado,</li>

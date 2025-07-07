@@ -56,7 +56,7 @@ export const DespedidaGuia = () => {
               className="sala-contenido-boton"
               /* icon={<ExperimentOutlined />} */
             >
-              🧠 Trivia: ¿Cuánto sabés sobre la Puna? Poné a prueba tus
+               Trivia: ¿Cuánto sabés sobre la Puna? Poné a prueba tus
               conocimientos y descubrí datos curiosos.
             </Button>
           </Link>
@@ -69,14 +69,14 @@ export const DespedidaGuia = () => {
               className="sala-contenido-boton"
               /* icon={<ExperimentOutlined />} */
             >
-              🧩 Rompecabezas: ¿Podés armarlo? Observá con atención y completá
+               Rompecabezas: ¿Podés armarlo? Observá con atención y completá
               la imagen.
             </Button>
           </Link>
         </div>
 
         <h4 className="sala-contenido-subtitulo-menor">
-          🗣️ ¿Querés contarnos qué te pareció?
+           ¿Querés contarnos qué te pareció?
         </h4>
         <p className="sala-contenido-parrafo">
           Dejanos tus comentarios y respondé una mini encuesta. ¡Tu opinión nos
