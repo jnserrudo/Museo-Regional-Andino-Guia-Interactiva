@@ -910,10 +910,7 @@ export const SalaMinerologiaMineria = () => {
         antiguamente es la lámpara a carburo, que podés ver en esta sala.
       </p>
       
-      <h2 className="sala-minerologia-subtitulo">
-        Uno de los objetos que podes ver en esta sala que utilizaban antiguamente es la lámpara carburo
-      </h2>
-      <p className="titulo-imagen"><strong>Lámpara Carburo</strong></p>
+      <p className="titulo-imagen"><strong>Uno de los objetos que podes ver en esta sala que utilizaban antiguamente es la Lámpara a Carburo</strong></p>
       <img
         src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
         alt="Paisaje de Salar en la Puna"
@@ -954,7 +951,7 @@ export const SalaMinerologiaMineria = () => {
             className="sala-contenido-boton"
             icon={<ExperimentOutlined />}
           >
-            Conocé una de las formas de extracción de litio
+            Explorá una planta de Litio
           </Button>
         </a>
       </div>
