@@ -561,7 +561,7 @@ Minería: de la tierra a nuestra vida cotidiana.
 Tal vez ya sabés que muchos objetos que usás cada día se fabrican con minerales. Pero… ¿cómo pasan de estar en una roca a formar parte de tu celular, tus paredes o tu comida? Esta sección de la guía te invita a descubrir cómo se extraen y transforman los minerales: Desde las técnicas más antiguas usadas por las comunidades andinas, hasta los métodos modernos que buscan ser más cuidadosos con el ambiente y las personas.
 
 Los primeros pasos de la minería.
-La minería nació con el ser humano. En los Andes, las culturas originarias ya extraían minerales como la obsidiana, el cobre o la sal, que usaban para fabricar herramientas, realizar objetos ceremoniales, pintar cuevas con pigmentos naturales o como elementos de intercambio. Hoy, la Puna sigue siendo clave en el ámbito de la minería, el litio que se encuentra bajo los salares permite fabricar baterías para celulares, computadoras y autos eléctricos en todo el mundo. Uno de los objetos que utilizaban antiguamente es la lámpara a carburo, que podés ver en esta sala.
+La minería nació con el ser humano. En los Andes, las culturas originarias ya extraían minerales como obsidiana, cobre o sal, que usaban para fabricar herramientas, realizar objetos ceremoniales, pintar cuevas con pigmentos naturales o como elementos de intercambio. Hoy, la Puna sigue siendo clave en el ámbito de la minería, el litio que se encuentra bajo los salares permite fabricar baterías para celulares, computadoras y autos eléctricos en todo el mundo. Uno de los objetos que utilizaban antiguamente es la lámpara a carburo, que podés ver en esta sala.
 ¿Cómo funcionaba?
 Tenía un compartimento superior con agua y uno inferior con carburo de calcio. Al mezclarse, generaban gas acetileno, que se encendía y ofrecía una llama estable y duradera. Era indispensable para los mineros que trabajaban en galerías profundas sin electricidad. Esta lámpara no solo iluminaba el camino: también mostraba cuán ingenioso debía ser el trabajo minero antes de la tecnología moderna.
 
@@ -661,19 +661,22 @@ export const SalaMinerologiaMineria = () => {
         {/* Título estilizado por CSS */}
         MINERÍA
       </h1>
-
+ 
       <section className="seccion-minerales">
         <h2 className="sala-contenido-subtitulo">
           Colección de Minerales y Rocas
         </h2>
         <p className="sala-contenido-parrafo">
-          Acompáñanos a descubrir nuestra colección de minerales y rocas,
-          testigos silenciosos de la riqueza natural de la Puna. Algunos de las
-          rocas y minerales de la colección tienen un código QR:{" "}
+          Te Acompáñamos a descubrir nuestra colección de minerales y rocas,
+          testigos silenciosos de la riqueza natural de la Puna.
+        </p>
+        <p className="sala-contenido-parrafo">
+          Algunas de las rocas y minerales de la colección tienen un código QR:
+          <br />
           <strong>
             Apuntá con la cámara de tu celular y míralos en realidad aumentada,
             para poder observarlos en 3D
-          </strong>{" "}
+          </strong>
           e interactuar para ver sus características más destacadas.
         </p>
 
@@ -900,7 +903,7 @@ export const SalaMinerologiaMineria = () => {
       </h2>
       <p className="sala-minerologia-intro">
         La minería nació con el ser humano. En los Andes, las culturas
-        originarias ya extraían minerales como la obsidiana, el cobre o la sal,
+        originarias ya extraían minerales como obsidiana, cobre o sal,
         que usaban para fabricar herramientas, realizar objetos ceremoniales,
          pintar cuevas con pigmentos naturales o como elementos de intercambio.
         <br />
@@ -910,7 +913,7 @@ export const SalaMinerologiaMineria = () => {
         antiguamente es la lámpara a carburo, que podés ver en esta sala.
       </p>
       
-      <p className="titulo-imagen"><strong>Uno de los objetos que podes ver en esta sala que utilizaban antiguamente es la Lámpara a Carburo</strong></p>
+      <p className="titulo-imagen">Uno de los objetos que podes ver en esta sala que utilizaban antiguamente es la Lámpara a Carburo</p>
       <img
         src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
         alt="Paisaje de Salar en la Puna"
@@ -921,7 +924,7 @@ export const SalaMinerologiaMineria = () => {
         Tenía un compartimento superior con agua y uno inferior con carburo de
         calcio. Al mezclarse, generaban gas acetileno, que se encendía y ofrecía
         una llama estable y duradera. Era indispensable para los mineros que
-        trabajaban en galerías profundas sin electricidad. Esta lámpara no solo
+        trabajaban en galerías profundas sin electricidad. Esta lámpara no sólo
         iluminaba el camino: también mostraba cuán ingenioso debía ser el
         trabajo minero antes de la tecnología moderna.
       </p>

@@ -209,7 +209,7 @@ export const SalaArqueologia = () => {
             con letras, sino con piedras, cerámicas, senderos y rituales. Hoy,
             esos rastros nos permiten conocer cómo fueron sus vidas, su entorno,
             y su legado. Su sabiduría sigue presente en las formas de habitar,
-            de criar llamas, de rendir culto a la Pachamama.
+            de criar llamas, de rendir culto a la Pachamama (Madre Tierra).
           </p>
         </section>
       </section>

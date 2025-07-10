@@ -129,7 +129,7 @@ Suelos mineralizados: el agua caliente que circula bajo tierra disuelve minerale
 Bajo la superficie terrestre, a varios kilómetros de profundidad, ocurren procesos silenciosos pero poderosos. Cuando la presión disminuye bruscamente en las capas internas de la Tierra, las temperaturas suben tanto que las rocas comienzan a fundirse. Así se forma el magma, una mezcla incandescente de minerales derretidos.
 Este magma busca salir. A medida que asciende, se abre paso entre las fracturas de la corteza terrestre y cristaliza nuevos minerales. Cuando finalmente encuentra una salida, erupciona violentamente o se derrama suavemente, dependiendo de su composición.
 Con cada erupción, el volcán crece: se acumulan capas de lava, cenizas, escoria y gases solidificados. Esas capas forman poco a poco lo que llamamos el "edificio volcánico", cuya forma varía según el tipo de magma y la intensidad de la actividad.
-En la región de la Puna, los volcanes no solo moldean el paisaje: también son el origen de muchos de los minerales valiosos que encontramos en esta zona, como el azufre, el litio y el oro. La energía del interior de la Tierra se transforma, aquí, en una fuente de riqueza natural.
+En la región de la Puna, los volcanes no solo moldean el paisaje: también son el origen de muchos de los minerales valiosos que encontramos en esta zona, como azufre, litio y oro. La energía del interior de la Tierra se transforma, aquí, en una fuente de riqueza natural.
 
 ¿Sabías qué...?
 Algunos volcanes de la Puna estuvieron activos hace miles o millones de años, pero sus huellas aún se conservan en cráteres, conos y flujos de lava fosilizados. Hoy, muchos de esos antiguos volcanes son claves para entender la formación de los salares y depósitos minerales de la región.
@@ -476,7 +476,7 @@ export const SalaGeologia = () => {
       <p className="sala-contenido-parrafo">
         En la región de la Puna, los volcanes no solo moldean el paisaje:
         también son el origen de muchos de los minerales valiosos que
-        encontramos en esta zona, como el azufre, el litio y el oro. La energía
+        encontramos en esta zona, como azufre, litio y oro. La energía
         del interior de la Tierra se transforma, aquí, en una fuente de riqueza
         natural.
       </p>
@@ -591,7 +591,7 @@ export const SalaGeologia = () => {
         particulares que coincidieron en un mismo lugar:
         <ul>
           <li>Una depresión natural en el terreno, sin salida hacia el mar</li>
-          <li>Volcanes activos, que liberán minerales, gases y cenizas</li>
+          <li>Volcanes activos, que liberan minerales, gases y cenizas</li>
           <li>
             Aguas termales cargadas de elementos químicos provenientes del
             interior de la Tierra
@@ -654,11 +654,10 @@ export const SalaGeologia = () => {
       </p>
       <ul className="sala-contenido-lista">
         <li>
-          <strong>¿Una corona blanca sobre la cima?</strong> Puede nevar.
+          <strong>¿Una corona blanca sobre la cima?</strong> <em>Puede nevar.</em>
         </li>
         <li>
-          <strong>¿Nubes que se aferran a la ladera?</strong> Se aproxima
-          humedad.
+          <strong>¿Nubes que se aferran a la ladera?</strong> <em>Se aproxima humedad.</em>
         </li>
       </ul>
       <p className="sala-contenido-parrafo">

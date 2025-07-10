@@ -19,7 +19,7 @@ Los jesuitas se destacaron por su acción en regiones como la Puna andina, donde
 
 De las Provincias Unidas a la República Argentina.
 Tras el proceso independentista iniciado en 1810, las Provincias Unidas del Río de la Plata comenzaron a organizarse como entidades autónomas. Entre 1813 y 1834, se consolidaron catorce provincias, cada una con su propia constitución. A pesar de esa autonomía, mantenían un débil vínculo confederal.
-La sanción de la Constitución Nacional en 1853 fue clave para organizar políticamente el país. En 1862, con la incorporación de Buenos Aires, se formó oficialmente la República Argentina, integrada por catorce provincias bajo un marco común.
+La sanción de la Constitución Nacional en 1853 fue clave para organizar políticamente el país. En 1862, con la incorporación de Buenos Aires, se formó oficialmente la República Argentina, integradas las provincias bajo un marco común.
 
 Territorios Nacionales y expansión del Estado.
 A fines del siglo XIX, el gobierno nacional impulsó una política de expansión territorial. En 1884 se crearon los Territorios Nacionales, zonas aún no organizadas como provincias, que fueron divididas en gobernaciones: Chaco, Formosa, Pampa, Chubut, entre otras.
@@ -65,7 +65,7 @@ export const SalaHistoria = () => {
           Tras el proceso independentista iniciado en 1810, las Provincias Unidas del Río de la Plata comenzaron a organizarse como entidades autónomas. Entre 1813 y 1834, se consolidaron catorce provincias, cada una con su propia constitución. A pesar de esa autonomía, mantenían un débil vínculo confederal.
         </p>
         <p className="sala-contenido-parrafo">
-          La sanción de la Constitución Nacional en 1853 fue clave para organizar políticamente el país. En 1862, con la incorporación de Buenos Aires, se formó oficialmente la República Argentina, integrada por catorce provincias bajo un marco común.
+          La sanción de la Constitución Nacional en 1853 fue clave para organizar políticamente el país. En 1862, con la incorporación de Buenos Aires, se formó oficialmente la República Argentina, integradas las provincias bajo un marco común.
         </p>
       </section>
 

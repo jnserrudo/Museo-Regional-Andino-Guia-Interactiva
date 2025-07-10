@@ -82,8 +82,10 @@
   /* Título que va sobre el carrusel */
   .gallery-title {
     text-align: center;
-    font-weight: 500;
-    color: var(--text-muted);
+    font-style: italic;
+    
+    /* 
+    color: var(--text-muted); */
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
   }

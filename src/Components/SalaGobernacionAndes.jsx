@@ -62,7 +62,7 @@ Este informe no solo permitió avanzar en políticas de ocupación y administrac
 Ciencia y territorio: Ambrosetti, Boman y otros exploradores.
 En paralelo con la labor política y administrativa, la Gobernación impulsó o facilitó expediciones científicas pioneras, que fueron fundamentales para la historia de la arqueología, la geología y la etnografía argentina.
 Entre ellas se destacan:
-Juan Ambrosetti (1904–1905): considerado el “padre de la arqueología argentina”, recorrió la región registrando sitios arqueológicos, cerámicas, tumbas y geoglifos, muchos de ellos hoy considerados patrimonio.
+Juan Ambrosetti (1904–1905): considerado el “padre de la arqueología argentina”, recorrió la región registrando sitios arqueológicos, cerámicas, tumbas y geoglifos, muchos de ellos hoy considerados como patrimonio.
 Eric Boman (1910): etnógrafo y arqueólogo sueco-argentino, realizó estudios sistemáticos sobre pueblos originarios, asentamientos y rutas prehispánicas.
 Sus investigaciones fueron pioneras en mostrar que esta región no era “vacía” ni marginal, sino que tenía una larga historia cultural y estaba profundamente integrada al mundo andino.
 
@@ -127,7 +127,7 @@ export const SalaGobernacionAndes = () => {
           </figure>
         </div>
         <p className="sala-contenido-parrafo">
-          Este informe no solo permitió avanzar en políticas de ocupación y
+          Este informe no sólo permitió avanzar en políticas de ocupación y
           administración, sino que llamó la atención sobre el valor económico de
           los recursos naturales, en especial los boratos, el litio y el cobre.
         </p>
@@ -149,7 +149,7 @@ export const SalaGobernacionAndes = () => {
             <strong>Juan Ambrosetti (1904–1905):</strong> considerado el “padre
             de la arqueología argentina”, recorrió la región registrando sitios
             arqueológicos, cerámicas, tumbas y geoglifos, muchos de ellos hoy
-            considerados patrimonio.
+            considerados como patrimonio.
           </li>
           <li>
             <strong>Eric Boman (1910):</strong> etnógrafo y arqueólogo

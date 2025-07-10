@@ -948,5 +948,6 @@ gap: 2rem; /* Mantener o ajustar gap */
 .titulo-imagen{
   margin-top: 3rem;
     text-align: center !important;
-    font-weight: bold;
+    font-style: italic;
+    
 }

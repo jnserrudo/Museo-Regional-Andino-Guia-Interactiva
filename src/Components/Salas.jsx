@@ -31,7 +31,7 @@ const data = [
   {
     title: "TERRITORIO DE LOS ANDES",
     //image: "gobernacion_de_los_andes.jfif",
-    image: "san_antonio_cobres.jfif",
+    image: "territorio_andes_tarjeta.JPG",
     path: "territorio_de_los_andes",
     icon: "🏛️",
   },

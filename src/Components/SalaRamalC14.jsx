@@ -187,7 +187,7 @@ Así lo expresaba Eduardo Holmberg (hijo) a comienzos del siglo XX:
 "Hay que enviar geólogos que descifren los secretos de la montaña, en cuyo seno hay escondidos filones preciosos; y hay que llevar una vía férrea hasta las mismas salidas de las punas, para que la exportación de la materia prima sea posible."
 
 Del progreso al turismo: El Tren a las Nubes.
-A fines del siglo XX, parte del trazado original del Ramal C14 se convirtió en uno de los viajes turísticos más famosos del país: el Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de la Puna salteña, es una experiencia única que combina historia, ingeniería y naturaleza.
+A fines del siglo XX, parte del trazado original del Ramal C14 se convirtió en uno de los viajes turísticos más famosos del país: el Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de la Puna salteña, es una experiencia única que combina naturaleza, ingeniería e historia.
 Este tren se ha consolidado como una oferta turística internacional, manteniendo viva la memoria de una obra que transformó el paisaje y la vida en los Andes.
 `;
 
@@ -254,7 +254,7 @@ export const SalaRamalC14 = () => {
       {/* --- Segundo Bloque: Hitos históricos --- */}
       <section className="ramal-bloque">
         <h3 className="sala-contenido-subtitulo">
-          Una Historia de Decisiones, Cambios y Visión de Futuro
+          Una historia de decisiones, cambios y visión de futuro
         </h3>
         <ul className="sala-contenido-lista">
           <li>
@@ -329,14 +329,13 @@ export const SalaRamalC14 = () => {
       {/* --- Cuarto Bloque: El Tren a las Nubes --- */}
       <section className="ramal-bloque">
         <h3 className="sala-contenido-subtitulo">
-          Del progreso al turismo: El Tren a las Nubes
+        Se sumó al desarrollo, el turismo: Nace El tren a las nubes
         </h3>
         <p className="sala-contenido-parrafo">
           A fines del siglo XX, parte del trazado original del Ramal C14 se
           convirtió en uno de los viajes turísticos más famosos del país: el
           Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de
-          la Puna salteña, es una experiencia única que combina historia,
-          ingeniería y naturaleza.
+          la Puna salteña, es una experiencia única que combina naturaleza, ingeniería e historia.
         </p>
         <p className="sala-contenido-parrafo">
           Este tren se ha consolidado como una oferta turística internacional,

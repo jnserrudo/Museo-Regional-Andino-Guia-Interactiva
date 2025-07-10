@@ -46,14 +46,13 @@ const salasData = {
     title: "SALA DE GOBERNACIÓN DE LOS ANDES",
     image: "imagen_to_salas.webp",
     description: `Una historia de exploración, conocimiento y transformación del territorio.
-Bienvenidos a esta sala que recorre el proceso de organización y conocimiento del Territorio Nacional de Los Andes, a partir de su administración estatal. Aquí vas a conocer a sus protagonistas, las primeras investigaciones científicas y cómo esta región tan particular fue integrada al país.
-`,
+Bienvenidos a recorrer el proceso de organización y conocimiento del Territorio Nacional de Los Andes, a partir de su administración estatal, vas a conocer a sus protagonistas, las primeras investigaciones científicas y cómo esta región tan particular fue integrada al país.`,
   },
   territorio_de_los_andes: {
     title: "SALA DE TERRITORIO DE LOS ANDES",
     image: "imagen_to_salas.webp",
     description: `Un territorio en disputa, una historia de integración nacional.
-Bienvenidos a este espacio que narra el origen, los conflictos y la consolidación del Territorio Nacional de Los Andes, una región estratégica y cargada de historia en el corazón de la Puna argentina.
+Bienvenidos a este espacio que narra el origen, los conflictos y la consolidación de los Andes, una región estratégica y cargada de historia en el corazón de la Puna argentina.
 `,
   },
   geologia: {
@@ -73,8 +72,8 @@ Explorá y observá: la geología no es solo ciencia, es el relato vivo del orig
     description: `
     La riqueza de la Puna: lo que está en la tierra… y en tu vida.
 En esta sala vas a conocer dos caras de una misma historia.
-Los minerales: verdaderas joyas naturales formadas a lo largo de millones de años. Vas a ver cómo algunos de ellos están presentes en tu vida diaria —en el celular, en las paredes de tu casa, en la sal del almuerzo, en medicamentos, en el brillo de algún cosmético y hasta en algunos adornos —  aquí vas a descubrir las fórmulas químicas y usos de los minerales más destacados de la Puna. 
-Por otro lado, la minería: las técnicas que usamos para extraer esos minerales de las rocas. Desde métodos ancestrales hasta tecnologías actuales, conocerás cómo se obtienen, quiénes los trabajan, y cómo se busca hoy equilibrar su explotación con el cuidado del ambiente y de las comunidades locales.
+Los minerales: verdaderas joyas naturales formadas a lo largo de millones de años. Algunos de ellos están presentes en tu vida diaria —en el celular, en las paredes de tu casa, en la sal del almuerzo, en medicamentos, en el brillo de algún cosmético y hasta en algunos adornos —  aquí vas a descubrir las fórmulas químicas y usos de los minerales más destacados de la Puna. 
+Por otro lado, la minería: las técnicas que se usan para extraer estos minerales de las rocas. Desde métodos ancestrales hasta tecnologías actuales, conocerás cómo se obtienen, quiénes los trabajan, y cómo se busca hoy equilibrar su explotación con el cuidado del ambiente y de las comunidades locales.
 `,
   },
   biodiversidad: {
@@ -95,22 +94,19 @@ La biodiversidad en la Puna no es abundante, pero cuenta con especies endémicas
   arqueologia: {
     title: "SALA DE ARQUEOLOGÍA",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Historia de la Puna Andina
-En esta sala vas a conocer quiénes habitaron la Puna, un territorio habitado desde hace miles de años. Conocerás cómo las personas se adaptaron a un entorno desafiante, desarrollaron formas de vida basadas en la caza, el pastoreo, la agricultura y el intercambio, y cómo fueron construyendo conocimientos, creencias y tecnologías que aún hoy nos sorprenden.
-`,
+    description: `Bienvenidos a la Sala de Arqueología
+Te invitamos ahora a sumergirse rápidamente en el tiempo para  conocer a los antiguos habitantes   de la Puna, un territorio habitado desde hace miles de años. Estas personas se adaptaron a un entorno desafiante, desarrollaron formas de vida basadas en la caza, el pastoreo, la agricultura y el intercambio, y fueron construyendo conocimientos, creencias y tecnologías que aún hoy nos sorprenden. Vamos, entra a conocerlos!`,
   },
   ramal_c14: {
     title: "SALA DE RAMAL C14",
     image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala del Ramal C14 una de las obras más asombrosas de la ingeniería ferroviaria en América del Sur. Aquí vas a descubrir la historia del ferrocarril que desafió la geografía extrema de la Cordillera de los Andes, uniendo Salta con la frontera chilena en Socompa, a más de 3.500 metros sobre el nivel del mar.
+    description: `Bienvenidos a conocer una de las obras más asombrosas de la ingeniería ferroviaria en América del Sur. Aquí vas a descubrir la historia del ferrocarril que desafió la geografía extrema de la Cordillera de los Andes, uniendo Salta con la frontera chilena en Socompa, a más de 3.500 metros sobre el nivel del mar.
 `,
   },
   "san-antonio-hoy": {
     title: "SALA DE SAN ANTONIO HOY",
     image: "imagen_to_salas.webp",
-    description: `Una comunidad viva en el corazón de la Puna
-Bienvenidos a San Antonio de los Cobres, capital del departamento Los Andes y una de las localidades más emblemáticas de la Puna argentina. Esta sala te invita a conocer la historia y el presente de un territorio que se sostiene entre la memoria ancestral, la vida comunitaria, el trabajo de pastores, artesanos y mineros, y una cultura viva que sigue latiendo a 3.776 metros de altura.
-`,
+    description: `San Antonio de los Cobres, capital del departamento de los Andes y una de las localidades más emblemáticas de la Puna argentina. Un territorio que se sostiene entre la memoria ancestral, la vida comunitaria, el trabajo de pastores, artesanos  y mineros, y una cultura viva que sigue latiendo a 3.776 metros de altura.`,
   },
   historia: {
     title: "SALA DE HISTORIA",

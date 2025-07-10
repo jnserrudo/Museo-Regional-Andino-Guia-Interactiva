@@ -59,7 +59,7 @@ La vegetación en la Puna está perfectamente adaptada:
 Crecen separadas unas de otras para no competir por el agua.
 Reducen sus hojas a espinas o formas pequeñas para evitar la evaporación.
 Muchas se arrastran pegadas al suelo, como la yareta, para protegerse del viento.
-Otras, como los cardones, almacenan agua en sus tallos; y algunas, como la papa silvestre, lo hacen bajo tierra en estructuras como rizomas o tubérculos.
+
 Por eso predominan los arbustos bajos, como la Tola y la Tolilla.
 
 El Árbol de las Alturas.
@@ -148,7 +148,7 @@ export const SalaBiodiversidad = () => {
         <li>Crecen separadas unas de otras para no competir por el agua.</li>
         <li>Reducen sus hojas a espinas o formas pequeñas para evitar la evaporación.</li>
         <li>Muchas se arrastran pegadas al suelo, como la yareta, para protegerse del viento.</li>
-        <li>Otras, como los cardones, almacenan agua en sus tallos; y algunas, como la papa silvestre, lo hacen bajo tierra en estructuras como rizomas o tubérculos.</li>
+        {/* <li>Otras, como los cardones, almacenan agua en sus tallos; y algunas, como la papa silvestre, lo hacen bajo tierra en estructuras como rizomas o tubérculos.</li> */}
       </ul>
       <CarouselGallery images={galeriaIntroduccion} title="Especies en la Puna" />
 
@@ -158,8 +158,8 @@ export const SalaBiodiversidad = () => {
 
 
       <div className="imagen-destacada-container">
-        <p className="sala-contenido-parrafo">
-          <strong>Tola</strong>
+        <p className="sala-contenido-parrafo" style={{ textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <strong style={{ margin: "0 auto" }}>Tola</strong>
         </p>
         <img src={import.meta.env.BASE_URL + "Tola.jpg"} alt="Planta de Tola en la Puna" className="imagen-destacada" />
       </div>

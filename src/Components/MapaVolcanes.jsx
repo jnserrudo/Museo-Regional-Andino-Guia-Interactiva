@@ -14,8 +14,8 @@ const volcanoesData = [
   {
     id: "aracar",
     name: "Aracar",
-    top: "32%",
-    left: "33%",
+    top: "34%",
+    left: "34%",
     info: {
       location: `24°17'17.89"S / 67°47'26.33"O`,
       elevation: "6.095 m s.n.m.",
@@ -30,8 +30,8 @@ const volcanoesData = [
   {
     id: "socompa",
     name: "Socompa",
-    top: "36%",
-    left: "14%",
+    top: "41%",
+    left: "18%",
     info: {
       location: `24°23′46″S / 68°14′46″O`,
       elevation: "6.051 m s.n.m.",
@@ -62,8 +62,8 @@ const volcanoesData = [
   {
     id: "lastarria",
     name: "Lastarria",
-    top: "80%",
-    left: "15%",
+    top: "93%",
+    left: "10%",
     info: {
       location: `25°10'9.35"S / 68°29'58.10"O`,
       elevation: "5.700 m s.n.m.",
@@ -76,7 +76,7 @@ const volcanoesData = [
   { 
     id: "archibarca",
     name: "Archibarca",
-    top: "85%",
+    top: "94%",
     left: "30%",
     info: {
       location: `25°11'59.86"S / 67°55'29.98"O`,
@@ -90,8 +90,8 @@ const volcanoesData = [
   {
     id: "ratones",
     name: "Ratones",
-    top: "90%",
-    left: "55%",
+    top: "96%",
+    left: "66%",
     info: {
       location: `25°14'51.75"S / 66°53'10.45"O`,
       elevation: "4.955 m s.n.m.",
@@ -120,8 +120,8 @@ const volcanoesData = [
   {
     id: "pocitos",
     name: "Pocitos",
-    top: "30%",
-    left: "60%",
+    top: "32%",
+    left: "62%",
     info: {
       location: `24°15'57.20"S / 66°59'05.66"O`,
       elevation: "5.383 m s.n.m.",
@@ -134,8 +134,8 @@ const volcanoesData = [
   {
     id: "del-medio",
     name: "Del Medio",
-    top: "24%",
-    left: "57%",
+    top: "28%",
+    left: "59%",
     info: {
       location: `24°13'54.35"S / 67°02'50.19"O`,
       elevation: "5.020 m s.n.m.",
@@ -148,8 +148,8 @@ const volcanoesData = [
   {
     id: "san-geronimo",
     name: "San Gerónimo",
-    top: "23%",
-    left: "82%",
+    top: "25%",
+    left: "78%",
     info: {
       location: `24°13'42.58"S / 66°29'54.64"O`,
       elevation: "4.950 m s.n.m.",
@@ -162,7 +162,7 @@ const volcanoesData = [
   {
     id: "tuzgle",
     name: "Tuzgle",
-    top: "12%",
+    top: "16%",
     left: "78%",
     info: {
       location: `24°03′26.81″S / 66°28′53.99″O`,
@@ -176,8 +176,8 @@ const volcanoesData = [
   {
     id: "chimpa",
     name: "Chimpa",
-    top: "10%",
-    left: "93%",
+    top: "13%",
+    left: "91%",
     info: {
       location: `24°01'28.30"S / 66°06'19.42"O`,
       elevation: "4.800 m s.n.m.",
@@ -190,7 +190,7 @@ const volcanoesData = [
   {
     id: "arizaro",
     name: "Arizaro",
-    top: "38%",
+    top: "42%",
     left: "27%",
     info: {
       location: `24°25'10.40"S / 67°59'5.59"O`,
