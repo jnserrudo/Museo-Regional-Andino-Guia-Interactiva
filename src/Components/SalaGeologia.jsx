@@ -270,7 +270,7 @@ const VideoPlayer = ({
 const CarouselGallery = ({ images, title }) => (
   <div className="carousel-wrapper">
     {/* El título ahora va fuera del componente Swiper */}
-    {title && <h4 className="gallery-title">{title}</h4>}
+    {title && <p className="gallery-title">{title}</p>}
 
     <Swiper
       // Módulos que vamos a usar

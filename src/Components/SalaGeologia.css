@@ -81,13 +81,13 @@
   
   /* Título que va sobre el carrusel */
   .gallery-title {
-    text-align: center;
-    font-style: italic;
+    text-align: center !important;
+    font-style: italic !important;
     
     /* 
     color: var(--text-muted); */
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   /* Contenedor principal del carrusel */
@@ -204,20 +204,36 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 
-.video-geiser{
+.video-geiser, .video-pachamama {
   text-align: center;
+  margin: 2rem auto;
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-  .video-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+.video-pachamama video {
+  max-width: 100%;
+  height: auto;
+  max-height: 80vh; /* Limita la altura máxima del video */
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .video-pachamama {
+    padding: 0 1rem;
   }
+  
+  .video-pachamama video {
+    width: 100%;
+    max-height: 70vh;
+  }
+}
+
   .video-caption {
     text-align: center;
     font-size: 0.9rem;

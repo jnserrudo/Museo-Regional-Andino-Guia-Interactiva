@@ -17,7 +17,7 @@ import "swiper/css/pagination";
 // --- Componente de Carrusel reutilizable ---
 const CarouselGallery = ({ images, title }) => (
   <div className="carousel-wrapper">
-    {title && <h4 className="gallery-title">{title}</h4>}
+    {title && <p className="gallery-title">{title}</p>}
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       navigation={true}

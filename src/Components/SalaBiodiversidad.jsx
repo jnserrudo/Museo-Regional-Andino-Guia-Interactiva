@@ -18,7 +18,7 @@ import "swiper/css/pagination";
 // --- Componente de Carrusel reutilizable ---
 const CarouselGallery = ({ images, title }) => (
   <div className="carousel-wrapper">
-    {title && <h4 className="gallery-title">{title}</h4>}
+    {title && <p className="gallery-title">{title}</p>}
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       navigation={true}
@@ -153,13 +153,13 @@ export const SalaBiodiversidad = () => {
       <CarouselGallery images={galeriaIntroduccion} title="Especies en la Puna" />
 
       <p className="sala-contenido-parrafo">
-      Por eso predominan los arbustos bajos, como la <strong>Tola</strong> y la <strong>Tolilla</strong>
+      Por eso predominan los arbustos bajos, como la <strong  >Tola</strong> y la <strong>Tolilla</strong>
       </p>
 
 
       <div className="imagen-destacada-container">
-        <p className="sala-contenido-parrafo" style={{ textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <strong style={{ margin: "0 auto" }}>Tola</strong>
+        <p className="sala-contenido-parrafo" style={{ textAlign: "center", fontStyle: "italic", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          Tola
         </p>
         <img src={import.meta.env.BASE_URL + "Tola.jpg"} alt="Planta de Tola en la Puna" className="imagen-destacada" />
       </div>

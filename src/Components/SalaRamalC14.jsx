@@ -18,7 +18,7 @@ import { useRegisterText } from "../Contexts/SpeechContext";
 // --- Componente de Carrusel (lo necesitamos aquí) ---
 const CarouselGallery = ({ images, title, customClassName }) => (
   <div className={`carousel-wrapper ${customClassName}`}>
-    {title && <h4 className="gallery-title">{title}</h4>}
+    {title && <p className="gallery-title">{title}</p>}
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       navigation={true}
