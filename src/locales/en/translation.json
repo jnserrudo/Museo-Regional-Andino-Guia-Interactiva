@@ -1,0 +1,678 @@
+{
+  "navbar": {
+    "inicio": "Home",
+    "salas": "Rooms"
+  },
+  "sala_geologia": {
+    "titulo_principal": "GEOLOGY",
+    "subtitulo_principal": "Did you know there's a place in Argentina where water never reaches the sea?",
+    "parrafo_intro_1": "The Puna is a unique region on the planet. We are at more than 4,000 meters above sea level, in a landscape that seems otherworldly: volcanoes, salt flats, intensely colored lagoons, and a climate as extreme as it is fascinating.",
+    "parrafo_intro_2": "This region is part of an <strong>endorheic basin</strong>, a special type of basin where water has no outlet to the sea. Here, water evaporates or seeps into the ground, leaving behind salts and minerals that accumulate and give rise to the salt flats.",
+    "titulo_carrusel_cuencas": "Views of basins in the Puna",
+    "parrafo_cordilleras": "The Puna is enclosed between two large mountain ranges:",
+    "lista_cordilleras": {
+      "item1": "To the west, <strong>the Western Volcanic Cordillera</strong>, rich in active and inactive volcanoes.",
+      "item2": "To the east, <strong>the Eastern Cordillera</strong>, formed by important mountains and valleys."
+    },
+    "subtitulo_fuerzas": "Forces of fire and steam: volcanoes and geysers",
+    "parrafo_fuerzas_1": "Beneath our feet, the Earth is alive. The volcanic and geothermal activity of the Puna creates hot springs, geysers, fumarole fields, and mineral deposits.",
+    "parrafo_fuerzas_2": "The planet's internal energy manifests itself here directly:",
+    "lista_fuerzas": {
+      "item1": "<strong>Volcanoes:</strong> expel lava, gases, and ash.",
+      "item2": "<strong>Geysers and fumaroles:</strong> show us the underground heat emerging as steam.",
+      "item3": "<strong>Mineralized soils:</strong> hot water circulating underground dissolves minerals that, upon cooling, are deposited on the surface."
+    },
+    "subtitulo_formacion_volcan": "How is a volcano formed?",
+    "parrafo_formacion_volcan_1": "Beneath the Earth's surface, several kilometers deep, silent but powerful processes occur. When pressure drops sharply in the Earth's inner layers, temperatures rise so high that rocks begin to melt. This is how magma, an incandescent mixture of molten minerals, is formed.",
+    "parrafo_formacion_volcan_2": "This magma seeks to escape. As it ascends, it makes its way through fractures in the Earth's crust and crystallizes new minerals. When it finally finds an outlet, it erupts violently or flows gently, depending on its composition.",
+    "parrafo_formacion_volcan_3": "With each eruption, the volcano grows: layers of lava, ash, scoria, and solidified gases accumulate. These layers gradually form what we call the 'volcanic edifice', whose shape varies depending on the type of magma and the intensity of the activity.",
+    "parrafo_formacion_volcan_4": "In the Puna region, volcanoes not only shape the landscape: they are also the origin of many of the valuable minerals found in this area, such as sulfur, lithium, and gold. The energy from the Earth's interior is transformed here into a source of natural wealth.",
+    "sabias_que_volcanes_titulo": "Did you know...?",
+    "sabias_que_volcanes_texto": "Some volcanoes in the Puna were active thousands or millions of years ago, but their traces are still preserved in craters, cones, and fossilized lava flows. Today, many of these ancient volcanoes are key to understanding the formation of the region's salt flats and mineral deposits.",
+    "subtitulo_geiser": "What is a geyser?",
+    "parrafo_geiser_1": "Imagine a volcano, but instead of spewing lava, it shoots jets of boiling water and steam into the sky. That's a geyser: a spectacular manifestation of the hidden heat beneath the Earth. Deep underground, water seeps down until it comes into contact with very hot rocks, heated by the magma. This water turns into pressurized steam, which seeks to escape to the surface, and when the pressure is too high, the geyser erupts, forcefully expelling a mixture of hot water and steam. Although they last only a few seconds or minutes, these eruptions can reach several meters in height and are repeated over and over again for years or even centuries.",
+    "sabias_que_geiser_titulo": "Did you know…?",
+    "sabias_que_geiser_texto": "Geysers are very rare on the planet. They require very specific conditions of heat, groundwater, and special geology. In the Argentine Puna, you can see similar phenomena in geothermal fields, where steam escapes through cracks in the earth... as if the Earth were breathing!",
+    "subtitulo_salar": "How is a Salt Flat born?",
+    "parrafo_salar_1": "In the vast heights of the Puna, where the sky is immense and rain is scarce, the Earth has created dazzling landscapes: white, shimmering plains that look like they are made of ice, but are composed of salt.",
+    "parrafo_salar_2": "These salt flats were not always there; they formed over thousands—even millions—of years, when a series of very particular factors coincided in the same place:",
+    "lista_salar": {
+      "item1": "A natural depression in the terrain, with no outlet to the sea",
+      "item2": "Active volcanoes, which released minerals, gases, and ash",
+      "item3": "Hot springs loaded with chemical elements from the Earth's interior",
+      "item4": "Fragments of eroded rock, dust, and volcanic matter transported by the wind",
+      "item5": "And above all, an extremely arid climate, with high evaporation and almost no rain"
+    },
+    "parrafo_salar_3": "Over time, these depressions filled with rainwater, snowmelt, and hot springs, but instead of forming permanent rivers or lakes, the water simply evaporated, precipitating all the dissolved compounds. This is how the great salt plains began to form. Beneath that white, shiny crust, there is still very salty water, known as brine, where elements like lithium, potassium, and magnesium float. This brine is one of the greatest natural resources of the Puna, and today it is key for clean technologies and renewable energies.",
+    "sabias_que_litio_titulo": "Did you know...?",
+    "sabias_que_litio_texto": "The lithium that allows cell phones, notebooks, and electric cars to work is largely extracted from the brines hidden under the salt flats of northwestern Argentina. The Puna is part of the <strong>Lithium Triangle</strong>, one of the most strategic regions on the planet.",
+    "subtitulo_lenguaje_puna": "The secret language of the Puna",
+    "parrafo_lenguaje_puna": "Although it may seem like a landscape frozen in time, the Puna is in constant transformation. The lack of rain, the dry wind, and the scorching sun during the day, followed by freezing nights, are true sculptors of the landscape. The rock shatters, turns into gravel, and slowly, the desert expands. The inhabitants of the region have learned to read the signs of nature in the hills, and they call them the 'witch hills'.",
+    "subtitulo_cerros_brujos": "The witch hills: ancestral climate wisdom",
+    "parrafo_cerros_brujos": "The indigenous peoples of the highlands do not use weather apps. For generations, they have observed how the clouds behave around the hills:",
+    "lista_cerros_brujos": {
+      "item1": "<strong>A white crown on the summit?</strong> <em>It may snow.</em>",
+      "item2": "<strong>Clouds clinging to the slope?</strong> <em>Humidity is approaching.</em>"
+    },
+    "parrafo_cerros_brujos_final": "These 'predictor' hills are part of the landscape... and of local knowledge."
+  },
+  "sala_biodiversidad": {
+    "titulo_principal": "BIODIVERSITY",
+    "subtitulo_intro": "How does life survive in the Puna?",
+    "parrafo_intro_1": "In this extreme environment, everything is designed to endure:",
+    "lista_intro": {
+      "item1": "Some plants store water like a sponge.",
+      "item2": "Others have small, hard, or fuzzy leaves to prevent moisture loss.",
+      "item3": "Animals have padded feet to walk on arid soils or dense fur to withstand the cold.",
+      "item4": "Birds fly lower to conserve energy in air with less oxygen."
+    },
+    "parrafo_intro_2": "Many species are <strong>endemic</strong>: they only live in the Puna. This means this ecosystem is fragile, unique, and worthy of protection.",
+    "titulo_carrusel_intro": "Species in the Puna",
+    "subtitulo_plantas": "Plants: specialists of the high desert",
+    "parrafo_plantas_1": "The vegetation in the Puna is perfectly adapted:",
+    "lista_plantas": {
+      "item1": "They grow apart from each other to avoid competing for water.",
+      "item2": "They reduce their leaves to thorns or small shapes to prevent evaporation.",
+      "item3": "Many creep close to the ground, like the yareta, to protect themselves from the wind."
+    },
+    "parrafo_plantas_2": "That is why low-lying shrubs, like the <strong>Tola</strong> and <strong>Tolilla</strong>, are predominant.",
+    "caption_tola": "Tola",
+    "subtitulo_vicuna": "The vicuña: tailor-made for the altitude",
+    "parrafo_vicuna_1": "Small, light, and efficient, the vicuña is the most emblematic animal of the Puna.",
+    "lista_vicuna": {
+      "item1": "It has padded feet that do not erode the soil.",
+      "item2": "Its sharp incisors cut shoots without uprooting them.",
+      "item3": "It can close its nostrils at will to protect itself from the wind.",
+      "item4": "And its blood contains special red blood cells that make the most of the scarce oxygen in the air."
+    },
+    "parrafo_vicuna_2": "Living at high altitude is difficult. But the vicuña does it with elegance.",
+    "subtitulo_mamiferos": "Small mammals, great specialists",
+    "parrafo_mamiferos_1": "In the hills and rocky areas, many species hide from view. Rodents like the <strong>chinchillón</strong>, the <strong>royal chinchilla</strong>, or the <strong>chinchilla rat</strong> are the most common",
+    "lista_mamiferos": {
+      "item1": "The culpeo fox,",
+      "item2": "The pampas cat,",
+      "item3": "The ferret,",
+      "item4": "And the striped hog-nosed skunk."
+    },
+    "parrafo_mamiferos_2": "Though discreet, they all play a key role in the ecosystem's balance.",
+    "titulo_carrusel_chinchilla": "Small mammals",
+    "subtitulo_aves": "Birds that bring life to the high-altitude lagoons",
+    "parrafo_aves_1": "Where there is water, there is life. Hundreds of birds, both resident and migratory, concentrate in the large lagoons of the Puna. You will be able to recognize:",
+    "lista_aves": {
+      "item1": "The Puna plover,",
+      "item2": "The diademed sandpiper-plover,",
+      "item3": "The Andean lapwing,",
+      "item4": "The Andean avocet,",
+      "item5": "The Puna snipe, and",
+      "item6": "The Andean gull, among many others."
+    },
+    "parrafo_aves_2": "Some travel thousands of kilometers each year. Others live here all the time. Together, they fill the high-plateau sky with movement.",
+    "titulo_carrusel_aves": "Birds of the High-Andean Lagoons",
+    "titulo_carrusel_parinas": "Birds of the lagoons"
+  },
+
+  "sala_arqueologia": {
+    "titulo_principal": "ARCHAEOLOGY",
+    "parrafo_intro": "In this room, you will learn about the people who inhabited the Puna, a territory inhabited for thousands of years. You will discover how people adapted to a challenging environment, developed lifestyles based on hunting, herding, agriculture, and trade, and how they built knowledge, beliefs, and technologies that still surprise us today.",
+    "parrafo_bloque1_1": "More than 10,000 years ago, the first human groups began to inhabit the high landscapes of the Puna. They were nomadic hunters and gatherers who moved across large expanses of the Andean territory. Their lives depended on animals like the vicuña and the guanaco, which provided them with meat, leather, and bone for tools.",
+    "parrafo_bloque1_2": "Over time, between 3,000 and 2,500 years before the present, these communities began to domesticate camelids—especially the llama—and practice agriculture. This transformation marked a fundamental change: the beginning of a pastoral way of life, with more stable settlements, product exchange, and a more complex social organization.",
+    "parrafo_bloque1_3": "The llama was a true engine of Andean development: not only did it provide wool and meat, but it also allowed for the transport of goods over long distances, being key in the exchange networks between the Puna and the valleys.",
+    "parrafo_bloque2_1": "In sites like Matancillas and Urcuro (in the current San Antonio de los Cobres Valley), archaeological evidence has been found that accounts for the daily life of these populations 1,500 years ago. In Matancillas, a geoglyph carved on quartz rock—unique in the country—represents a camelid, a symbol of its economic and spiritual value.",
+    "parrafo_bloque2_2": "Tools such as projectile points and knives were mainly made from obsidian, a volcanic glass highly valued for its sharpness, as well as quartzite. These objects show the deep knowledge that the ancient people of the Puna had about minerals and their use.",
+    "parrafo_bloque3_1": "With the expansion of the Inca Empire in the 15th century, many communities of the Puna were integrated into this complex political, social, and economic network. Mountains like Acay, Tuzgle, Llullaillaco, Chañi, and Quevar were considered sacred, and important ceremonies were held on them, including human offerings, as part of the Andean cosmovision.",
+    "parrafo_bloque3_2": "The Puna of Salta is part of one of the regions with the highest density of high-altitude sanctuaries in the Andean world, with more than 100 sacred mountains identified, many of them linked to Inca rituals.",
+    "parrafo_bloque4_1": "The ceramics, masks, and arrowheads you see in this room are testimony to that past: objects that accompanied the daily life, rites, exchanges, and beliefs of those who inhabited these lands before and after the arrival of the Inca.",
+    "parrafo_bloque4_2": "Starting from the arrival of the Spanish in the 16th century, indigenous ways of life began to transform. The colonial organization introduced new institutions—such as the encomienda and Indian towns—which modified the way of living, working, and relating to the territory.",
+    "parrafo_bloque4_3": "The history of the first inhabitants of the Puna is not written with letters, but with stones, ceramics, paths, and rituals. Today, these traces allow us to know what their lives, their environment, and their legacy were like. Their wisdom is still present in the ways of inhabiting, raising llamas, and worshiping the Pachamama (Mother Earth).",
+    "video_titulo": "Interview with Dr. Federico Restifo",
+    "video_subtitulo": "Archaeologist-Researcher at CONICET."
+  },
+  "sala_historia": {
+    "titulo_principal": "HISTORY",
+    "subtitulo_virreinato": "Spanish rule and the birth of the Viceroyalty",
+    "parrafo_virreinato_1": "During the 16th century, the Spanish advanced in the colonization of America. In 1776, the Viceroyalty of the Río de la Plata was created, which included the current territories of Argentina, Bolivia, Paraguay, and Uruguay. Its capital was Buenos Aires.",
+    "parrafo_virreinato_2": "To organize its government, the viceroyalty was divided into intendancies such as Buenos Aires, Córdoba del Tucumán, Salta del Tucumán, and Potosí, and military governorships like Montevideo and Misiones. These structures facilitated the administration and control of a vast region with great cultural and geographical diversity.",
+    "subtitulo_evangelizacion": "Evangelization and life in the Puna",
+    "parrafo_evangelizacion_1": "Along with the conquerors came religious orders such as the Dominicans, Franciscans, and Jesuits. Their mission was to Christianize the native peoples and, at the same time, integrate them into new organized ways of life.",
+    "parrafo_evangelizacion_2": "The Jesuits stood out for their actions in regions like the Andean Puna, where they worked with Kolla communities in the exploitation of mines such as Incahuasi and Cobres. Although they were expelled in 1767 by order of King Charles III, their legacy endured through the religious, economic, and cultural practices they helped establish.",
+    "subtitulo_republica": "From the United Provinces to the Argentine Republic",
+    "parrafo_republica_1": "After the independence process began in 1810, the United Provinces of the Río de la Plata began to organize as autonomous entities. Between 1813 and 1834, fourteen provinces were consolidated, each with its own constitution. Despite this autonomy, they maintained a weak confederal bond.",
+    "parrafo_republica_2": "The sanction of the National Constitution in 1853 was key to politically organizing the country. In 1862, with the incorporation of Buenos Aires, the Argentine Republic was officially formed, integrating the provinces under a common framework.",
+    "subtitulo_territorios": "National Territories and State Expansion",
+    "parrafo_territorios_1": "In the late 19th century, the national government promoted a policy of territorial expansion. In 1884, the National Territories were created, areas not yet organized as provinces, which were divided into governorships: Chaco, Formosa, Pampa, Chubut, among others.",
+    "parrafo_territorios_2": "In the year 1900, during the presidency of Julio A. Roca, the National Territory of Los Andes was created, which covered part of the Puna region. Its creation responded to the strategic interest in border areas and the importance of its natural resources, such as lithium and borates."
+  },
+
+  "sala_territorio_andes": {
+    "titulo_principal": "NATIONAL TERRITORY OF THE ANDES",
+    "subtitulo_intro": "What was the National Territory of The Andes?",
+    "parrafo_intro_1": "The National Territory of The Andes was a political-administrative unit officially created on January 9, 1900, by Law No. 3906, with the aim of affirming Argentine sovereignty over a vast area of the Puna de Atacama.",
+    "parrafo_intro_2": "In 1902, a presidential decree designated San Antonio de los Cobres as the capital of the territory, which remains a key reference in the Andean region of Salta today.",
+    "parrafo_intro_3": "The National Territories were regions that, although part of the country, were not yet organized as provinces. The National Executive Power appointed governors and secretaries there who exercised administrative, judicial, and state representation functions.",
+    "caption_mapa_latzina": "Argentine map by Francisco Latzina from 1888 showing the Puna de Atacama as Chilean territory.",
+    "caption_mapa_san_roman": "Geographic chart of the Atacama desert and mountain ranges made by Francisco J. San Román and published in 1892.",
+    "subtitulo_conflictos": "A territory at the center of conflicts",
+    "parrafo_conflictos_1": "The origin of the Territory of The Andes is deeply linked to the War of the Pacific (1879–1884), a conflict between Chile, Bolivia, and Peru over control of the Atacama Desert, an area rich in saltpeter. As a consequence, Chile occupied disputed territories, including parts of the Puna that also bordered Argentina.",
+    "parrafo_conflictos_2": "At that time, places like Antofagasta de la Sierra, Pastos Grandes, and Surques were areas in dispute, without precise delimitation, and came under Chilean occupation. Meanwhile, the name Puna de Atacama or Cordillera de Atacama was used interchangeably to refer to this region.",
+    "subtitulo_diplomacia": "Diplomacy and international agreements",
+    "parrafo_diplomacia_1": "In 1889, Bolivia signed an agreement with Argentina ceding rights over a portion of the conflicting territory. This cession was part of a diplomatic exchange, as compensation for Argentina's waiver of its claim to the Tarija region.",
+    "parrafo_diplomacia_2": "The dispute between Argentina and Chile was partially resolved in 1899 through an international arbitration award, known as the Buchanan Award, in reference to the US minister William Buchanan, who acted as mediator. The agreement divided the Puna de Atacama:",
+    "lista_diplomacia": {
+      "item1": "The western portion (about 11,000 km²) remained in the hands of Chile.",
+      "item2": "The eastern portion (about 63,000 km²) was integrated into Argentina, leading to the creation of the National Territory of The Andes."
+    },
+    "parrafo_diplomacia_3": "Localities such as Susques, Santa Rosa de Pastos Grandes, and Antofagasta de la Sierra became part of the Argentine territory, while San Pedro de Atacama remained on the Chilean side."
+  },
+  "sala_gobernacion_andes": {
+    "titulo_principal": "GOVERNORATE OF THE ANDES",
+    "subtitulo_gobernador": "The first governor: Daniel Cerri",
+    "parrafo_gobernador_1": "Brigadier General Daniel Cerri was appointed as the first governor of the National Territory of The Andes at the beginning of the 20th century. His administration, in addition to laying the institutional foundations, was marked by reconnaissance and exploration expeditions of the territory, fundamental to understanding its geography, resources, and potential.",
+    "parrafo_gobernador_2": "During his administration, the first official Memoir of the Governorate was prepared, a key document that detailed:",
+    "lista_gobernador": {
+      "item1": "Properties and territorial limits.",
+      "item2": "The location of borate deposits and other strategic minerals.",
+      "item3": "Climatic and environmental conditions of the Andean Puna."
+    },
+    "parrafo_gobernador_3": "This report not only allowed for progress in occupation and administration policies but also drew attention to the economic value of natural resources, especially borates, lithium, and copper.",
+    "subtitulo_ciencia": "Science and territory: Ambrosetti, Boman, and other explorers",
+    "parrafo_ciencia_1": "In parallel with political and administrative work, the Governorate promoted or facilitated pioneering scientific expeditions, which were fundamental to the history of Argentine archaeology, geology, and ethnography.",
+    "parrafo_ciencia_2": "Among them, the following stand out:",
+    "lista_ciencia": {
+      "item1": "<strong>Juan Ambrosetti (1904–1905):</strong> considered the “father of Argentine archaeology,” he traveled the region recording archaeological sites, ceramics, tombs, and geoglyphs, many of which are now considered heritage.",
+      "item2": "<strong>Eric Boman (1910):</strong> a Swedish-Argentine ethnographer and archaeologist, he conducted systematic studies of native peoples, settlements, and pre-Hispanic routes."
+    },
+    "parrafo_ciencia_3": "Their research was pioneering in showing that this region was not “empty” or marginal, but had a long cultural history and was deeply integrated into the Andean world.",
+    "subtitulo_futuro": "A territory with a future... and with history",
+    "parrafo_futuro_1": "Technical and scientific reports from the early 20th century highlighted that the region had:",
+    "lista_futuro": {
+      "item1": "A unique, extremely dry climate with a large thermal amplitude.",
+      "item2": "A challenging altitude, but with possibilities for mining, livestock farming, and certain crops.",
+      "item3": "Geological riches: borates, salt flats, pumice stone, lithium, copper, and other minerals."
+    },
+    "parrafo_futuro_2": "This knowledge was key to promoting mining explorations, organizing basic services, and fostering small populations.",
+    "subtitulo_final": "The end of the National Territory of The Andes",
+    "parrafo_final_1": "In 1943, by national decree, the Territory was dissolved, and its parts were definitively integrated into the neighboring provinces:",
+    "lista_final": {
+      "item1": "The Department of Los Andes became part of Salta.",
+      "item2": "Susques, to the province of Jujuy.",
+      "item3": "Antofagasta de la Sierra, to Catamarca."
+    },
+    "parrafo_final_2": "Thus ended a stage of direct national administration and the current provincial map of northwestern Argentina was consolidated.",
+    "titulo_carrusel": "Governorate of the Andes"
+  },
+  "sala_ramal_c14": {
+    "titulo_principal": "C-14 BRANCH LINE",
+    "parrafo_construccion_1": "Built with the force of picks, shovels, dynamite, and wheelbarrows, the C14 Branch Line required the effort of more than 1,000 workers who faced severe weather conditions, extreme altitude, and rugged terrain. Its 571-kilometer route is a true monument to human ingenuity, featuring:",
+    "lista_construccion": {
+      "item1": "1,400 curves",
+      "item2": "31 bridges",
+      "item3": "21 tunnels",
+      "item4": "13 viaducts",
+      "item5": "2 spirals",
+      "item6": "2 zigzags",
+      "item7": "9 sheds"
+    },
+    "parrafo_construccion_2": "Among all these structures, the La Polvorilla Viaduct, built between 1930 and 1932, stands out as a symbol of this feat: it is 224 meters long, has a curved shape, and rises 63 meters above the ground, defying the heights.",
+    "titulo_carrusel_construccion": "Historical images of the construction",
+    "titulo_carrusel_construccion_2": "More historical images of the construction",
+    "subtitulo_historia": "A History of Decisions, Changes, and Future Vision",
+    "lista_historia": {
+      "item1": "<strong>1889:</strong> The first studies to link Salta with Antofagasta via a trans-Andean railway begin.",
+      "item2": "<strong>1905:</strong> Law 2693 officially authorizes the project.",
+      "item3": "<strong>1921:</strong> President Hipólito Yrigoyen gives the decisive push and appoints Eng. Richard Fontaine Maury as head of the project.",
+      "item4": "<strong>1929:</strong> The track laying reaches San Antonio de los Cobres, one of the most emblematic points of the route.",
+      "item5": "<strong>1948:</strong> On February 20, the international connection with Chile is inaugurated through the Socompa pass, during the presidency of Juan Domingo Perón. That same year, the branch line becomes part of the General Belgrano Railway."
+    },
+    "video_subtitulo_1": "Journey on the C14 Branch Line in 1926. Video courtesy of the General Archive of the Nation.",
+    "subtitulo_rieles": "Much more than rails",
+    "parrafo_rieles_1": "The C14 Branch Line was not just a communication route: it was a strategy to integrate the most isolated territories of the country. The project aimed to connect areas rich in mineral resources, such as borates and lithium, with the Pacific ports, facilitating economic development and reducing dependence on long maritime routes.",
+    "cita_rieles": "\"Geologists must be sent to decipher the secrets of the mountain, in whose bosom precious lodes are hidden; and a railway must be brought to the very outlets of the Puna, so that the export of raw material is possible.\"",
+    "cita_autor": "- Eduardo Holmberg (son), early 20th century",
+    "video_subtitulo_2": "The Northern Trans-Andean. Historical images of the construction and operation of the train.",
+    "subtitulo_turismo": "Tourism joined development: The Train to the Clouds is born",
+    "parrafo_turismo_1": "In the late 20th century, part of the original route of the C14 Branch Line became one of the most famous tourist trips in the country: the Train to the Clouds. Its journey, which crosses imposing landscapes of the Puna of Salta, is a unique experience that combines nature, engineering, and history.",
+    "parrafo_turismo_2": "This train has established itself as an international tourist attraction, keeping alive the memory of a work that transformed the landscape and life in the Andes.",
+    "titulo_carrusel_actual": "The Train to the Clouds today"
+  },
+  "sala_san_antonio_hoy": {
+    "titulo_principal": "SAN ANTONIO DE LOS COBRES TODAY",
+    "subtitulo_raices": "A town with deep roots",
+    "parrafo_raices_1": "San Antonio de los Cobres covers an area of more than 11,000 km² and has a population of nearly 7,000 inhabitants. Its name honors Saint Anthony of Padua, whose image arrived from the old Cobres Mine in 1775. That sacred image is still venerated today during the traditional patron saint festival on June 13 of each year, which brings the entire community together in a gathering of faith, music, dance, and family reunion.",
+    "subtitulo_tejido": "Weaving, heritage, and territory",
+    "parrafo_tejido_1": "The looms and garments you see in this room are a fundamental part of the local cultural identity. Andean weaving—done on rustic or backstrap looms—preserves ancient techniques passed down from generation to generation. Each garment not only provides warmth but also tells stories, represents lineages, festivities, production cycles, and beliefs. Another very valuable technique is hand knitting with five needles, which results in clothing items such as gloves, socks, and vests, among others.",
+    "parrafo_tejido_2": "The colors, patterns, and materials (such as llama or sheep wool) speak of the natural environment, the agricultural calendar, and the symbolic world of the communities.",
+    "titulo_carrusel_tejidos": "Techniques and motifs of Andean weaving",
+    "subtitulo_escuela": "School and knowledge",
+    "parrafo_escuela_1": "In San Antonio is the oldest school in the entire Puna region: the Domingo Faustino Sarmiento School, founded in 1903 as National School No. 1. Today, it continues to operate as number 4,564, under provincial jurisdiction. This institution represents the effort to guarantee education in extreme geographical contexts and is also a space for the transmission of local cultural values, both ancestral and contemporary.",
+    "subtitulo_pachamama": "Pachamama: Mother Earth, mother life",
+    "parrafo_pachamama_1": "One of the most heartfelt and widespread celebrations in all of Northwestern Argentina is the Feast of Pachamama, which takes place every August 1st. “Pacha” means earth, universe in the Quechua language, and “mama” means mother. On this date, families thank the earth for all it provides: food, health, shelter. The traditional 'corpachada' is performed, where offerings such as coca leaves, food, and drinks are buried.",
+    "parrafo_pachamama_2": "This celebration, also present in other Andean cultures, is a testament to the strong spiritual bond between human beings and nature. It is a clear example of how indigenous beliefs survive, even in contexts of historical transformation, such as colonization and evangelization.",
+    "titulo_carrusel_pachamama": "Feast of Pachamama",
+    "subtitulo_testimonio": "A testimony from the 19th century",
+    "parrafo_testimonio_1": "In 1870, the German geologist Luis Brackebusch traveled through the San Antonio region and wrote a chronicle that today allows us to imagine what this human and natural landscape was like in the past. In his account, he mentions Ciriaco Colqui, a Kolla chief who guided him through the area and provided key information for his studies.",
+    "parrafo_testimonio_2": "Brackebusch was impressed by the stone houses, abandoned during the year, which came to life during the great religious festivities. His description of the nocturnal silence, the scattered life in the hamlets, and the annual festive communion connects us with a way of inhabiting the territory that—in many respects—still endures."
+  },
+  "sala_minerologia_mineria": {
+    "titulo_principal": "MINING",
+    "subtitulo_coleccion": "Collection of Minerals and Rocks",
+    "parrafo_coleccion_1": "Join us to discover our collection of minerals and rocks, silent witnesses to the natural wealth of the Puna.",
+    "parrafo_coleccion_2": "Some of the rocks and minerals in the collection have a QR code:",
+    "parrafo_coleccion_3": "<strong>Point your cell phone camera at them and view them in augmented reality, to observe them in 3D</strong> and interact to see their most outstanding features.",
+    "subtitulo_vida_cotidiana": "Mining: from the earth to our daily lives",
+    "parrafo_vida_cotidiana_1": "You may already know that many objects you use every day are made from minerals. But... how do they go from being in a rock to being part of your cell phone, your walls, or your food? This section of the guide invites you to discover <strong>how minerals are extracted and transformed:</strong> from the most ancient techniques used by Andean communities to modern methods that seek to be more careful with the environment and people.",
+    "subtitulo_primeros_pasos": "The first steps of mining",
+    "parrafo_primeros_pasos_1": "Mining began with humanity. In the Andes, auncient cultures already extracted minerals such as obsidian, copper, or salt, which they used to make tools, ceremonial objects, paint caves with natural pigments, or as items of exchange.",
+    "caption_lampara": "One of the objects you can see in this room that was used in the past is the Carbide Lamp",
+    "parrafo_lampara_1": "<strong>How did it work?</strong> It had an upper compartment with water and a lower one with calcium carbide. When mixed, they generated acetylene gas, which was ignited and offered a stable and durable flame. It was indispensable for miners working in deep, powerless galleries. This lamp not only illuminated the path but also showed how ingenious mining work had to be before modern technology.",
+    "parrafo_lampara_2": "Today, the Puna remains key in the field of mining; the lithium found under the salt flats allows for the manufacturing of batteries for cell phones, computers, and electric cars worldwide. One of the objects used in the past is the carbide lamp, which you can see in this room.",
+    "boton_mina_oro": "Visit a Gold Mine",
+    "boton_planta_litio": "Explore a Lithium Plant",
+    "subtitulo_testigos": "Explore the drilling cores – the memory of the subsoil",
+    "parrafo_testigos_1": "In this room, cylindrical cuts—or “cores”—are also exhibited, representing direct samples from the Puna's subsoil. Each one reflects specific geological processes, useful for both mining and scientific research.",
+    "parrafo_testigos_2": "Below, you can observe in detail some of the most representative geological cores from the collection.",
+    "subtitulo_testigo_brecha": "Hydrothermal breccia (core 3-4)",
+    "parrafo_testigo_brecha": "You can observe angular rock fragments cemented by quartz fill, with veins of alunite and jarosite. This indicates areas where hot water (150–350°C) circulated, creating mineral deposits.",
+    "subtitulo_testigo_andesita_5": "Altered andesite (core 5)",
+    "parrafo_testigo_andesita_5": "Argillic alteration: contains clays such as alunite and goethite, which is a sign of acidic underground fluids.",
+    "subtitulo_testigo_andesita_6": "Altered andesite (core 6)",
+    "parrafo_testigo_andesita_6": "Silicic alteration with iron oxides and alunite veinlets typifies high-sulfidation environments, close to volcanic vapors.",
+    "subtitulo_testigo_diamantina": "Core drill / halite",
+    "parrafo_testigo_diamantina": "Contains cubic salt crystals (halite) in arid rock from the salt flat. It reveals episodes of ancient salt water and intense evaporation.",
+    "subtitulo_testigo_granitoide": "Granitoid",
+    "parrafo_testigo_granitoide": "Granitoid (core 1) with vuggy silica alteration: presence of cavities filled with glassy silica, common in hydrothermal mineralization zones.",
+    "subtitulo_boratos": "Borates – collection of boron and derivatives",
+    "parrafo_boratos_1": "Borates are minerals of industrial importance (detergents, agriculture, glass). The sample you can observe in the room includes natural ulexite, borax, and boric acid (technical grade).",
+    "lista_minerales": {
+      "pomez": {
+        "nombre": "Pumice Stone",
+        "tipo": "Igneous volcanic rock (not a mineral, but a rock).",
+        "composicionQuimica": "Varies, but usually contains SiO₂ (silica) in high percentages (up to 70–75%) along with aluminum, potassium, and sodium oxides.",
+        "caracteristicas": "Vitreous and extremely porous texture. Very light; it can float on water. It is formed by the rapid cooling of lava with a high gas content, which gets trapped as bubbles.",
+        "usos": "Exfoliants for the skin (cosmetics). Mild abrasives (cleaning metals, calluses). Manufacturing of lightweight construction blocks. Agriculture: improves soil aeration."
+      },
+      "onix": {
+        "nombre": "Onyx (marble onyx)",
+        "nombreTecnico": "Calcareous onyx or travertine onyx.",
+        "composicion": "Mainly calcium carbonate (CaCO₃), with crystalline forms of calcite and aragonite.",
+        "caracteristicas": "Translucent appearance with soft veins of different colors (green, white, honey). It is formed by the deposition of carbonates from hot springs or caves. It is more fragile than other marbles.",
+        "usos": "Decorative crafts: figures, ashtrays, lamps. Interior cladding (walls, tables, sinks). Low-scale jewelry (necklaces, bracelets)."
+      },
+      "ulexita": {
+        "nombre": "Ulexite",
+        "formulaQuimica": "NaCaB₅O₆(OH)₆·5H₂O (hydrated sodium and calcium borate).",
+        "clase": "Borates",
+        "caracteristicas": "Known as “TV stone” for its structure of parallel fibers that transmit images or light from one side to the other. White or transparent crystal, with a silky luster. It forms in evaporitic environments (dry salt flats).",
+        "usos": "Source of boron, essential in: Heat-resistant glasses (Pyrex type). Detergents and bleaches. Fertilizers and ceramics. Optical and telecommunication products. Education and collecting for its unusual visual effect."
+      },
+      "baritina": {
+        "nombre": "Barite",
+        "formulaQuimica": "BaSO₄",
+        "clase": "Sulfates",
+        "caracteristicas": "Very dense mineral, white to grayish in color.",
+        "usos": "It is mainly used as drilling mud in oil wells, due to its weight. It is also used in the glass, paint, plastics, and specialty paper industries for its high barium content."
+      },
+      "ortosa": {
+        "nombre": "Orthoclase (Potassium Feldspar)",
+        "formulaQuimica": "KAlSi₃O₈",
+        "clase": "Silicates, feldspar group",
+        "caracteristicas": "It is one of the most common minerals in the Earth's crust.",
+        "usos": "Raw material for the manufacture of porcelain, ceramic glazes, glass, and electrical insulators. It is also used in toothpastes as a mild abrasive."
+      },
+      "turmalina": {
+        "nombre": "Tourmaline",
+        "formulaQuimica": "(Na,Ca)(Mg,Fe,Al,Li)₃Al₆(BO₃)₃Si₆O₁₈(OH,F)₄",
+        "clase": "Silicates, cyclosilicate group",
+        "caracteristicas": "Very hard mineral, with a great variety of colors.",
+        "usos": "Used in the manufacture of pressure measurement instruments (due to its piezoelectric response), in submarine technology, and in some specialized electronic and optical equipment. It is also popular as an ornamental gem."
+      },
+      "cuarzo_blanco": {
+        "nombre": "White Quartz",
+        "formulaQuimica": "SiO₂",
+        "clase": "Oxides / Tectosilicates",
+        "caracteristicas": "Very abundant, resistant, and versatile mineral.",
+        "usos": "It is used in the manufacture of glass, ceramics, optical and electronic instruments, and as a mineral filler in plastics, paints, and pressed wood products."
+      },
+      "malaquita": {
+        "nombre": "Malachite",
+        "formulaQuimica": "Cu₂CO₃(OH)₂",
+        "clase": "Carbonates",
+        "caracteristicas": "An intense green mineral, associated with oxidation zones of copper deposits.",
+        "usos": "Important copper ore (source of metal extraction). It is also used as an ornamental stone and, in some cases, as a natural pigment in traditional art."
+      },
+      "muscovita": {
+        "nombre": "Muscovite (White Mica)",
+        "formulaQuimica": "KAl₂(AlSi₃O₁₀)(OH)₂",
+        "clase": "Silicates, mica group",
+        "caracteristicas": "It has so many properties that it is one of the most used minerals in the industry.",
+        "usos": "Widely used for its insulating, thermal, and optical properties. It is applied in the manufacture of paints, plastics, plaster for construction, electrical insulators, cosmetics, and electronic components."
+      },
+      "azufre_nativo": {
+        "nombre": "Native Sulfur",
+        "formulaQuimica": "S",
+        "clase": "Native Elements",
+        "usos": "It is mainly used to produce sulfuric acid, the basis of many industrial processes. It is also used in the manufacture of phosphorus, fertilizers, fungicides, dyes, gunpowder, photographic products, and topical medications such as ointments with antibacterial action."
+      },
+      "yeso": {
+        "nombre": "Gypsum",
+        "formulaQuimica": "CaSO₄·2H₂O",
+        "clase": "Sulfates",
+        "usos": "Widely used in construction: for plastering, joints, drywall panels (Durlock®), and artistic stuccoes. It is also used as a soil amendment in agriculture and in molds for ceramics and dentistry."
+      },
+      "calcita_rosada": {
+        "nombre": "Pink Calcite",
+        "formulaQuimica": "CaCO₃",
+        "clase": "Carbonates",
+        "usos": "Industrially used as a filler in paints, plastics, and paper. Although popularly attributed with ancestral medicinal uses, it has no formally recognized medical applications today."
+      },
+      "epidoto_en_cuarzo": {
+        "nombre": "Epidote in Quartz",
+        "formulaQuimica": "Ca₂(Al,Fe)₃(SiO₄)₃(OH)",
+        "clase": "Silicates",
+        "usos": "It has no massive industrial applications. It is valued as a collection mineral or semi-precious stone."
+      },
+      "estaurolita": {
+        "nombre": "Staurolite",
+        "formulaQuimica": "Fe²⁺Al₄Si₂O₁₀(OH)₂",
+        "clase": "Silicates",
+        "caracteristicas": "Metamorphic mineral. It is an indicator mineral for geologists because it signals specific formation conditions of metamorphic rocks.",
+        "usos": "Used as an ornament or amulet due to its cross-shaped crystals. It has also been used as an abrasive material, although on a smaller scale."
+      },
+      "casiterita": {
+        "nombre": "Cassiterite",
+        "formulaQuimica": "SnO₂",
+        "clase": "Oxides",
+        "caracteristicas": "Very dense, hard mineral, resistant to most acids.",
+        "usos": "It is the main ore of tin, used in solders, alloys (such as bronze), and in metallic coatings to prevent corrosion."
+      },
+      "galena": {
+        "nombre": "Galena",
+        "formulaQuimica": "PbS with Sphalerite – ZnS",
+        "clase": "Sulfides",
+        "caracteristicas": "Some galenas contain silver as a valuable byproduct.",
+        "usos": "It is the main source of the metal lead. Used in the manufacture of batteries, alloys, and formerly in the glass and munitions industry."
+      },
+      "fluorita_verde": {
+        "nombre": "Green Fluorite",
+        "formulaQuimica": "CaF₂",
+        "clase": "Halides",
+        "caracteristicas": "Its color can vary; green is one of its most appreciated varieties.",
+        "usos": "It is used as a flux in the smelting of metals (such as iron and steel), in the manufacture of hydrofluoric acid, and in optics for high-precision lenses."
+      },
+      "jadeita": {
+        "nombre": "Jadeite",
+        "formulaQuimica": "NaAlSi₂O₆",
+        "clase": "Silicates, pyroxene group",
+        "usos": "For over 5000 years, it has been used to make ornaments, tools, and ritual objects, due to its great hardness and resistance. It is highly valued culturally in Asia and pre-Hispanic America."
+      },
+      "basalto_llullaillaco": {
+        "nombre": "Basalt",
+        "tipo": "Basic igneous volcanic rock.",
+        "origen": "(Salar de Llullaillaco)",
+        "caracteristicas": "It is formed by the rapid cooling of lava on the surface. It is a very common rock in volcanic regions like the Puna, and its presence is related to ancient eruptive events."
+      },
+      "halita_sal_gema": {
+        "nombre": "Halite – NaCl (Rock Salt)",
+        "origen": "(Salar de Llullaillaco)",
+        "caracteristicas": "Cubic crystals, transparent or whitish. It is the mineral form of table salt. Halite is one of the economic riches of the Andean salt flats and is part of our daily life.",
+        "usos": "Human consumption. Industrial and chemical processes. Food preservation."
+      }
+    }
+  },
+  "pagina_home": {
+    "bienvenida": "Welcome to the",
+    "titulo_museo": "Andean Regional Museum",
+    "boton_iniciar_visita": "Start Tour",
+    "boton_salas": "Rooms",
+    "parrafo_info": "The Andean Regional Museum of San Antonio de los Cobres aims to conserve and promote the invaluable cultural and natural heritage of the Puna. It revalues local identity through interactive exhibitions and educational activities, designed to deeply connect visitors with the rich history and traditions of the Andean community.",
+    "texto_completo_audio": "Welcome to the Andean Regional Museum of San Antonio de los Cobres. The Andean Regional Museum of San Antonio de los Cobres aims to conserve and promote the invaluable cultural and natural heritage of the Puna. It revalues local identity through interactive exhibitions and educational activities, designed to deeply connect visitors with the rich history and traditions of the Andean community."
+  },
+  "introduccion_salas": {
+    "gobernacion_de_los_andes": {
+      "title": "GOVERNORATE OF THE ANDES ROOM",
+      "description": "A story of exploration, knowledge, and transformation of the territory. Welcome to a journey through the process of organizing and understanding the National Territory of The Andes, based on its state administration. Here you will meet its protagonists, the first scientific investigations, and how this unique region was integrated into the country."
+    },
+    "territorio_de_los_andes": {
+      "title": "TERRITORY OF THE ANDES ROOM",
+      "description": "A disputed territory, a story of national integration. Welcome to this space that narrates the origin, conflicts, and consolidation of The Andes, a strategic and history-laden region in the heart of the Argentine Puna."
+    },
+    "geologia": {
+      "title": "GEOLOGY ROOM",
+      "description": "Welcome to the room where the Earth tells its deepest story. In this space, we invite you to journey into the geological heart of the Puna, a region shaped by the force of volcanoes, the hidden heat of geysers, and the bright calm of the salt flats. Here you will discover how, over millions of years, the planet's activity has shaped extreme and unique landscapes. Every mountain, every salt crystal, and every vapor that emerges from the ground speaks of a world in constant transformation. Explore and observe: geology is not just science, it is the living story of the Earth's origin."
+    },
+    "minerologia_y_mineria": {
+      "title": "MINING ROOM",
+      "description": "The wealth of the Puna: what is in the earth… and in your life. In this room, you will learn about two sides of the same story. The minerals: true natural jewels formed over millions of years. You will see how some of them are present in your daily life. On the other hand, mining: the techniques used to extract these minerals from the rocks. From ancestral methods to current technologies, you will learn how they are obtained, who works them, and how a balance is sought today between their exploitation and the care for the environment and local communities."
+    },
+    "biodiversidad": {
+      "title": "BIODIVERSITY ROOM",
+      "description": "In this room, you will discover how life manages to adapt and thrive in one of the most extreme environments on the planet: the Andean Puna. At more than 3,500 meters above sea level, with dry air, scarce rainfall, sub-zero temperatures at night, and intense sun during the day, life faces constant challenges. Biodiversity in the Puna is not abundant, but it features endemic species. Every species that lives here is part of a network shaped by millions of years of adaptation."
+    },
+    "arqueologia": {
+      "title": "ARCHAEOLOGY ROOM",
+      "description": "Welcome to the Archaeology Room. We now invite you to quickly immerse yourself in time to meet the ancient inhabitants of the Puna, a territory inhabited for thousands of years. These people adapted to a challenging environment, developed lifestyles based on hunting, herding, agriculture, and trade, and built knowledge, beliefs, and technologies that still surprise us today. Come on in and meet them!"
+    },
+    "ramal_c14": {
+      "title": "C14 BRANCH LINE ROOM",
+      "description": "Welcome to one of the most amazing works of railway engineering in South America. Here you will discover the history of the railway that defied the extreme geography of the Andes Mountains, connecting Salta with the Chilean border at Socompa, at more than 3,500 meters above sea level."
+    },
+    "san-antonio-hoy": {
+      "title": "SAN ANTONIO TODAY ROOM",
+      "description": "San Antonio de los Cobres, capital of the Los Andes department and one of the most emblematic localities of the Argentine Puna. A territory sustained by ancestral memory, community life, the work of shepherds, artisans, and miners, and a living culture that continues to thrive at 3,776 meters altitude."
+    },
+    "historia": {
+      "title": "HISTORY ROOM",
+      "description": "Welcome to the History Room. A journey through the great political and social changes that marked the Andean region and the country. From the first contacts with the conquerors to the consolidation of Argentina as a nation-state, this room invites us to discover how the territories, populations, and forms of government were transformed."
+    }
+  },
+  "tarjetas_salas": {
+    "titulo_pagina": "Discover Our Rooms",
+    "subtitulo_pagina": "Journey through the history, culture, and nature of the Andean region.",
+    "geologia": "GEOLOGY",
+    "biodiversidad": "BIODIVERSITY",
+    "arqueologia": "ARCHAEOLOGY",
+    "historia": "HISTORY",
+    "territorio_de_los_andes": "TERRITORY OF THE ANDES",
+    "gobernacion_de_los_andes": "GOVERNORATE OF THE ANDES",
+    "minerologia_y_mineria": "MINING",
+    "ramal_c14": "C14 BRANCH LINE",
+    "san-antonio-hoy": "SAN ANTONIO TODAY",
+    "boton_ingresar": "Enter →"
+  },
+  "guia_salas": {
+    "salir_guia": "Exit Guide",
+    "info_sala": "Room {{indiceActual}} of {{totalSalas}}",
+    "info_fin_recorrido": "End of Tour",
+    "boton_siguiente": "Next Room",
+    "boton_finalizar": "Finish Guide"
+  },
+  "juegos": {
+    "pagina_juegos": {
+      "titulo": "Interactive Activities",
+      "subtitulo": "Test your knowledge and have fun with our games.",
+      "trivia_titulo": "Trivia: How much do you know about the Puna?",
+      "trivia_desc": "Test your knowledge and discover fun facts.",
+      "puzzle_titulo": "Puzzle: Can you solve it?",
+      "puzzle_desc": "Look closely and complete the image.",
+      "jugar_ahora": "Play Now →"
+    },
+    "trivia_game": {
+      "titulo": "Trivia about the Puna",
+      "cargando": "Loading trivia...",
+      "juego_terminado": "Game Over",
+      "puntuacion_final": "Your final score is: <strong>{{puntuacion}} of {{total}}</strong>",
+      "jugar_de_nuevo": "Play Again",
+      "volver_a_juegos": "Back to Games",
+      "pregunta": "Question {{actual}} of {{total}}",
+      "puntuacion": "Score: {{puntuacion}}",
+      "siguiente_pregunta": "Next Question",
+      "ver_resultados": "View Results",
+      "dato_curioso": "💡 Fun Fact:",
+      "preguntas_set": [
+        {
+          "pregunta": "What is a special characteristic of the Puna regarding water?",
+          "opciones": [
+            "It has the longest rivers in the country.",
+            "Its waters flow into the Atlantic Ocean.",
+            "It is part of an endorheic basin, where water does not reach the sea.",
+            "It receives rain all year round."
+          ],
+          "respuestaCorrecta": "It is part of an endorheic basin, where water does not reach the sea.",
+          "datoCurioso": "Endorheic basins act as giant evaporation pans, which gives rise to the impressive salt flats."
+        },
+        {
+          "pregunta": "What lies to the west of the Puna?",
+          "opciones": [
+            "The Eastern Cordillera",
+            "The Western Volcanic Cordillera",
+            "The Misiones Jungle",
+            "The Pacific Ocean"
+          ],
+          "respuestaCorrecta": "The Western Volcanic Cordillera",
+          "datoCurioso": "This mountain range is full of giant volcanoes, some of which exceed 6,000 meters in height."
+        },
+        {
+          "pregunta": "What is the name of the phenomenon where hot steam escapes through cracks in the ground, as if the Earth were 'breathing'?",
+          "opciones": [
+            "Fumaroles",
+            "Thermal tornado",
+            "Convection current",
+            "Dry tremors"
+          ],
+          "respuestaCorrecta": "Fumaroles",
+          "datoCurioso": "Fumaroles are a sign that there is volcanic or geothermal activity very close to the surface."
+        },
+        {
+          "pregunta": "What element is used in cell phones and electric cars, and is extracted from the brines under the salt flats?",
+          "opciones": ["Copper", "Lithium", "Silver", "Uranium"],
+          "respuestaCorrecta": "Lithium",
+          "datoCurioso": "The Puna is part of the 'Lithium Triangle', one of the largest reserves of this mineral in the world."
+        },
+        {
+          "pregunta": "How is a geyser formed?",
+          "opciones": [
+            "By a sudden volcanic explosion.",
+            "When lava comes into contact with ice.",
+            "When groundwater is heated by volcanic rocks and escapes as pressurized steam.",
+            "By the action of wind on salt dunes."
+          ],
+          "respuestaCorrecta": "When groundwater is heated by volcanic rocks and escapes as pressurized steam.",
+          "datoCurioso": "Geysers are extremely rare and only exist in a few places on the planet with the perfect geological conditions."
+        },
+        {
+          "pregunta": "Which of these statements is true about the volcanoes of the Puna?",
+          "opciones": [
+            "They are all active and constantly erupting.",
+            "They do not exist in that region.",
+            "Some are inactive, but their remains help to understand the formation of the landscape.",
+            "There are only submarine volcanoes."
+          ],
+          "respuestaCorrecta": "Some are inactive, but their remains help to understand the formation of the landscape.",
+          "datoCurioso": "Many of the richest mineral deposits in the Puna are related to ancient volcanic systems that are now inactive."
+        },
+        {
+          "pregunta": "What does a “white crown” on a hill indicate, according to the native peoples?",
+          "opciones": [
+            "That there will be an earthquake.",
+            "That the day will be sunny.",
+            "That it might snow.",
+            "That it is a lithium zone."
+          ],
+          "respuestaCorrecta": "That it might snow.",
+          "datoCurioso": "This ancestral observation is a form of weather forecasting based on how moisture condenses at high altitude."
+        },
+        {
+          "pregunta": "What type of climate does the Puna have?",
+          "opciones": [
+            "Temperate and humid.",
+            "Arid and extreme, with lots of sun during the day and intense cold at night.",
+            "Tropical, with abundant rainfall.",
+            "Mediterranean."
+          ],
+          "respuestaCorrecta": "Arid and extreme, with lots of sun during the day and intense cold at night.",
+          "datoCurioso": "The thermal amplitude in the Puna can be more than 20°C in a single day, going from intense heat to sub-zero temperatures."
+        },
+        {
+          "pregunta": "What type of landscape do we find in the Puna?",
+          "opciones": [
+            "Dense forests and meltwater lagoons.",
+            "Green plains and grasslands.",
+            "Volcanoes, salt flats, and intensely colored lagoons.",
+            "Mangroves and swamps."
+          ],
+          "respuestaCorrecta": "Volcanoes, salt flats, and intensely colored lagoons.",
+          "datoCurioso": "The colors of the lagoons are often due to minerals and microorganisms that adapt to high salinity."
+        },
+        {
+          "pregunta": "What is a salt flat (salar)?",
+          "opciones": [
+            "A volcanic cave filled with ice.",
+            "A mining area where coal is extracted.",
+            "A white plain formed by accumulated salts after water evaporates.",
+            "A high mountain area covered in ash."
+          ],
+          "respuestaCorrecta": "A white plain formed by accumulated salts after water evaporates.",
+          "datoCurioso": "Beneath the salt crust of many salt flats, there is a rich brine containing minerals like lithium and potassium."
+        },
+        {
+          "pregunta": "What is special about pumice stone?",
+          "opciones": [
+            "It is very heavy and sinks quickly",
+            "It is soft and melts with heat",
+            "It has so many tiny holes that it can float!",
+            "It changes color in sunlight"
+          ],
+          "respuestaCorrecta": "It has so many tiny holes that it can float!",
+          "datoCurioso": "Pumice stone floats because it has many trapped air bubbles. It's like 'foamy' solidified lava!"
+        },
+        {
+          "pregunta": "Which of these minerals can 'display images' as if it were a television?",
+          "opciones": ["Ulexite", "Galena", "Onyx", "Gypsum"],
+          "respuestaCorrecta": "Ulexite",
+          "datoCurioso": "Ulexite is called “TV stone” because its natural fibers transmit light from one side to the other. Pure natural magic!"
+        },
+        {
+          "pregunta": "What mineral did ancient miners use in special lamps to illuminate in the dark?",
+          "opciones": ["Halite", "Calcium carbide", "Sulfur", "Malachite"],
+          "respuestaCorrecta": "Calcium carbide",
+          "datoCurioso": "When mixed with water, calcium carbide produces a flammable gas that creates a bright and long-lasting flame."
+        },
+        {
+          "pregunta": "Which of these minerals is the main source of lead and sometimes also contains silver?",
+          "opciones": ["Galena", "Orthoclase", "Cassiterite", "Muscovite"],
+          "respuestaCorrecta": "Galena",
+          "datoCurioso": "Galena is so shiny and heavy that it looks like a metallic rock from another planet."
+        },
+        {
+          "pregunta": "What is a 'hydrothermal breccia'?",
+          "opciones": [
+            "A cave full of giant crystals",
+            "An area where hot water formed minerals as it cooled",
+            "A crack with lava",
+            "A type of rock found only in active volcanoes"
+          ],
+          "respuestaCorrecta": "An area where hot water formed minerals as it cooled",
+          "datoCurioso": "These breccias look like 'puzzles' of broken rocks glued together with quartz and other shiny minerals."
+        }
+      ]
+    },
+    "puzzle_game": {
+      "titulo": "Museum Puzzle",
+      "instrucciones": "Drag and drop the pieces to reconstruct the image.",
+      "cargando": "Loading...",
+      "error": "Error: {{mensaje}}",
+      "completado": "Completed!"
+    }
+  },
+  "despedida_guia": {
+    "titulo": "Thanks for touring the museum with us!",
+    "parrafo_1": "We hope this guide has accompanied you on a journey through the history, territory, cultures, and living identity of San Antonio de los Cobres and the Andean Puna. Each room holds fragments of a collective memory that remains present in those who inhabit this place today.",
+    "redes_sociales": "Share your experience on social media with the hashtag <strong>#MuseoRegionalAndino</strong> and <strong>#MuseoenlaPuna</strong>!",
+    "subtitulo_explorar": "Keep Discovering",
+    "parrafo_explorar": "We invite you to play and learn with our interactive activities:",
+    "boton_trivia": "Trivia: How much do you know about the Puna? Test your knowledge and discover fun facts.",
+    "boton_puzzle": "Puzzle: Can you solve it? Observe carefully and complete the image.",
+    "subtitulo_encuesta": "Want to tell us what you thought?",
+    "parrafo_encuesta": "Leave us your comments and answer a mini-survey. Your opinion helps us improve!",
+    "iframe_cargando": "Loading…"
+  }
+}

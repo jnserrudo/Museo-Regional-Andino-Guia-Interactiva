@@ -33,6 +33,8 @@ import { SalaSanAntonioHoy } from "./SalaSanAntonioHoy";
 
 import { useLocation } from "react-router-dom"; // Asegura importar useLocation
 
+import { useTranslation } from "react-i18next"; // 1. Importa el hook
+
 import "./Sala.css";
 
 // --- IMPORTAMOS EL CSS DE LAS TARJETAS DE SUBTEMAS ---
@@ -40,83 +42,7 @@ import "./SalaSubtemas.css"; // <-- Necesitamos estos estilos
 
 import "../SalaRamalC14.css"; // Para estilos específicos del ramal si son necesarios
 
-// --- Datos de las salas (igual que antes) ---
-const salasData = {
-  gobernacion_de_los_andes: {
-    title: "SALA DE GOBERNACIÓN DE LOS ANDES",
-    image: "imagen_to_salas.webp",
-    description: `Una historia de exploración, conocimiento y transformación del territorio.
-Bienvenidos a recorrer el proceso de organización y conocimiento del Territorio Nacional de Los Andes, a partir de su administración estatal, vas a conocer a sus protagonistas, las primeras investigaciones científicas y cómo esta región tan particular fue integrada al país.`,
-  },
-  territorio_de_los_andes: {
-    title: "SALA DE TERRITORIO DE LOS ANDES",
-    image: "imagen_to_salas.webp",
-    description: `Un territorio en disputa, una historia de integración nacional.
-Bienvenidos a este espacio que narra el origen, los conflictos y la consolidación de los Andes, una región estratégica y cargada de historia en el corazón de la Puna argentina.
-`,
-  },
-  geologia: {
-    title: "SALA DE GEOLOGÍA",
-    image: "imagen_to_salas.webp",
-    description: `
-    Bienvenidos a la sala donde la Tierra cuenta su historia más profunda.
-En este espacio, te invitamos a viajar al corazón geológico de la Puna, una región moldeada por la fuerza de los volcanes, el calor oculto de los géiseres y la calma brillante de los salares.
-Aquí vas a descubrir cómo, a lo largo de millones de años, la actividad del planeta dio forma a paisajes extremos y únicos. Cada montaña, cada cristal de sal y cada vapor que emerge del suelo nos habla de un mundo en constante transformación.
-Explorá y observá: la geología no es solo ciencia, es el relato vivo del origen de la Tierra.
 
-    `,
-  },
-  minerologia_y_mineria: {
-    title: "SALA DE MINERÍA",
-    image: "imagen_to_salas.webp",
-    description: `
-    La riqueza de la Puna: lo que está en la tierra… y en tu vida.
-En esta sala vas a conocer dos caras de una misma historia.
-Los minerales: verdaderas joyas naturales formadas a lo largo de millones de años. Algunos de ellos están presentes en tu vida diaria —en el celular, en las paredes de tu casa, en la sal del almuerzo, en medicamentos, en el brillo de algún cosmético y hasta en algunos adornos —  aquí vas a descubrir las fórmulas químicas y usos de los minerales más destacados de la Puna. 
-Por otro lado, la minería: las técnicas que se usan para extraer estos minerales de las rocas. Desde métodos ancestrales hasta tecnologías actuales, conocerás cómo se obtienen, quiénes los trabajan, y cómo se busca hoy equilibrar su explotación con el cuidado del ambiente y de las comunidades locales.
-`,
-  },
-  biodiversidad: {
-    title: "SALA DE BIODIVERSIDAD",
-    image: "imagen_to_salas.webp",
-    description: `
-    En esta sala vas a descubrir cómo la vida logra adaptarse y prosperar en uno de los ambientes más extremos del planeta: la Puna andina.
-A más de 3.500 metros sobre el nivel del mar, con aire seco, lluvias escasas, temperaturas bajo cero por la noche y un sol intenso durante el día, la vida enfrenta desafíos constantes.
-Sin embargo, la naturaleza responde con estrategias sorprendentes:
-•	Algunas plantas crecen muy cerca del suelo para protegerse del viento.
-•	Muchos animales migran o modifican sus hábitos para sobrevivir.
-•	Los organismos más pequeños desarrollan defensas especiales frente a la fuerza del sol en altura: algunos se refugian bajo piedras o en grietas del suelo.
-La biodiversidad en la Puna no es abundante, pero cuenta con especies endémicas. Cada especie que vive aquí forma parte de una red moldeada por millones de años de adaptación.
-
-
-    `,
-  },
-  arqueologia: {
-    title: "SALA DE ARQUEOLOGÍA",
-    image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Arqueología
-Te invitamos ahora a sumergirse rápidamente en el tiempo para  conocer a los antiguos habitantes   de la Puna, un territorio habitado desde hace miles de años. Estas personas se adaptaron a un entorno desafiante, desarrollaron formas de vida basadas en la caza, el pastoreo, la agricultura y el intercambio, y fueron construyendo conocimientos, creencias y tecnologías que aún hoy nos sorprenden. Vamos, entra a conocerlos!`,
-  },
-  ramal_c14: {
-    title: "SALA DE RAMAL C14",
-    image: "imagen_to_salas.webp",
-    description: `Bienvenidos a conocer una de las obras más asombrosas de la ingeniería ferroviaria en América del Sur. Aquí vas a descubrir la historia del ferrocarril que desafió la geografía extrema de la Cordillera de los Andes, uniendo Salta con la frontera chilena en Socompa, a más de 3.500 metros sobre el nivel del mar.
-`,
-  },
-  "san-antonio-hoy": {
-    title: "SALA DE SAN ANTONIO HOY",
-    image: "imagen_to_salas.webp",
-    description: `San Antonio de los Cobres, capital del departamento de los Andes y una de las localidades más emblemáticas de la Puna argentina. Un territorio que se sostiene entre la memoria ancestral, la vida comunitaria, el trabajo de pastores, artesanos  y mineros, y una cultura viva que sigue latiendo a 3.776 metros de altura.`,
-  },
-  historia: {
-    title: "SALA DE HISTORIA",
-    image: "imagen_to_salas.webp",
-    description: `Bienvenidos a la Sala de Historia
-Un recorrido por los grandes cambios políticos y sociales que marcaron la región andina y el país.
-Desde los primeros contactos con los conquistadores hasta la consolidación de la Argentina como Estado nacional, esta sala nos invita a descubrir cómo se fueron transformando los territorios, las poblaciones y las formas de gobierno.
-`,
-  },
-};
 
 // --- Mapeo de IDs a componentes PRINCIPALES ---
 const salaComponentMap = {
@@ -163,10 +89,21 @@ const SalaInvalida = (
 
 // --- Componente Principal Sala ---
 export const Sala = () => {
+  const { t } = useTranslation(); // <-- 2. USA EL HOOK
+
   // Obtenemos ambos parámetros: el de la sala y el del detalle (si existe)
   const { salaId, id: detailId } = useParams(); // Renombramos 'id' a 'detailId' para claridad
-  const sala = useMemo(() => salasData[salaId], [salaId]);
-  const [bandImg, setBandImg] = useState(true);
+  // --- 3. OBTÉN LOS DATOS DE LA SALA DESDE i18next ---
+  const sala = useMemo(() => {
+    // Usamos el `salaId` para construir la clave de traducción
+    const claveBase = `introduccion_salas.${salaId}`;
+    return {
+      title: t(`${claveBase}.title`),
+      description: t(`${claveBase}.description`),
+      // La imagen sigue siendo estática, podemos añadirla aquí si es necesario
+      image: "imagen_to_salas.webp" 
+    };
+  }, [salaId, t]); // Depende de salaId y de la función t (que cambia con el idioma)
   const navigate = useNavigate(); // <--- Hook para navegación
 
   // Determina el componente PRINCIPAL a renderizar

@@ -4,45 +4,29 @@ import { PlayCircleOutlined, EyeOutlined } from "@ant-design/icons";
 import "../Home.css"; // Asegúrate que la ruta sea correcta
 
 import { useRegisterText } from "../Contexts/SpeechContext"; // <-- Ajusta la ruta si es necesario
+import { useTranslation } from "react-i18next";
 
-const homeText=`
+const homeText = `
 Bienvenidos al Museo Regional Andino de San Antonio de los Cobres.
 
 El Museo Regional Andino de San Antonio de los Cobres tiene como finalidad la conservación y promoción del invaluable patrimonio cultural y natural de la Puna. Este revaloriza la identidad local a través de exposiciones interactivas y actividades educativas, diseñadas para conectar profundamente a los visitantes con la rica historia y tradiciones de la comunidad andina.
 `;
 
 export const Home = () => {
-  useRegisterText(homeText);
+  const { t } = useTranslation();
+
+  // Obtenemos el texto traducido para el audio
+  useRegisterText(t("pagina_home.texto_completo_audio"));
 
   return (
     <div className="home-container">
-      {/* Sección Hero */}
       <section className="hero-section">
-        <div className="hero-overlay"></div> {/* Capa de superposición */}
+        <div className="hero-overlay"></div>
         <div className="hero-content">
-          {/* Eliminados los atributos data-aos */}
-          <h2 className="welcome-text">Bienvenidos al</h2>
-          <h1 className="museum-title">Museo Regional Andino</h1>
-          {/* <p className="museum-subtitle">
-            El Museo Regional Andino de San Antonio de los Cobres tiene como
-            finalidad la conservación y promoción del invaluable patrimonio
-            cultural y natural de la Puna. Este revaloriza la identidad local a
-            través de exposiciones interactivas y actividades educativas,
-            diseñadas para conectar profundamente a los visitantes con la rica
-            historia y tradiciones de la comunidad andina.
-          </p> */}
-          <div className="button-group">
-            {/* <Button
-              className="btn-custom btn-outline"
-              icon={<EyeOutlined />}
-              size="large"
-              ghost
-              // Considera deshabilitar o cambiar el texto si aún no está lista
-              // disabled
-            >
-              Visita Virtual (Próximamente)
-            </Button> */}
+          <h2 className="welcome-text">{t("pagina_home.bienvenida")}</h2>
+          <h1 className="museum-title">{t("pagina_home.titulo_museo")}</h1>
 
+          <div className="button-group">
             <Link to="/guia">
               <Button
                 className="btn-custom btn-filled"
@@ -50,7 +34,7 @@ export const Home = () => {
                 size="large"
                 type="primary"
               >
-                Iniciar Visita
+                {t("pagina_home.boton_iniciar_visita")}
               </Button>
             </Link>
 
@@ -61,46 +45,24 @@ export const Home = () => {
                 size="large"
                 type="primary"
               >
-                Salas
+                {t("pagina_home.boton_salas")}
               </Button>
             </Link>
           </div>
         </div>
-        {/* Indicador de scroll opcional (no depende de AOS) */}
-        {/* <div className="scroll-indicator">
-          <span></span>
-        </div> */}
       </section>
 
-      {/* Sección de Información */}
-      {/* Eliminado data-aos="fade-up" */}
       <section className="info-section">
         <div className="info-content">
-          <h3 className="info-title"></h3>
-          <p>
-            El Museo Regional Andino de San Antonio de los Cobres tiene como
-            finalidad la conservación y promoción del invaluable patrimonio
-            cultural y natural de la Puna. Este revaloriza la identidad local a
-            través de exposiciones interactivas y actividades educativas,
-            diseñadas para conectar profundamente a los visitantes con la rica
-            historia y tradiciones de la comunidad andina.
-          </p>
-          <Link to="/sobre-nosotros">
-            {/*
-               <Button type="link" className="info-link">Conoce más sobre el museo →</Button>
- */}
-          </Link>
+          <p>{t("pagina_home.parrafo_info")}</p>
         </div>
         <div className="info-visual">
-          {/* Podrías poner un SVG, un icono temático o una imagen pequeña aquí */}
           <img
             src={`${import.meta.env.BASE_URL}logo_museo_andino.jpg`}
             alt="Logo Museo Andino"
           />
         </div>
       </section>
-
-      {/* Puedes añadir más secciones aquí */}
     </div>
   );
 };

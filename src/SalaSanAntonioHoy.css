@@ -12,3 +12,91 @@
 .san-antonio-bloque:last-child {
   margin-bottom: 0;
 }
+
+
+.carousel-image-pachamama {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* La imagen cubre todo el slide sin deformarse */
+}
+
+
+
+/* En SalaSanAntonioHoy.css, añade esto al final */
+
+/* --- Estilos para el bloque de la Pachamama --- */
+
+.pachamama-grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 columna por defecto en móviles */
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+/* --- Media Query para Escritorio (2 columnas) --- */
+@media (min-width: 768px) {
+  .pachamama-grid-container {
+    /* Texto y video ocupan el 50% cada uno */
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+
+/* --- ESTILOS PARA EL VIDEOPLAYER VERTICAL --- */
+
+/* El contenedor del video */
+.video-wrapper.formato-vertical {
+  position: relative;
+  width: 100%;
+  max-width: 350px; /* Limita el ancho del video para que no sea gigante */
+  margin: 0 auto; /* Centra el video si el contenedor es más ancho */
+  
+  /* Proporción 9:16 para video vertical de celular */
+  padding-top: 140%; 
+  height: 0;
+  
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* El tag <video> dentro del wrapper */
+.formato-vertical .sala-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que llene el espacio vertical */
+}
+
+/* El botón de play y su overlay (pueden ser genéricos) */
+.formato-vertical .play-button-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.video-wrapper.is-playing .play-button-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.formato-vertical .play-icon-container {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #111;
+  font-size: 1.8rem;
+}

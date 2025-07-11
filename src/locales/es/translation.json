@@ -1,0 +1,631 @@
+{
+  "navbar": {
+    "inicio": "Inicio",
+    "salas": "Salas"
+  },
+  "sala_geologia": {
+    "titulo_principal": "GEOLOGÍA",
+    "subtitulo_principal": "¿Sabías que hay un lugar en Argentina donde el agua nunca llega al mar?",
+    "parrafo_intro_1": "La Puna es una región única en el planeta. Nos encontramos a más de 4.000 metros sobre el nivel del mar, en un paisaje que parece de otro mundo: volcanes, salares, lagunas de colores intensos y un clima tan extremo como fascinante.",
+    "parrafo_intro_2": "Esta región forma parte de una <strong>cuenca endorreica</strong>, un tipo especial de cuenca donde el agua no tiene salida al mar. Aquí, el agua se evapora o se filtra en el suelo, dejando atrás sales y minerales que se acumulan y dan origen a los salares.",
+    "titulo_carrusel_cuencas": "Vistas de cuencas en la Puna",
+    "parrafo_cordilleras": "La Puna está encerrada entre dos grandes cordilleras:",
+    "lista_cordilleras": {
+      "item1": "Al oeste, <strong>la Cordillera Volcánica Occidental</strong>, rica en volcanes activos e inactivos.",
+      "item2": "Al este, <strong>la Cordillera Oriental</strong>, formada por importantes montañas y valles."
+    },
+    "subtitulo_fuerzas": "Fuerzas de fuego y vapor: volcanes y géiseres",
+    "parrafo_fuerzas_1": "Bajo nuestros pies, la Tierra está viva. La actividad volcánica y geotérmica de la Puna crea fuentes termales, géiseres, campos fumarólicos y depósitos minerales.",
+    "parrafo_fuerzas_2": "La energía interna del planeta se manifiesta aquí de forma directa:",
+    "lista_fuerzas": {
+      "item1": "<strong>Volcanes:</strong> expulsan lava, gases y cenizas.",
+      "item2": "<strong>Géiseres y fumarolas:</strong> nos muestran el calor subterráneo emergiendo en forma de vapor.",
+      "item3": "<strong>Suelos mineralizados:</strong> el agua caliente que circula bajo tierra disuelve minerales que, al enfriarse, se depositan en la superficie."
+    },
+    "subtitulo_formacion_volcan": "¿Cómo se forma un volcán?",
+    "parrafo_formacion_volcan_1": "Bajo la superficie terrestre, a varios kilómetros de profundidad, ocurren procesos silenciosos pero poderosos. Cuando la presión disminuye bruscamente en las capas internas de la Tierra, las temperaturas suben tanto que las rocas comienzan a fundirse. Así se forma el magma, una mezcla incandescente de minerales derretidos.",
+    "parrafo_formacion_volcan_2": "Este magma busca salir. A medida que asciende, se abre paso entre las fracturas de la corteza terrestre y cristaliza nuevos minerales. Cuando finalmente encuentra una salida, erupciona violentamente o se derrama suavemente, dependiendo de su composición.",
+    "parrafo_formacion_volcan_3": "Con cada erupción, el volcán crece: se acumulan capas de lava, cenizas, escoria y gases solidificados. Esas capas forman poco a poco lo que llamamos el 'edificio volcánico', cuya forma varía según el tipo de magma y la intensidad de la actividad.",
+    "parrafo_formacion_volcan_4": "En la región de la Puna, los volcanes no solo moldean el paisaje: también son el origen de muchos de los minerales valiosos que encontramos en esta zona, como azufre, litio y oro. La energía del interior de la Tierra se transforma, aquí, en una fuente de riqueza natural.",
+    "sabias_que_volcanes_titulo": "¿Sabías qué...?",
+    "sabias_que_volcanes_texto": "Algunos volcanes de la Puna estuvieron activos hace miles o millones de años, pero sus huellas aún se conservan en cráteres, conos y flujos de lava fosilizados. Hoy, muchos de esos antiguos volcanes son claves para entender la formación de los salares y depósitos minerales de la región.",
+    "subtitulo_geiser": "¿Qué es un géiser?",
+    "parrafo_geiser_1": "Imaginá un volcán, pero en lugar de arrojar lava, lanza al cielo chorros de agua hirviendo y vapor. Eso es un géiser: una manifestación espectacular del calor oculto bajo la Tierra. En las profundidades del suelo, el agua se filtra hasta entrar en contacto con rocas muy calientes, calentadas por el magma. Esa agua se convierte en vapor a presión, que busca salir a la superficie y cuando la presión es demasiado alta, el géiser entra en erupción, expulsando con fuerza una mezcla de agua caliente y vapor. Aunque duran solo unos segundos o minutos, estas erupciones pueden alcanzar varios metros de altura, y se repiten una y otra vez durante años o incluso siglos.",
+    "sabias_que_geiser_titulo": "¿Sabías qué…?",
+    "sabias_que_geiser_texto": "Los géiseres son muy raros en el planeta. Se necesitan condiciones muy precisas de calor, agua subterránea y una geología especial. En la Puna argentina, podés ver fenómenos similares en los campos geotermales, donde el vapor sale por grietas en la tierra… ¡como si la Tierra respirara!",
+    "subtitulo_salar": "¿Cómo nace un Salar?",
+    "parrafo_salar_1": "En las vastas alturas de la Puna, donde el cielo es inmenso y la lluvia escasa, la Tierra ha creado paisajes deslumbrantes: planicies blancas y resplandecientes que parecen hechas de hielo, pero están compuestas por sal.",
+    "parrafo_salar_2": "Estos salares no siempre estuvieron allí, se formaron a lo largo de miles —incluso millones— de años, cuando una serie de factores muy particulares que coincidieron en un mismo lugar:",
+    "lista_salar": {
+      "item1": "Una depresión natural en el terreno, sin salida hacia el mar",
+      "item2": "Volcanes activos, que liberaban minerales, gases y cenizas",
+      "item3": "Aguas termales cargadas de elementos químicos provenientes del interior de la Tierra",
+      "item4": "Fragmentos de roca erosionada, polvo y materia volcánica transportados por el viento",
+      "item5": "Y sobre todo, un clima extremadamente árido, con mucha evaporación y casi nada de lluvia"
+    },
+    "parrafo_salar_3": "Con el tiempo, esas depresiones se llenaron con agua de lluvia, deshielos y manantiales calientes pero en lugar de formar ríos o lagos permanentes, el agua simplemente se evaporó, precipitando todos los compuestos disueltos. Así comenzaron a formarse las grandes planicies de sal. Bajo esa costra blanca y brillante, todavía queda agua muy salada, conocida como salmuera, donde flotan elementos como el litio, potasio y magnesio. Esta salmuera es una de las mayores riquezas naturales de la Puna, y hoy es clave para tecnologías limpias y energías renovables.",
+    "sabias_que_litio_titulo": "¿Sabías qué...?",
+    "sabias_que_litio_texto": "El litio que permite que funcionen los celulares, notebooks y autos eléctricos se extrae, en gran parte, de las salmueras escondidas bajo los salares del noroeste argentino. La Puna forma parte del <strong>Triángulo del Litio</strong>, una de las regiones más estratégicas del planeta.",
+    "subtitulo_lenguaje_puna": "El lenguaje secreto de la Puna",
+    "parrafo_lenguaje_puna": "Aunque parezca un paisaje detenido en el tiempo, la Puna está en constante transformación. La falta de lluvias, el viento seco y el sol abrasador del día, seguidos por noches heladas, son verdaderos escultores del paisaje. La roca se quiebra, se convierte en grava y lentamente, el desierto se expande. Los habitantes de la región han aprendido a leer las señales de la naturaleza en los cerros, y lo llaman “los cerros brujos”.",
+    "subtitulo_cerros_brujos": "Los cerros brujos: sabiduría ancestral del clima",
+    "parrafo_cerros_brujos": "Los pueblos originarios del altiplano no usan apps meteorológicas. Durante generaciones han observado cómo se comportan las nubes alrededor de los cerros:",
+    "lista_cerros_brujos": {
+      "item1": "<strong>¿Una corona blanca sobre la cima?</strong> <em>Puede nevar.</em>",
+      "item2": "<strong>¿Nubes que se aferran a la ladera?</strong> <em>Se aproxima humedad.</em>"
+    },
+    "parrafo_cerros_brujos_final": "Estos cerros “avisadores” son parte del paisaje… y del conocimiento local."
+  },
+  "sala_biodiversidad": {
+    "titulo_principal": "BIODIVERSIDAD",
+    "subtitulo_intro": "¿Cómo sobrevive la vida en la Puna?",
+    "parrafo_intro_1": "En este ambiente tan extremo, todo está diseñado para resistir:",
+    "lista_intro": {
+      "item1": "Algunas plantas almacenan agua como una esponja.",
+      "item2": "Otras tienen hojas pequeñas, duras o cubiertas de pelusa para evitar la pérdida de humedad.",
+      "item3": "Los animales tienen patas acolchadas para caminar en suelos áridos o pelajes densos para soportar el frío.",
+      "item4": "Las aves vuelan más bajo para conservar energía en un aire con menos oxígeno."
+    },
+    "parrafo_intro_2": "Muchas especies son <strong>endémicas</strong>: sólo viven en la Puna. Eso significa que este ecosistema es frágil, único y digno de ser protegido.",
+    "titulo_carrusel_intro": "Especies en la Puna",
+    "subtitulo_plantas": "Las plantas: especialistas del desierto alto",
+    "parrafo_plantas_1": "La vegetación en la Puna está perfectamente adaptada:",
+    "lista_plantas": {
+      "item1": "Crecen separadas unas de otras para no competir por el agua.",
+      "item2": "Reducen sus hojas a espinas o formas pequeñas para evitar la evaporación.",
+      "item3": "Muchas se arrastran pegadas al suelo, como la yareta, para protegerse del viento."
+    },
+    "parrafo_plantas_2": "Por eso predominan los arbustos bajos, como la <strong>Tola</strong> y la <strong>Tolilla</strong>.",
+    "caption_tola": "Tola",
+    "subtitulo_vicuna": "La vicuña: hecha a medida para la altura",
+    "parrafo_vicuna_1": "Pequeña, ligera y eficiente, la vicuña es el animal más emblemático de la Puna.",
+    "lista_vicuna": {
+      "item1": "Tiene almohadillas en las patas que no erosionan el suelo.",
+      "item2": "Sus incisivos afilados cortan los brotes sin arrancarlos.",
+      "item3": "Puede cerrar sus fosas nasales para protegerse del viento.",
+      "item4": "Y su sangre contiene glóbulos rojos especiales que aprovechan al máximo el poco oxígeno del aire."
+    },
+    "parrafo_vicuna_2": "Vivir en altura es difícil. Pero la vicuña lo hace con elegancia.",
+    "subtitulo_mamiferos": "Pequeños mamíferos, grandes especialistas",
+    "parrafo_mamiferos_1": "En los cerros y roquedales, muchas especies se ocultan de la vista. Los roedores como el <strong>chinchillón</strong>, la <strong>chinchilla real</strong> o la <strong>rata chinchilla</strong> son los más comunes",
+    "lista_mamiferos": {
+      "item1": "El zorro colorado,",
+      "item2": "El gato de los pajonales,",
+      "item3": "El hurón,",
+      "item4": "Y el zorrino real."
+    },
+    "parrafo_mamiferos_2": "Aunque discretos, todos juegan un rol clave en el equilibrio del ecosistema.",
+    "titulo_carrusel_chinchilla": "Pequeños mamíferos",
+    "subtitulo_aves": "Aves que llenan de vida las lagunas de altura",
+    "parrafo_aves_1": "Donde hay agua, hay vida. En las grandes lagunas de la Puna se concentran cientos de aves, tanto residentes como migratorias. Vas a poder reconocer a:",
+    "lista_aves": {
+      "item1": "El chorlito puneño,",
+      "item2": "El chorlito de vincha,",
+      "item3": "El tero serrano,",
+      "item4": "La avoceta andina,",
+      "item5": "La becasina andina y",
+      "item6": "La gaviota andina, entre muchas otras."
+    },
+    "parrafo_aves_2": "Algunas viajan miles de kilómetros cada año. Otras viven aquí todo el tiempo. Juntas, llenan de movimiento el cielo del altiplano.",
+    "titulo_carrusel_aves": "Aves de las Lagunas Altoandinas",
+    "titulo_carrusel_parinas": "Aves de las lagunas"
+  },
+  "sala_arqueologia": {
+    "titulo_principal": "ARQUEOLOGÍA",
+    "parrafo_intro": "En esta sala vas a conocer quiénes habitaron la Puna, un territorio habitado desde hace miles de años. Conocerás cómo las personas se adaptaron a un entorno desafiante, desarrollaron formas de vida basadas en la caza, el pastoreo, la agricultura y el intercambio, y cómo fueron construyendo conocimientos, creencias y tecnologías que aún hoy nos sorprenden.",
+    "parrafo_bloque1_1": "Hace más de 10.000 años, los primeros grupos humanos comenzaron a habitar los altos paisajes de la Puna. Eran cazadores y recolectores nómadas que se desplazaban por grandes extensiones del territorio andino. Su vida dependía de animales como la vicuña y el guanaco, que les proveían carne, cuero y hueso para herramientas.",
+    "parrafo_bloque1_2": "Con el paso del tiempo, entre los 3.000 y 2.500 años antes del presente, estas comunidades comenzaron a domesticar camélidos —especialmente la llama— y a practicar la agricultura. Esta transformación marcó un cambio fundamental: el inicio de una forma de vida pastoril, con asentamientos más estables, intercambio de productos y una organización social más compleja.",
+    "parrafo_bloque1_3": "La llama fue un verdadero motor del desarrollo andino: no sólo brindaba lana y carne, sino que permitía el transporte de bienes a largas distancias, siendo clave en las redes de intercambio entre la Puna y los valles.",
+    "parrafo_bloque2_1": "En sitios como Matancillas y Urcuro (en el actual Valle de San Antonio de los Cobres), se han hallado evidencias arqueológicas que dan cuenta de la vida cotidiana de estas poblaciones hace 1.500 años. En Matancillas, un geoglifo grabado sobre roca de cuarzo —único en el país— representa un camélido, símbolo de su valor económico y espiritual.",
+    "parrafo_bloque2_2": "Herramientas como puntas de proyectil y cuchillos fueron elaboradas principalmente en obsidiana, un vidrio volcánico muy apreciado por su filo, así como en cuarcita. Estos objetos muestran el conocimiento profundo que los antiguos puneños tenían sobre los minerales y su uso.",
+    "parrafo_bloque3_1": "Con la expansión del Imperio Incaico en el siglo XV, muchas comunidades de la Puna fueron integradas a esta compleja red política, social y económica. Montañas como el Acay, Tuzgle, el Llullaillaco, Chañi y el Quevar fueron consideradas sagradas, y en ellas se realizaron importantes ceremonias, incluso con ofrendas humanas, como parte de la cosmovisión andina.",
+    "parrafo_bloque3_2": "La Puna salteña forma parte de una de las regiones con mayor densidad de adoratorios de altura del mundo andino, con más de 100 cerros sagrados identificados, muchos de ellos vinculados a rituales incaicos.",
+    "parrafo_bloque4_1": "Las cerámicas, máscaras y puntas de flecha que ves en esta sala son testimonio de ese pasado: objetos que acompañaron la vida diaria, los ritos, los intercambios y las creencias de quienes habitaron estas tierras antes y después de la llegada del Inca.",
+    "parrafo_bloque4_2": "A partir de la llegada de los españoles en el siglo XVI, las formas de vida indígenas comenzaron a transformarse. La organización colonial introdujo nuevas instituciones —como la encomienda y los pueblos de indios— que fueron modificando el modo de habitar, trabajar y relacionarse con el territorio.",
+    "parrafo_bloque4_3": "La historia de los primeros habitantes de la Puna no está escrita con letras, sino con piedras, cerámicas, senderos y rituales. Hoy, esos rastros nos permiten conocer cómo fueron sus vidas, su entorno, y su legado. Su sabiduría sigue presente en las formas de habitar, de criar llamas, de rendir culto a la Pachamama (Madre Tierra).",
+    "video_titulo": "Entrevista con el Dr. Federico Restifo",
+    "video_subtitulo": "Arqueólogo-Investigador del CONICET."
+  },
+
+  "sala_historia": {
+    "titulo_principal": "HISTORIA",
+    "subtitulo_virreinato": "El dominio español y el nacimiento del Virreinato",
+    "parrafo_virreinato_1": "Durante el siglo XVI, los españoles avanzaron en la colonización de América. En 1776 se creó el Virreinato del Río de la Plata, que incluía los actuales territorios de Argentina, Bolivia, Paraguay y Uruguay. Su capital fue Buenos Aires.",
+    "parrafo_virreinato_2": "Para organizar su gobierno, el virreinato se dividió en intendencias como Buenos Aires, Córdoba del Tucumán, Salta del Tucumán y Potosí, y gobernaciones militares como Montevideo y Misiones. Estas estructuras facilitaron la administración y el control de una vasta región con gran diversidad cultural y geográfica.",
+    "subtitulo_evangelizacion": "La evangelización y la vida en la Puna",
+    "parrafo_evangelizacion_1": "Junto con los conquistadores llegaron órdenes religiosas como los dominicos, franciscanos y jesuitas. Su misión era cristianizar a los pueblos originarios y, al mismo tiempo, integrarlos en nuevas formas de vida organizadas.",
+    "parrafo_evangelizacion_2": "Los jesuitas se destacaron por su acción en regiones como la Puna andina, donde trabajaron junto a comunidades kollas en la explotación de minas como Incahuasi y Cobres. Aunque fueron expulsados en 1767 por orden del rey Carlos III, su legado perduró a través de las prácticas religiosas, económicas y culturales que ayudaron a establecer.",
+    "subtitulo_republica": "De las Provincias Unidas a la República Argentina",
+    "parrafo_republica_1": "Tras el proceso independentista iniciado en 1810, las Provincias Unidas del Río de la Plata comenzaron a organizarse como entidades autónomas. Entre 1813 y 1834, se consolidaron catorce provincias, cada una con su propia constitución. A pesar de esa autonomía, mantenían un débil vínculo confederal.",
+    "parrafo_republica_2": "La sanción de la Constitución Nacional en 1853 fue clave para organizar políticamente el país. En 1862, con la incorporación de Buenos Aires, se formó oficialmente la República Argentina, integradas las provincias bajo un marco común.",
+    "subtitulo_territorios": "Territorios Nacionales y expansión del Estado",
+    "parrafo_territorios_1": "A fines del siglo XIX, el gobierno nacional impulsó una política de expansión territorial. En 1884 se crearon los Territorios Nacionales, zonas aún no organizadas como provincias, que fueron divididas en gobernaciones: Chaco, Formosa, Pampa, Chubut, entre otras.",
+    "parrafo_territorios_2": "En el año 1900, durante la presidencia de Julio A. Roca, se creó el Territorio Nacional de Los Andes, que abarcaba parte de la región puneña. Su creación respondió al interés estratégico en zonas de frontera y a la importancia de sus recursos naturales, como el litio y los boratos."
+  },
+  "sala_territorio_andes": {
+    "titulo_principal": "TERRITORIO NACIONAL DE LOS ANDES",
+    "subtitulo_intro": "¿Qué fue el Territorio Nacional de Los Andes?",
+    "parrafo_intro_1": "El Territorio Nacional de Los Andes fue una unidad político-administrativa creada oficialmente el 9 de enero de 1900, mediante la Ley N.º 3906, con el objetivo de afirmar la soberanía argentina sobre una vasta zona de la Puna de Atacama.",
+    "parrafo_intro_2": "En 1902, un decreto presidencial designó como capital del territorio a San Antonio de los Cobres, que aún hoy es una referencia clave en la región andina salteña.",
+    "parrafo_intro_3": "Los Territorios Nacionales eran regiones que, si bien formaban parte del país, no estaban aún organizadas como provincias. El Poder Ejecutivo Nacional nombraba allí gobernadores y secretarios que ejercían funciones administrativas, judiciales y de representación del Estado.",
+    "caption_mapa_latzina": "Mapa argentino de Francisco Latzina de 1888 mostrando la Puna de Atacama como territorio chileno.",
+    "caption_mapa_san_roman": "Carta geográfica del desierto y cordilleras de Atacama realizada por Francisco J. San Román y publicada en 1892.",
+    "subtitulo_conflictos": "Un territorio en el centro de los conflictos",
+    "parrafo_conflictos_1": "El origen del Territorio de Los Andes está profundamente ligado a la Guerra del Pacífico (1879–1884), un conflicto entre Chile, Bolivia y Perú por el control del Desierto de Atacama, una zona rica en salitre. Como consecuencia, Chile ocupó territorios en disputa, incluyendo partes de la Puna que también limitaban con Argentina.",
+    "parrafo_conflictos_2": "En esa época, parajes como Antofagasta de la Sierra, Pastos Grandes y Surques eran áreas en litigio, sin delimitación precisa, y pasaron a estar bajo ocupación chilena. Mientras tanto, se usaba indistintamente el nombre Puna de Atacama o Cordillera de Atacama para referirse a esta región.",
+    "subtitulo_diplomacia": "Diplomacia y acuerdos internacionales",
+    "parrafo_diplomacia_1": "En 1889, Bolivia firmó un acuerdo con Argentina cediéndole derechos sobre una porción del territorio en conflicto. Esta cesión fue parte de un intercambio diplomático, como compensación por la renuncia argentina a su reclamo sobre la región de Tarija.",
+    "parrafo_diplomacia_2": "El litigio entre Argentina y Chile se resolvió parcialmente en 1899 mediante un laudo arbitral internacional, conocido como el Laudo Buchanan, en referencia al ministro estadounidense William Buchanan, que ofició como mediador. El acuerdo dividió la Puna de Atacama:",
+    "lista_diplomacia": {
+      "item1": "La porción occidental (unos 11.000 km²) quedó en manos de Chile.",
+      "item2": "La porción oriental (alrededor de 63.000 km²) se integró a Argentina, dando lugar a la creación del Territorio Nacional de Los Andes."
+    },
+    "parrafo_diplomacia_3": "Localidades como Susques, Santa Rosa de Pastos Grandes y Antofagasta de la Sierra pasaron a formar parte del territorio argentino, mientras que San Pedro de Atacama quedó del lado chileno."
+  },
+
+  "sala_gobernacion_andes": {
+    "titulo_principal": "GOBERNACIÓN DE LOS ANDES",
+    "subtitulo_gobernador": "El primer gobernador: Daniel Cerri",
+    "parrafo_gobernador_1": "El General de Brigada Daniel Cerri fue designado como primer gobernador del Territorio Nacional de Los Andes a principios del siglo XX. Su gestión, además de sentar las bases institucionales, estuvo marcada por expediciones de reconocimiento y exploración del territorio, fundamentales para conocer su geografía, sus recursos y su potencial.",
+    "parrafo_gobernador_2": "Durante su administración se elaboró la primera Memoria oficial de la Gobernación, un documento clave que detallaba:",
+    "lista_gobernador": {
+      "item1": "Propiedades y límites territoriales.",
+      "item2": "La ubicación de yacimientos de boratos y otros minerales estratégicos.",
+      "item3": "Condiciones climáticas y ambientales de la Puna andina."
+    },
+    "parrafo_gobernador_3": "Este informe no sólo permitió avanzar en políticas de ocupación y administración, sino que llamó la atención sobre el valor económico de los recursos naturales, en especial los boratos, el litio y el cobre.",
+    "subtitulo_ciencia": "Ciencia y territorio: Ambrosetti, Boman y otros exploradores",
+    "parrafo_ciencia_1": "En paralelo con la labor política y administrativa, la Gobernación impulsó o facilitó expediciones científicas pioneras, que fueron fundamentales para la historia de la arqueología, la geología y la etnografía argentina.",
+    "parrafo_ciencia_2": "Entre ellas se destacan:",
+    "lista_ciencia": {
+      "item1": "<strong>Juan Ambrosetti (1904–1905):</strong> considerado el “padre de la arqueología argentina”, recorrió la región registrando sitios arqueológicos, cerámicas, tumbas y geoglifos, muchos de ellos hoy considerados como patrimonio.",
+      "item2": "<strong>Eric Boman (1910):</strong> etnógrafo y arqueólogo sueco-argentino, realizó estudios sistemáticos sobre pueblos originarios, asentamientos y rutas prehispánicas."
+    },
+    "parrafo_ciencia_3": "Sus investigaciones fueron pioneras en mostrar que esta región no era “vacía” ni marginal, sino que tenía una larga historia cultural y estaba profundamente integrada al mundo andino.",
+    "subtitulo_futuro": "Un territorio con futuro… y con historia",
+    "parrafo_futuro_1": "Los informes técnicos y científicos de principios del siglo XX destacaron que la región tenía:",
+    "lista_futuro": {
+      "item1": "Un clima singular, extremadamente seco, con gran amplitud térmica.",
+      "item2": "Una altitud desafiante, pero con posibilidades para la minería, la ganadería y ciertos cultivos.",
+      "item3": "Riquezas geológicas: boratos, salares, piedra pómez, litio, cobre y otros minerales."
+    },
+    "parrafo_futuro_2": "Este conocimiento fue clave para promover exploraciones mineras, organizar servicios básicos y fomentar pequeñas poblaciones.",
+    "subtitulo_final": "El final del Territorio Nacional de Los Andes",
+    "parrafo_final_1": "En 1943, por decreto nacional, el Territorio fue disuelto y sus partes integradas definitivamente a las provincias vecinas:",
+    "lista_final": {
+      "item1": "El Departamento de Los Andes pasó a formar parte de Salta.",
+      "item2": "Susques, a la provincia de Jujuy.",
+      "item3": "Antofagasta de la Sierra, a Catamarca."
+    },
+    "parrafo_final_2": "Así culminó una etapa de administración nacional directa y se consolidó el mapa provincial actual del noroeste argentino.",
+    "titulo_carrusel": "Gobernación de los Andes"
+  },
+  "sala_ramal_c14": {
+    "titulo_principal": "RAMAL C-14",
+    "parrafo_construccion_1": "Construido a fuerza de pico, pala, dinamita y carretillas, el Ramal C14 requirió el esfuerzo de más de 1.000 trabajadores que enfrentaron condiciones climáticas severas, altura extrema y terrenos abruptos. Su recorrido de 571 kilómetros es un verdadero monumento al ingenio humano, con:",
+    "lista_construccion": {
+      "item1": "1.400 curvas",
+      "item2": "31 puentes",
+      "item3": "21 túneles",
+      "item4": "13 viaductos",
+      "item5": "2 rulos (tramos en espiral)",
+      "item6": "2 zigzag",
+      "item7": "9 cobertizos"
+    },
+    "parrafo_construccion_2": "Entre todas estas estructuras, el Viaducto La Polvorilla, construido entre 1930 y 1932, se destaca como un símbolo de esta hazaña: tiene 224 metros de largo, forma curva y se eleva 63 metros sobre el suelo, desafiando las alturas.",
+    "titulo_carrusel_construccion": "Imágenes históricas de la construcción",
+    "titulo_carrusel_construccion_2": "Más imágenes históricas de la construcción",
+    "subtitulo_historia": "Una historia de decisiones, cambios y visión de futuro",
+    "lista_historia": {
+      "item1": "<strong>1889:</strong> Se inician los primeros estudios para unir Salta con Antofagasta mediante un ferrocarril trasandino.",
+      "item2": "<strong>1905:</strong> La Ley 2693 autoriza oficialmente el proyecto.",
+      "item3": "<strong>1921:</strong> El presidente Hipólito Yrigoyen da el impulso decisivo y nombra al Ing. Richard Fontaine Maury como jefe de obra.",
+      "item4": "<strong>1929:</strong> El tendido de rieles llega a San Antonio de los Cobres, uno de los puntos más emblemáticos del trazado.",
+      "item5": "<strong>1948:</strong> El 20 de febrero se inaugura la conexión internacional con Chile por el paso de Socompa, en plena presidencia de Juan Domingo Perón. Ese mismo año, el ramal pasa a formar parte del Ferrocarril General Belgrano."
+    },
+    "video_subtitulo_1": "Viaje por el Ramal C14 en 1926. Video cortesía de Archivo General de la Nación.",
+    "subtitulo_rieles": "Mucho más que rieles",
+    "parrafo_rieles_1": "El Ramal C14 no fue solo una vía de comunicación: fue una estrategia para integrar los territorios más aislados del país. El proyecto buscaba conectar zonas ricas en recursos minerales, como boratos y litio, con los puertos del Pacífico, facilitando el desarrollo económico y reduciendo la dependencia de rutas marítimas largas.",
+    "cita_rieles": "\"Hay que enviar geólogos que descifren los secretos de la montaña, en cuyo seno hay escondidos filones preciosos; y hay que llevar una vía férrea hasta las mismas salidas de las punas, para que la exportación de la materia prima sea posible.\"",
+    "cita_autor": "- Eduardo Holmberg (hijo), comienzos del siglo XX",
+    "video_subtitulo_2": "El Trasandino del Norte. Imágenes históricas de la construcción y operación del tren.",
+    "subtitulo_turismo": "Se sumó al desarrollo, el turismo: Nace El tren a las nubes",
+    "parrafo_turismo_1": "A fines del siglo XX, parte del trazado original del Ramal C14 se convirtió en uno de los viajes turísticos más famosos del país: el Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de la Puna salteña, es una experiencia única que combina naturaleza, ingeniería e historia.",
+    "parrafo_turismo_2": "Este tren se ha consolidado como una oferta turística internacional, manteniendo viva la memoria de una obra que transformó el paisaje y la vida en los Andes.",
+    "titulo_carrusel_actual": "El Tren a las Nubes en la actualidad"
+  },
+
+  "sala_san_antonio_hoy": {
+    "titulo_principal": "SAN ANTONIO DE LOS COBRES HOY",
+    "subtitulo_raices": "Un pueblo con raíces profundas",
+    "parrafo_raices_1": "San Antonio de los Cobres se extiende sobre una superficie de más de 11.000 km², y cuenta con una población cercana a los 7.000 habitantes. Su nombre rinde homenaje a San Antonio de Padua, cuya imagen llegó desde la antigua Mina de Cobres en 1775. Aquella imagen sagrada aún hoy es venerada durante la tradicional fiesta patronal del 13 de junio de cada año y reúne a toda la comunidad en un encuentro de fe, música, danza y reencuentro familiar.",
+    "subtitulo_tejido": "Tejido, herencia y territorio",
+    "parrafo_tejido_1": "Los telares y vestimentas que ves en esta sala son parte fundamental de la identidad cultural local. El tejido andino —realizado en telares rústicos o de cintura— conserva técnicas milenarias que se transmiten de generación en generación. Cada prenda no solo abriga: también narra historias, representa linajes, festividades, ciclos productivos y creencias. Otra técnica muy valiosa es el tejido a mano con cinco agujas que se derivan en prenda de vestir como guantes, medias y chalecos entre otros.",
+    "parrafo_tejido_2": "Los colores, los motivos y los materiales (como la lana de llama o de oveja) hablan del entorno natural, del calendario agrícola y del mundo simbólico de las comunidades.",
+    "titulo_carrusel_tejidos": "Técnicas y motivos del tejido andino",
+    "subtitulo_escuela": "Escuela y saberes",
+    "parrafo_escuela_1": "En San Antonio se encuentra la escuela más antigua de toda la región puneña: la Escuela Domingo Faustino Sarmiento, fundada en 1903 como Escuela Nacional Nº 1. Hoy sigue funcionando con el número 4.564, bajo jurisdicción provincial. Esta institución representa el esfuerzo por garantizar la educación en contextos geográficos extremos, y es también un espacio de transmisión de valores culturales locales, tanto ancestrales como contemporáneos.",
+    "subtitulo_pachamama": "La Pachamama: Madre Tierra, madre vida",
+    "parrafo_pachamama_1": "Una de las celebraciones más sentidas y difundidas en todo el Noroeste argentino es la Fiesta de la Pachamama, que se realiza cada 1º de agosto. “Pacha” significa tierra, universo en lengua quechua, y “mama” es madre. En esta fecha, las familias agradecen a la tierra todo lo que brinda: alimento, salud, abrigo. Se realiza la tradicional corpachada, donde se entierran ofrendas como hojas de coca, alimentos y bebidas.",
+    "parrafo_pachamama_2": "Esta celebración, presente también en otras culturas andinas, es testimonio del fuerte vínculo espiritual entre el ser humano y la naturaleza. Un ejemplo claro de cómo las creencias indígenas perviven, incluso en contextos de transformación histórica, como la colonización y la evangelización.",
+    "titulo_carrusel_pachamama": "Fiesta de la Pachamama",
+    "subtitulo_testimonio": "Un testimonio del siglo XIX",
+    "parrafo_testimonio_1": "En 1870, el geólogo alemán Luis Brackebusch recorrió la región de San Antonio y escribió una crónica que hoy nos permite imaginar cómo era este paisaje humano y natural en el pasado. En su relato menciona a Ciriaco Colqui, un cacique Kolla que lo guió por la zona y le proporcionó información clave para sus estudios.",
+    "parrafo_testimonio_2": "Brackebusch quedó impresionado por las casas de piedra, abandonadas durante el año, que se llenaban de vida en las grandes festividades religiosas. Su descripción del silencio nocturno, la vida dispersa en los parajes, y la comunión festiva anual nos conecta con una forma de habitar el territorio que —en muchos aspectos— todavía perdura."
+  },
+  "sala_minerologia_mineria": {
+    "titulo_principal": "MINERÍA",
+    "subtitulo_coleccion": "Colección de Minerales y Rocas",
+    "parrafo_coleccion_1": "Te acompañamos a descubrir nuestra colección de minerales y rocas, testigos silenciosos de la riqueza natural de la Puna.",
+    "parrafo_coleccion_2": "Algunas de las rocas y minerales de la colección tienen un código QR:",
+    "parrafo_coleccion_3": "<strong>Apuntá con la cámara de tu celular y míralos en realidad aumentada, para poder observarlos en 3D</strong> e interactuar para ver sus características más destacadas.",
+
+    "subtitulo_vida_cotidiana": "Minería: de la tierra a nuestra vida cotidiana",
+    "parrafo_vida_cotidiana_1": "Tal vez ya sabés que muchos objetos que usás cada día se fabrican con minerales. Pero… ¿cómo pasan de estar en una roca a formar parte de tu celular, tus paredes o tu comida? Esta sección de la guía te invita a descubrir <strong> cómo se extraen y transforman los minerales: </strong> desde las técnicas más antiguas usadas por las comunidades andinas, hasta los métodos modernos que buscan ser más cuidadosos con el ambiente y las personas.",
+
+    "subtitulo_primeros_pasos": "Los primeros pasos de la minería",
+    "parrafo_primeros_pasos_1": "La minería nació con el ser humano. En los Andes, las culturas originarias ya extraían minerales como obsidiana, cobre o sal, que usaban para fabricar herramientas, realizar objetos ceremoniales, pintar cuevas con pigmentos naturales o como elementos de intercambio.",
+    "caption_lampara": "Uno de los objetos que podes ver en esta sala que utilizaban antiguamente es la Lámpara a Carburo",
+    "parrafo_lampara_1": "<strong> ¿Cómo funcionaba? </strong> Tenía un compartimento superior con agua y uno inferior con carburo de calcio. Al mezclarse, generaban gas acetileno, que se encendía y ofrecía una llama estable y duradera. Era indispensable para los mineros que trabajaban en galerías profundas sin electricidad. Esta lámpara no sólo iluminaba el camino: también mostraba cuán ingenioso debía ser el trabajo minero antes de la tecnología moderna.",
+    "parrafo_lampara_2": "Hoy, la Puna sigue siendo clave en el ambito de la minería, el litio que se encuentra bajo los salares permite fabricar baterías para celulares, computadoras y autos eléctricos en todo el mundo. Uno de los objetos que utilizaban antiguamente es la lámpara a carburo, que podés ver en esta sala.",
+    "boton_mina_oro": "Visitá una Mina de Oro",
+    "boton_planta_litio": "Explorá una planta de Litio",
+
+    "subtitulo_testigos": "Explorá los testigos de perforación – la memoria del subsuelo",
+    "parrafo_testigos_1": "En esta sala también se exhiben cortes cilíndricos—o “testigos”—que representan muestras directas del subsuelo de la Puna. Cada uno refleja procesos geológicos específicos, útiles tanto para la minería como para la investigación científica.",
+    "parrafo_testigos_2": "A continuación, puedes observar en detalle algunos de los testigos geológicos más representativos de la colección.",
+    "subtitulo_testigo_brecha": "Brecha hidrotermal (testigo 3-4)",
+    "parrafo_testigo_brecha": "Puedes observar fragmentos angulares de roca unidos por cuarzo relleno, con vetas de alunita y jarosita. Esto indica zonas donde circuló agua caliente (150–350 °C), creando depósitos minerales. Una brecha hidrotermal se forma cuando fluidos calientes y ricos en minerales, llamados fluidos hidrotermales, ascienden a través de fracturas en la corteza terrestre y entran en contacto con rocas más frías. Este cambio brusco de temperatura y presión provoca la precipitación de minerales, que luego cementan los fragmentos de roca circundantes, formando una brecha hidrotermal.",
+    "subtitulo_testigo_andesita_5": "Andesita alterada (testigo 5)",
+    "parrafo_testigo_andesita_5": "La alteración argílica: contiene arcillas como alunita y goethita, lo que es señal de fluidos subterráneos ácidos.",
+    "subtitulo_testigo_andesita_6": "Andesita alterada (testigo 6)",
+    "parrafo_testigo_andesita_6": "La alteración silícica con óxidos de hierro y vetillas de alunita tipifica entornos de alta sulfuración, cercanos a vapores volcánicos.",
+    "subtitulo_testigo_diamantina": "Diamantina / halita",
+    "parrafo_testigo_diamantina": "Contiene cristales cúbicos de sal (halita) en roca árida del salar. Revela episodios de agua salina antigua y evaporación intensiva.",
+    "subtitulo_testigo_granitoide": "Granitoide",
+    "parrafo_testigo_granitoide": "Granitoide (testigo 1) con alteración vuggy silica: presencia de cavidades rellenas de sílice vítrea, común en zonas de mineralización hidrotermal",
+
+    "subtitulo_boratos": "Boratos – colección de boro y derivados",
+    "parrafo_boratos_1": "Los boratos, son minerales de importancia industrial (detergentes, agricultura, vidrio). La muestra que puedes observar en la sala incluye ulexita natural, bórax, y ácido bórico (grado técnico).",
+
+    "lista_minerales": {
+      "pomez": {
+        "nombre": "Piedra Pómez",
+        "tipo": "Roca ígnea volcánica (no es un mineral, sino una roca).",
+        "composicionQuimica": "Varía, pero suele contener SiO₂ (sílice) en altos porcentajes (hasta 70–75%) junto con óxidos de aluminio, potasio y sodio.",
+        "caracteristicas": "Textura vítrea y extremadamente porosa. Muy liviana; puede flotar en el agua. Se forma por el enfriamiento rápido de lava con alto contenido de gases, que quedan atrapados como burbujas.",
+        "usos": "Exfoliantes para la piel (cosmética). Abrasivos suaves (limpieza de metales, callos). Fabricación de bloques livianos de construcción. Agricultura: mejora la aireación de suelos."
+      },
+      "onix": {
+        "nombre": "Ónix (mármol ónix)",
+        "nombreTecnico": "Ónix calcáreo o ónyx de travertino.",
+        "composicion": "Principalmente carbonato de calcio (CaCO₃), con formas cristalinas de calcita y aragonita.",
+        "caracteristicas": "Apariencia translúcida con vetas suaves de distintos colores (verde, blanco, miel). Se forma por deposición de carbonatos a partir de aguas termales o cuevas. Es más frágil que otros mármoles.",
+        "usos": "Artesanías decorativas: figuras, ceniceros, lámparas. Revestimientos de interiores (paredes, mesas, lavabos). Joyería de baja escala (collares, pulseras)."
+      },
+      "ulexita": {
+        "nombre": "Ulexita",
+        "formulaQuimica": "NaCaB₅O₆(OH)₆·5H₂O (borato de sodio y calcio hidratado).",
+        "clase": "Boratos",
+        "caracteristicas": "Conocida como “piedra televisión” por su estructura de fibras paralelas que transmiten imágenes o luz de un lado al otro. Cristal blanco o transparente, con brillo sedoso. Se forma en ambientes evaporíticos (salares secos).",
+        "usos": "Fuente de boro, esencial en: Vidrios resistentes al calor (tipo Pyrex). Detergentes y blanqueadores. Fertilizantes y cerámica. Productos ópticos y de telecomunicaciones. Educación y coleccionismo por su efecto visual inusual."
+      },
+      "baritina": {
+        "nombre": "Baritina",
+        "formulaQuimica": "BaSO₄",
+        "clase": "Sulfatos",
+        "caracteristicas": "Mineral muy denso, de color blanco a grisáceo.",
+        "usos": "Se emplea principalmente como barro de perforación en pozos petroleros, por su peso. También se usa en la industria del vidrio, pinturas, plásticos y papeles especiales por su alto contenido en bario."
+      },
+      "ortosa": {
+        "nombre": "Ortosa (Feldspato potásico)",
+        "formulaQuimica": "KAlSi₃O₈",
+        "clase": "Silicatos, grupo de los feldespatos",
+        "caracteristicas": "Es uno de los minerales más comunes de la corteza terrestre.",
+        "usos": "Materia prima para la fabricación de porcelana, esmaltes cerámicos, vidrios y aislantes eléctricos. También se emplea en pastas dentales como abrasivo suave."
+      },
+      "turmalina": {
+        "nombre": "Turmalina",
+        "formulaQuimica": "(Na,Ca)(Mg,Fe,Al,Li)₃Al₆(BO₃)₃Si₆O₁₈(OH,F)₄",
+        "clase": "Silicatos, grupo ciclosilicatos",
+        "caracteristicas": "Mineral muy duro, con gran variedad de colores.",
+        "usos": "Utilizada en la fabricación de instrumentos de medición de presión (por su respuesta piezoeléctrica), en tecnología submarina, y en algunos equipos electrónicos y ópticos especializados. También es popular como gema ornamental."
+      },
+      "cuarzo_blanco": {
+        "nombre": "Cuarzo Blanco",
+        "formulaQuimica": "SiO₂",
+        "clase": "Óxidos / tectosilicatos",
+        "caracteristicas": "Mineral muy abundante, resistente y versátil.",
+        "usos": "Se utiliza en la fabricación de vidrio, cerámicas, instrumentos ópticos y electrónicos, y como carga mineral en plásticos, pinturas y productos de madera prensada."
+      },
+      "malaquita": {
+        "nombre": "Malaquita",
+        "formulaQuimica": "Cu₂CO₃(OH)₂",
+        "clase": "Carbonatos",
+        "caracteristicas": "Mineral de color verde intenso, asociado a zonas de oxidación de yacimientos de cobre.",
+        "usos": "Importante mena de cobre (fuente de extracción del metal). También se utiliza como piedra ornamental y, en algunos casos, como pigmento natural en arte tradicional."
+      },
+      "muscovita": {
+        "nombre": "Muscovita (Mica Blanca)",
+        "formulaQuimica": "KAl₂(AlSi₃O₁₀)(OH)₂",
+        "clase": "Silicatos, grupo de las micas",
+        "caracteristicas": "Tiene tantas propiedades que es uno de los minerales más usados en la industria.",
+        "usos": "Muy utilizada por sus propiedades aislantes, térmicas y ópticas. Se aplica en la fabricación de pinturas, plásticos, yeso para construcción, aislantes eléctricos, cosméticos y componentes electrónicos."
+      },
+      "azufre_nativo": {
+        "nombre": "Azufre (nativo)",
+        "formulaQuimica": "S",
+        "clase": "Elementos nativos",
+        "usos": "Se emplea principalmente para producir ácido sulfúrico, base de muchos procesos industriales. También se usa en la fabricación de fósforos, fertilizantes, fungicidas, tintes, pólvora, productos fotográficos y medicamentos tópicos como pomadas con acción antibacteriana."
+      },
+      "yeso": {
+        "nombre": "Yeso",
+        "formulaQuimica": "CaSO₄·2H₂O",
+        "clase": "Sulfatos",
+        "usos": "Muy utilizado en la construcción: para revoques, juntas, paneles de yeso (Durlock®) y estucos artísticos. También se usa como enmienda de suelos agrícolas y en moldes para cerámica y odontología."
+      },
+      "calcita_rosada": {
+        "nombre": "Calcita Rosada",
+        "formulaQuimica": "CaCO₃",
+        "clase": "Carbonatos",
+        "usos": "Industrialmente se usa como relleno en pinturas, plásticos y papel. Aunque popularmente se le atribuyen usos medicinales ancestrales, no tiene aplicaciones médicas reconocidas formalmente hoy."
+      },
+      "epidoto_en_cuarzo": {
+        "nombre": "Epidoto en Cuarzo",
+        "formulaQuimica": "Ca₂(Al,Fe)₃(SiO₄)₃(OH)",
+        "clase": "Silicatos",
+        "usos": "No tiene aplicaciones industriales masivas. Se valora como mineral de colección o piedra semipreciosa."
+      },
+      "estaurolita": {
+        "nombre": "Estaurolita",
+        "formulaQuimica": "Fe²⁺Al₄Si₂O₁₀(OH)₂",
+        "clase": "Silicatos",
+        "caracteristicas": "Mineral metamórfico. Es un mineral indicador para geólogos porque señala condiciones específicas de formación de rocas metamórficas.",
+        "usos": "Utilizado como adorno o amuleto debido a sus cristales en forma de cruz. También se ha usado como material abrasivo, aunque en menor escala."
+      },
+      "casiterita": {
+        "nombre": "Casiterita",
+        "formulaQuimica": "SnO₂",
+        "clase": "Óxidos",
+        "caracteristicas": "Mineral muy denso, duro y resistente a la mayoría de los ácidos.",
+        "usos": "Es la principal mena de estaño, usado en soldaduras, aleaciones (como el bronce) y en recubrimientos metálicos para evitar la corrosión."
+      },
+      "galena": {
+        "nombre": "Galena",
+        "formulaQuimica": "PbS con Blenda – ZnS",
+        "clase": "Sulfuros",
+        "caracteristicas": "Algunas galenas contienen plata como subproducto valioso.",
+        "usos": "Es la principal fuente del metal plomo. Utilizado en la fabricación de baterías, aleaciones y antiguamente en la industria del vidrio y en municiones."
+      },
+      "fluorita_verde": {
+        "nombre": "Fluorita Verde",
+        "formulaQuimica": "CaF₂",
+        "clase": "Haluros",
+        "caracteristicas": "Su color puede variar; el verde es una de sus variedades más apreciadas.",
+        "usos": "Se emplea como fundente en la fundición de metales (como hierro y acero), en la fabricación de ácido fluorhídrico, y en óptica para lentes de alta precisión."
+      },
+      "jadeita": {
+        "nombre": "Jadeíta",
+        "formulaQuimica": "NaAlSi₂O₆",
+        "clase": "Silicatos, grupo de los piroxenos",
+        "usos": "Desde hace más de 5000 años, se utiliza para fabricar adornos, herramientas y objetos rituales, por ser muy dura y resistente. Es muy valorada culturalmente en Asia y América prehispánica."
+      },
+      "basalto_llullaillaco": {
+        "nombre": "Basalto",
+        "tipo": "Roca ígnea volcánica básica.",
+        "origen": "(Salar Llullaillaco)",
+        "caracteristicas": "Se forma por el enfriamiento rápido de la lava en la superficie. Es una roca muy común en regiones volcánicas como la Puna, y su presencia está relacionada con antiguos eventos eruptivos."
+      },
+      "halita_sal_gema": {
+        "nombre": "Halita – NaCl (Sal gema)",
+        "origen": "(Salar Llullaillaco)",
+        "caracteristicas": "Cristales cúbicos, transparentes o blanquecinos. Es la forma mineral de la sal de mesa. La halita es una de las riquezas económicas de los salares andinos y forma parte de nuestra vida diaria.",
+        "usos": "Alimentación humana. Procesos industriales y químicos. Conservación de alimentos."
+      }
+    }
+  },
+  "pagina_home": {
+    "bienvenida": "Bienvenidos al",
+    "titulo_museo": "Museo Regional Andino",
+    "boton_iniciar_visita": "Iniciar Visita",
+    "boton_salas": "Salas",
+    "parrafo_info": "El Museo Regional Andino de San Antonio de los Cobres tiene como finalidad la conservación y promoción del invaluable patrimonio cultural y natural de la Puna. Este revaloriza la identidad local a través de exposiciones interactivas y actividades educativas, diseñadas para conectar profundamente a los visitantes con la rica historia y tradiciones de la comunidad andina.",
+    "texto_completo_audio": "Bienvenidos al Museo Regional Andino de San Antonio de los Cobres. El Museo Regional Andino de San Antonio de los Cobres tiene como finalidad la conservación y promoción del invaluable patrimonio cultural y natural de la Puna. Este revaloriza la identidad local a través de exposiciones interactivas y actividades educativas, diseñadas para conectar profundamente a los visitantes con la rica historia y tradiciones de la comunidad andina."
+  },
+  "introduccion_salas": {
+    "gobernacion_de_los_andes": {
+      "title": "SALA DE GOBERNACIÓN DE LOS ANDES",
+      "description": "Una historia de exploración, conocimiento y transformación del territorio. Bienvenidos a recorrer el proceso de organización y conocimiento del Territorio Nacional de Los Andes, a partir de su administración estatal, vas a conocer a sus protagonistas, las primeras investigaciones científicas y cómo esta región tan particular fue integrada al país."
+    },
+    "territorio_de_los_andes": {
+      "title": "SALA DE TERRITORIO DE LOS ANDES",
+      "description": "Un territorio en disputa, una historia de integración nacional. Bienvenidos a este espacio que narra el origen, los conflictos y la consolidación de los Andes, una región estratégica y cargada de historia en el corazón de la Puna argentina."
+    },
+    "geologia": {
+      "title": "SALA DE GEOLOGÍA",
+      "description": "Bienvenidos a la sala donde la Tierra cuenta su historia más profunda. En este espacio, te invitamos a viajar al corazón geológico de la Puna, una región moldeada por la fuerza de los volcanes, el calor oculto de los géiseres y la calma brillante de los salares. Aquí vas a descubrir cómo, a lo largo de millones de años, la actividad del planeta dio forma a paisajes extremos y únicos. Cada montaña, cada cristal de sal y cada vapor que emerge del suelo nos habla de un mundo en constante transformación. Explorá y observá: la geología no es solo ciencia, es el relato vivo del origen de la Tierra."
+    },
+    "minerologia_y_mineria": {
+      "title": "SALA DE MINERÍA",
+      "description": "La riqueza de la Puna: lo que está en la tierra… y en tu vida. En esta sala vas a conocer dos caras de una misma historia. Los minerales: verdaderas joyas naturales formadas a lo largo de millones de años. Vas a ver cómo algunos de ellos están presentes en tu vida diaria. Por otro lado, la minería: las técnicas que se usan para extraer estos minerales de las rocas. Desde métodos ancestrales hasta tecnologías actuales, conocerás cómo se obtienen, quiénes los trabajan, y cómo se busca hoy equilibrar su explotación con el cuidado del ambiente y de las comunidades locales."
+    },
+    "biodiversidad": {
+      "title": "SALA DE BIODIVERSIDAD",
+      "description": "En esta sala vas a descubrir cómo la vida logra adaptarse y prosperar en uno de los ambientes más extremos del planeta: la Puna andina. A más de 3.500 metros sobre el nivel del mar, con aire seco, lluvias escasas, temperaturas bajo cero por la noche y un sol intenso durante el día, la vida enfrenta desafíos constantes. La biodiversidad en la Puna no es abundante, pero cuenta con especies endémicas. Cada especie que vive aquí forma parte de una red moldeada por millones de años de adaptación."
+    },
+    "arqueologia": {
+      "title": "SALA DE ARQUEOLOGÍA",
+      "description": "Bienvenidos a la Sala de Arqueología. Te invitamos ahora a sumergirse rápidamente en el tiempo para conocer a los antiguos habitantes de la Puna, un territorio habitado desde hace miles de años. Estas personas se adaptaron a un entorno desafiante, desarrollaron formas de vida basadas en la caza, el pastoreo, la agricultura y el intercambio, y fueron construyendo conocimientos, creencias y tecnologías que aún hoy nos sorprenden. Vamos, entra a conocerlos!"
+    },
+    "ramal_c14": {
+      "title": "SALA DE RAMAL C14",
+      "description": "Bienvenidos a conocer una de las obras más asombrosas de la ingeniería ferroviaria en América del Sur. Aquí vas a descubrir la historia del ferrocarril que desafió la geografía extrema de la Cordillera de los Andes, uniendo Salta con la frontera chilena en Socompa, a más de 3.500 metros sobre el nivel del mar."
+    },
+    "san-antonio-hoy": {
+      "title": "SALA DE SAN ANTONIO HOY",
+      "description": "San Antonio de los Cobres, capital del departamento de los Andes y una de las localidades más emblemáticas de la Puna argentina. Un territorio que se sostiene entre la memoria ancestral, la vida comunitaria, el trabajo de pastores, artesanos y mineros, y una cultura viva que sigue latiendo a 3.776 metros de altura."
+    },
+    "historia": {
+      "title": "SALA DE HISTORIA",
+      "description": "Bienvenidos a la Sala de Historia. Un recorrido por los grandes cambios políticos y sociales que marcaron la región andina y el país. Desde los primeros contactos con los conquistadores hasta la consolidación de la Argentina como Estado nacional, esta sala nos invita a descubrir cómo se fueron transformando los territorios, las poblaciones y las formas de gobierno."
+    }
+  },
+  "tarjetas_salas": {
+    "titulo_pagina": "Descubre Nuestras Salas",
+    "subtitulo_pagina": "Viaja a través de la historia, la cultura y la naturaleza de la región andina.",
+    "geologia": "GEOLOGÍA",
+    "biodiversidad": "BIODIVERSIDAD",
+    "arqueologia": "ARQUEOLOGÍA",
+    "historia": "HISTORIA",
+    "territorio_de_los_andes": "TERRITORIO DE LOS ANDES",
+    "gobernacion_de_los_andes": "GOBERNACIÓN DE LOS ANDES",
+    "minerologia_y_mineria": "MINERÍA",
+    "ramal_c14": "RAMAL C14",
+    "san-antonio-hoy": "SAN ANTONIO HOY",
+    "boton_ingresar": "Ingresar →"
+  },
+
+  "guia_salas": {
+    "salir_guia": "Salir de la Guía",
+    "info_sala": "Sala {{indiceActual}} de {{totalSalas}}",
+    "info_fin_recorrido": "Fin del Recorrido",
+    "boton_siguiente": "Siguiente Sala",
+    "boton_finalizar": "Finalizar Guía"
+  },
+  "juegos": {
+    "pagina_juegos": {
+      "titulo": "Actividades Interactivas",
+      "subtitulo": "Pon a prueba tus conocimientos y diviértete con nuestros juegos.",
+      "trivia_titulo": "Trivia: ¿Cuánto sabés sobre la Puna?",
+      "trivia_desc": "Poné a prueba tus conocimientos y descubrí datos curiosos.",
+      "puzzle_titulo": "Rompecabezas: ¿Podés armarlo?",
+      "puzzle_desc": "Observá con atención y completá la imagen.",
+      "jugar_ahora": "Jugar Ahora →"
+    },
+    "trivia_game": {
+      "titulo": "Trivia sobre la Puna",
+      "cargando": "Cargando trivia...",
+      "juego_terminado": "Juego Terminado",
+      "puntuacion_final": "Tu puntuación final es: <strong>{{puntuacion}} de {{total}}</strong>",
+      "jugar_de_nuevo": "Jugar de Nuevo",
+      "volver_a_juegos": "Volver a Juegos",
+      "pregunta": "Pregunta {{actual}} de {{total}}",
+      "puntuacion": "Puntuación: {{puntuacion}}",
+      "siguiente_pregunta": "Siguiente Pregunta",
+      "ver_resultados": "Ver Resultados",
+      "dato_curioso": "💡 Dato Curioso:",
+      "preguntas_set": [
+  {
+    "pregunta": "¿Qué característica especial tiene la Puna respecto al agua?",
+    "opciones": ["Tiene los ríos más largos del país.", "Sus aguas desembocan en el mar Atlántico.", "Es parte de una cuenca endorreica, donde el agua no llega al mar.", "Recibe lluvias todo el año."],
+    "respuestaCorrecta": "Es parte de una cuenca endorreica, donde el agua no llega al mar.",
+    "datoCurioso": "Las cuencas endorreicas actúan como gigantescos platos de evaporación, lo que da origen a los impresionantes salares."
+  },
+  {
+    "pregunta": "¿Qué hay al oeste de la Puna?",
+    "opciones": ["La Cordillera Oriental", "La Cordillera Volcánica Occidental", "La Selva Misionera", "El Océano Pacífico"],
+    "respuestaCorrecta": "La Cordillera Volcánica Occidental",
+    "datoCurioso": "Esta cordillera está llena de volcanes gigantes, algunos de los cuales superan los 6.000 metros de altura."
+  },
+  {
+    "pregunta": "¿Cómo se llama el fenómeno donde el vapor caliente sale por grietas del suelo, como si la Tierra 'respirara'?",
+    "opciones": ["Fumarolas", "Tornado térmico", "Corriente convectiva", "Temblores secos"],
+    "respuestaCorrecta": "Fumarolas",
+    "datoCurioso": "Las fumarolas son una señal de que hay actividad volcánica o geotérmica muy cerca de la superficie."
+  },
+  {
+    "pregunta": "¿Qué elemento se usa en celulares y autos eléctricos, y se extrae de las salmueras bajo los salares?",
+    "opciones": ["Cobre", "Litio", "Plata", "Uranio"],
+    "respuestaCorrecta": "Litio",
+    "datoCurioso": "La Puna forma parte del 'Triángulo del Litio', una de las reservas de este mineral más grandes del mundo."
+  },
+  {
+    "pregunta": "¿Cómo se forma un géiser?",
+    "opciones": ["Por una explosión volcánica repentina.", "Cuando la lava entra en contacto con hielo.", "Cuando el agua subterránea se calienta con rocas volcánicas y sale como vapor a presión.", "Por la acción del viento sobre las dunas salinas."],
+    "respuestaCorrecta": "Cuando el agua subterránea se calienta con rocas volcánicas y sale como vapor a presión.",
+    "datoCurioso": "Los géiseres son extremadamente raros y solo existen en unos pocos lugares del planeta con las condiciones geológicas perfectas."
+  },
+  {
+    "pregunta": "¿Cuál de estas afirmaciones es verdadera sobre los volcanes de la Puna?",
+    "opciones": ["Todos están activos y en erupción constante.", "No existen en esa región.", "Algunos están inactivos, pero sus restos ayudan a entender la formación del paisaje.", "Solo hay volcanes submarinos."],
+    "respuestaCorrecta": "Algunos están inactivos, pero sus restos ayudan a entender la formación del paisaje.",
+    "datoCurioso": "Muchos de los depósitos minerales más ricos de la Puna están relacionados con antiguos sistemas volcánicos que hoy están inactivos."
+  },
+  {
+    "pregunta": "¿Qué indica una “corona blanca” sobre un cerro, según los pueblos originarios?",
+    "opciones": ["Que habrá un terremoto.", "Que el día estará soleado.", "Que puede nevar.", "Que es una zona de litio."],
+    "respuestaCorrecta": "Que puede nevar.",
+    "datoCurioso": "Esta observación ancestral es una forma de pronóstico del tiempo basada en cómo la humedad se condensa a gran altitud."
+  },
+  {
+    "pregunta": "¿Qué tipo de clima tiene la Puna?",
+    "opciones": ["Templado y húmedo.", "Árido y extremo, con mucho sol de día y frío intenso de noche.", "Tropical, con lluvias abundantes.", "Mediterráneo."],
+    "respuestaCorrecta": "Árido y extremo, con mucho sol de día y frío intenso de noche.",
+    "datoCurioso": "La amplitud térmica en la Puna puede ser de más de 20°C en un solo día, pasando de calor intenso a temperaturas bajo cero."
+  },
+  {
+    "pregunta": "¿Qué tipo de paisaje encontramos en la Puna?",
+    "opciones": ["Bosques densos y lagunas de deshielo.", "Llanuras verdes y pastizales.", "Volcanes, salares y lagunas de colores intensos.", "Manglares y pantanos."],
+    "respuestaCorrecta": "Volcanes, salares y lagunas de colores intensos.",
+    "datoCurioso": "Los colores de las lagunas a menudo se deben a los minerales y a los microorganismos que se adaptan a la alta salinidad."
+  },
+  {
+    "pregunta": "¿Qué es un salar?",
+    "opciones": ["Una cueva volcánica llena de hielo.", "Una zona minera donde se extrae carbón.", "Una planicie blanca formada por sales acumuladas tras evaporarse el agua.", "Una zona de alta montaña cubierta por cenizas."],
+    "respuestaCorrecta": "Una planicie blanca formada por sales acumuladas tras evaporarse el agua.",
+    "datoCurioso": "Bajo la costra de sal de muchos salares hay una rica salmuera que contiene minerales como el litio y el potasio."
+  },
+  {
+    "pregunta": "¿Qué tiene de especial la piedra pómez?",
+    "opciones": ["Es muy pesada y se hunde rápido", "Es suave y se derrite con el calor", "Tiene tantos agujeritos que ¡puede flotar!", "Cambia de color con la luz del sol"],
+    "respuestaCorrecta": "Tiene tantos agujeritos que ¡puede flotar!",
+    "datoCurioso": "La piedra pómez flota porque tiene muchas burbujas de aire atrapadas. ¡Es como lava 'espumosa' solidificada!"
+  },
+  {
+    "pregunta": "¿Cuál de estos minerales puede 'mostrar imágenes' como si fuera una televisión?",
+    "opciones": ["Ulexita", "Galena", "Ónix", "Yeso"],
+    "respuestaCorrecta": "Ulexita",
+    "datoCurioso": "A la Ulexita se la llama “piedra televisión” porque sus fibras naturales transmiten la luz de un lado a otro. ¡Pura magia de la naturaleza!"
+  },
+  {
+    "pregunta": "¿Qué mineral usaban los antiguos mineros en lámparas especiales para iluminar en la oscuridad?",
+    "opciones": ["Halita", "Carburo de calcio", "Azufre", "Malaquita"],
+    "respuestaCorrecta": "Carburo de calcio",
+    "datoCurioso": "Al mezclarlo con agua, el carburo de calcio produce un gas inflamable que genera una llama brillante y duradera."
+  },
+  {
+    "pregunta": "¿Cuál de estos minerales es la principal fuente de plomo y a veces también contiene plata?",
+    "opciones": ["Galena", "Ortosa", "Casiterita", "Muscovita"],
+    "respuestaCorrecta": "Galena",
+    "datoCurioso": "La galena es tan brillante y pesada que parece una roca metálica de otro planeta."
+  },
+  {
+    "pregunta": "¿Qué es una 'brecha hidrotermal'?",
+    "opciones": ["Una cueva llena de cristales gigantes", "Una zona donde el agua caliente formó minerales al enfriarse", "Una grieta con lava", "Un tipo de roca que se encuentra solo en volcanes activos"],
+    "respuestaCorrecta": "Una zona donde el agua caliente formó minerales al enfriarse",
+    "datoCurioso": "Estas brechas parecen 'rompecabezas' de rocas rotas que fueron pegadas con cuarzo y otros minerales brillantes."
+  }
+]
+    },
+    "puzzle_game": {
+      "titulo": "Rompecabezas del Museo",
+      "instrucciones": "Arrastra y suelta las piezas para reconstruir la imagen.",
+      "cargando": "Cargando...",
+      "error": "Error: {{mensaje}}",
+      "completado": "¡Completado!"
+    }
+  },
+  
+  "despedida_guia": {
+    "titulo": "¡Gracias por recorrer el museo con nosotros!",
+    "parrafo_1": "Esperamos que esta guía te haya acompañado en un viaje por la historia, el territorio, las culturas y la identidad viva de San Antonio de los Cobres y la Puna andina. Cada sala guarda fragmentos de una memoria colectiva que sigue presente en quienes habitan hoy este lugar.",
+    "redes_sociales": "¡Compartí tu experiencia en redes con el hashtag <strong>#MuseoRegionalAndino</strong> y <strong>#MuseoenlaPuna</strong>!",
+    "subtitulo_explorar": "Seguí descubriendo",
+    "parrafo_explorar": "Te invitamos a jugar y aprender con nuestras actividades interactivas:",
+    "boton_trivia": "Trivia: ¿Cuánto sabés sobre la Puna? Poné a prueba tus conocimientos y descubrí datos curiosos.",
+    "boton_puzzle": "Rompecabezas: ¿Podés armarlo? Observá con atención y completá la imagen.",
+    "subtitulo_encuesta": "¿Querés contarnos qué te pareció?",
+    "parrafo_encuesta": "Dejanos tus comentarios y respondé una mini encuesta. ¡Tu opinión nos ayuda a mejorar!",
+    "iframe_cargando": "Cargando…"
+  }
+}

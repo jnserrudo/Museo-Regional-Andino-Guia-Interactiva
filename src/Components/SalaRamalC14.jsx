@@ -6,6 +6,8 @@ import "./SalaGeologia.css";
 import "../SalaRamalC14.css";
 import "./SalaRamalGaleria.css"; // CSS para la galería (si tiene estilos específicos)
 
+import { useTranslation, Trans } from "react-i18next";
+
 // --- Importaciones de Swiper para el carrusel ---
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -98,8 +100,8 @@ const imagenesCarrusel2 = [
   "primeras_locomotoras_baldwin_e2.jpg",
   "qtoroh1_en_los_años_40.jpg",
   "ramal_c14_inaugurado_20_febrero_1948.jpg",
-/*   "recorrido_1653050.jpeg",
- */  "trabajadores_sobre_rieles_foto_ramal_c14_1922.jpg",
+  /*   "recorrido_1653050.jpeg",
+   */ "trabajadores_sobre_rieles_foto_ramal_c14_1922.jpg",
 ];
 
 // --- AÑADE ESTE NUEVO ARRAY ---
@@ -167,34 +169,18 @@ const VideoPlayer = ({ videoSrc, posterSrc, title, subtitle }) => {
   );
 };
 
-const salaRamalC14Text = `
-RAMAL C-14.
-
-Construido a fuerza de pico, pala, dinamita y carretillas, el Ramal C14 requirió el esfuerzo de más de 1.000 trabajadores que enfrentaron condiciones climáticas severas, altura extrema y terrenos abruptos. Su recorrido de 571 kilómetros es un verdadero monumento al ingenio humano, con:
-1.400 curvas, 31 puentes, 21 túneles, 13 viaductos, 2 rulos (tramos en espiral), 2 zigzag, y 9 cobertizos.
-Entre todas estas estructuras, el Viaducto La Polvorilla, construido entre 1930 y 1932, se destaca como un símbolo de esta hazaña: tiene 224 metros de largo, forma curva y se eleva 63 metros sobre el suelo, desafiando las alturas.
-
-Una Historia de Decisiones, Cambios y Visión de Futuro.
-1889: Se inician los primeros estudios para unir Salta con Antofagasta mediante un ferrocarril trasandino.
-1905: La Ley 2693 autoriza oficialmente el proyecto.
-1921: El presidente Hipólito Yrigoyen da el impulso decisivo y nombra al Ing. Richard Fontaine Maury como jefe de obra.
-1929: El tendido de rieles llega a San Antonio de los Cobres, uno de los puntos más emblemáticos del trazado.
-1948: El 20 de febrero se inaugura la conexión internacional con Chile por el paso de Socompa, en plena presidencia de Juan Domingo Perón. Ese mismo año, el ramal pasa a formar parte del Ferrocarril General Belgrano.
-
-Mucho más que rieles.
-El Ramal C14 no fue solo una vía de comunicación: fue una estrategia para integrar los territorios más aislados del país. El proyecto buscaba conectar zonas ricas en recursos minerales, como boratos y litio, con los puertos del Pacífico, facilitando el desarrollo económico y reduciendo la dependencia de rutas marítimas largas.
-Así lo expresaba Eduardo Holmberg (hijo) a comienzos del siglo XX:
-"Hay que enviar geólogos que descifren los secretos de la montaña, en cuyo seno hay escondidos filones preciosos; y hay que llevar una vía férrea hasta las mismas salidas de las punas, para que la exportación de la materia prima sea posible."
-
-Del progreso al turismo: El Tren a las Nubes.
-A fines del siglo XX, parte del trazado original del Ramal C14 se convirtió en uno de los viajes turísticos más famosos del país: el Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de la Puna salteña, es una experiencia única que combina naturaleza, ingeniería e historia.
-Este tren se ha consolidado como una oferta turística internacional, manteniendo viva la memoria de una obra que transformó el paisaje y la vida en los Andes.
-`;
-
 // --- COMPONENTE PRINCIPAL DE LA SALA ---
 export const SalaRamalC14 = () => {
+  const { t } = useTranslation();
 
-  useRegisterText(salaRamalC14Text);
+  const textoParaHablar = Object.values(
+    t("sala_ramal_c14", { returnObjects: true })
+  )
+    .map((value) =>
+      typeof value === "object" ? Object.values(value).join(" ") : value
+    )
+    .join(" ");
+  useRegisterText(textoParaHablar);
 
   const galeriaFotosAntiguas = [
     "/img/ramal/antiguas/foto_1.jpg", // REEMPLAZA ESTAS RUTAS
@@ -204,149 +190,106 @@ export const SalaRamalC14 = () => {
 
   return (
     <article className="sala-contenido-container sala-contenido-container-ramal">
-      <h2 className="sala-contenido-titulo-principal">RAMAL C-14</h2>
+      <h2 className="sala-contenido-titulo-principal">
+        {t("sala_ramal_c14.titulo_principal")}
+      </h2>
 
-      {/* --- Primer Bloque: La hazaña de la construcción --- */}
       <section className="ramal-bloque">
         <p className="sala-contenido-parrafo">
-          Construido a fuerza de pico, pala, dinamita y carretillas, el Ramal
-          C14 requirió el esfuerzo de más de 1.000 trabajadores que enfrentaron
-          condiciones climáticas severas, altura extrema y terrenos abruptos. Su
-          recorrido de 571 kilómetros es un verdadero monumento al ingenio
-          humano, con:
+          {t("sala_ramal_c14.parrafo_construccion_1")}
         </p>
         <ul className="sala-contenido-lista">
-          <li>1.400 curvas</li>
-          <li>31 puentes</li>
-          <li>21 túneles</li>
-          <li>13 viaductos</li>
-          <li>2 rulos (tramos en espiral)</li>
-          <li>2 zigzag</li>
-          <li>9 cobertizos</li>
+          <li>{t("sala_ramal_c14.lista_construccion.item1")}</li>
+          <li>{t("sala_ramal_c14.lista_construccion.item2")}</li>
+          <li>{t("sala_ramal_c14.lista_construccion.item3")}</li>
+          <li>{t("sala_ramal_c14.lista_construccion.item4")}</li>
+          <li>{t("sala_ramal_c14.lista_construccion.item5")}</li>
+          <li>{t("sala_ramal_c14.lista_construccion.item6")}</li>
+          <li>{t("sala_ramal_c14.lista_construccion.item7")}</li>
         </ul>
         <p className="sala-contenido-parrafo">
-          Entre todas estas estructuras, el Viaducto La Polvorilla, construido
-          entre 1930 y 1932, se destaca como un símbolo de esta hazaña: tiene
-          224 metros de largo, forma curva y se eleva 63 metros sobre el suelo,
-          desafiando las alturas.
+          {t("sala_ramal_c14.parrafo_construccion_2")}
         </p>
-        {/* Aquí va la galería de las fotos viejas */}
 
         <CarouselGallery
           images={imagenesCarrusel.map(
             (img) => `${import.meta.env.BASE_URL}${img}`
           )}
-          title="Imágenes históricas de la construcción"
-          customClassName="carrusel-fotos-antiguas" // <-- AÑADE ESTA PROP
+          title={t("sala_ramal_c14.titulo_carrusel_construccion")}
+          customClassName="carrusel-fotos-antiguas"
         />
-
         <CarouselGallery
           images={imagenesCarrusel2.map(
             (img) => `${import.meta.env.BASE_URL}/ramalc14/${img}`
           )}
-          title="Mas imágenes históricas de la construcción"
-          customClassName="carrusel-fotos-antiguas" // <-- AÑADE ESTA PROP
+          title={t("sala_ramal_c14.titulo_carrusel_construccion_2")}
+          customClassName="carrusel-fotos-antiguas"
         />
-
-        {/* <GaleriaRamal /> */}
       </section>
 
-      {/* --- Segundo Bloque: Hitos históricos --- */}
       <section className="ramal-bloque">
         <h3 className="sala-contenido-subtitulo">
-          Una historia de decisiones, cambios y visión de futuro
+          {t("sala_ramal_c14.subtitulo_historia")}
         </h3>
         <ul className="sala-contenido-lista">
           <li>
-            <strong>1889:</strong> Se inician los primeros estudios para unir
-            Salta con Antofagasta mediante un ferrocarril trasandino.
+            <Trans i18nKey="sala_ramal_c14.lista_historia.item1" />
           </li>
           <li>
-            <strong>1905:</strong> La Ley 2693 autoriza oficialmente el
-            proyecto.
+            <Trans i18nKey="sala_ramal_c14.lista_historia.item2" />
           </li>
           <li>
-            <strong>1921:</strong> El presidente Hipólito Yrigoyen da el impulso
-            decisivo y nombra al Ing. Richard Fontaine Maury como jefe de obra.
+            <Trans i18nKey="sala_ramal_c14.lista_historia.item3" />
           </li>
           <li>
-            <strong>1929:</strong> El tendido de rieles llega a San Antonio de
-            los Cobres, uno de los puntos más emblemáticos del trazado.
+            <Trans i18nKey="sala_ramal_c14.lista_historia.item4" />
           </li>
           <li>
-            <strong>1948:</strong> El 20 de febrero se inaugura la conexión
-            internacional con Chile por el paso de Socompa, en plena presidencia
-            de Juan Domingo Perón. Ese mismo año, el ramal pasa a formar parte
-            del Ferrocarril General Belgrano.
+            <Trans i18nKey="sala_ramal_c14.lista_historia.item5" />
           </li>
         </ul>
-        {/* Video de Facebook */}
         <VideoPlayer
-          videoSrc={import.meta.env.BASE_URL + "viaje_ramal_video.mp4"} // REEMPLAZA ESTA RUTA
+          videoSrc={import.meta.env.BASE_URL + "viaje_ramal_video.mp4"}
           posterSrc={
             import.meta.env.BASE_URL + "/img/ramal/posters/poster_1926.jpg"
-          } // REEMPLAZA ESTA RUTA
-          /* title="Viaje por el Ramal C14 en 1926" */
-          subtitle="Viaje por el Ramal C14 en 1926. Video cortesía de Archivo General de la Nación."
+          }
+          subtitle={t("sala_ramal_c14.video_subtitulo_1")}
         />
       </section>
 
-      {/* --- Tercer Bloque: Estrategia y desarrollo --- */}
-      <section className="ramal-bloque">
-        <h3 className="sala-contenido-subtitulo">Mucho más que rieles</h3>
-        <p className="sala-contenido-parrafo">
-          El Ramal C14 no fue solo una vía de comunicación: fue una estrategia
-          para integrar los territorios más aislados del país. El proyecto
-          buscaba conectar zonas ricas en recursos minerales, como boratos y
-          litio, con los puertos del Pacífico, facilitando el desarrollo
-          económico y reduciendo la dependencia de rutas marítimas largas.
-        </p>
-        <blockquote className="ramal-quote">
-          <p>
-            "Hay que enviar geólogos que descifren los secretos de la montaña,
-            en cuyo seno hay escondidos filones preciosos; y hay que llevar una
-            vía férrea hasta las mismas salidas de las punas, para que la
-            exportación de la materia prima sea posible."
-          </p>
-          <footer>- Eduardo Holmberg (hijo), comienzos del siglo XX</footer>
-        </blockquote>
-        {/* Video de YouTube que ya tenías */}
-        <VideoPlayer
-          videoSrc={import.meta.env.BASE_URL + "trasandino_del_norte_comp.mp4"} // REEMPLAZA ESTA RUTA (es el que ya tenías)
-          posterSrc={import.meta.env.BASE_URL + "poster_trasandino.jpg"} // REEMPLAZA ESTA RUTA
-          /* title="El Trasandino del Norte" */
-          subtitle="El Trasandino del Norte. Imágenes históricas de la construcción y operación del tren."
-        />
-        {/* Botones a los documentales */}
-        {/* <div className="ramal-documentales-links">
-            <h4 className="sala-contenido-subtitulo-menor">Ver Documentales</h4>
-            <a href="https://youtu.be/g_dC66VQdR0?si=vT0GJxWgrnZzqmSx" target="_blank" rel="noopener noreferrer" className="ramal-boton-link">Documental 1</a>
-            <a href="https://youtu.be/ZBsOFQeSYcI?si=HcSqtSy9BAAhLpI6" target="_blank" rel="noopener noreferrer" className="ramal-boton-link">Documental 2</a>
-            <a href="https://youtu.be/GraN8x2TSWU?si=RtAXFy5LSPHdQw_4" target="_blank" rel="noopener noreferrer" className="ramal-boton-link">Documental 3</a>
-        </div> */}
-      </section>
-
-      {/* --- Cuarto Bloque: El Tren a las Nubes --- */}
       <section className="ramal-bloque">
         <h3 className="sala-contenido-subtitulo">
-        Se sumó al desarrollo, el turismo: Nace El tren a las nubes
+          {t("sala_ramal_c14.subtitulo_rieles")}
         </h3>
         <p className="sala-contenido-parrafo">
-          A fines del siglo XX, parte del trazado original del Ramal C14 se
-          convirtió en uno de los viajes turísticos más famosos del país: el
-          Tren a las Nubes. Su recorrido, que atraviesa paisajes imponentes de
-          la Puna salteña, es una experiencia única que combina naturaleza, ingeniería e historia.
+          {t("sala_ramal_c14.parrafo_rieles_1")}
+        </p>
+        <blockquote className="ramal-quote">
+          <p>{t("sala_ramal_c14.cita_rieles")}</p>
+          <footer>{t("sala_ramal_c14.cita_autor")}</footer>
+        </blockquote>
+        <VideoPlayer
+          videoSrc={import.meta.env.BASE_URL + "trasandino_del_norte_comp.mp4"}
+          posterSrc={import.meta.env.BASE_URL + "poster_trasandino.jpg"}
+          subtitle={t("sala_ramal_c14.video_subtitulo_2")}
+        />
+      </section>
+
+      <section className="ramal-bloque">
+        <h3 className="sala-contenido-subtitulo">
+          {t("sala_ramal_c14.subtitulo_turismo")}
+        </h3>
+        <p className="sala-contenido-parrafo">
+          {t("sala_ramal_c14.parrafo_turismo_1")}
         </p>
         <p className="sala-contenido-parrafo">
-          Este tren se ha consolidado como una oferta turística internacional,
-          manteniendo viva la memoria de una obra que transformó el paisaje y la
-          vida en los Andes.
+          {t("sala_ramal_c14.parrafo_turismo_2")}
         </p>
         <CarouselGallery
           images={galeriaTrenActual.map(
             (img) => `${import.meta.env.BASE_URL}${img}`
           )}
-          title="El Tren a las Nubes en la actualidad"
+          title={t("sala_ramal_c14.titulo_carrusel_actual")}
         />
       </section>
     </article>

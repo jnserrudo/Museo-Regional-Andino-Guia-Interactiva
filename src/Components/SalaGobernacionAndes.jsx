@@ -13,6 +13,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useTranslation, Trans } from "react-i18next";
 
 // --- Componente de Carrusel reutilizable ---
 const CarouselGallery = ({ images, title }) => (
@@ -48,168 +49,116 @@ const gobernacionAndesImages = [
   import.meta.env.BASE_URL + "gob_andes_casa_gobierno2.jpeg",
 ];
 
-const salaGobernacionAndesText = `
-GOBERNACIÓN DE LOS ANDES.
-
-El primer gobernador: Daniel Cerri.
-El General de Brigada Daniel Cerri fue designado como primer gobernador del Territorio Nacional de Los Andes a principios del siglo XX. Su gestión, además de sentar las bases institucionales, estuvo marcada por expediciones de reconocimiento y exploración del territorio, fundamentales para conocer su geografía, sus recursos y su potencial.
-Durante su administración se elaboró la primera Memoria oficial de la Gobernación, un documento clave que detallaba:
-Propiedades y límites territoriales.
-La ubicación de yacimientos de boratos y otros minerales estratégicos.
-Condiciones climáticas y ambientales de la Puna andina.
-Este informe no solo permitió avanzar en políticas de ocupación y administración, sino que llamó la atención sobre el valor económico de los recursos naturales, en especial los boratos, el litio y el cobre.
-
-Ciencia y territorio: Ambrosetti, Boman y otros exploradores.
-En paralelo con la labor política y administrativa, la Gobernación impulsó o facilitó expediciones científicas pioneras, que fueron fundamentales para la historia de la arqueología, la geología y la etnografía argentina.
-Entre ellas se destacan:
-Juan Ambrosetti (1904–1905): considerado el “padre de la arqueología argentina”, recorrió la región registrando sitios arqueológicos, cerámicas, tumbas y geoglifos, muchos de ellos hoy considerados como patrimonio.
-Eric Boman (1910): etnógrafo y arqueólogo sueco-argentino, realizó estudios sistemáticos sobre pueblos originarios, asentamientos y rutas prehispánicas.
-Sus investigaciones fueron pioneras en mostrar que esta región no era “vacía” ni marginal, sino que tenía una larga historia cultural y estaba profundamente integrada al mundo andino.
-
-Un territorio con futuro… y con historia.
-Los informes técnicos y científicos de principios del siglo XX destacaron que la región tenía:
-Un clima singular, extremadamente seco, con gran amplitud térmica.
-Una altitud desafiante, pero con posibilidades para la minería, la ganadería y ciertos cultivos.
-Riquezas geológicas: boratos, salares, piedra pómez, litio, cobre y otros minerales.
-Este conocimiento fue clave para promover exploraciones mineras, organizar servicios básicos y fomentar pequeñas poblaciones.
-
-El final del Territorio Nacional de Los Andes.
-En 1943, por decreto nacional, el Territorio fue disuelto y sus partes integradas definitivamente a las provincias vecinas:
-El Departamento de Los Andes pasó a formar parte de Salta.
-Susques, a la provincia de Jujuy.
-Antofagasta de la Sierra, a Catamarca.
-Así culminó una etapa de administración nacional directa y se consolidó el mapa provincial actual del noroeste argentino.
-`;
-
 export const SalaGobernacionAndes = () => {
-  useRegisterText(salaGobernacionAndesText);
+  const { t } = useTranslation();
+
+  // Genera el texto plano para el audio
+  const textoParaHablar = Object.values(
+    t("sala_gobernacion_andes", { returnObjects: true })
+  )
+    .map((value) =>
+      typeof value === "object" ? Object.values(value).join(" ") : value
+    )
+    .join(" ");
+  useRegisterText(textoParaHablar);
   return (
     <article className="sala-contenido-container">
-      {" "}
-      {/* Usamos la clase base para consistencia */}
       <h2 className="sala-contenido-titulo-principal">
-        GOBERNACIÓN DE LOS ANDES
+        {t("sala_gobernacion_andes.titulo_principal")}
       </h2>
-      {/* --- Primer Bloque: Daniel Cerri --- */}
+
       <section className="gobernacion-bloque">
         <h3 className="sala-contenido-subtitulo">
-          El primer gobernador: Daniel Cerri
+          {t("sala_gobernacion_andes.subtitulo_gobernador")}
         </h3>
         <p className="sala-contenido-parrafo">
-          El General de Brigada Daniel Cerri fue designado como primer
-          gobernador del Territorio Nacional de Los Andes a principios del siglo
-          XX. Su gestión, además de sentar las bases institucionales, estuvo
-          marcada por expediciones de reconocimiento y exploración del
-          territorio, fundamentales para conocer su geografía, sus recursos y su
-          potencial.
+          {t("sala_gobernacion_andes.parrafo_gobernador_1")}
         </p>
-        {/* --- Contenedor Grid para la lista y la imagen --- */}
+
         <div className="bloque-lista-con-imagen">
           <div className="texto-lista-bloque">
             <p className="sala-contenido-parrafo">
-              Durante su administración se elaboró la primera Memoria oficial de
-              la Gobernación, un documento clave que detallaba:
+              {t("sala_gobernacion_andes.parrafo_gobernador_2")}
             </p>
             <ul className="sala-contenido-lista">
-              <li>Propiedades y límites territoriales.</li>
-              <li>
-                La ubicación de yacimientos de boratos y otros minerales
-                estratégicos.
-              </li>
-              <li>Condiciones climáticas y ambientales de la Puna andina.</li>
+              <li>{t("sala_gobernacion_andes.lista_gobernador.item1")}</li>
+              <li>{t("sala_gobernacion_andes.lista_gobernador.item2")}</li>
+              <li>{t("sala_gobernacion_andes.lista_gobernador.item3")}</li>
             </ul>
           </div>
           <figure className="imagen-lista-bloque">
             <img
-              src={import.meta.env.BASE_URL + "/libro-gobernacion-andes.png"} 
+              src={import.meta.env.BASE_URL + "/libro-gobernacion-andes.png"}
               alt="Documento de la Memoria oficial de la Gobernación"
             />
           </figure>
         </div>
         <p className="sala-contenido-parrafo">
-          Este informe no sólo permitió avanzar en políticas de ocupación y
-          administración, sino que llamó la atención sobre el valor económico de
-          los recursos naturales, en especial los boratos, el litio y el cobre.
+          {t("sala_gobernacion_andes.parrafo_gobernador_3")}
         </p>
       </section>
-      {/* --- Segundo Bloque: Ciencia y Exploradores --- */}
+
       <section className="gobernacion-bloque">
         <h3 className="sala-contenido-subtitulo">
-          Ciencia y territorio: Ambrosetti, Boman y otros exploradores
+          {t("sala_gobernacion_andes.subtitulo_ciencia")}
         </h3>
         <p className="sala-contenido-parrafo">
-          En paralelo con la labor política y administrativa, la Gobernación
-          impulsó o facilitó expediciones científicas pioneras, que fueron
-          fundamentales para la historia de la arqueología, la geología y la
-          etnografía argentina.
+          {t("sala_gobernacion_andes.parrafo_ciencia_1")}
         </p>
-        <p className="sala-contenido-parrafo">Entre ellas se destacan:</p>
-        <ul className="sala-contenido-lista">
-          <li>
-            <strong>Juan Ambrosetti (1904–1905):</strong> considerado el “padre
-            de la arqueología argentina”, recorrió la región registrando sitios
-            arqueológicos, cerámicas, tumbas y geoglifos, muchos de ellos hoy
-            considerados como patrimonio.
-          </li>
-          <li>
-            <strong>Eric Boman (1910):</strong> etnógrafo y arqueólogo
-            sueco-argentino, realizó estudios sistemáticos sobre pueblos
-            originarios, asentamientos y rutas prehispánicas.
-          </li>
-        </ul>
         <p className="sala-contenido-parrafo">
-          Sus investigaciones fueron pioneras en mostrar que esta región no era
-          “vacía” ni marginal, sino que tenía una larga historia cultural y
-          estaba profundamente integrada al mundo andino.
-        </p>
-      </section>
-      {/* --- Tercer Bloque: Futuro e Historia --- */}
-      <section className="gobernacion-bloque">
-        <h3 className="sala-contenido-subtitulo">
-          Un territorio con futuro… y con historia
-        </h3>
-        <p className="sala-contenido-parrafo">
-          Los informes técnicos y científicos de principios del siglo XX
-          destacaron que la región tenía:
+          {t("sala_gobernacion_andes.parrafo_ciencia_2")}
         </p>
         <ul className="sala-contenido-lista">
           <li>
-            Un clima singular, extremadamente seco, con gran amplitud térmica.
+            <Trans i18nKey="sala_gobernacion_andes.lista_ciencia.item1" />
           </li>
           <li>
-            Una altitud desafiante, pero con posibilidades para la minería, la
-            ganadería y ciertos cultivos.
-          </li>
-          <li>
-            Riquezas geológicas: boratos, salares, piedra pómez, litio, cobre y
-            otros minerales.
+            <Trans i18nKey="sala_gobernacion_andes.lista_ciencia.item2" />
           </li>
         </ul>
         <p className="sala-contenido-parrafo">
-          Este conocimiento fue clave para promover exploraciones mineras,
-          organizar servicios básicos y fomentar pequeñas poblaciones.
+          {t("sala_gobernacion_andes.parrafo_ciencia_3")}
         </p>
       </section>
-      {/* --- Cuarto Bloque: El Final del Territorio --- */}
+
       <section className="gobernacion-bloque">
         <h3 className="sala-contenido-subtitulo">
-          El final del Territorio Nacional de Los Andes
+          {t("sala_gobernacion_andes.subtitulo_futuro")}
         </h3>
         <p className="sala-contenido-parrafo">
-          En 1943, por decreto nacional, el Territorio fue disuelto y sus partes
-          integradas definitivamente a las provincias vecinas:
+          {t("sala_gobernacion_andes.parrafo_futuro_1")}
         </p>
         <ul className="sala-contenido-lista">
-          <li>El Departamento de Los Andes pasó a formar parte de Salta.</li>
-          <li>Susques, a la provincia de Jujuy.</li>
-          <li>Antofagasta de la Sierra, a Catamarca.</li>
+          <li>{t("sala_gobernacion_andes.lista_futuro.item1")}</li>
+          <li>{t("sala_gobernacion_andes.lista_futuro.item2")}</li>
+          <li>{t("sala_gobernacion_andes.lista_futuro.item3")}</li>
         </ul>
         <p className="sala-contenido-parrafo">
-          Así culminó una etapa de administración nacional directa y se
-          consolidó el mapa provincial actual del noroeste argentino.
+          {t("sala_gobernacion_andes.parrafo_futuro_2")}
         </p>
       </section>
-      <CarouselGallery images={gobernacionAndesImages} title="Gobernación de los Andes" />
+
+      <section className="gobernacion-bloque">
+        <h3 className="sala-contenido-subtitulo">
+          {t("sala_gobernacion_andes.subtitulo_final")}
+        </h3>
+        <p className="sala-contenido-parrafo">
+          {t("sala_gobernacion_andes.parrafo_final_1")}
+        </p>
+        <ul className="sala-contenido-lista">
+          <li>{t("sala_gobernacion_andes.lista_final.item1")}</li>
+          <li>{t("sala_gobernacion_andes.lista_final.item2")}</li>
+          <li>{t("sala_gobernacion_andes.lista_final.item3")}</li>
+        </ul>
+        <p className="sala-contenido-parrafo">
+          {t("sala_gobernacion_andes.parrafo_final_2")}
+        </p>
+      </section>
+
+      <CarouselGallery
+        images={gobernacionAndesImages}
+        title={t("sala_gobernacion_andes.titulo_carrusel")}
+      />
     </article>
   );
 };

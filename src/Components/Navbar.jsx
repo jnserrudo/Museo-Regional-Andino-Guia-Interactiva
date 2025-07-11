@@ -14,25 +14,42 @@ const UserIcon = () => <span></span>;
 // o tener una estructura diferente para mobile.
 // La plantilla "Theart" no muestra un botón de hamburguesa explícito en el ejemplo del header desktop.
 
-export const Navbar = ({ onMenuClick }) => { // onMenuClick podría usarse para un drawer en mobile
+import { useTranslation } from "react-i18next"; // 1. Importa el hook
+import i18n from "../i18n"; // 2. Importa la instancia de i18n
+
+export const Navbar = ({ onMenuClick }) => {
+  // onMenuClick podría usarse para un drawer en mobile
   // La función onClose no está definida, la eliminamos del Link
   // const onClose = () => {};
+  const { t } = useTranslation(); // 3. Usa el hook
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <header className="theart-main-header">
       <div className="theart-header-container">
         <Link to="/" className="theart-logo">
-          Museo Regional Andino
+          {t("pagina_home.titulo_museo")}
         </Link>
 
         <nav className="theart-main-nav">
           <ul>
-            {/* Estos son ejemplos, adáptalos a tus rutas reales */}
-            <li><Link to="/" className="active">Inicio</Link></li>
-            <li><Link to="/salas">Salas</Link></li>
-{/*             <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
- */}{/*             <li><Link to="/eventos">Eventos</Link></li>
- */}            {/* Puedes añadir más enlaces según la plantilla: Pages, Shop, Blog, Contact */}
+            {/* 4. Usa la función t() para traducir */}
+            <li>
+              <Link to="/" className="active">
+                {t("navbar.inicio")}
+              </Link>
+            </li>
+            <li>
+              <Link to="/salas">{t("navbar.salas")}</Link>
+            </li>
+            {/*             <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
+             */}
+            {/*             <li><Link to="/eventos">Eventos</Link></li>
+             */}{" "}
+            {/* Puedes añadir más enlaces según la plantilla: Pages, Shop, Blog, Contact */}
           </ul>
         </nav>
 
@@ -45,11 +62,18 @@ export const Navbar = ({ onMenuClick }) => { // onMenuClick podría usarse para 
  */}
           {/* Tus selectores de idioma, estilizados */}
           <div className="theart-language-selector">
-            {/* <button className="theart-lang-btn">
-              <img className="theart-lang-flag" src={`${import.meta.env.BASE_URL}bandera_ingles.png`} alt="EN"/> EN
-            </button> */}
-            <button className="theart-lang-btn active"> {/* 'active' para el idioma actual */}
+            {/* 5. Añade los botones con sus onClick */}
+            <button 
+              className={`theart-lang-btn ${i18n.language === 'es' ? 'active' : ''}`} 
+              onClick={() => changeLanguage('es')}
+            >
               <img className="theart-lang-flag" src={`${import.meta.env.BASE_URL}bandera_español.png`} alt="ES"/> ES
+            </button>
+            <button 
+              className={`theart-lang-btn ${i18n.language === 'en' ? 'active' : ''}`} 
+              onClick={() => changeLanguage('en')}
+            >
+              <img className="theart-lang-flag" src={`${import.meta.env.BASE_URL}bandera_ingles.png`} alt="EN"/> EN
             </button>
             {/* <button className="theart-lang-btn">
               <img className="theart-lang-flag" src={`${import.meta.env.BASE_URL}bandera_quechua.png`} alt="QU"/> QU

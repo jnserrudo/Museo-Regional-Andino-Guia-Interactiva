@@ -27,6 +27,9 @@ import { ScrollToTop } from "./Components/ScrollToTop";
 import { GuiaSalas } from "./Components/GuiaSalas";
 import { DespedidaGuia } from "./Components/DespedidaGuia";
 
+import './i18n'; // <-- ¡AÑADE ESTA LÍNEA! Es muy importante.
+
+
 const App = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
 

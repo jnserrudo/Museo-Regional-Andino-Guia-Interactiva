@@ -11,6 +11,7 @@ import {
   useDroppable, // Importado aquí
 } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
+import { useTranslation } from 'react-i18next'; // <-- 1. Importa el hook
 
 // Asegúrate de tener este archivo CSS en la misma carpeta o ajusta la ruta
 import '../puzzleGame.css';
@@ -95,6 +96,7 @@ function PuzzleSlot({ id, children, pieceSize }) {
 // --- Componente Principal PuzzleGame ---
 export const PuzzleGame = () => {
     // --- Estados ---
+    const { t } = useTranslation();
     const [piecesInSlots, setPiecesInSlots] = useState(Array(PUZZLE_GRID_SIZE * PUZZLE_GRID_SIZE).fill(null));
     const [activeId, setActiveId] = useState(null);
     const [isSolved, setIsSolved] = useState(false);
@@ -251,16 +253,12 @@ export const PuzzleGame = () => {
     // --- Renderizado Principal ---
     return (
         <div className="puzzle-page-container">
-            <h2 className="puzzle-title">Rompecabezas del Museo</h2>
-            <p className="puzzle-instructions">
-                Arrastra y suelta las piezas para reconstruir la imagen.
-            </p>
-
-            {/* Contenedor para medir */}
-            <div ref={gridContainerRef} className="puzzle-grid-wrapper">
-                {isLoading && <div className="puzzle-status puzzle-loading">Cargando...</div>}
-                {error && <div className="puzzle-status puzzle-error">Error: {error}</div>}
-
+        <h2 className="puzzle-title">{t('juegos.puzzle_game.titulo')}</h2>
+        <p className="puzzle-instructions">{t('juegos.puzzle_game.instrucciones')}</p>
+  
+        <div ref={gridContainerRef} className="puzzle-grid-wrapper">
+          {isLoading && <div className="puzzle-status puzzle-loading">{t('juegos.puzzle_game.cargando')}</div>}
+          {error && <div className="puzzle-status puzzle-error">{t('juegos.puzzle_game.error', { mensaje: error })}</div>}
                 {!isLoading && !error && (
                     <DndContext
                         sensors={sensors}
@@ -308,7 +306,7 @@ export const PuzzleGame = () => {
                          {/* Mensaje de Completado */}
                         {isSolved && (
                             <div className="puzzle-complete-message solved">
-                                ¡Completado!
+                                {t('juegos.puzzle_game.completado')}
                             </div>
                         )}
                     </DndContext>
