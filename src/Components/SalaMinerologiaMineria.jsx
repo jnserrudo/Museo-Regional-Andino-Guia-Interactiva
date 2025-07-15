@@ -1,10 +1,13 @@
 // SalaMinerologiaMineria.jsx (CON BOTÓN QR Y LÓGICA DE CÁMARA)
-import React, { useRef } from "react"; // Importa useRef
+import React, { useRef ,useState} from "react"; // Importa useRef
 import { SalaContenidoItem } from "./SalaContenidoItem"; // Asegúrate que la ruta sea correcta
 import "../SalaMinerologiaMineria.css"; // Importa el CSS
 import { QrcodeOutlined } from "@ant-design/icons"; // Importa el icono QR
 import { border } from "@chakra-ui/react";
 import { useTranslation, Trans } from "react-i18next";
+
+// *** IMPORTA LA LIBRERÍA QR-READER ***
+import { QrReader } from "react-qr-reader"; // <--- NUEVA IMPORTACIÓN
 
 // AÑADE ESTAS IMPORTACIONES AL PRINCIPIO DEL ARCHIVO
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -254,6 +257,53 @@ const MineralCarousel = ({ images, mineralNombre }) => {
 export const SalaMinerologiaMineria = () => {
   const { t } = useTranslation();
 
+
+ // --- ESTADO PARA CONTROLAR LA VISIBILIDAD DEL ESCÁNER QR ---
+ const [showQrScanner, setShowQrScanner] = useState(false); // <--- NUEVO ESTADO
+ const [scannedData, setScannedData] = useState(''); // Estado para guardar el resultado del escaneo
+
+ // --- LÓGICA DE ESCANEO QR ---
+ const handleScan = (result, error) => {
+   if (result) {
+     const scannedUrl = result?.text;
+     setScannedData(scannedUrl); // Guarda el resultado
+     console.log('QR Escaneado:', scannedUrl);
+
+     // Valida y redirecciona
+     if (scannedUrl && scannedUrl.startsWith('https://museo-andino-realidad-aumentada.onrender.com/')) {
+       window.location.href = scannedUrl; // Redirecciona
+     } else {
+       alert('Este QR no es un enlace válido a un mineral del museo.');
+       setShowQrScanner(false); // Oculta el escáner si el QR no es válido
+     }
+   }
+
+   if (error) {
+     // Puedes manejar errores aquí, por ejemplo, si la cámara no se puede acceder
+     if (error.name !== "NotAllowedError" && error.name !== "NotFoundError") {
+       console.error('Error al escanear QR:', error);
+       //alert('Error al acceder a la cámara o al escanear el QR.');
+     }
+   }
+ };
+
+ // --- LÓGICA AL CLICKEAR EL BOTÓN QR DEL MINERAL ---
+ // Ahora solo activa la visibilidad del escáner
+ const handleQrButtonClick = (event, mineralData) => { // Renombré para evitar conflicto
+   event.preventDefault();
+   event.stopPropagation();
+   // Puedes pasar 'mineralData' si quisieras mostrar información específica antes de escanear
+   setShowQrScanner(true); // Muestra el componente del escáner
+   setScannedData('Escaneando...'); // Mensaje de carga
+ };
+
+ // --- Función para cerrar el escáner (opcional, para un botón "Cerrar") ---
+ const closeQrScanner = () => {
+   setShowQrScanner(false);
+   setScannedData('');
+ };
+
+
   // --- CONSTRUCCIÓN DEL TEXTO PARA EL LECTOR DE VOZ ---
   const textoMineralesTraducido = Object.values(
     t("sala_minerologia_mineria.lista_minerales", { returnObjects: true })
@@ -338,12 +388,54 @@ export const SalaMinerologiaMineria = () => {
 
   return (
     <div className="sala-minerologia-container">
-      <input
+      {/* ELIMINAMOS EL INPUT TYPE FILE Y useRef */}
+      {/* <input
         type="file"
         ref={fileInputRef}
         style={{ display: "none" }}
         onChange={handleFileChange}
-      />
+      /> */}
+
+      {/* --- RENDERIZADO CONDICIONAL DEL ESCÁNER QR --- */}
+      {showQrScanner && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0,0,0,0.8)',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000,
+          padding: '20px',
+          boxSizing: 'border-box'
+        }}>
+          <h2 style={{ color: 'white', marginBottom: '20px' }}>
+            {scannedData === 'Escaneando...' ? 'Apunte la cámara al QR del mineral...' : 'QR Escaneado'}
+          </h2>
+          <div style={{ maxWidth: '400px', width: '100%' }}>
+            <QrReader
+              onResult={handleScan}
+              constraints={{ facingMode: 'environment' }} // Prioriza la cámara trasera
+              scanDelay={500} // Pequeño retraso para evitar múltiples lecturas rápidas
+              videoStyle={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+            />
+          </div>
+          <p style={{ color: 'white', marginTop: '10px' }}>{scannedData}</p>
+          <Button
+            onClick={closeQrScanner}
+            style={{ marginTop: '20px' }}
+            type="primary"
+            danger // Para que el botón sea rojo y destaque como "cerrar"
+          >
+            Cerrar Escáner
+          </Button>
+        </div>
+      )}
+      {/* --- FIN DEL ESCÁNER QR --- */}
       <h1 className="sala-main-title sala-contenido-titulo-principal">
         {t("sala_minerologia_mineria.titulo_principal")}
       </h1>

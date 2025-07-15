@@ -951,3 +951,46 @@ gap: 2rem; /* Mantener o ajustar gap */
     font-style: italic;
     
 }
+
+/* ------------------  */
+/* Estilos para el modal del escáner QR */
+.qr-scanner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro semitransparente */
+  display: flex;
+  flex-direction: column; /* Para apilar elementos verticalmente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  padding: 20px;
+  box-sizing: border-box; /* Para incluir padding en el ancho/alto */
+}
+
+.qr-scanner-content {
+  max-width: 500px; /* Ancho máximo del escáner */
+  width: 90%; /* Ocupa el 90% del ancho disponible */
+  background-color: #fff; /* Fondo blanco para el área del video */
+  border-radius: 10px;
+  overflow: hidden; /* Para que el video no se salga del borde redondeado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.qr-scanner-message {
+  color: #fff;
+  margin-top: 15px;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.qr-scanner-close-button {
+  margin-top: 25px;
+  /* Puedes añadir más estilos para tu botón de cerrar, usando tus estilos de Ant Design si los tienes */
+}
