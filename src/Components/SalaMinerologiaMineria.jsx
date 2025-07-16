@@ -272,45 +272,47 @@ export const SalaMinerologiaMineria = () => {
   }, [showQrScanner]);
 
   // --- LÓGICA DE ESCANEO QR ---
+  // --- LÓGICA DE ESCANEO QR CORREGIDA ---
   const handleScan = (result, error) => {
+    // 1. Si hay un resultado válido, procésalo.
     if (result) {
+      // Detenemos el mensaje de "Escaneando..." y limpiamos cualquier error previo.
+      setCameraError(null);
       const scannedUrl = result?.text;
-      setScannedData(scannedUrl); // Guarda el resultado
+      setScannedData(scannedUrl);
       console.log("QR Escaneado:", scannedUrl);
 
-      // Valida y redirecciona
       if (
         scannedUrl &&
         scannedUrl.startsWith(
           "https://museo-andino-realidad-aumentada.onrender.com/"
         )
       ) {
-        window.location.href = scannedUrl; // Redirecciona
+        window.location.href = scannedUrl;
       } else {
         alert("Este QR no es un enlace válido a un mineral del museo.");
-        setShowQrScanner(false); // Oculta el escáner si el QR no es válido
+        // Cerramos el escáner si el QR no es válido para que el usuario no se quede atascado.
+        setShowQrScanner(false);
       }
+      return; // Salimos de la función para no procesar la parte del error.
     }
 
+    // 2. Si hay un error, verifica si es un error crítico de inicialización.
     if (error) {
-      // Puedes manejar errores aquí, por ejemplo, si la cámara no se puede acceder
-      // Manejo más específico de errores de cámara
-      if (error.name === "NotAllowedError") {
+      // ERRORES CRÍTICOS: Permiso denegado o cámara no encontrada.
+      // Estos errores sí deben mostrarse al usuario porque impiden que el escáner funcione.
+      if (error.name === "NotAllowedError" || error.name === "NotFoundError") {
         setCameraError(
-          "Permiso de cámara denegado. Por favor, concede acceso a la cámara."
+          error.name === "NotAllowedError"
+            ? "Permiso de cámara denegado. Por favor, concede acceso en la configuración de tu navegador."
+            : "No se detecta ninguna cámara disponible en este dispositivo."
         );
-      } else if (error.name === "NotFoundError") {
-        setCameraError("No se detecta ninguna cámara disponible.");
-      } else {
-        setCameraError(
-          `Error al acceder a la cámara: ${error.message || error.name}`
-        );
-        console.error("Error al escanear QR:", error);
       }
-      // No ocultamos el escáner inmediatamente en caso de error, para que el usuario pueda ver el mensaje
+      // Para cualquier otro tipo de error (como el 'e2' o 'NotFoundException' que ocurren en cada fotograma sin QR),
+      // simplemente lo ignoramos. No establecemos un estado de error, permitiendo que el escáner siga
+      // intentando en el siguiente fotograma.
     }
   };
-
   // --- LÓGICA AL CLICKEAR EL BOTÓN QR DEL MINERAL ---
   // Ahora solo activa la visibilidad del escáner
   const handleQrButtonClick = (event, mineralData) => {
@@ -437,44 +439,49 @@ export const SalaMinerologiaMineria = () => {
       /> */}
 
       {/* --- RENDERIZADO CONDICIONAL DEL ESCÁNER QR --- */}
+
       {showQrScanner && (
         <QrScannerPortal>
           <div className="qr-scanner-overlay">
             <div className="qr-scanner-content">
-              <h2 style={{ color: "black", marginBottom: "10px" }}>
-                {scannedData === "Apunte la cámara al QR del mineral..."
-                  ? "Escaneando QR..."
-                  : "QR Escaneado"}
-              </h2>
-              {cameraError && (
-                <p
-                  style={{
-                    color: "red",
-                    marginTop: "5px",
-                    textAlign: "center",
-                  }}
-                >
-                  {cameraError}
-                </p>
-              )}
-              {!cameraError && ( // Solo muestra el QrReader si no hay errores de cámara
+              <h3 style={{ color: "black", margin: 0, textAlign: "center" }}>
+                {scannedData.startsWith("https://")
+                  ? "QR Escaneado"
+                  : "Apunte la cámara al QR"}
+              </h3>
+
+              {/* --- CAMBIO PRINCIPAL AQUÍ --- */}
+              {/* Le damos la clase directamente al QrReader para que él sea el contenedor */}
+              {!cameraError && (
                 <QrReader
                   onResult={handleScan}
-                  // PRUEBA CON ESTAS OPCIONES EN ORDEN, UNA POR UNA:
-                  //constraints={{ facingMode: "user" }} // Prioriza la cámara frontal (selfie/webcam)
-                  //constraints={{ facingMode: 'environment' }} // Prioriza la cámara trasera (si está disponible y funciona)
-                   constraints={{ facingMode: 'any' }}     // Deja que el navegador elija
-                  // constraints={undefined}                // Sin preferencias                scanDelay={500}
+                  constraints={{ facingMode: "environment" }}
+                  // ¡La clave está aquí! Le decimos al contenedor que cree y al video cómo verse.
+                  className="qr-reader-container"
                   videoStyle={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
                     width: "100%",
-                    height: "auto",
-                    borderRadius: "8px",
+                    height: "100%",
+                    objectFit: "cover",
                   }}
                 />
               )}
-              <p className="qr-scanner-message" style={{ color: "black" }}>
-                {scannedData}
+
+              {/* Mostramos el mensaje de error si existe */}
+              {cameraError && (
+                <p style={{ color: "red", textAlign: "center", margin: 0 }}>
+                  {cameraError}
+                </p>
+              )}
+
+              <p className="qr-scanner-message">
+                {scannedData === "Escaneando..."
+                  ? "Buscando código..."
+                  : scannedData}
               </p>
+
               <Button
                 onClick={closeQrScanner}
                 className="qr-scanner-close-button"

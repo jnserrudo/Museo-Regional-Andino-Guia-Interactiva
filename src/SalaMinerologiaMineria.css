@@ -958,55 +958,63 @@ gap: 2rem; /* Mantener o ajustar gap */
 
 /* ------------------ */
 /* Estilos para el modal del escáner QR */
-/* Estilos para el modal del escáner QR */
+/* ========================================================== */
+/* =   ESTILOS DEFINITIVOS Y DIRECTOS PARA EL ESCÁNER QR    = */
+/* ========================================================== */
+
+/* Fondo oscuro que cubre toda la pantalla */
 .qr-scanner-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* Asegura que ocupe el 100% del ancho del viewport */
-  height: 100vh; /* Asegura que ocupe el 100% del alto del viewport */
-  /* background-color: rgba(0, 0, 0, 0.85); */ /* Fondo oscuro semitransparente */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centra verticalmente el contenido (el cuadro blanco) */
-  align-items: center; /* Centra horizontalmente el contenido (el cuadro blanco) */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  padding: 20px; /* Un poco de padding para que no se pegue a los bordes */
-  box-sizing: border-box; /* Para incluir padding en el ancho/alto */
-  overflow: hidden; /* **Importante**: Evita que el propio overlay genere scroll si su contenido es grande, ya que queremos que el modal principal sea el que maneje el scroll interno si es necesario. */
-}
-
-.qr-scanner-content {
-  max-width: 500px;
-  width: 90%;
-  background-color: #fff;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  padding: 1rem;
   box-sizing: border-box;
-  /* Puedes añadir un max-height y overflow-y: auto aquí si el contenido del modal (mensajes, video, botón) puede ser muy alto en pantallas pequeñas */
-  max-height: 90vh; /* Para que el contenido del modal no exceda el viewport y si lo hace, que se pueda scrollear dentro de él */
-  overflow-y: auto; /* Permite scroll solo dentro del contenido del modal si excede el max-height */
 }
 
+/* El cuadro blanco que contiene todo */
+.qr-scanner-content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+/* AHORA ESTILIZAMOS DIRECTAMENTE EL CONTENEDOR DE LA LIBRERÍA */
+.qr-reader-container {
+  width: 100%;
+  position: relative; /* Clave para que el videoStyle funcione */
+  aspect-ratio: 1 / 1; 
+  background-color: #222;
+  border-radius: 8px;
+  overflow: hidden; /* Oculta las partes del video que se salgan */
+}
+
+/* El `videoStyle` en el JSX ya se encarga del video, así que no necesitamos más CSS para él */
+
+
+/* Estilos para el texto y el botón */
 .qr-scanner-message {
-  color: #000;
-  margin-top: 15px;
-  font-size: 1.1em;
+  color: #333;
   text-align: center;
   word-break: break-word;
+  font-weight: 500;
+  min-height: 1.2em; /* Evita que el layout salte cuando el texto aparece */
 }
 
 .qr-scanner-close-button {
-  margin-top: 25px;
-}
-
-.qr-scanner-content video {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
 }
