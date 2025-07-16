@@ -4,6 +4,8 @@ import { SalaContenidoItem } from "./SalaContenidoItem"; // Asegúrate que la ru
 import "../SalaMinerologiaMineria.css"; // Importa el CSS
 import { QrcodeOutlined } from "@ant-design/icons"; // Importa el icono QR
 import { useTranslation, Trans } from "react-i18next";
+import "webrtc-adapter"; // ¡AÑADE ESTA LÍNEA!
+import ReactDOM from "react-dom"; // Necesitas importar ReactDOM
 
 // *** IMPORTA LA LIBRERÍA QR-READER ***
 import { QrReader } from "react-qr-reader"; // <--- NUEVA IMPORTACIÓN
@@ -411,6 +413,19 @@ export const SalaMinerologiaMineria = () => {
     event.target.value = null; // Permite tomar/seleccionar de nuevo
   }; */
 
+  // Definir el componente Portal para el modal
+  const QrScannerPortal = ({ children }) => {
+    const el = document.getElementById("qr-scanner-root"); // Busca un div específico
+    // Si no existe, créalo o usa document.body
+    if (!el) {
+      const newEl = document.createElement("div");
+      newEl.id = "qr-scanner-root";
+      document.body.appendChild(newEl);
+      return ReactDOM.createPortal(children, newEl);
+    }
+    return ReactDOM.createPortal(children, el);
+  };
+
   return (
     <div className="sala-minerologia-container">
       {/* ELIMINAMOS EL INPUT TYPE FILE Y useRef */}
@@ -423,39 +438,54 @@ export const SalaMinerologiaMineria = () => {
 
       {/* --- RENDERIZADO CONDICIONAL DEL ESCÁNER QR --- */}
       {showQrScanner && (
-        <div className="qr-scanner-overlay">
-          <div className="qr-scanner-content">
-            <h2 style={{ color: "black", marginBottom: "10px" }}>
-              {scannedData === "Apunte la cámara al QR del mineral..."
-                ? "Escaneando QR..."
-                : "QR Escaneado"}
-            </h2>
-            {cameraError && (
-              <p style={{ color: "red", marginTop: "5px", textAlign: "center" }}>
-                {cameraError}
+        <QrScannerPortal>
+          <div className="qr-scanner-overlay">
+            <div className="qr-scanner-content">
+              <h2 style={{ color: "black", marginBottom: "10px" }}>
+                {scannedData === "Apunte la cámara al QR del mineral..."
+                  ? "Escaneando QR..."
+                  : "QR Escaneado"}
+              </h2>
+              {cameraError && (
+                <p
+                  style={{
+                    color: "red",
+                    marginTop: "5px",
+                    textAlign: "center",
+                  }}
+                >
+                  {cameraError}
+                </p>
+              )}
+              {!cameraError && ( // Solo muestra el QrReader si no hay errores de cámara
+                <QrReader
+                  onResult={handleScan}
+                  // PRUEBA CON ESTAS OPCIONES EN ORDEN, UNA POR UNA:
+                  //constraints={{ facingMode: "user" }} // Prioriza la cámara frontal (selfie/webcam)
+                  //constraints={{ facingMode: 'environment' }} // Prioriza la cámara trasera (si está disponible y funciona)
+                   constraints={{ facingMode: 'any' }}     // Deja que el navegador elija
+                  // constraints={undefined}                // Sin preferencias                scanDelay={500}
+                  videoStyle={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "8px",
+                  }}
+                />
+              )}
+              <p className="qr-scanner-message" style={{ color: "black" }}>
+                {scannedData}
               </p>
-            )}
-            {!cameraError && ( // Solo muestra el QrReader si no hay errores de cámara
-              <QrReader
-                onResult={handleScan}
-                constraints={undefined} // Sin preferencias de cámara, deja que la librería decida
-                scanDelay={500}
-                videoStyle={{ width: "100%", height: "auto", borderRadius: "8px" }}
-              />
-            )}
-            <p className="qr-scanner-message" style={{ color: "black" }}>
-              {scannedData}
-            </p>
-            <Button
-              onClick={closeQrScanner}
-              className="qr-scanner-close-button"
-              type="primary"
-              danger
-            >
-              Cerrar Escáner
-            </Button>
+              <Button
+                onClick={closeQrScanner}
+                className="qr-scanner-close-button"
+                type="primary"
+                danger
+              >
+                Cerrar Escáner
+              </Button>
+            </div>
           </div>
-        </div>
+        </QrScannerPortal>
       )}
       {/* --- FIN DEL ESCÁNER QR --- */}
       <h1 className="sala-main-title sala-contenido-titulo-principal">
