@@ -521,7 +521,7 @@ const handleScanError = useCallback((error) => {
                 boxSizing: 'border-box'
               }}>
                 <p style={{ margin: 0, color: 'black', fontSize: '12px' }}>
-                  <strong>Estado de depuración:</strong> {debugStatus}
+                  <strong>{/* Estado de depuración: */}</strong> {debugStatus}
                 </p>
               </div>
 
@@ -529,7 +529,7 @@ const handleScanError = useCallback((error) => {
               {/* Mostramos el mensaje de error si existe */}
               {cameraError && (
                 <p style={{ color: "red", textAlign: "center", margin: 0 }}>
-                  {cameraError}
+                  {/* {cameraError} */}
                 </p>
               )}
 
