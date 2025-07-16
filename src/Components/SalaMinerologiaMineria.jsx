@@ -1,5 +1,5 @@
 // SalaMinerologiaMineria.jsx (CON BOTÓN QR Y LÓGICA DE CÁMARA)
-import React, { useState, useEffect } from "react"; // Importa useRef
+import React, { useState, useEffect, useCallback } from "react"; // Importa useRef
 import { SalaContenidoItem } from "./SalaContenidoItem"; // Asegúrate que la ruta sea correcta
 import "../SalaMinerologiaMineria.css"; // Importa el CSS
 import { QrcodeOutlined } from "@ant-design/icons"; // Importa el icono QR
@@ -268,10 +268,10 @@ export const SalaMinerologiaMineria = () => {
 
 
    // --- Función para actualizar el estado de depuración ---
-   const handleStatusUpdate = (status) => {
+   const handleStatusUpdate = useCallback((status) => {
     console.log("NUEVO ESTADO:", status); // Para que lo veas en PC
     setDebugStatus(status); // Para que lo veas en móvil
-  };
+  }, []);
   // *** IMPORTANTE: Usamos useEffect para limpiar el escáner cuando se cierra el modal ***
   useEffect(() => {
     if (!showQrScanner) {
@@ -327,7 +327,7 @@ export const SalaMinerologiaMineria = () => {
 
 
  // --- NUEVA FUNCIÓN PARA MANEJAR EL ÉXITO ---
- const handleScanSuccess = (scannedUrl) => {
+ const handleScanSuccess = useCallback((scannedUrl) => {
   // 1. INMEDIATAMENTE actualiza el estado para que el usuario vea lo que se escaneó.
   setScannedData(scannedUrl); 
   console.log("QR Escaneado:", scannedUrl);
@@ -348,16 +348,16 @@ export const SalaMinerologiaMineria = () => {
     alert("Este QR no es un enlace válido para el museo. Contenido: " + scannedUrl);
     setShowQrScanner(false);
   }
-}
+}, []);
 
 // --- NUEVA FUNCIÓN PARA MANEJAR ERRORES DE CÁMARA ---
-const handleScanError = (error) => {
+const handleScanError = useCallback((error) => {
   setCameraError(
     error.name === "NotAllowedError"
       ? "Permiso de cámara denegado. Revísalo en la configuración de tu navegador."
       : "No se detecta ninguna cámara disponible o hay un error."
   );
-};
+}, []);
 
 // La función handleScan ya no es necesaria, la hemos dividido en las dos de arriba.
 // Las funciones handleQrButtonClick y closeQrScanner permanecen igual.
