@@ -328,6 +328,8 @@ export const SalaMinerologiaMineria = () => {
 
  // --- NUEVA FUNCIÓN PARA MANEJAR EL ÉXITO ---
  const handleScanSuccess = useCallback((scannedUrl) => {
+  setCameraError(null); // ¡Limpia cualquier error anterior inmediatamente!
+
   // 1. INMEDIATAMENTE actualiza el estado para que el usuario vea lo que se escaneó.
   setScannedData(scannedUrl); 
   console.log("QR Escaneado:", scannedUrl);
