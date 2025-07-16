@@ -284,9 +284,10 @@ export const SalaMinerologiaMineria = () => {
 
       if (
         scannedUrl &&
-        scannedUrl.startsWith(
+        (scannedUrl.startsWith(
           "https://museo-andino-realidad-aumentada.onrender.com/"
-        )
+        ) ||
+        scannedUrl.startsWith("https://qr.link/"))
       ) {
         window.location.href = scannedUrl;
       } else {
