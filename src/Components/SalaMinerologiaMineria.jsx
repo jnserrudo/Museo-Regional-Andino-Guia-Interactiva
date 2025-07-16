@@ -9,7 +9,7 @@ import ReactDOM from "react-dom"; // Necesitas importar ReactDOM
 
 // *** IMPORTA LA LIBRERÍA QR-READER ***
 //import { QrReader } from "react-qr-reader"; // <--- NUEVA IMPORTACIÓN
-import { useZxing } from 'react-zxing'; // <-- NUEVA IMPORTACIÓN
+//import { useZxing } from 'react-zxing'; // <-- NUEVA IMPORTACIÓN
 import { QrScannerComponent } from "./QrScannerComponent";
 // AÑADE ESTAS IMPORTACIONES AL PRINCIPIO DEL ARCHIVO
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -320,21 +320,27 @@ export const SalaMinerologiaMineria = () => {
 
  // --- NUEVA FUNCIÓN PARA MANEJAR EL ÉXITO ---
  const handleScanSuccess = (scannedUrl) => {
-  setCameraError(null);
-  setScannedData(scannedUrl);
+  // 1. INMEDIATAMENTE actualiza el estado para que el usuario vea lo que se escaneó.
+  setScannedData(scannedUrl); 
   console.log("QR Escaneado:", scannedUrl);
 
+  // 2. Valida la URL
   if (
     scannedUrl &&
     (scannedUrl.startsWith("https://museo-andino-realidad-aumentada.onrender.com/") ||
      scannedUrl.startsWith("https://qr.link/"))
   ) {
-    window.location.href = scannedUrl;
+    // 3. (OPCIONAL PERO RECOMENDADO) Añade un pequeño retraso antes de redirigir.
+    //    Esto le da al usuario un segundo para ver que el escaneo fue exitoso.
+    setTimeout(() => {
+      window.location.href = scannedUrl;
+    }, 500); // 500ms = medio segundo
   } else {
+    // Si la URL no es válida, avisa y cierra.
     alert("Este QR no es un enlace válido para el museo. Contenido: " + scannedUrl);
     setShowQrScanner(false);
   }
-};
+}
 
 // --- NUEVA FUNCIÓN PARA MANEJAR ERRORES DE CÁMARA ---
 const handleScanError = (error) => {
