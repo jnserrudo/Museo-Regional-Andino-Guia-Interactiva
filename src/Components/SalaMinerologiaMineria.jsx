@@ -8,8 +8,9 @@ import "webrtc-adapter"; // ¡AÑADE ESTA LÍNEA!
 import ReactDOM from "react-dom"; // Necesitas importar ReactDOM
 
 // *** IMPORTA LA LIBRERÍA QR-READER ***
-import { QrReader } from "react-qr-reader"; // <--- NUEVA IMPORTACIÓN
-
+//import { QrReader } from "react-qr-reader"; // <--- NUEVA IMPORTACIÓN
+import { useZxing } from 'react-zxing'; // <-- NUEVA IMPORTACIÓN
+import { QrScannerComponent } from "./QrScannerComponent";
 // AÑADE ESTAS IMPORTACIONES AL PRINCIPIO DEL ARCHIVO
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -271,6 +272,7 @@ export const SalaMinerologiaMineria = () => {
     }
   }, [showQrScanner]);
 
+    
   // --- LÓGICA DE ESCANEO QR ---
   // --- LÓGICA DE ESCANEO QR CORREGIDA ---
   const handleScan = (result, error) => {
@@ -314,6 +316,39 @@ export const SalaMinerologiaMineria = () => {
       // intentando en el siguiente fotograma.
     }
   };
+
+
+ // --- NUEVA FUNCIÓN PARA MANEJAR EL ÉXITO ---
+ const handleScanSuccess = (scannedUrl) => {
+  setCameraError(null);
+  setScannedData(scannedUrl);
+  console.log("QR Escaneado:", scannedUrl);
+
+  if (
+    scannedUrl &&
+    (scannedUrl.startsWith("https://museo-andino-realidad-aumentada.onrender.com/") ||
+     scannedUrl.startsWith("https://qr.link/"))
+  ) {
+    window.location.href = scannedUrl;
+  } else {
+    alert("Este QR no es un enlace válido para el museo. Contenido: " + scannedUrl);
+    setShowQrScanner(false);
+  }
+};
+
+// --- NUEVA FUNCIÓN PARA MANEJAR ERRORES DE CÁMARA ---
+const handleScanError = (error) => {
+  setCameraError(
+    error.name === "NotAllowedError"
+      ? "Permiso de cámara denegado. Revísalo en la configuración de tu navegador."
+      : "No se detecta ninguna cámara disponible o hay un error."
+  );
+};
+
+// La función handleScan ya no es necesaria, la hemos dividido en las dos de arriba.
+// Las funciones handleQrButtonClick y closeQrScanner permanecen igual.
+
+
   // --- LÓGICA AL CLICKEAR EL BOTÓN QR DEL MINERAL ---
   // Ahora solo activa la visibilidad del escáner
   const handleQrButtonClick = (event, mineralData) => {
@@ -451,24 +486,13 @@ export const SalaMinerologiaMineria = () => {
                   : "Apunte la cámara al QR"}
               </h3>
 
-              {/* --- CAMBIO PRINCIPAL AQUÍ --- */}
-              {/* Le damos la clase directamente al QrReader para que él sea el contenedor */}
-              {!cameraError && (
-                <QrReader
-                  onResult={handleScan}
-                  constraints={{ facingMode: "environment" }}
-                  // ¡La clave está aquí! Le decimos al contenedor que cree y al video cómo verse.
-                  className="qr-reader-container"
-                  videoStyle={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                />
-              )}
+                {/* === ¡AQUÍ ESTÁ LA MAGIA! === */}
+              {/* Renderizamos nuestro componente aislado */}
+              <QrScannerComponent
+                onScanSuccess={handleScanSuccess}
+                onScanError={handleScanError}
+              />
+
 
               {/* Mostramos el mensaje de error si existe */}
               {cameraError && (
