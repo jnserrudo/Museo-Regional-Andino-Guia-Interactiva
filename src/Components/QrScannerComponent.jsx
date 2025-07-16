@@ -1,21 +1,41 @@
-// /src/components/QrScannerComponent.jsx (o donde corresponda)
+// /src/components/QrScannerComponent.jsx
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useZxing } from 'react-zxing';
 
-export const QrScannerComponent = ({ onScanSuccess, onScanError }) => {
+export const QrScannerComponent = ({ onScanSuccess, onScanError, onStatusChange }) => {
   const { ref } = useZxing({
     onResult(result) {
-      onScanSuccess(result.getText()); // Pasamos solo el texto, que es lo que nos importa
+      // INFORMA ÉXITO
+      onStatusChange('¡Éxito! Código encontrado.');
+      onScanSuccess(result.getText());
     },
     onError(error) {
-      // Solo notifica errores reales de la cámara, no "código no encontrado"
-      if (error && error.name !== 'NotFoundException') {
+      // Si el error es "NotFoundException", significa que la cámara está buscando activamente.
+      // Esto es una BUENA señal.
+      if (error && error.name === 'NotFoundException') {
+        onStatusChange('Escaneando activamente...');
+      } 
+      // Si es cualquier otro error, es un problema real.
+      else if (error) {
+        onStatusChange(`Error crítico: ${error.name}`);
         onScanError(error);
       }
     },
-    constraints: { video: { facingMode: 'environment' } },
+    constraints: { video: true }, // Usamos 'true' para máxima compatibilidad
   });
+
+  // Este efecto nos dirá si el video se ha renderizado
+  useEffect(() => {
+    if (ref.current) {
+      onStatusChange('Elemento de video montado en la pantalla.');
+    }
+  }, [ref, onStatusChange]);
+
+  // Informa que el componente está intentando inicializarse
+  useEffect(() => {
+    onStatusChange('Inicializando escáner...');
+  }, [onStatusChange]);
 
   return (
     <div className="qr-reader-container">

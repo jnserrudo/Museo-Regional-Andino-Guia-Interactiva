@@ -263,7 +263,15 @@ export const SalaMinerologiaMineria = () => {
   const [showQrScanner, setShowQrScanner] = useState(false); // <--- NUEVO ESTADO
   const [scannedData, setScannedData] = useState(""); // Estado para guardar el resultado del escaneo
   const [cameraError, setCameraError] = useState(null); // Nuevo estado para errores de cámara
+  const [debugStatus, setDebugStatus] = useState('Inactivo'); // <--- NUEVO ESTADO DE DEPURACIÓN
 
+
+
+   // --- Función para actualizar el estado de depuración ---
+   const handleStatusUpdate = (status) => {
+    console.log("NUEVO ESTADO:", status); // Para que lo veas en PC
+    setDebugStatus(status); // Para que lo veas en móvil
+  };
   // *** IMPORTANTE: Usamos useEffect para limpiar el escáner cuando se cierra el modal ***
   useEffect(() => {
     if (!showQrScanner) {
@@ -497,7 +505,23 @@ const handleScanError = (error) => {
               <QrScannerComponent
                 onScanSuccess={handleScanSuccess}
                 onScanError={handleScanError}
+                onStatusChange={handleStatusUpdate}
               />
+
+               {/* --- VISOR DE DEPURACIÓN EN PANTALLA --- */}
+               <div style={{ 
+                marginTop: '10px', 
+                padding: '8px', 
+                backgroundColor: '#f0f0f0', 
+                border: '1px solid #ccc', 
+                borderRadius: '4px',
+                width: '100%',
+                boxSizing: 'border-box'
+              }}>
+                <p style={{ margin: 0, color: 'black', fontSize: '12px' }}>
+                  <strong>Estado de depuración:</strong> {debugStatus}
+                </p>
+              </div>
 
 
               {/* Mostramos el mensaje de error si existe */}
