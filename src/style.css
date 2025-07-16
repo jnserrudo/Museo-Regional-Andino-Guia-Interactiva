@@ -49,7 +49,9 @@ body {
 
   /* Transición para el cambio de tamaño */
   transition: font-size 0.25s ease-in-out;
+  
 }
+
 
 /* ========================================================= */
 /* = REGLAS PARA CAMBIO TAMAÑO FUENTE (Aplicadas a BODY)   = */
