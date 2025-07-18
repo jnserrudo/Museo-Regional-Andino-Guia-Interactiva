@@ -483,7 +483,8 @@
     "info_sala": "Room {{indiceActual}} of {{totalSalas}}",
     "info_fin_recorrido": "End of Tour",
     "boton_siguiente": "Next Room",
-    "boton_finalizar": "Finish Guide"
+    "boton_finalizar": "Finish Guide",
+    "boton_repetir": "Repeat Tour"
   },
   "juegos": {
     "pagina_juegos": {

@@ -1,5 +1,5 @@
 // src/components/salas/GuiaSalas.jsx
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate, Outlet } from "react-router-dom";
 import { Button } from "antd";
 import { ArrowRightOutlined, HomeOutlined } from "@ant-design/icons";
@@ -22,6 +22,7 @@ export const GuiaSalas = () => {
   const { t } = useTranslation();
   const { salaId } = useParams();
   const navigate = useNavigate();
+  const [isSalaDespedida, setIsSalaDespedida] = useState(false);
 
   // --- 2. CREA UNA REFERENCIA PARA EL CONTENEDOR DEL CONTENIDO ---
   const contenidoRef = useRef(null);
@@ -47,9 +48,11 @@ export const GuiaSalas = () => {
     if (!esLaUltimaSala) {
       const siguienteSalaId = ordenSalas[indiceActual + 1];
       navigate(`/guia/${siguienteSalaId}`);
+      setIsSalaDespedida(false);
     } else {
       // Si es la última sala, llévanos a la pantalla de despedida
       navigate("/guia/despedida");
+      setIsSalaDespedida(true);
     }
   };
 
@@ -80,7 +83,9 @@ export const GuiaSalas = () => {
           icon={<ArrowRightOutlined />}
           onClick={handleSiguienteSala}
         >
-          {esLaUltimaSala
+          {isSalaDespedida
+            ? t("guia_salas.boton_repetir")
+            : esLaUltimaSala
             ? t("guia_salas.boton_finalizar")
             : t("guia_salas.boton_siguiente")}
         </Button>

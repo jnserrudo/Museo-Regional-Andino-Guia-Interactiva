@@ -490,7 +490,8 @@
     "info_sala": "Sala {{indiceActual}} de {{totalSalas}}",
     "info_fin_recorrido": "Fin del Recorrido",
     "boton_siguiente": "Siguiente Sala",
-    "boton_finalizar": "Finalizar Guía"
+    "boton_finalizar": "Finalizar Guía",
+    "boton_repetir": "Repetir Guía"
   },
   "juegos": {
     "pagina_juegos": {
