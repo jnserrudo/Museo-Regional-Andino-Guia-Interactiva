@@ -204,7 +204,7 @@
     align-items: center;
     flex-shrink: 0; /* Evitar que este bloque se encoja demasiado */
     flex-wrap: wrap; /* Permitir que los elementos internos (idiomas, otros iconos) se envuelvan */
-    gap: 10px; /* Espacio entre selector de idioma y otros iconos si los hay */
+    /* gap: 10px; */ /* Espacio entre selector de idioma y otros iconos si los hay */
 }
 
 .theart-language-selector {
@@ -259,7 +259,7 @@
         width: 100%; /* Que las acciones ocupen todo el ancho */
         justify-content: center; /* Centrar los elementos de acciones */
         order: 3; /* Opcional: si quieres cambiar el orden visual */
-        margin-top: 10px; /* Espacio si está debajo de la nav */
+        /* margin-top: 10px; */ /* Espacio si está debajo de la nav */
     }
 
     .theart-language-selector {
@@ -292,7 +292,7 @@
         font-size: 0.9em; /* Enlaces un poco más pequeños */
     }
     .theart-header-actions {
-        margin-top: 5px;
+        /* margin-top: 5px; */
     }
     .theart-lang-btn {
         font-size: 0.85em; /* Botones de idioma más pequeños */
@@ -302,3 +302,10 @@
         width: 16px;
     }
 }
+
+
+
+/* ------------------------------------ */
+
+
+

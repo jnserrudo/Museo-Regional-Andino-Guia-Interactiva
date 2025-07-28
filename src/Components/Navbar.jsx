@@ -45,15 +45,8 @@ export const Navbar = ({ onMenuClick }) => {
             <li>
               <Link to="/salas">{t("navbar.salas")}</Link>
             </li>
-            {/*             <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
-             */}
-            {/*             <li><Link to="/eventos">Eventos</Link></li>
-             */}{" "}
-            {/* Puedes añadir más enlaces según la plantilla: Pages, Shop, Blog, Contact */}
-          </ul>
-        </nav>
-
-        {/* Los selectores de idioma y otros iconos */}
+            <li>
+               {/* Los selectores de idioma y otros iconos */}
         <div className="theart-header-actions">
           {/* Iconos de la plantilla */}
           {/* <a href="#" className="theart-action-icon"><SearchIcon /></a>
@@ -84,6 +77,17 @@ export const Navbar = ({ onMenuClick }) => {
             <MenuOutlined style={{ color: 'var(--color-text-light-theart)' }}/>
           </button> */}
         </div>
+            </li>
+            {/*             <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
+             */}
+            {/*             <li><Link to="/eventos">Eventos</Link></li>
+             */}{" "}
+            {/* Puedes añadir más enlaces según la plantilla: Pages, Shop, Blog, Contact */}
+          </ul>
+          
+        </nav>
+
+       
       </div>
     </header>
   );
