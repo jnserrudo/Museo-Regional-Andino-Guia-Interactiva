@@ -265,7 +265,11 @@ export const SalaMinerologiaMineria = () => {
   const [cameraError, setCameraError] = useState(null); // Nuevo estado para errores de cámara
   const [debugStatus, setDebugStatus] = useState('Inactivo'); // <--- NUEVO ESTADO DE DEPURACIÓN
 
+  const [mostrarVideoMinaOro, setMostrarVideoMinaOro] = useState(false);
 
+  const handleBotonMinaOroClick = () => {
+    setMostrarVideoMinaOro(!mostrarVideoMinaOro);
+  };
 
    // --- Función para actualizar el estado de depuración ---
    const handleStatusUpdate = useCallback((status) => {
@@ -685,7 +689,7 @@ const handleScanError = useCallback((error) => {
       </p>
 
       <div className="botones-sala-minerologia">
-        <a
+        {/* <a
           href="https://drive.google.com/file/d/17T5oswp-eh064JrfQFe3w32Z0Ijd8V7D/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
@@ -698,7 +702,55 @@ const handleScanError = useCallback((error) => {
           >
             {t("sala_minerologia_mineria.boton_mina_oro")}
           </Button>
+        </a> */}
+        
+        {!mostrarVideoMinaOro && ( // Solo muestra el botón si el video NO está visible
+        <a
+          href="#" // Usamos "#" o prevenimos el default para que no recargue la página
+          onClick={(e) => {
+            e.preventDefault(); // Previene la acción por defecto del enlace
+            handleBotonMinaOroClick();
+          }}
+          // No necesitamos target="_blank" ni rel="noopener noreferrer" si mostramos el video en la misma página
+        >
+          <Button
+            type="primary"
+            size="large"
+            className="sala-contenido-boton"
+            icon={<ExperimentOutlined />}
+          >
+            {t("sala_minerologia_mineria.boton_mina_oro")}
+          </Button>
         </a>
+      )}
+
+         {/* Video de Mina de Oro */}
+      {mostrarVideoMinaOro && ( // Solo renderiza el iframe si 'mostrarVideoMinaOro' es true
+        <div className="video-container">
+          <iframe
+            src="https://drive.google.com/file/d/17T5oswp-eh064JrfQFe3w32Z0Ijd8V7D/preview"
+            width="640"
+            height="360"
+            allow="autoplay"
+            allowFullScreen
+            title="Video de la Mina de Oro" // Buena práctica: agregar un título al iframe
+          ></iframe>
+          
+          {/* <p>{t("sala_minerologia_mineria.descripcion_video_mina_oro")}</p> */}
+        </div>
+      )}
+      {mostrarVideoMinaOro && (
+      <Button
+            type="primary"
+            size="large"
+            className="sala-contenido-boton"
+            icon={<ExperimentOutlined />}
+            onClick={handleBotonMinaOroClick}
+          >
+            {t("sala_minerologia_mineria.boton_video_mina_oro")}
+          </Button>
+
+          )}
         <a
           href="https://centenario.virtual.eramet.com/es/visit"
           target="_blank"
