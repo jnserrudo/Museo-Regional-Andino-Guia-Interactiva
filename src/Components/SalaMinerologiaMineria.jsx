@@ -307,7 +307,7 @@ export const SalaMinerologiaMineria = () => {
       ) {
         window.location.href = scannedUrl;
       } else {
-        alert("Este QR no es un enlace válido a un mineral del museo. "+scannedUrl + ' ' + scannedUrl.startsWith("https://qrco.de/bgBght"));
+        alert("El QR no es un enlace válido a un mineral del museo. "+scannedUrl + ' ' + scannedUrl.startsWith("https://qrco.de/bgBght"));
         // Cerramos el escáner si el QR no es válido para que el usuario no se quede atascado.
         setShowQrScanner(false);
       }
