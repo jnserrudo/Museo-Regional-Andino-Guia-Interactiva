@@ -342,9 +342,9 @@ export const SalaMinerologiaMineria = () => {
 
   // 2. Valida la URL
   if (
-    scannedUrl &&
+    scannedUrl /* &&
     (scannedUrl.startsWith("https://museo-andino-realidad-aumentada.onrender.com/") ||
-     scannedUrl.startsWith("https://qr.link/"))
+     scannedUrl.startsWith("https://qr.link/")) */
   ) {
     // 3. (OPCIONAL PERO RECOMENDADO) Añade un pequeño retraso antes de redirigir.
     //    Esto le da al usuario un segundo para ver que el escaneo fue exitoso.
