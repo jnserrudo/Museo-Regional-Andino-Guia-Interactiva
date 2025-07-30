@@ -297,13 +297,13 @@ export const SalaMinerologiaMineria = () => {
       console.log("QR Escaneado:", scannedUrl);
 
       if (
-        scannedUrl &&
+        scannedUrl /* &&
         (scannedUrl.startsWith(
           "https://museo-andino-realidad-aumentada.onrender.com/"
         ) ||
         scannedUrl.startsWith("https://qr.link/"))
         ||
-        scannedUrl.startsWith("https://qrco.de")
+        scannedUrl.startsWith("https://qrco.de") */
       ) {
         window.location.href = scannedUrl;
       } else {
