@@ -265,6 +265,10 @@ export const SalaMinerologiaMineria = () => {
   const [cameraError, setCameraError] = useState(null); // Nuevo estado para errores de cámara
   const [debugStatus, setDebugStatus] = useState('Inactivo'); // <--- NUEVO ESTADO DE DEPURACIÓN
 
+ // --- NUEVOS ESTADOS PARA EL VISOR DE REALIDAD AUMENTADA ---
+ const [showARViewer, setShowARViewer] = useState(false); // Controla la visibilidad del iframe AR
+  
+
   const [mostrarVideoMinaOro, setMostrarVideoMinaOro] = useState(false);
 
   const handleBotonMinaOroClick = () => {
@@ -284,6 +288,29 @@ export const SalaMinerologiaMineria = () => {
     }
   }, [showQrScanner]);
 
+
+  const handleARButtonClick = (event) => { // ¡Ahora no necesita mineralData si la URL es fija!
+    event.preventDefault();
+    event.stopPropagation();
+    // setCameraError(null); // Esto es solo si todavía usas el scanner QR y quieres limpiar sus errores
+
+    // URL fija para la aplicación de Realidad Aumentada
+    // NO se usa mineralData.arUrl porque la URL es la misma para todos
+    // const arAppUrl = "https://nuevomra.onrender.com/"; // Puedes definirla aquí o arriba como una constante
+    // setCurrentARUrl(arAppUrl); // No es necesario si no hay currentARUrl estado
+
+    setShowARViewer(true); // Muestra el componente del visor AR
+    console.log("Abriendo visor AR con URL fija: https://nuevomra.onrender.com/");
+
+    // Asegurarse de que el QR scanner no se muestre (opcional si ya no usas el scanner QR para nada)
+    setShowQrScanner(false);
+  };
+
+  // --- Función para cerrar el visor AR ---
+  const closeARViewer = () => {
+    setShowARViewer(false);
+    // setCurrentARUrl(null); // No es necesario si no hay currentARUrl estado
+  };
     
   // --- LÓGICA DE ESCANEO QR ---
   // --- LÓGICA DE ESCANEO QR CORREGIDA ---
@@ -474,12 +501,23 @@ const handleScanError = useCallback((error) => {
   }; */
 
   // Definir el componente Portal para el modal
-  const QrScannerPortal = ({ children }) => {
+  /* const QrScannerPortal = ({ children }) => {
     const el = document.getElementById("qr-scanner-root"); // Busca un div específico
     // Si no existe, créalo o usa document.body
     if (!el) {
       const newEl = document.createElement("div");
       newEl.id = "qr-scanner-root";
+      document.body.appendChild(newEl);
+      return ReactDOM.createPortal(children, newEl);
+    }
+    return ReactDOM.createPortal(children, el);
+  }; */
+
+  const QrScannerPortal = ({ children }) => {
+    const el = document.getElementById("ar-modal-root"); // Usa un ID más genérico
+    if (!el) {
+      const newEl = document.createElement("div");
+      newEl.id = "ar-modal-root";
       document.body.appendChild(newEl);
       return ReactDOM.createPortal(children, newEl);
     }
@@ -498,7 +536,7 @@ const handleScanError = useCallback((error) => {
 
       {/* --- RENDERIZADO CONDICIONAL DEL ESCÁNER QR --- */}
 
-      {showQrScanner && (
+      {false/* showQrScanner */ && (
         <QrScannerPortal>
           <div className="qr-scanner-overlay">
             <div className="qr-scanner-content">
@@ -557,6 +595,37 @@ const handleScanError = useCallback((error) => {
           </div>
         </QrScannerPortal>
       )}
+
+{/* --- RENDERIZADO CONDICIONAL DEL VISOR DE REALIDAD AUMENTADA (IFRAME) (MODIFICACIÓN) --- */}
+{showARViewer && ( // Ya no necesitamos 'currentARUrl' aquí
+        <QrScannerPortal>
+          <div className="qr-scanner-overlay">
+            <div className="qr-scanner-content" style={{ width: '90%', maxWidth: '800px', height: '80vh' }}>
+              <h3 style={{ color: "black", margin: 0, textAlign: "center" }}>
+                Apunte la cámara al marcador AR del mineral
+              </h3>
+              <iframe
+                src={"https://mra-ra.onrender.com/"} // <--- ¡URL FIJA AQUÍ!
+                title="Visor de Realidad Aumentada del Mineral"
+                style={{ width: "100%", height: "calc(100% - 100px)", border: "none" }}
+                allow="camera; microphone; display-capture; xr-spatial-tracking; web-share;"
+                allowFullScreen
+              ></iframe>
+
+              <Button
+                onClick={closeARViewer}
+                className="qr-scanner-close-button"
+                type="primary"
+                danger
+              >
+                Cerrar Realidad Aumentada
+              </Button>
+            </div>
+          </div>
+        </QrScannerPortal>
+      )}
+      {/* --- FIN DEL VISOR DE REALIDAD AUMENTADA --- */}
+
       {/* --- FIN DEL ESCÁNER QR --- */}
       <h1 className="sala-main-title sala-contenido-titulo-principal">
         {t("sala_minerologia_mineria.titulo_principal")}
@@ -600,7 +669,7 @@ const handleScanError = useCallback((error) => {
                   {mineralData.tieneQr && (
                     <button
                       className="qr-code-button mineral-qr-on-image"
-                      onClick={(e) => handleQrButtonClick(e, mineralData)} // <--- ASEGÚRATE QUE LLAMA A handleQrButtonClick
+                      onClick={(e) => handleARButtonClick(e) /*  handleQrButtonClick(e, mineralData )*/} // <--- ASEGÚRATE QUE LLAMA A handleQrButtonClick
                     >
                       <QrcodeOutlined />
                     </button>
