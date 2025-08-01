@@ -51,8 +51,8 @@
     "subtitulo_cerros_brujos": "Los cerros brujos: sabiduría ancestral del clima",
     "parrafo_cerros_brujos": "Los pueblos originarios del altiplano no usan apps meteorológicas. Durante generaciones han observado cómo se comportan las nubes alrededor de los cerros:",
     "lista_cerros_brujos": {
-      "item1": "<strong>¿Una corona blanca sobre la cima?</strong> <em>Puede nevar.</em>",
-      "item2": "<strong>¿Nubes que se aferran a la ladera?</strong> <em>Se aproxima humedad.</em>"
+      "item1": "<0>¿Una corona blanca sobre la cima?</0> <1>Puede nevar.</1>",
+      "item2": "<0>¿Nubes que se aferran a la ladera?</0> <1>Se aproxima humedad.</1>"
     },
     "parrafo_cerros_brujos_final": "Estos cerros “avisadores” son parte del paisaje… y del conocimiento local."
   },
@@ -62,7 +62,7 @@
     "parrafo_intro_1": "En este ambiente tan extremo, todo está diseñado para resistir:",
     "lista_intro": {
       "item1": "Algunas plantas almacenan agua como una esponja.",
-      "item2": "Otras tienen hojas pequeñas, duras o cubiertas de pelusa para evitar la pérdida de humedad.",
+      "item2": "Otras tienen hojas peFqueñas, duras o cubiertas de pelusa para evitar la pérdida de humedad.",
       "item3": "Los animales tienen patas acolchadas para caminar en suelos áridos o pelajes densos para soportar el frío.",
       "item4": "Las aves vuelan más bajo para conservar energía en un aire con menos oxígeno."
     },

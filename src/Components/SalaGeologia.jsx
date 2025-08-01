@@ -446,13 +446,13 @@ export const SalaGeologia = () => {
       <ul className="sala-contenido-lista">
         <li>
           <Trans i18nKey="sala_geologia.lista_cerros_brujos.item1">
-            <strong>¿Una corona blanca sobre la cima?</strong>{" "}
+            <strong>¿Una corona blanca sobre la cima?</strong>
             <em>Puede nevar.</em>
           </Trans>
         </li>
         <li>
           <Trans i18nKey="sala_geologia.lista_cerros_brujos.item2">
-            <strong>¿Nubes que se aferran a la ladera?</strong>{" "}
+            <strong>¿Nubes que se aferran a la ladera?</strong>
             <em>Se aproxima humedad.</em>
           </Trans>
         </li>

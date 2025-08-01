@@ -51,8 +51,8 @@
     "subtitulo_cerros_brujos": "The witch hills: ancestral climate wisdom",
     "parrafo_cerros_brujos": "The indigenous peoples of the highlands do not use weather apps. For generations, they have observed how the clouds behave around the hills:",
     "lista_cerros_brujos": {
-      "item1": "<strong>A white crown on the summit?</strong> <em>It may snow.</em>",
-      "item2": "<strong>Clouds clinging to the slope?</strong> <em>Humidity is approaching.</em>"
+      "item1": "<0>A white crown on the summit?</0> <1>It may snow.</1>",
+      "item2": "<0>Clouds clinging to the slope?</0> <1>Humidity is approaching.</1>"
     },
     "parrafo_cerros_brujos_final": "These 'predictor' hills are part of the landscape... and of local knowledge."
   },
