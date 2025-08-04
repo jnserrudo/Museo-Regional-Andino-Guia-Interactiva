@@ -10,6 +10,9 @@ import {
   useDraggable, // Importado aquí
   useDroppable, // Importado aquí
 } from '@dnd-kit/core';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import { CSS } from '@dnd-kit/utilities';
 import { useTranslation } from 'react-i18next'; // <-- 1. Importa el hook
 
@@ -97,6 +100,7 @@ function PuzzleSlot({ id, children, pieceSize }) {
 export const PuzzleGame = () => {
     // --- Estados ---
     const { t } = useTranslation();
+    const navigate = useNavigate(); // <--- Hook para navegación
     const [piecesInSlots, setPiecesInSlots] = useState(Array(PUZZLE_GRID_SIZE * PUZZLE_GRID_SIZE).fill(null));
     const [activeId, setActiveId] = useState(null);
     const [isSolved, setIsSolved] = useState(false);
@@ -249,13 +253,23 @@ export const PuzzleGame = () => {
 
     // Datos de la pieza activa para el DragOverlay
     const activePieceData = activeId !== null ? piecesInSlots.find(p => p?.id === activeId) : null;
-
+    const handleGoBack = () => {
+        navigate(-1); // Navega una página atrás en el historial
+      };
     // --- Renderizado Principal ---
     return (
         <div className="puzzle-page-container">
+        <Button
+            className="puzzle-back-button-fixed" // NUEVA Clase para posicionamiento
+            type="default"
+            icon={<ArrowLeftOutlined />}
+            onClick={handleGoBack}
+            // Quitamos el style inline de marginBottom
+          >
+            Volver
+          </Button>
         <h2 className="puzzle-title">{t('juegos.puzzle_game.titulo')}</h2>
         <p className="puzzle-instructions">{t('juegos.puzzle_game.instrucciones')}</p>
-  
         <div ref={gridContainerRef} className="puzzle-grid-wrapper">
           {isLoading && <div className="puzzle-status puzzle-loading">{t('juegos.puzzle_game.cargando')}</div>}
           {error && <div className="puzzle-status puzzle-error">{t('juegos.puzzle_game.error', { mensaje: error })}</div>}

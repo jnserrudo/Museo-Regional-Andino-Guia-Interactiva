@@ -1,0 +1,41 @@
+/* --- Estilos para el Botón Volver Fijo/Absoluto --- */
+.puzzle-back-button-fixed {
+  position: absolute; /* Posición absoluta relativa al contenedor padre */
+  top: 1.5rem;        /* Distancia desde arriba */
+  left: clamp(1rem, 5vw, 3rem); /* Distancia desde la izquierda */
+  z-index: 999;      /* Asegura que esté sobre la mayoría del contenido */
+
+  /* Estilos de apariencia del botón */
+  display: inline-flex;
+  align-items: center;
+  font-family: 'MuseoSans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.6em 1.2em;
+  color: var(--primary-color, #8B4513);
+  border: 1.5px solid var(--primary-color, #8B4513);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: var(--border-radius-md, 8px);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  text-decoration: none;
+}
+
+.puzzle-back-button-fixed:hover {
+  color: white;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+/* Asegurar que el contenedor padre tenga posición relativa */
+.puzzle-page-container {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
