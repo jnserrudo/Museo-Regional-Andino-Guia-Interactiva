@@ -333,7 +333,7 @@ export const SalaGeologia = () => {
           Ejemplo: '/img/geologia/esquema-volcan.png'
         */}
         <img
-          src={import.meta.env.BASE_URL + "funcionamiento_volcan.jpg"}
+          src={import.meta.env.BASE_URL + "funcionamiento_volcan2.jpg"}
           alt="Esquema del funcionamiento de un volcán"
           className="imagen-destacada imagen-volcan"
         />
