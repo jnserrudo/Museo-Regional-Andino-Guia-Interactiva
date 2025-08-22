@@ -209,6 +209,14 @@ export const SalaGeologia = () => {
     import.meta.env.BASE_URL + "cuenca_5.JPG",
     import.meta.env.BASE_URL + "cuenca_6.JPG",
   ];
+  const galeriaCuencasComprimidos = [
+    import.meta.env.BASE_URL + "/comprimidos/cuenca_1.webp",
+    import.meta.env.BASE_URL + "/comprimidos/cuenca_2.webp",
+    import.meta.env.BASE_URL + "/comprimidos/cuenca_3.webp",
+    import.meta.env.BASE_URL + "/comprimidos/cuenca_4.webp",
+    import.meta.env.BASE_URL + "/comprimidos/cuenca_5.webp",
+    import.meta.env.BASE_URL + "/comprimidos/cuenca_6.webp",
+  ];
 
   const galeriaSalares = [
     import.meta.env.BASE_URL + "salar_1.jpg",
@@ -258,7 +266,7 @@ export const SalaGeologia = () => {
 
       {/* --- MODIFICADO: Usamos el nuevo componente de carrusel --- */}
       <CarouselGallery
-        images={galeriaCuencas}
+        images={galeriaCuencasComprimidos}
         title={t('sala_geologia.titulo_carrusel_cuencas')}
       />
 

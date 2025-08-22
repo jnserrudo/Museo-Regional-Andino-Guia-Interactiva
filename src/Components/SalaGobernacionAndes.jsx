@@ -48,6 +48,10 @@ const gobernacionAndesImages = [
   import.meta.env.BASE_URL + "gob_andes_casa_gobierno.jpeg",
   import.meta.env.BASE_URL + "gob_andes_casa_gobierno2.jpeg",
 ];
+const gobernacionAndesImagesComprimidos = [
+  import.meta.env.BASE_URL + "/comprimidos/gob_andes_casa_gobierno.webp",
+  import.meta.env.BASE_URL + "/comprimidos/gob_andes_casa_gobierno2.webp",
+];
 
 export const SalaGobernacionAndes = () => {
   const { t } = useTranslation();
@@ -156,7 +160,7 @@ export const SalaGobernacionAndes = () => {
       </section>
 
       <CarouselGallery
-        images={gobernacionAndesImages}
+        images={gobernacionAndesImagesComprimidos}
         title={t("sala_gobernacion_andes.titulo_carrusel")}
       />
     </article>

@@ -68,11 +68,23 @@ export const SalaBiodiversidad = () => {
     import.meta.env.BASE_URL + "bio_4.JPG",
     import.meta.env.BASE_URL + "bio_5.JPG",
   ];
+  const galeriaIntroduccionComprimidos = [
+    import.meta.env.BASE_URL + "/comprimidos/bio_1.webp",
+    import.meta.env.BASE_URL + "/comprimidos/bio_2.webp",
+    import.meta.env.BASE_URL + "/comprimidos/bio_3.webp",
+    import.meta.env.BASE_URL + "/comprimidos/bio_4.webp",
+    import.meta.env.BASE_URL + "/comprimidos/bio_5.webp",
+  ];
 
   const chinchilla = [
     import.meta.env.BASE_URL + "Chinchilla.jpg",
     import.meta.env.BASE_URL + "zorro-chinchilla.JPG",
     import.meta.env.BASE_URL + "zorro-chinchilla2.JPG",
+  ];
+  const chinchillaComprimidos = [
+    import.meta.env.BASE_URL + "/comprimidos/Chinchilla.webp",
+    import.meta.env.BASE_URL + "/comprimidos/zorro-chinchilla.webp",
+    import.meta.env.BASE_URL + "/comprimidos/zorro-chinchilla2.webp",
   ];
 
   const galeriaAves = [
@@ -83,6 +95,14 @@ export const SalaBiodiversidad = () => {
     import.meta.env.BASE_URL + "ave_5.JPG",
     import.meta.env.BASE_URL + "ave_6.JPG",
   ];
+  const galeriaAvesComprimidos = [
+    import.meta.env.BASE_URL + "/comprimidos/ave_1.webp",
+    import.meta.env.BASE_URL + "/comprimidos/ave_2.webp",
+    import.meta.env.BASE_URL + "/comprimidos/ave_3.webp",
+    import.meta.env.BASE_URL + "/comprimidos/ave_4.webp",
+    import.meta.env.BASE_URL + "/comprimidos/ave_5.webp",
+    import.meta.env.BASE_URL + "/comprimidos/ave_6.webp",
+  ];
 
   const galeriaAveParinas = [
     import.meta.env.BASE_URL + "parina.jpg",
@@ -90,6 +110,13 @@ export const SalaBiodiversidad = () => {
     import.meta.env.BASE_URL + "parina2.jpg",
     import.meta.env.BASE_URL + "parina3.jpg",
     import.meta.env.BASE_URL + "parina4.jpg",
+  ];
+  const galeriaAveParinasComprimidos = [
+    import.meta.env.BASE_URL + "/comprimidos/parina.webp",
+    import.meta.env.BASE_URL + "/comprimidos/parina1.webp",
+    import.meta.env.BASE_URL + "/comprimidos/parina2.webp",
+    import.meta.env.BASE_URL + "/comprimidos/parina3.webp",
+    import.meta.env.BASE_URL + "/comprimidos/parina4.webp",
   ];
 
   return (
@@ -130,7 +157,7 @@ export const SalaBiodiversidad = () => {
         <li>{t("sala_biodiversidad.lista_plantas.item3")}</li>
       </ul>
       <CarouselGallery
-        images={galeriaIntroduccion}
+        images={galeriaIntroduccionComprimidos}
         title={t("sala_biodiversidad.titulo_carrusel_intro")}
       />
 
@@ -207,7 +234,7 @@ export const SalaBiodiversidad = () => {
       </p>
 
       <CarouselGallery
-        images={chinchilla}
+        images={chinchillaComprimidos}
         title={t("sala_biodiversidad.titulo_carrusel_chinchilla")}
       />
 
@@ -230,11 +257,11 @@ export const SalaBiodiversidad = () => {
       </p>
 
       <CarouselGallery
-        images={galeriaAves}
+        images={galeriaAvesComprimidos}
         title={t("sala_biodiversidad.titulo_carrusel_aves")}
       />
       <CarouselGallery
-        images={galeriaAveParinas}
+        images={galeriaAveParinasComprimidos}
         title={t("sala_biodiversidad.titulo_carrusel_parinas")}
       />
     </article>

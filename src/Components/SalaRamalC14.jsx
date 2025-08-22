@@ -116,6 +116,17 @@ const galeriaTrenActual = [
   "/ramal-tren/viaducto-polvorilla.jpg",
   "/ramal-tren/viaducto-tren.jpg",
 ];
+const galeriaTrenActualComprimidos = [
+  "/ramal-tren/comprimidos/tren-salta-chile.webp",
+  "/ramal-tren/comprimidos/1500px-Tren_a_las_Nubes2.webp",
+  "/ramal-tren/comprimidos/imagen-tren.webp",
+  "/ramal-tren/comprimidos/Tren a las Nubes07.webp",
+  "/ramal-tren/comprimidos/tren-cruzado-viaducto.webp",
+  "/ramal-tren/comprimidos/tren1.JPG",
+  "/ramal-tren/comprimidos/ttren.webp",
+  "/ramal-tren/comprimidos/viaducto-polvorilla.webp",
+  "/ramal-tren/comprimidos/viaducto-tren.webp",
+];
 // --- FIN DE LA ADICIÓN ---
 
 // --- Componente de Video (lo necesitamos aquí) ---
@@ -286,7 +297,7 @@ export const SalaRamalC14 = () => {
           {t("sala_ramal_c14.parrafo_turismo_2")}
         </p>
         <CarouselGallery
-          images={galeriaTrenActual.map(
+          images={galeriaTrenActualComprimidos.map(
             (img) => `${import.meta.env.BASE_URL}${img}`
           )}
           title={t("sala_ramal_c14.titulo_carrusel_actual")}

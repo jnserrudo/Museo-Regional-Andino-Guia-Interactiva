@@ -172,6 +172,14 @@ export const SalaSanAntonioHoy = () => {
     import.meta.env.BASE_URL + "tejido_5.JPG",
     import.meta.env.BASE_URL + "tejido_6.JPG",
   ];
+  const galeriaTejidosComprimidos = [
+    import.meta.env.BASE_URL + "comprimidos/tejido_1.webp",
+    import.meta.env.BASE_URL + "comprimidos/tejido_2.webp",
+    import.meta.env.BASE_URL + "comprimidos/tejido_3.webp",
+    import.meta.env.BASE_URL + "comprimidos/tejido_4.webp",
+    import.meta.env.BASE_URL + "comprimidos/tejido_5.webp",
+    import.meta.env.BASE_URL + "comprimidos/tejido_6.webp",
+  ];
 
   const galeriaPachamama = [
     import.meta.env.BASE_URL + "pachamama/pachamama_1.jpg",
@@ -179,6 +187,13 @@ export const SalaSanAntonioHoy = () => {
     import.meta.env.BASE_URL + "pachamama/pachamama_3.jpg",
     import.meta.env.BASE_URL + "pachamama/pachamama_4.jpg",
     import.meta.env.BASE_URL + "pachamama/pachamama_5.jpg",
+  ];
+  const galeriaPachamamaComprimidos = [
+    import.meta.env.BASE_URL + "/pachamama/comprimidos/pachamama_1.webp",
+    import.meta.env.BASE_URL + "/pachamama/comprimidos/pachamama_2.webp",
+    import.meta.env.BASE_URL + "/pachamama/comprimidos/pachamama_3.webp",
+    import.meta.env.BASE_URL + "/pachamama/comprimidos/pachamama_4.webp",
+    import.meta.env.BASE_URL + "/pachamama/comprimidos/pachamama_5.webp",
   ];
 
   return (
@@ -207,7 +222,7 @@ export const SalaSanAntonioHoy = () => {
           {t("sala_san_antonio_hoy.parrafo_tejido_2")}
         </p>
         <CarouselGallery
-          images={galeriaTejidos}
+          images={galeriaTejidosComprimidos}
           title={t("sala_san_antonio_hoy.titulo_carrusel_tejidos")}
         />
       </section>
@@ -248,7 +263,7 @@ export const SalaSanAntonioHoy = () => {
           {t("sala_san_antonio_hoy.parrafo_pachamama_2")}
         </p>
         <CarouselGallery
-          images={galeriaPachamama}
+          images={galeriaPachamamaComprimidos}
           title={t("sala_san_antonio_hoy.titulo_carrusel_pachamama")}
         />
       </section>
