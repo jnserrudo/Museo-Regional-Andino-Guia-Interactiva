@@ -74,7 +74,7 @@ const mineralesData = [
     img: [
       "/minerales_museo/sin_fondo_blanco/5._Malaquita-removebg-preview.png",
     ],
-    tieneQr: true,
+    tieneQr: false,
   },
   {
     id: "muscovita",
@@ -139,13 +139,13 @@ const mineralesData = [
     tieneQr: true,
   },
   {
-    id: "fluorita_verde",
+    id: "fluorita",
     img: [
       "/minerales_museo/sin_fondo_blanco/14._Fluorita_verde_1-removebg-preview.png",
       "/minerales_museo/sin_fondo_blanco/14._Fluorita_verde-removebg-preview.png",
       "/minerales_museo/14._Fluorita_verde_2-removebg-preview.png",
     ],
-    tieneQr: false,
+    tieneQr: true,
   },
   {
     id: "jadeita",
@@ -263,11 +263,11 @@ export const SalaMinerologiaMineria = () => {
   const [showQrScanner, setShowQrScanner] = useState(false); // <--- NUEVO ESTADO
   const [scannedData, setScannedData] = useState(""); // Estado para guardar el resultado del escaneo
   const [cameraError, setCameraError] = useState(null); // Nuevo estado para errores de cámara
-  const [debugStatus, setDebugStatus] = useState('Inactivo'); // <--- NUEVO ESTADO DE DEPURACIÓN
+  const [debugStatus, setDebugStatus] = useState("Inactivo"); // <--- NUEVO ESTADO DE DEPURACIÓN
 
- // --- NUEVOS ESTADOS PARA EL VISOR DE REALIDAD AUMENTADA ---
- const [showARViewer, setShowARViewer] = useState(false); // Controla la visibilidad del iframe AR
-  
+  // --- NUEVOS ESTADOS PARA EL VISOR DE REALIDAD AUMENTADA ---
+  const [showARViewer, setShowARViewer] = useState(false); // Controla la visibilidad del iframe AR
+  const [currentARUrl, setCurrentARUrl] = useState(null); // <--- ¡AÑADE ESTE NUEVO ESTADO!
 
   const [mostrarVideoMinaOro, setMostrarVideoMinaOro] = useState(false);
 
@@ -275,8 +275,8 @@ export const SalaMinerologiaMineria = () => {
     setMostrarVideoMinaOro(!mostrarVideoMinaOro);
   };
 
-   // --- Función para actualizar el estado de depuración ---
-   const handleStatusUpdate = useCallback((status) => {
+  // --- Función para actualizar el estado de depuración ---
+  const handleStatusUpdate = useCallback((status) => {
     console.log("NUEVO ESTADO:", status); // Para que lo veas en PC
     setDebugStatus(status); // Para que lo veas en móvil
   }, []);
@@ -288,30 +288,31 @@ export const SalaMinerologiaMineria = () => {
     }
   }, [showQrScanner]);
 
-
-  const handleARButtonClick = (event) => { // ¡Ahora no necesita mineralData si la URL es fija!
+  const handleARButtonClick = (event, mineralData) => {
+    // <-- AHORA RECIBE 'mineralData'
     event.preventDefault();
     event.stopPropagation();
-    // setCameraError(null); // Esto es solo si todavía usas el scanner QR y quieres limpiar sus errores
 
-    // URL fija para la aplicación de Realidad Aumentada
-    // NO se usa mineralData.arUrl porque la URL es la misma para todos
-    // const arAppUrl = "https://nuevomra.onrender.com/"; // Puedes definirla aquí o arriba como una constante
-    // setCurrentARUrl(arAppUrl); // No es necesario si no hay currentARUrl estado
+    // 1. Construye la URL dinámica usando el 'id' del mineral
+    const arAppUrl = `https://mra-ra.onrender.com/${mineralData.id}/`;
 
-    setShowARViewer(true); // Muestra el componente del visor AR
-    console.log("Abriendo visor AR con URL fija: https://nuevomra.onrender.com/");
+    // 2. Guarda esa URL en nuestro nuevo estado
+    setCurrentARUrl(arAppUrl);
 
-    // Asegurarse de que el QR scanner no se muestre (opcional si ya no usas el scanner QR para nada)
-    setShowQrScanner(false);
+    // 3. Muestra el visor de AR
+    setShowARViewer(true);
+
+    console.log(
+      `Abriendo visor AR para ${mineralData.id} en la URL: ${arAppUrl}`
+    );
   };
 
   // --- Función para cerrar el visor AR ---
   const closeARViewer = () => {
     setShowARViewer(false);
-    // setCurrentARUrl(null); // No es necesario si no hay currentARUrl estado
+    setCurrentARUrl(null);
   };
-    
+
   // --- LÓGICA DE ESCANEO QR ---
   // --- LÓGICA DE ESCANEO QR CORREGIDA ---
   const handleScan = (result, error) => {
@@ -334,7 +335,12 @@ export const SalaMinerologiaMineria = () => {
       ) {
         window.location.href = scannedUrl;
       } else {
-        alert("El QR no es un enlace válido a un mineral del museo. "+scannedUrl + ' ' + scannedUrl.startsWith("https://qrco.de/bgBght"));
+        alert(
+          "El QR no es un enlace válido a un mineral del museo. " +
+            scannedUrl +
+            " " +
+            scannedUrl.startsWith("https://qrco.de/bgBght")
+        );
         // Cerramos el escáner si el QR no es válido para que el usuario no se quede atascado.
         setShowQrScanner(false);
       }
@@ -358,45 +364,45 @@ export const SalaMinerologiaMineria = () => {
     }
   };
 
+  // --- NUEVA FUNCIÓN PARA MANEJAR EL ÉXITO ---
+  const handleScanSuccess = useCallback((scannedUrl) => {
+    setCameraError(null); // ¡Limpia cualquier error anterior inmediatamente!
 
- // --- NUEVA FUNCIÓN PARA MANEJAR EL ÉXITO ---
- const handleScanSuccess = useCallback((scannedUrl) => {
-  setCameraError(null); // ¡Limpia cualquier error anterior inmediatamente!
+    // 1. INMEDIATAMENTE actualiza el estado para que el usuario vea lo que se escaneó.
+    setScannedData(scannedUrl);
+    console.log("QR Escaneado:", scannedUrl);
 
-  // 1. INMEDIATAMENTE actualiza el estado para que el usuario vea lo que se escaneó.
-  setScannedData(scannedUrl); 
-  console.log("QR Escaneado:", scannedUrl);
-
-  // 2. Valida la URL
-  if (
-    scannedUrl /* &&
+    // 2. Valida la URL
+    if (
+      scannedUrl /* &&
     (scannedUrl.startsWith("https://museo-andino-realidad-aumentada.onrender.com/") ||
      scannedUrl.startsWith("https://qr.link/")) */
-  ) {
-    // 3. (OPCIONAL PERO RECOMENDADO) Añade un pequeño retraso antes de redirigir.
-    //    Esto le da al usuario un segundo para ver que el escaneo fue exitoso.
-    setTimeout(() => {
-      window.location.href = scannedUrl;
-    }, 500); // 500ms = medio segundo
-  } else {
-    // Si la URL no es válida, avisa y cierra.
-    alert("Este QR no es un enlace válido para el museo. Contenido: " + scannedUrl);
-    setShowQrScanner(false);
-  }
-}, []);
+    ) {
+      // 3. (OPCIONAL PERO RECOMENDADO) Añade un pequeño retraso antes de redirigir.
+      //    Esto le da al usuario un segundo para ver que el escaneo fue exitoso.
+      setTimeout(() => {
+        window.location.href = scannedUrl;
+      }, 500); // 500ms = medio segundo
+    } else {
+      // Si la URL no es válida, avisa y cierra.
+      alert(
+        "Este QR no es un enlace válido para el museo. Contenido: " + scannedUrl
+      );
+      setShowQrScanner(false);
+    }
+  }, []);
 
-// --- NUEVA FUNCIÓN PARA MANEJAR ERRORES DE CÁMARA ---
-const handleScanError = useCallback((error) => {
-  setCameraError(
-    error.name === "NotAllowedError"
-      ? "Permiso de cámara denegado. Revísalo en la configuración de tu navegador."
-      : "No se detecta ninguna cámara disponible o hay un error."
-  );
-}, []);
+  // --- NUEVA FUNCIÓN PARA MANEJAR ERRORES DE CÁMARA ---
+  const handleScanError = useCallback((error) => {
+    setCameraError(
+      error.name === "NotAllowedError"
+        ? "Permiso de cámara denegado. Revísalo en la configuración de tu navegador."
+        : "No se detecta ninguna cámara disponible o hay un error."
+    );
+  }, []);
 
-// La función handleScan ya no es necesaria, la hemos dividido en las dos de arriba.
-// Las funciones handleQrButtonClick y closeQrScanner permanecen igual.
-
+  // La función handleScan ya no es necesaria, la hemos dividido en las dos de arriba.
+  // Las funciones handleQrButtonClick y closeQrScanner permanecen igual.
 
   // --- LÓGICA AL CLICKEAR EL BOTÓN QR DEL MINERAL ---
   // Ahora solo activa la visibilidad del escáner
@@ -536,7 +542,7 @@ const handleScanError = useCallback((error) => {
 
       {/* --- RENDERIZADO CONDICIONAL DEL ESCÁNER QR --- */}
 
-      {false/* showQrScanner */ && (
+      {false /* showQrScanner */ && (
         <QrScannerPortal>
           <div className="qr-scanner-overlay">
             <div className="qr-scanner-content">
@@ -546,7 +552,7 @@ const handleScanError = useCallback((error) => {
                   : "Apunte la cámara al QR"}
               </h3>
 
-                {/* === ¡AQUÍ ESTÁ LA MAGIA! === */}
+              {/* === ¡AQUÍ ESTÁ LA MAGIA! === */}
               {/* Renderizamos nuestro componente aislado */}
               <QrScannerComponent
                 onScanSuccess={handleScanSuccess}
@@ -554,21 +560,22 @@ const handleScanError = useCallback((error) => {
                 onStatusChange={handleStatusUpdate}
               />
 
-               {/* --- VISOR DE DEPURACIÓN EN PANTALLA --- */}
-               <div style={{ 
-                marginTop: '10px', 
-                padding: '8px', 
-                backgroundColor: '#f0f0f0', 
-                border: '1px solid #ccc', 
-                borderRadius: '4px',
-                width: '100%',
-                boxSizing: 'border-box'
-              }}>
-                <p style={{ margin: 0, color: 'black', fontSize: '12px' }}>
+              {/* --- VISOR DE DEPURACIÓN EN PANTALLA --- */}
+              <div
+                style={{
+                  marginTop: "10px",
+                  padding: "8px",
+                  backgroundColor: "#f0f0f0",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                  width: "100%",
+                  boxSizing: "border-box",
+                }}
+              >
+                <p style={{ margin: 0, color: "black", fontSize: "12px" }}>
                   <strong>{/* Estado de depuración: */}</strong> {debugStatus}
                 </p>
               </div>
-
 
               {/* Mostramos el mensaje de error si existe */}
               {cameraError && (
@@ -596,34 +603,42 @@ const handleScanError = useCallback((error) => {
         </QrScannerPortal>
       )}
 
-{/* --- RENDERIZADO CONDICIONAL DEL VISOR DE REALIDAD AUMENTADA (IFRAME) (MODIFICACIÓN) --- */}
-{showARViewer && ( // Ya no necesitamos 'currentARUrl' aquí
-        <QrScannerPortal>
-          <div className="qr-scanner-overlay">
-            <div className="qr-scanner-content" style={{ width: '90%', maxWidth: '800px', height: '80vh' }}>
-              <h3 style={{ color: "black", margin: 0, textAlign: "center" }}>
-                Apunte la cámara al marcador AR del mineral
-              </h3>
-              <iframe
-                src={"https://mra-ra.onrender.com/"} // <--- ¡URL FIJA AQUÍ!
-                title="Visor de Realidad Aumentada del Mineral"
-                style={{ width: "100%", height: "calc(100% - 100px)", border: "none" }}
-                allow="camera; microphone; display-capture; xr-spatial-tracking; web-share;"
-                allowFullScreen
-              ></iframe>
-
-              <Button
-                onClick={closeARViewer}
-                className="qr-scanner-close-button"
-                type="primary"
-                danger
+      {/* --- RENDERIZADO CONDICIONAL DEL VISOR DE REALIDAD AUMENTADA (IFRAME) (MODIFICACIÓN) --- */}
+      {showARViewer &&
+        currentARUrl && ( // Ya no necesitamos 'currentARUrl' aquí
+          <QrScannerPortal>
+            <div className="qr-scanner-overlay">
+              <div
+                className="qr-scanner-content"
+                style={{ width: "90%", maxWidth: "800px", height: "80vh" }}
               >
-                Cerrar Realidad Aumentada
-              </Button>
+                <h3 style={{ color: "black", margin: 0, textAlign: "center" }}>
+                  Apunte la cámara al marcador AR del mineral
+                </h3>
+                <iframe
+                  src={currentARUrl}
+                  title="Visor de Realidad Aumentada del Mineral"
+                  style={{
+                    width: "100%",
+                    height: "calc(100% - 100px)",
+                    border: "none",
+                  }}
+                  allow="camera; microphone; display-capture; xr-spatial-tracking; web-share;"
+                  allowFullScreen
+                ></iframe>
+
+                <Button
+                  onClick={closeARViewer}
+                  className="qr-scanner-close-button"
+                  type="primary"
+                  danger
+                >
+                  Cerrar Realidad Aumentada
+                </Button>
+              </div>
             </div>
-          </div>
-        </QrScannerPortal>
-      )}
+          </QrScannerPortal>
+        )}
       {/* --- FIN DEL VISOR DE REALIDAD AUMENTADA --- */}
 
       {/* --- FIN DEL ESCÁNER QR --- */}
@@ -669,7 +684,13 @@ const handleScanError = useCallback((error) => {
                   {mineralData.tieneQr && (
                     <button
                       className="qr-code-button mineral-qr-on-image"
-                      onClick={(e) => handleARButtonClick(e) /*  handleQrButtonClick(e, mineralData )*/} // <--- ASEGÚRATE QUE LLAMA A handleQrButtonClick
+                      onClick={
+                        (e) =>
+                          handleARButtonClick(
+                            e,
+                            mineralData
+                          ) /*  handleQrButtonClick(e, mineralData )*/
+                      } // <--- ASEGÚRATE QUE LLAMA A handleQrButtonClick
                     >
                       <QrcodeOutlined />
                     </button>
@@ -774,44 +795,44 @@ const handleScanError = useCallback((error) => {
             {t("sala_minerologia_mineria.boton_mina_oro")}
           </Button>
         </a> */}
-        
-        {!mostrarVideoMinaOro && ( // Solo muestra el botón si el video NO está visible
-        <a
-          href="#" // Usamos "#" o prevenimos el default para que no recargue la página
-          onClick={(e) => {
-            e.preventDefault(); // Previene la acción por defecto del enlace
-            handleBotonMinaOroClick();
-          }}
-          // No necesitamos target="_blank" ni rel="noopener noreferrer" si mostramos el video en la misma página
-        >
-          <Button
-            type="primary"
-            size="large"
-            className="sala-contenido-boton"
-            icon={<ExperimentOutlined />}
-          >
-            {t("sala_minerologia_mineria.boton_mina_oro")}
-          </Button>
-        </a>
-      )}
 
-         {/* Video de Mina de Oro */}
-      {mostrarVideoMinaOro && ( // Solo renderiza el iframe si 'mostrarVideoMinaOro' es true
-        <div className="video-container">
-          <iframe
-            src="https://drive.google.com/file/d/17T5oswp-eh064JrfQFe3w32Z0Ijd8V7D/preview"
-            width="640"
-            height="360"
-            allow="autoplay"
-            allowFullScreen
-            title="Video de la Mina de Oro" // Buena práctica: agregar un título al iframe
-          ></iframe>
-          
-          {/* <p>{t("sala_minerologia_mineria.descripcion_video_mina_oro")}</p> */}
-        </div>
-      )}
-      {mostrarVideoMinaOro && (
-      <Button
+        {!mostrarVideoMinaOro && ( // Solo muestra el botón si el video NO está visible
+          <a
+            href="#" // Usamos "#" o prevenimos el default para que no recargue la página
+            onClick={(e) => {
+              e.preventDefault(); // Previene la acción por defecto del enlace
+              handleBotonMinaOroClick();
+            }}
+            // No necesitamos target="_blank" ni rel="noopener noreferrer" si mostramos el video en la misma página
+          >
+            <Button
+              type="primary"
+              size="large"
+              className="sala-contenido-boton"
+              icon={<ExperimentOutlined />}
+            >
+              {t("sala_minerologia_mineria.boton_mina_oro")}
+            </Button>
+          </a>
+        )}
+
+        {/* Video de Mina de Oro */}
+        {mostrarVideoMinaOro && ( // Solo renderiza el iframe si 'mostrarVideoMinaOro' es true
+          <div className="video-container">
+            <iframe
+              src="https://drive.google.com/file/d/17T5oswp-eh064JrfQFe3w32Z0Ijd8V7D/preview"
+              width="640"
+              height="360"
+              allow="autoplay"
+              allowFullScreen
+              title="Video de la Mina de Oro" // Buena práctica: agregar un título al iframe
+            ></iframe>
+
+            {/* <p>{t("sala_minerologia_mineria.descripcion_video_mina_oro")}</p> */}
+          </div>
+        )}
+        {mostrarVideoMinaOro && (
+          <Button
             type="primary"
             size="large"
             className="sala-contenido-boton"
@@ -820,8 +841,7 @@ const handleScanError = useCallback((error) => {
           >
             {t("sala_minerologia_mineria.boton_video_mina_oro")}
           </Button>
-
-          )}
+        )}
         <a
           href="https://centenario.virtual.eramet.com/es/visit"
           target="_blank"
