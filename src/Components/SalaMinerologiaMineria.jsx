@@ -603,42 +603,43 @@ export const SalaMinerologiaMineria = () => {
         </QrScannerPortal>
       )}
 
-      {/* --- RENDERIZADO CONDICIONAL DEL VISOR DE REALIDAD AUMENTADA (IFRAME) (MODIFICACIÓN) --- */}
-      {showARViewer &&
-        currentARUrl && ( // Ya no necesitamos 'currentARUrl' aquí
-          <QrScannerPortal>
-            <div className="qr-scanner-overlay">
-              <div
-                className="qr-scanner-content"
-                style={{ width: "90%", maxWidth: "800px", height: "80vh" }}
-              >
-                <h3 style={{ color: "black", margin: 0, textAlign: "center" }}>
-                  Apunte la cámara al marcador AR del mineral
-                </h3>
-                <iframe
-                  src={currentARUrl}
-                  title="Visor de Realidad Aumentada del Mineral"
-                  style={{
-                    width: "100%",
-                    height: "calc(100% - 100px)",
-                    border: "none",
-                  }}
-                  allow="camera; microphone; display-capture; xr-spatial-tracking; web-share;"
-                  allowFullScreen
-                ></iframe>
+      {/* --- RENDERIZADO CONDICIONAL DEL VISOR DE REALIDAD AUMENTADA (VERSIÓN MEJORADA) --- */}
+      {showARViewer && currentARUrl && (
+        <QrScannerPortal>
+          {/* El overlay ahora es oscuro y ocupa toda la pantalla */}
+          <div className="ar-viewer-overlay">
+            {/* El contenido se organiza verticalmente con flexbox */}
+            <div className="ar-viewer-content">
+              {/* Un encabezado claro y conciso */}
+              <div className="ar-viewer-header">
+                <p>Apunte la cámara al marcador del mineral</p>
+              </div>
 
+              {/* El iframe ocupa todo el espacio restante */}
+              <iframe
+                src={currentARUrl}
+                title="Visor de Realidad Aumentada del Mineral"
+                className="ar-viewer-iframe" // Usamos una clase en lugar de estilos en línea
+                allow="camera; microphone; display-capture; xr-spatial-tracking; web-share;"
+                allowFullScreen
+              ></iframe>
+
+              {/* El botón de cierre es más prominente y accesible */}
+              <div className="ar-viewer-footer">
                 <Button
                   onClick={closeARViewer}
-                  className="qr-scanner-close-button"
+                  className="ar-viewer-close-button"
                   type="primary"
                   danger
+                  size="large" // Botón más grande y fácil de pulsar
                 >
                   Cerrar Realidad Aumentada
                 </Button>
               </div>
             </div>
-          </QrScannerPortal>
-        )}
+          </div>
+        </QrScannerPortal>
+      )}
       {/* --- FIN DEL VISOR DE REALIDAD AUMENTADA --- */}
 
       {/* --- FIN DEL ESCÁNER QR --- */}
