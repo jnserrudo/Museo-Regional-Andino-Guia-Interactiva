@@ -139,7 +139,7 @@ const mineralesData = [
     tieneQr: true,
   },
   {
-    id: "fluorita",
+    id: "fluorita_verde",
     img: [
       "/minerales_museo/sin_fondo_blanco/14._Fluorita_verde_1-removebg-preview.png",
       "/minerales_museo/sin_fondo_blanco/14._Fluorita_verde-removebg-preview.png",
