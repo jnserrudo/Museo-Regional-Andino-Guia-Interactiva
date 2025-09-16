@@ -398,7 +398,7 @@
         "caracteristicas": "Algunas galenas contienen plata como subproducto valioso.",
         "usos": "Es la principal fuente del metal plomo. Utilizado en la fabricación de baterías, aleaciones y antiguamente en la industria del vidrio y en municiones."
       },
-      "fluorita_verde": {
+      "fluorita": {
         "nombre": "Fluorita Verde",
         "formulaQuimica": "CaF₂",
         "clase": "Haluros",
