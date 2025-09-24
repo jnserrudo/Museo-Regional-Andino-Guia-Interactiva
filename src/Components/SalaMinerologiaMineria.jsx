@@ -293,8 +293,16 @@ export const SalaMinerologiaMineria = () => {
     event.preventDefault();
     event.stopPropagation();
 
+    let mineralId = mineralData.id;
+    let mineralMayus=['casiterita','fluorita','pirita']
+
+
+    if(mineralMayus.includes(mineralId)){
+      mineralId = mineralId.charAt(0).toUpperCase() + mineralId.slice(1);
+    }
+
     // 1. Construye la URL dinámica usando el 'id' del mineral
-    const arAppUrl = `https://mra-ra.onrender.com/${mineralData.id}/`;
+    const arAppUrl = `https://mra-ra.onrender.com/${mineralId}/`;
 
     // 2. Guarda esa URL en nuestro nuevo estado
     setCurrentARUrl(arAppUrl);
