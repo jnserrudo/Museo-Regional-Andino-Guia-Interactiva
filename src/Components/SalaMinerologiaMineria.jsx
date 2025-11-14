@@ -621,6 +621,19 @@ export const SalaMinerologiaMineria = () => {
               {/* Un encabezado claro y conciso */}
               <div className="ar-viewer-header">
                 <p>Apunte la cámara al marcador del mineral</p>
+
+                {/* El botón de cierre es más prominente y accesible */}
+              
+                <Button
+                  onClick={closeARViewer}
+                  className="ar-viewer-close-button"
+                  type="primary"
+                  danger
+                  size="middle" // Botón más grande y fácil de pulsar
+                >
+                  Cerrar Realidad Aumentada
+                </Button>
+              
               </div>
 
               {/* El iframe ocupa todo el espacio restante */}
@@ -632,18 +645,7 @@ export const SalaMinerologiaMineria = () => {
                 allowFullScreen
               ></iframe>
 
-              {/* El botón de cierre es más prominente y accesible */}
-              <div className="ar-viewer-footer">
-                <Button
-                  onClick={closeARViewer}
-                  className="ar-viewer-close-button"
-                  type="primary"
-                  danger
-                  size="large" // Botón más grande y fácil de pulsar
-                >
-                  Cerrar Realidad Aumentada
-                </Button>
-              </div>
+              
             </div>
           </div>
         </QrScannerPortal>

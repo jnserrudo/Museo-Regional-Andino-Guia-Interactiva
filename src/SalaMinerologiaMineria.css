@@ -1085,6 +1085,8 @@ gap: 2rem; /* Mantener o ajustar gap */
   padding: 12px;
   font-size: 14px;
   border-bottom: 1px solid #444;
+  display: flex;
+  justify-content: space-evenly;
 }
 .ar-viewer-header p {
   margin: 0;
@@ -1110,5 +1112,5 @@ gap: 2rem; /* Mantener o ajustar gap */
 /* 6. El Botón de Cierre: Grande y fácil de usar. */
 .ar-viewer-close-button {
   width: 80%;
-  max-width: 300px;
+  max-width: 200px;
 }
