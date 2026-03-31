@@ -60,6 +60,7 @@ export const Home = () => {
           <img
             src={`${import.meta.env.BASE_URL}logo_museo_andino.jpg`}
             alt="Logo Museo Andino"
+            loading="lazy"
           />
         </div>
       </section>

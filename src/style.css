@@ -43,7 +43,7 @@ body {
   color: #333;
   /* Tamaño base NORMAL (sin clase extra) */
   font-size: 1rem; /* 16px por defecto */
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -189,7 +189,7 @@ body.font-size-xlarge h3 { font-size: 1.5em; }
 /* Quitamos font-size aquí, debería heredar de body */
 .tema-info {
   flex: 1 1 65%; color: white; padding: 1.5rem; font-weight: 700; display: flex;
-  align-items: center; justify-content: center; text-align: center; min-height: 140px;
+  align-items: center; justify-content: center; text-align: center; min-height: 140px; line-height: 1.7;
 }
 .tema-image { flex: 1 0 35%; min-height: 140px; background-size: cover; background-position: center; align-self: stretch; }
 .tema-row:nth-child(even) { flex-direction: row-reverse; }
@@ -222,7 +222,7 @@ body.font-size-xlarge h3 { font-size: 1.5em; }
 .sala-item.reverse { flex-direction: row-reverse; }
 .sala-item-img { width: 120px; height: 120px; object-fit: cover; flex-shrink: 0; border-radius: 4px; }
 /* ¡¡Quitamos font-size aquí!! Debería heredar de body p */
-.sala-item-text { flex: 1; line-height: 1.6; }
+.sala-item-text { flex: 1; line-height: 1.7; }
 
 
 /* -------------- ----------------------------- */
@@ -246,6 +246,7 @@ body.font-size-xlarge h3 { font-size: 1.5em; }
 
 p{
   text-align: justify !important;
+  line-height: 1.7;
 }
 
 body {
@@ -253,7 +254,7 @@ body {
   margin: 0;
   background-color: var(--color-light-beige-theart); /* Fondo general de la página */
   color: var(--color-text-dark-theart);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Estilos básicos para enlaces */

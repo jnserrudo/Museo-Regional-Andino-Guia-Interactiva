@@ -387,7 +387,7 @@ export const SalaGeologia = () => {
       <div className="video-geiser">
         <video
           controls
-          preload="auto"
+          preload="metadata"
           src={`${import.meta.env.BASE_URL}video-geiser.mp4`}
         >
           Tu navegador no soporta la etiqueta de video.

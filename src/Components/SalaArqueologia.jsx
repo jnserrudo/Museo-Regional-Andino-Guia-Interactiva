@@ -158,7 +158,7 @@ export const SalaArqueologia = () => {
             ref={videoRef}
             className="arqueologia-video"
             controls={isPlaying}
-            preload="auto"
+            preload="metadata"
             src={`${import.meta.env.BASE_URL}/Arqueologia_video.mp4`}
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}

@@ -34,6 +34,7 @@ export const SalaTerritorioAndes = () => {
             src={import.meta.env.BASE_URL + "/mapa_gobernacion.jpg"}
             alt="Mapa de la Gobernación de Los Andes"
             className="territorio-inline-image"
+            loading="lazy"
           />
         </figure>
         <p className="sala-contenido-parrafo">
@@ -93,6 +94,7 @@ export const SalaTerritorioAndes = () => {
             src={import.meta.env.BASE_URL + "/mapa_reparticion.png"}
             alt="Mapa de la repartición de la Puna de Atacama"
             className="territorio-inline-image"
+            loading="lazy"
           />
         </figure>
         <p className="sala-contenido-parrafo">

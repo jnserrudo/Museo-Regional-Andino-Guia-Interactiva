@@ -79,7 +79,7 @@
     /* Usamos el peso más grueso disponible */
     font-weight: 900;
     margin-bottom: 1rem;
-    line-height: 1.1;
+    line-height: 1.2;
     text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   }
   
@@ -247,7 +247,7 @@
   
   .info-section p {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.7;
     /* color: var(--text-muted); */
     margin-bottom: 1.5rem;
     /* Hereda el peso 500 del body o contenedor */
@@ -282,8 +282,8 @@
     .info-section:hover { transform: none; box-shadow: var(--shadow-medium); }
     .info-content { text-align: center; }
     .info-visual { margin-top: 1rem; order: -1; }
-    .info-visual img { max-width: 100px; opacity: 0.8; }
-    .info-visual:hover img { opacity: 0.8; transform: none; }
+    .info-visual img { max-width: 150px; opacity: 1; }
+    .info-visual:hover img { opacity: 1; transform: none; }
     .info-title { font-size: 1.8rem; }
     .info-section p { font-size: 1rem; line-height: 1.7; }
   }

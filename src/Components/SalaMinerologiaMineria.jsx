@@ -248,7 +248,8 @@ const MineralCarousel = ({ images, mineralNombre }) => {
           <img
             src={`${import.meta.env.BASE_URL}${imgSrc}`}
             alt={`${mineralNombre} - Imagen ${index + 1}`}
-            className="mineral-card-image" // Reutilizamos la clase de la imagen
+            className="mineral-card-image"
+            loading="lazy"
           />
         </SwiperSlide>
       ))}
@@ -690,6 +691,7 @@ export const SalaMinerologiaMineria = () => {
                       src={`${import.meta.env.BASE_URL}${mineralData.img[0]}`}
                       alt={mineralTextos.nombre}
                       className="mineral-card-image"
+                      loading="lazy"
                     />
                   )}
                   {mineralData.tieneQr && (
@@ -783,6 +785,7 @@ export const SalaMinerologiaMineria = () => {
         src={`${import.meta.env.BASE_URL}/lampara_carburo.JPG`}
         alt="Lámpara a Carburo"
         className="imagen-testigo lampara-recortada"
+        loading="lazy"
       />
       <p className="sala-minerologia-intro">
         <Trans i18nKey="sala_minerologia_mineria.parrafo_lampara_1" />
@@ -894,6 +897,7 @@ export const SalaMinerologiaMineria = () => {
               }/testigos/1._Testigos__Brecha_Hidrotermal_-_testigo_3-removebg-preview.png`}
               alt="Testigo de Brecha Hidrotermal"
               className="imagen-testigo"
+              loading="lazy"
             />
           </div>
         </div>
@@ -911,6 +915,7 @@ export const SalaMinerologiaMineria = () => {
               }/testigos/2._Testigos_Andesita_4-removebg-preview.png`}
               alt="Testigo de Andesita Alterada"
               className="imagen-testigo"
+              loading="lazy"
             />
           </div>
         </div>
@@ -928,6 +933,7 @@ export const SalaMinerologiaMineria = () => {
               }/testigos/4._Testigo_Andesita_6-removebg-preview.png`}
               alt="Testigo de Andesita Alterada"
               className="imagen-testigo"
+              loading="lazy"
             />
           </div>
         </div>
@@ -945,6 +951,7 @@ export const SalaMinerologiaMineria = () => {
               }/testigos/5._Testigo_Diamantina-removebg-preview.png`}
               alt="Testigo de Diamantina"
               className="imagen-testigo"
+              loading="lazy"
             />
           </div>
         </div>
@@ -962,6 +969,7 @@ export const SalaMinerologiaMineria = () => {
               }/testigos/granitoide-removebg-preview.png`}
               alt="Testigo de Granitoide"
               className="imagen-testigo"
+              loading="lazy"
             />
           </div>
         </div>
