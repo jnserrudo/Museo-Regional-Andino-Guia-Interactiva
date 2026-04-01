@@ -312,7 +312,14 @@
     min-height: 60vh; /* Un poco más alto para impacto */
     max-height: 80vh;
     background-size: cover; /* Asegurar 'cover' para inmersión */
-    background-attachment: fixed; /* Efecto parallax sutil, opcional */
+    background-attachment: scroll; /* Por defecto sin parallax para móviles */
+}
+
+/* Reactivamos el 'fixed' (parallax) SOLO para escritorios grandes */
+@media (min-width: 1025px) {
+    .sala-detalle-hero {
+        background-attachment: fixed;
+    }
 }
 
 .sala-detalle-hero::before {

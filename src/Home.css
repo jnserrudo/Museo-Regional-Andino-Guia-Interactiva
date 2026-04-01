@@ -31,7 +31,10 @@
   
   /* --- Sección Hero --- */
   .hero-section {
-    background: url('/museo_frente.jpg') center/cover no-repeat fixed;
+    background: url('/museo_frente.jpg') center/cover no-repeat;
+    /* Por defecto, sin 'fixed' para evitar el bug de iOS/Android */
+    background-attachment: scroll;
+    
     height: 100vh;
     display: flex;
     align-items: center;
@@ -40,6 +43,14 @@
     text-align: center;
     color: var(--text-light);
   }
+
+  /* Reactivamos el 'fixed' (parallax) SOLO para escritorios grandes */
+  @media (min-width: 1025px) {
+      .hero-section {
+          background-attachment: fixed;
+      }
+  }
+
   /* Home.css - Modificación en .hero-overlay */
 
 .hero-overlay {
